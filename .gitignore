@@ -2,3 +2,11 @@ node_modules/
 dist/
 .DS_Store
 .env
+
+# Транзиентные артефакты пайплайна вопросов
+scripts/gen-out/
+scripts/edit-in/
+scripts/edit-out/
+scripts/audit-in/
+scripts/audit-out/
+public/questions.backup-*.json
