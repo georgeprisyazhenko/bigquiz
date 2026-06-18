@@ -1288,6 +1288,90 @@
       "reviewNote": "World Wide Web - зачем так усложнять, речь же про интернет"
     },
     {
+      "id": "q_064",
+      "question": "Кто предложил концепцию World Wide Web в 1989 году?",
+      "answers": [
+        "Тим Бернерс-Ли",
+        "Винтон Серф",
+        "Марк Андриссен",
+        "Боб Кан"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_064.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тим Бернерс-Ли, работая в ЦЕРН, написал в 1989 году предложение «Information Management: A Proposal», объединив гипертекст с интернетом. Серф и Кан создали TCP/IP, а Андриссен — первый массовый браузер Mosaic.",
+      "imageSearchQuery": "Tim Berners-Lee World Wide Web inventor CERN",
+      "reviewStatus": "rejected",
+      "reviewNote": "я бы спросил как назывался первый массовый браузер. Ну или в какоом году появился интернет, но там не получится дать большой разбор по ответам"
+    },
+    {
+      "id": "q_065",
+      "question": "Как расшифровывается аббревиатура URL?",
+      "answers": [
+        "Uniform Resource Locator",
+        "Universal Remote Link",
+        "Unified Registry Label",
+        "Uniform Relay Link"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_065.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "URL — Uniform Resource Locator, стандартизированный адрес ресурса в интернете. Концепция была введена Бернерсом-Ли одновременно с HTTP и HTML как один из трёх столпов Web.",
+      "imageSearchQuery": "URL address bar browser web address structure",
+      "reviewStatus": "rejected",
+      "reviewNote": "задротство. Вообще, для вопросов про ИТ и технологии нужен поменьше уровень сложности. И меньше вопросов про персоналии, аббревиатуры, специфические протоколы"
+    },
+    {
+      "id": "q_066",
+      "question": "Какой порт по умолчанию использует протокол HTTPS?",
+      "answers": [
+        "443",
+        "80",
+        "8080",
+        "22"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_066.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "HTTPS работает на порту 443, тогда как незашифрованный HTTP — на порту 80. Порт 22 зарезервирован за SSH, а 8080 часто используется как альтернативный HTTP при разработке.",
+      "imageSearchQuery": "HTTPS port 443 SSL certificate lock browser",
+      "reviewStatus": "rejected",
+      "reviewNote": "после этого вопроса никто не скажет \"о, интересный факт\". Скорее, скажут \"я че, сисадмин, точно помнить порты?\""
+    },
+    {
+      "id": "q_067",
+      "question": "Что из перечисленного НЕ является протоколом прикладного уровня интернета?",
+      "answers": [
+        "TCP",
+        "HTTP",
+        "SMTP",
+        "FTP"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_067.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "TCP (Transmission Control Protocol) относится к транспортному уровню модели OSI и обеспечивает надёжную доставку пакетов. HTTP, SMTP и FTP — прикладные протоколы, работающие поверх TCP.",
+      "imageSearchQuery": "OSI model layers TCP transport application layer diagram",
+      "reviewStatus": "rejected",
+      "reviewNote": "задроство"
+    },
+    {
       "id": "q_068",
       "question": "Как называется система доменных имён, преобразующая названия сайтов в IP-адреса?",
       "answers": [
@@ -1326,6 +1410,48 @@
       "explanation": "Mosaic, созданный Марком Андриссеном и Эриком Биной в NCSA, стал первым браузером с графическим интерфейсом для обычных пользователей. Именно он вызвал взрывной рост веба: в 1993 году трафик WWW вырос в 341 раз.",
       "imageSearchQuery": "Mosaic web browser 1993 NCSA screenshot",
       "reviewStatus": "approved"
+    },
+    {
+      "id": "q_070",
+      "question": "Что означает термин «куки» (cookies) применительно к браузеру?",
+      "answers": [
+        "Небольшие файлы данных",
+        "Закладки страниц",
+        "Кэш изображений",
+        "Скрипты слежения"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_070.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Cookies — небольшие текстовые файлы, которые сервер отправляет браузеру для хранения состояния сессии. Термин придумал программист Лу Монтулли в 1994 году, взяв его из концепции «magic cookie» в Unix-программировании.",
+      "imageSearchQuery": "browser cookies file data web session storage",
+      "reviewStatus": "rejected",
+      "reviewNote": "реально интереснее было бы дать объяснение, почему куки стали так называть"
+    },
+    {
+      "id": "q_071",
+      "question": "В каком году был зарегистрирован первый домен в зоне .com?",
+      "answers": [
+        "1985",
+        "1991",
+        "1983",
+        "1993"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_071.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый домен в зоне .com — symbolics.com — был зарегистрирован 15 марта 1985 года компанией Symbolics Inc. До введения доменных зон адреса назначались вручную и хранились в одном текстовом файле.",
+      "imageSearchQuery": "first .com domain symbolics.com 1985 registration",
+      "reviewStatus": "rejected",
+      "reviewNote": "а я бы спросил, какой первый сайт в интернете был. А еще лучше для чего - интернет-магазин, библиотека там или что"
     },
     {
       "id": "q_072",
@@ -1613,6 +1739,27 @@
       "reviewNote": "заодно, интерсно узнать, почему он стал наполеоном в другом вопросе"
     },
     {
+      "id": "q_086",
+      "question": "Как называется марокканский конический горшок, в котором томят мясо с овощами на медленном огне?",
+      "answers": [
+        "Таджин",
+        "Кускусьера",
+        "Мармит",
+        "Тажра"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_086.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Таджин — это и посуда, и само блюдо. Конической крышки конструкция позволяет пару конденсироваться и возвращаться в кастрюлю, делая мясо исключительно нежным без добавления лишней воды.",
+      "imageSearchQuery": "tagine Moroccan clay pot conical lid",
+      "reviewStatus": "rejected",
+      "reviewNote": "я бы спросил, для чего он конический. В целом, вопросы, где нужно знать название или термин, или имя, или дату - чаще всего задротство, кроме совсем базовых вещей. Лучше фанфакты, вещи, которых вокруг нас много, мы привыкли и не знаем реальную природу. Напоминаю, это не ЕГЭ, здесь нужен эффект \"не знал, расскажу друзьям о таком факте!\". Если максимум 3 слов не хватает для такого подхода - скажи, расширим до 4-5"
+    },
+    {
       "id": "q_087",
       "question": "Какая страна является крупнейшим производителем ванили в мире?",
       "answers": [
@@ -1654,6 +1801,27 @@
       "reviewNote": "инетерсно!"
     },
     {
+      "id": "q_089",
+      "question": "Кто из динозавров имел самые длинные когти среди всех наземных животных в истории Земли?",
+      "answers": [
+        "Теризинозавр",
+        "Барионикс",
+        "Игуанодон",
+        "Спинозавр"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_089.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Когти теризинозавра достигали 90–100 см по кривизне — рекорд среди наземных существ. Вопреки устрашающему виду, он был травоядным: использовал когти для стягивания ветвей.",
+      "imageSearchQuery": "therizinosaurus claws fossil",
+      "reviewStatus": "rejected",
+      "reviewNote": "я бы спросил, какая была длина, тут еще хоть подумать можно. А звать конкретное название динозавра - задротство"
+    },
+    {
       "id": "q_090",
       "question": "Сколько пальцев было на передних лапах у тираннозавра рекса?",
       "answers": [
@@ -1674,6 +1842,27 @@
       "reviewStatus": "approved"
     },
     {
+      "id": "q_091",
+      "question": "Какой динозавр первым получил научное описание и название в 1824 году?",
+      "answers": [
+        "Мегалозавр",
+        "Игуанодон",
+        "Гилеозавр",
+        "Мантеллизавр"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_091.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Megalosaurus bucklandii описал Уильям Баклэнд в 1824 году — первый динозавр с официальным научным названием. Само слово «динозавр» появилось лишь в 1842 году, придуманное Ричардом Оуэном.",
+      "imageSearchQuery": "megalosaurus fossil jaw Oxford Museum",
+      "reviewStatus": "rejected",
+      "reviewNote": "опять же, есть куча интересных фактов - в каком веке придумали слово Динозавр, где нашли первого, где хранится самый крупный полноразмерный скелет и тд"
+    },
+    {
       "id": "q_092",
       "question": "Какой геологический период считается временем наибольшего расцвета динозавров по разнообразию видов?",
       "answers": [
@@ -1692,6 +1881,69 @@
       "explanation": "Пик видового разнообразия динозавров пришёлся на меловой период (145–66 млн лет назад): именно тогда возникли цератопсиды, анкилозавры, гадрозавры и крупные тираннозавриды. Юрский период знаменит гигантскими зауроподами.",
       "imageSearchQuery": "Cretaceous dinosaurs diversity illustration",
       "reviewStatus": "approved"
+    },
+    {
+      "id": "q_093",
+      "question": "Как называется кость на конце хвоста анкилозавра, служившая ударным оружием?",
+      "answers": [
+        "Булава",
+        "Шип",
+        "Щит",
+        "Пластина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_093.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хвостовая булава анкилозавра — сросшиеся остеодермы, образующие массивный костный клуб. Биомеханические расчёты показывают, что удар мог сломать берцовую кость тираннозавра.",
+      "imageSearchQuery": "ankylosaurus tail club fossil",
+      "reviewStatus": "rejected",
+      "reviewNote": "здесь можно спросить, как он ее применял"
+    },
+    {
+      "id": "q_094",
+      "question": "Прямым потомком каких мезозойских динозавров являются современные птицы?",
+      "answers": [
+        "Тероподы",
+        "Зауроподы",
+        "Орнитоподы",
+        "Цератопсиды"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_094.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Птицы — живые тероподы: они произошли от манирапторных теропод, таких как дромеозавриды. Archaeopteryx и другие ранние птицы сохраняли типичные теропод-признаки: зубы, три пальца на крыльях, длинный хвост.",
+      "imageSearchQuery": "theropod dinosaur bird evolution cladogram",
+      "reviewStatus": "rejected",
+      "reviewNote": "можно спросить, каких признаков не было у летающих динозавров"
+    },
+    {
+      "id": "q_095",
+      "question": "Какой динозавр носил название «ужасный коготь» в переводе с греческого?",
+      "answers": [
+        "Дейноних",
+        "Велоцираптор",
+        "Уненлагия",
+        "Тропеогнат"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_095.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Deinonychus — от греч. δεινός (ужасный) + ὄνυξ (коготь): серп на втором пальце задней ноги. Именно Deinonychus, а не велоцираптор, послужил реальным прообразом «велоцирапторов» в «Парке Юрского периода».",
+      "imageSearchQuery": "deinonychus sickle claw fossil illustration",
+      "reviewStatus": "rejected",
+      "reviewNote": "задротство"
     },
     {
       "id": "q_096",
@@ -2102,517 +2354,6 @@
       "explanation": "Жозеф Мари Жаккар в 1804 году применил пробитые карты для управления узорами на ткацком станке. Чарльз Бэббидж перенял идею для своей Аналитической машины, а IBM использовала перфокарты до 1980-х.",
       "imageSearchQuery": "Jacquard loom punch cards weaving pattern 1804",
       "reviewStatus": "approved"
-    },
-    {
-      "id": "q_116",
-      "question": "Каким на самом деле был велоцираптор — не голливудский, а настоящий, живший 75 миллионов лет назад?",
-      "answers": [
-        "С индейку",
-        "С человека",
-        "С корову",
-        "С волка"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "dinozavry",
-        "biologiya"
-      ],
-      "image": "assets/images/q_116.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Настоящий велоцираптор был около метра длиной и весил примерно 15 кг — размером с крупную индейку. В «Парке юрского периода» его роль сыграл дейноних, вдвое крупнее.",
-      "imageSearchQuery": "velociraptor real size comparison turkey",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_117",
-      "question": "Зачем стегозавру были нужны большие пластины вдоль спины?",
-      "answers": [
-        "Регулировать температуру тела",
-        "Защищаться от укусов",
-        "Нести питательный жир",
-        "Привлекать добычу"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "dinozavry",
-        "biologiya"
-      ],
-      "image": "assets/images/q_117.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Пластины пронизаны сетью кровеносных сосудов: разворачиваясь к солнцу или ветру, стегозавр мог быстро нагреться или охладиться. Попутно яркие пластины, вероятно, служили сигналом для сородичей.",
-      "imageSearchQuery": "stegosaurus plates thermoregulation blood vessels",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_118",
-      "question": "Почему яйца даже 50-тонных динозавров не могли быть очень большими?",
-      "answers": [
-        "Скорлупа перестала бы пропускать воздух",
-        "Самка не могла бы их нести",
-        "Хищники сразу бы их нашли",
-        "Детёныш не смог бы выбраться"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "dinozavry",
-        "biologiya"
-      ],
-      "image": "assets/images/q_118.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Чем крупнее яйцо, тем толще должна быть скорлупа, но тогда зародыш задохнётся — воздух не проходит. Поэтому даже гигантские зауроподы откладывали яйца размером не больше волейбольного мяча, а малыши вырастали быстро.",
-      "imageSearchQuery": "sauropod dinosaur egg size fossil",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_119",
-      "question": "Какой внешний признак, который мы раньше считали уникальным для птиц, на самом деле появился ещё у динозавров?",
-      "answers": [
-        "Перья",
-        "Клюв",
-        "Крылья",
-        "Тёплая кровь"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "dinozavry",
-        "pticy",
-        "biologiya"
-      ],
-      "image": "assets/images/q_119.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Окаменелости из Китая показали перья у десятков видов нептичьих динозавров-теропод. Птицы не изобрели перья — они унаследовали их от своих предков.",
-      "imageSearchQuery": "feathered dinosaur fossils Anchiornis",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_120",
-      "question": "Как учёные выяснили, какого цвета на самом деле были пернатые динозавры?",
-      "answers": [
-        "Изучили пигментные клетки в окаменевших перьях",
-        "Восстановили ДНК из янтаря",
-        "Нашли цветные отпечатки кожи",
-        "Сравнили с ближайшими живыми родственниками"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "dinozavry",
-        "biologiya"
-      ],
-      "image": "assets/images/q_120.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В окаменевших перьях сохранились меланосомы — крошечные пигментные структуры. По их форме и расположению учёные восстановили реальный цвет, например, установили, что анхиорнис был чёрно-белым с рыжей «шапочкой».",
-      "imageSearchQuery": "Anchiornis dinosaur color reconstruction melanosomes",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_121",
-      "question": "Патаготитан — один из самых тяжёлых динозавров в истории. Сколько взрослых африканских слонов весят примерно столько же?",
-      "answers": [
-        "Около десяти",
-        "Около ста",
-        "Около трёх",
-        "Около пятидесяти"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "dinozavry"
-      ],
-      "image": "assets/images/q_121.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Патаготитан весил около 70 тонн. Взрослый африканский слон — 6–7 тонн, то есть нужно примерно десять слонов. При этом динозавр вырастал до таких размеров, питаясь только растениями.",
-      "imageSearchQuery": "Patagotitan mayorum size comparison elephant",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_122",
-      "question": "Первый в мире сайт появился в 1991 году. Что на нём было?",
-      "answers": [
-        "Объяснение, как работает интернет",
-        "Новостная лента ЦЕРН",
-        "Фотографии учёных лаборатории",
-        "Расписание конференций"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "internet"
-      ],
-      "image": "assets/images/q_122.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Тим Бернерс-Ли создал сайт info.cern.ch специально для того, чтобы объяснить коллегам, что такое Всемирная паутина и как ею пользоваться — страница была буквально инструкцией к самой себе.",
-      "imageSearchQuery": "first website CERN 1991 screenshot",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_123",
-      "question": "Знак @ существовал задолго до email — торговцы использовали его сотни лет. Что он обозначал?",
-      "answers": [
-        "Цену за единицу товара",
-        "Адрес склада",
-        "Подпись купца",
-        "Дату отгрузки"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "internet",
-        "etimologiya"
-      ],
-      "image": "assets/images/q_123.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В торговых записях @ читался как «по цене» — например, «10 яблок @ 5 центов» означало «по пять центов штука». Именно эту функцию разделителя «кто» и «где» и использовал Рэй Томлинсон в 1971 году, выбирая символ для email-адреса.",
-      "imageSearchQuery": "at sign @ merchant ledger historical",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_124",
-      "question": "В 1994 году появился первый баннер в истории интернета. Как много людей кликнули по нему?",
-      "answers": [
-        "Почти каждый второй",
-        "Один из десяти",
-        "Один из ста",
-        "Меньше одного из тысячи"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "internet"
-      ],
-      "image": "assets/images/q_124.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Кликабельность первого баннера AT&T на сайте HotWired составила около 44% — невероятно по нынешним меркам. Сегодня средний баннер собирает менее 0.1% кликов: люди выработали «баннерную слепоту».",
-      "imageSearchQuery": "first banner ad 1994 AT&T HotWired",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_125",
-      "question": "Браузер Netscape в 1994 году намеренно сделали бесплатным, хотя рассчитывали зарабатывать на нём. Откуда тогда шли деньги?",
-      "answers": [
-        "Продажа серверного ПО компаниям",
-        "Реклама внутри браузера",
-        "Платная техподдержка пользователей",
-        "Лицензии для провайдеров"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "internet",
-        "kompyutery"
-      ],
-      "image": "assets/images/q_125.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Модель была такая: браузер бесплатен для всех, чтобы захватить рынок — а корпоративные клиенты платили за серверы Netscape, на которых держали свои сайты. Это один из первых примеров бизнес-модели «платформа бесплатно, инфраструктура за деньги».",
-      "imageSearchQuery": "Netscape Navigator browser 1994 screenshot",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_126",
-      "question": "Зачем в адресе сайта придумали «www» в самом начале?",
-      "answers": [
-        "Чтобы отличить веб-сервер от других серверов в сети",
-        "Аббревиатура имени создателя Тима Бернерса-Ли",
-        "Требование стандарта безопасности ЦЕРН",
-        "Технически обязательный префикс протокола"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "internet"
-      ],
-      "image": "assets/images/q_126.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В ранних сетях один компьютер мог держать сразу несколько служб: почту (mail.), файлы (ftp.), новости (news.). Приставка www просто говорила: «это именно веб-сервер». Сегодня большинство сайтов работают и без неё — это дань традиции.",
-      "imageSearchQuery": "www world wide web address bar browser",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_127",
-      "question": "Зачем у таджина такая высокая конусная крышка?",
-      "answers": [
-        "Собирать конденсат обратно",
-        "Держать тепло дольше",
-        "Украшение для стола",
-        "Разделять разные блюда"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kuhni-mira",
-        "obychai-tradicii"
-      ],
-      "image": "assets/images/q_127.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Пар поднимается по конусу, охлаждается о стенки и стекает обратно на мясо — блюдо тушится в собственном соку почти без воды, даже в пустыне.",
-      "imageSearchQuery": "tajine moroccan clay pot cooking",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_128",
-      "question": "Индийский карри — это не одно блюдо и не один специй, а что именно?",
-      "answers": [
-        "Смесь специй",
-        "Соус",
-        "Название техники приготовления",
-        "Вид перца"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kuhni-mira"
-      ],
-      "image": "assets/images/q_128.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Слово «карри» — британское обобщение: в Индии каждый регион смешивает свой набор специй (масала) по-своему; единого рецепта не существует, а порошок карри придумали в Англии для упрощения.",
-      "imageSearchQuery": "indian spice masala curry powder mix",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_129",
-      "question": "Почему настоящий пармезан крошится, а не режется ровными ломтиками?",
-      "answers": [
-        "Слишком плотная кристаллическая структура",
-        "Неправильная технология нарезки",
-        "Слишком высокое содержание жира",
-        "Слишком молодой возраст"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kuhni-mira"
-      ],
-      "image": "assets/images/q_129.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "За 12–36 месяцев выдержки влага выходит, белки распадаются на аминокислоты — образуются белые кристаллы тирозина, делающие сыр твёрдым и зернистым; именно ими объясняется насыщенный умами-вкус.",
-      "imageSearchQuery": "parmesan cheese crystals break crumble",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_130",
-      "question": "Мексиканский соус моле может содержать неожиданный ингредиент — какой?",
-      "answers": [
-        "Горький шоколад",
-        "Арахисовое масло",
-        "Кофе",
-        "Кокосовое молоко"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kuhni-mira"
-      ],
-      "image": "assets/images/q_130.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В моле-негро шоколад добавляют не для сладости — он даёт горечь и глубину цвета; вместе с чили, специями и орехами соус может содержать свыше 30 ингредиентов и вариться несколько часов.",
-      "imageSearchQuery": "mexican mole sauce chocolate chili",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_131",
-      "question": "Почему корейскую капусту кимчи сначала засыпают большим количеством соли, а потом промывают?",
-      "answers": [
-        "Чтобы вытянуть воду из листьев",
-        "Чтобы убить вредные бактерии",
-        "Чтобы капуста не горчила",
-        "Чтобы перец лучше впитался"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kuhni-mira"
-      ],
-      "image": "assets/images/q_131.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Соль вытягивает влагу из клеток через осмос — листья становятся мягкими и эластичными, затем рассол смывают и набивают капусту пастой из перца, имбиря и чеснока для ферментации.",
-      "imageSearchQuery": "kimchi salted cabbage preparation korean",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_132",
-      "question": "Изобретатель микроволновки случайно расплавил кое-что в кармане — именно это натолкнуло его на идею. Что это было?",
-      "answers": [
-        "Шоколадный батончик",
-        "Кусок сала",
-        "Жевательная резинка",
-        "Восковая свеча"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_132.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В 1945 году Перси Спенсер стоял рядом с магнетроном и заметил, что шоколадный батончик в его кармане расплавился. Он начал эксперименты, и уже через два года появилась первая коммерческая микроволновая печь.",
-      "imageSearchQuery": "Percy Spencer microwave oven invention chocolate bar",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_133",
-      "question": "Почему клейкие листочки Post-it так долго не появлялись, хотя клей для них изобрели ещё в 1968 году?",
-      "answers": [
-        "Клей казался браком",
-        "Не нашли бумагу",
-        "Запрет патента",
-        "Нехватка финансирования"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_133.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Спенсер Сильвер в 3M случайно создал слабый клей, который не прилипал намертво — это сочли дефектом и положили на полку. Лишь через 6 лет коллега Артур Фрай вспомнил о нём, когда закладка выпала из его молитвенника.",
-      "imageSearchQuery": "Post-it note invention Spencer Silver 3M sticky note",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_134",
-      "question": "Зачем на ранних консервных банках была нарисована надпись «открывать молотком и долотом»?",
-      "answers": [
-        "Открывалку ещё не изобрели",
-        "Металл был слишком толстым",
-        "Защита от детей",
-        "Закон о маркировке"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_134.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Консервная банка появилась в 1810 году, а консервный нож — только в 1858-м. Почти полвека единственным способом вскрыть банку были молоток и зубило; производители так и писали в инструкции.",
-      "imageSearchQuery": "early tin can opener chisel hammer history invention",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_135",
-      "question": "Почему первые шариковые ручки продавали главным образом лётчикам и аквалангистам?",
-      "answers": [
-        "Пишут при любом давлении",
-        "Не замерзают на морозе",
-        "Не боятся воды снаружи",
-        "Дешевле перьевых"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_135.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В отличие от перьевой ручки, шариковая работает при изменённом давлении воздуха и не вытекает — именно это свойство сделало её незаменимой в кабине самолёта и под водой ещё до того, как она вошла в массовый обиход.",
-      "imageSearchQuery": "ballpoint pen invention aviation pressure writing",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_136",
-      "question": "Что изобрели как лекарство от головной боли и зависимости от морфия, а потом выяснилось, что это само вызывает зависимость?",
-      "answers": [
-        "Героин",
-        "Аспирин",
-        "Кокаин",
-        "Хлороформ"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya",
-        "medicina"
-      ],
-      "image": "assets/images/q_136.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В 1898 году Байер выпустил диацетилморфин под торговым названием «Heroin» и рекламировал его как безопасный заменитель морфия и средство от кашля. Через несколько лет стало ясно, что он вызывает зависимость куда сильнее.",
-      "imageSearchQuery": "Bayer heroin 1898 advertisement medicine history",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_137",
-      "question": "Зачем в оригинальный рецепт кока-колы добавляли листья коки и орехи колы?",
-      "answers": [
-        "Как болеутоляющее",
-        "Для цвета",
-        "Как консервант",
-        "Для карбонизации"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya",
-        "medicina"
-      ],
-      "image": "assets/images/q_137.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Фармацевт Джон Пембертон в 1886 году создавал тонизирующее лекарство от головной боли и усталости: листья коки давали кокаин как стимулятор, орехи колы — кофеин. Продавалась в аптеках именно как лечебный сироп.",
-      "imageSearchQuery": "Coca-Cola original recipe 1886 coca leaf kola nut pharmacy",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_138",
-      "question": "Что стало причиной изобретения вулканизированной резины: Чарльз Гудьир уронил смесь каучука с серой на горячую плиту. Что произошло дальше?",
-      "answers": [
-        "Резина не сгорела, а затвердела",
-        "Плита взорвалась",
-        "Смесь стала жидкой",
-        "Резина приклеилась намертво"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_138.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "До 1839 года каучук плавился летом и трескался зимой — он был практически бесполезен. Случайно попав на раскалённую плиту, смесь с серой превратилась в стабильную эластичную резину, которую Гудьир назвал вулканизированной.",
-      "imageSearchQuery": "Charles Goodyear vulcanized rubber invention stove accident",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_139",
-      "question": "Динамит изобрели не для взрывов на войне, а чтобы решить конкретную проблему при горных работах. Какую?",
-      "answers": [
-        "Нитроглицерин взрывался сам по себе",
-        "Порох слишком медленно горел",
-        "Дым мешал видимости",
-        "Слишком дорогая медь для проводов"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_139.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Нитроглицерин был мощным взрывчатым веществом, но детонировал от малейшего удара или тряски при транспортировке — взрывы убивали рабочих и разрушали склады. Нобель в 1867 году смешал его с кизельгуром, получив стабильную пасту, которую можно безопасно перевозить.",
-      "imageSearchQuery": "dynamite Nobel invention nitroglycerin kieselguhr mining safety",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_140",
-      "question": "Тефлоновое покрытие на сковородах случайно открыли не на кухне, а в совершенно другой области. В какой?",
-      "answers": [
-        "Разработка хладагентов",
-        "Авиационное топливо",
-        "Производство стекла",
-        "Испытания резины"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "izobreteniya"
-      ],
-      "image": "assets/images/q_140.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В 1938 году химик Рой Планкетт в DuPont исследовал новые фреоны (хладагенты для холодильников), когда у него заморозился и полимеризовался баллон с тетрафторэтиленом. Полученный порошок оказался сверхскользким и химически инертным — это и был тефлон.",
-      "imageSearchQuery": "Teflon PTFE discovery Roy Plunkett DuPont 1938 accident",
-      "reviewStatus": "pending"
     }
   ]
 }

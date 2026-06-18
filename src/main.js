@@ -44,13 +44,19 @@ const COLORS = {
   adImage: 0xe1f3ff
 }
 
+// Единый радиус скругления для всех форм экрана (карточка, вкладки, кнопки
+// ответов, чипы, изображение). Меняй одно значение — меняется всё.
+const UNIFORM_RADIUS = 16
 const RADIUS = {
-  panel: 12,
-  button: 12,
-  answerButton: 26,
+  panel: UNIFORM_RADIUS,
+  button: UNIFORM_RADIUS,
+  answerButton: UNIFORM_RADIUS,
+  // Чип категории низкий (CHIP_HEIGHT=26): радиус не должен превышать половину
+  // высоты, иначе дуги углов налезают друг на друга и появляются «ушки».
+  // Оставляем как было — компактное скругление.
   chip: 10,
-  ad: 12,
-  image: 12
+  ad: UNIFORM_RADIUS,
+  image: UNIFORM_RADIUS
 }
 
 const FONT_SIZE_SM = '12px'
@@ -90,6 +96,8 @@ const TOPBAR_WIDTH = CARD_WIDTH
 const TAB_PAD_H = 14        // горизонтальный отступ текста внутри вкладки
 const TAB_GAP = 8           // зазор между вкладками
 const TAB_HEIGHT = 34       // высота пилюли
+const TAB_RADIUS = 12      // вкладки низкие: радиус меньше общего (16), иначе
+                           // скругление смыкается в «таблетку»
 const PANEL_PAD = 7         // отступ рамки панели вокруг вкладок
 
 const CATEGORIES_Y = 82
@@ -722,7 +730,7 @@ class GameScene extends Phaser.Scene {
     this.renderModeTabs()
 
     this.createRoundedBox(CARD_X, CARD_Y, CARD_WIDTH, CARD_HEIGHT, COLORS.surface, {
-      radius: 18,
+      radius: RADIUS.panel,
       strokeColor: COLORS.borderSoft,
       strokeWidth: 2
     })
@@ -818,7 +826,7 @@ class GameScene extends Phaser.Scene {
 
       const pill = this.createRoundedBox(tabX, tabY, tabWidth, TAB_HEIGHT,
         isActive ? t.answer : t.surfaceBlue, {
-          radius: RADIUS.button,
+          radius: TAB_RADIUS,
           strokeColor: isActive ? t.border : t.borderSoft,
           strokeWidth: 2
         })
@@ -834,7 +842,7 @@ class GameScene extends Phaser.Scene {
       pill.on('pointerover', () => {
         if (!isActive) {
           this.drawRoundedBox(pill, tabWidth, TAB_HEIGHT, t.answer, {
-            radius: RADIUS.button,
+            radius: TAB_RADIUS,
             strokeColor: t.border,
             strokeWidth: 2
           })
@@ -843,7 +851,7 @@ class GameScene extends Phaser.Scene {
       pill.on('pointerout', () => {
         if (!isActive) {
           this.drawRoundedBox(pill, tabWidth, TAB_HEIGHT, t.surfaceBlue, {
-            radius: RADIUS.button,
+            radius: TAB_RADIUS,
             strokeColor: t.borderSoft,
             strokeWidth: 2
           })
@@ -1151,7 +1159,7 @@ class GameScene extends Phaser.Scene {
     )
     items.push(
       this.createRoundedBox(cx - 280, cy - 200, 560, 400, COLORS.surface, {
-        radius: 18, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.panel, strokeColor: COLORS.border, strokeWidth: 2
       }).setDepth(101)
     )
 
@@ -1435,7 +1443,7 @@ class GameScene extends Phaser.Scene {
     )
     items.push(
       this.createRoundedBox(GAME_WIDTH / 2 - 300, GAME_HEIGHT / 2 - 230, 600, 460, COLORS.surface, {
-        radius: 18, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.panel, strokeColor: COLORS.border, strokeWidth: 2
       }).setDepth(101)
     )
     items.push(
@@ -1849,6 +1857,35 @@ class GameScene extends Phaser.Scene {
     return items
   }
 
+  // Подпись варианта ответа. Многословные ответы переносятся автопереносом;
+  // длинное слово с дефисом (нет пробела — автоперенос не срабатывает) ломаем
+  // по дефису, а совсем длинное слово без дефиса слегка ужимаем по шрифту —
+  // чтобы текст не упирался в края кнопки.
+  makeAnswerLabel(centerX, centerY, answer, maxWidth) {
+    const baseSize = parseInt(FONT_SIZE_MD, 10)
+
+    const label = this.makeText(centerX, centerY, answer, {
+      fontFamily: FONT_FAMILY,
+      fontSize: FONT_SIZE_MD,
+      color: this.colorToHex(COLORS.text),
+      fontStyle: 'bold',
+      wordWrap: { width: maxWidth },
+      align: 'center'
+    }).setOrigin(0.5)
+
+    if (label.width > maxWidth && answer.includes('-')) {
+      label.setText(answer.replace('-', '-\n'))
+    }
+
+    let size = baseSize
+    while (label.width > maxWidth && size > 12) {
+      size -= 1
+      label.setFontSize(`${size}px`)
+    }
+
+    return label
+  }
+
   renderAnswers(answers) {
     const startX = CONTENT_X
     const startY = this._answersY
@@ -1873,14 +1910,9 @@ class GameScene extends Phaser.Scene {
       this.makeInteractiveBox(button, buttonWidth, buttonHeight)
       this.setCursorPointer(button)
 
-      const label = this.makeText(x + buttonWidth / 2, y + buttonHeight / 2, answer, {
-        fontFamily: FONT_FAMILY,
-        fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(COLORS.text),
-        fontStyle: 'bold',
-        wordWrap: { width: buttonWidth - 40 },
-        align: 'center'
-      }).setOrigin(0.5)
+      const label = this.makeAnswerLabel(
+        x + buttonWidth / 2, y + buttonHeight / 2, answer, buttonWidth - 40
+      )
 
       button.on('pointerover', () => {
         if (this.answerState === 'idle') {

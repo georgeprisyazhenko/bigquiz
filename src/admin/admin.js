@@ -398,6 +398,7 @@ function reviewCard(list) {
     q.reviewNote = note.value
     scheduleSave(q)
   })
+  note.addEventListener('blur', () => flushSaves()) // сразу записать, не дожидаясь debounce
   card.appendChild(note)
 
   const hint = document.createElement('div')
@@ -411,6 +412,7 @@ function reviewCard(list) {
 
 function goTo(list, i) {
   if (i < 0 || i >= list.length) return
+  flushSaves() // записать заметку покидаемого вопроса, пока не сменился currentId
   state.currentId = list[i].id
   renderContent.replaceInMain()
 }
@@ -441,29 +443,69 @@ function setStatus(q, status) {
   renderMain()
 }
 
+// Очередь сохранений по id. КРИТИЧНО: раньше был один общий таймер debounce —
+// любое следующее действие (пометка/правка заметки ДРУГОГО вопроса) вызывало
+// clearTimeout и отменяло ещё не записанную заметку предыдущего вопроса, она
+// терялась навсегда. Теперь «грязные» вопросы копятся в map и сбрасываются
+// целиком при навигации / пометке / уходе с поля / закрытии вкладки.
+const dirty = new Map() // id -> q (ссылка на объект в state.questions)
 let saveTimer = null
+let flushing = false
+
 function scheduleSave(q) {
+  dirty.set(q.id, q)
   clearTimeout(saveTimer)
-  saveTimer = setTimeout(() => saveNow(q), 400)
+  saveTimer = setTimeout(flushSaves, 400)
 }
 
-async function saveNow(q) {
+async function flushSaves() {
   clearTimeout(saveTimer)
+  saveTimer = null
+  if (flushing || !dirty.size) return
+  flushing = true
   setSaveState('saving')
   try {
-    const res = await fetch('/__admin/save-question', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: q.id, reviewStatus: q.reviewStatus, reviewNote: q.reviewNote || '' })
-    })
-    const data = await res.json()
-    if (!data.ok) throw new Error(data.error)
+    while (dirty.size) {
+      const [id, q] = dirty.entries().next().value
+      dirty.delete(id)
+      const res = await fetch('/__admin/save-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: q.id, reviewStatus: q.reviewStatus, reviewNote: q.reviewNote || '' })
+      })
+      const data = await res.json()
+      if (!data.ok) throw new Error(data.error)
+    }
     setSaveState('saved')
   } catch (err) {
     console.error('[admin] save failed:', err)
     setSaveState('error')
+  } finally {
+    flushing = false
+    if (dirty.size) flushSaves() // что-то накопилось за время записи
   }
 }
+
+// Совместимость: немедленное сохранение конкретного вопроса (ставит в очередь и
+// сбрасывает её сразу — заодно дописывает любые ждущие заметки).
+function saveNow(q) {
+  scheduleSave(q)
+  return flushSaves()
+}
+
+// Аварийный синхронный сброс при закрытии вкладки: обычный fetch не успеет.
+function flushBeacon() {
+  for (const [, q] of dirty) {
+    navigator.sendBeacon(
+      '/__admin/save-question',
+      new Blob([JSON.stringify({ id: q.id, reviewStatus: q.reviewStatus, reviewNote: q.reviewNote || '' })], {
+        type: 'application/json'
+      })
+    )
+  }
+  dirty.clear()
+}
+window.addEventListener('beforeunload', flushBeacon)
 
 function setSaveState(s) {
   state.saveState = s
