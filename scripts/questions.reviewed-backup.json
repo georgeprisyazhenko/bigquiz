@@ -1,0 +1,1121 @@
+{
+  "questions": [
+    {
+      "id": "q_001",
+      "question": "Какой организм известен способностью входить в состояние криптобиоза и переживать экстремальное высыхание, холод и радиацию?",
+      "answers": [
+        "Тихоходка",
+        "Дафния",
+        "Планария",
+        "Морская звезда"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "priroda-zhivotnye",
+        "biologiya"
+      ],
+      "image": "assets/images/q_001.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тихоходки впадают в криптобиоз — почти полностью останавливают обмен веществ и переживают вакуум, радиацию и экстремальный холод.",
+      "imageSearchQuery": "Криптобиоз",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_002",
+      "question": "Какой материал дал название историческому периоду, наступившему после каменного века в ряде древних культур?",
+      "answers": [
+        "Бронза",
+        "Железо",
+        "Медь",
+        "Глина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_002.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бронзовый век назван по сплаву меди и олова — первому металлу, который массово шёл на орудия и оружие.",
+      "imageSearchQuery": "Бронзовый век",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_003",
+      "question": "Какое озеро считается самым глубоким на Земле?",
+      "answers": [
+        "Байкал",
+        "Танганьика",
+        "Верхнее",
+        "Каспийское море"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "geografiya"
+      ],
+      "image": "assets/images/q_003.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Байкал глубиной 1642 м — самое глубокое озеро планеты и крупнейший резервуар жидкой пресной воды.",
+      "imageSearchQuery": "Байкал",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_004",
+      "question": "Какая планета Солнечной системы совершает оборот вокруг своей оси в направлении, противоположном большинству планет?",
+      "answers": [
+        "Венера",
+        "Марс",
+        "Юпитер",
+        "Нептун"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "planety"
+      ],
+      "image": "assets/images/q_004.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Венера вращается в обратную сторону, поэтому на ней Солнце восходило бы на западе.",
+      "imageSearchQuery": "Венера",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_005",
+      "question": "Какой протокол стал одной из основ передачи веб-страниц в интернете?",
+      "answers": [
+        "HTTP",
+        "FTP",
+        "SMTP",
+        "MIDI"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_005.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "HTTP — протокол передачи гипертекста, по которому браузер запрашивает веб-страницы у серверов.",
+      "imageSearchQuery": "HTTP",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_006",
+      "question": "Какой отдел мозга чаще всего связывают с координацией движений и поддержанием равновесия?",
+      "answers": [
+        "Мозжечок",
+        "Гиппокамп",
+        "Гипоталамус",
+        "Миндалина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anatomiya",
+        "biologiya"
+      ],
+      "image": "assets/images/q_006.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Мозжечок координирует движения и удерживает равновесие, хотя занимает лишь около 10% объёма мозга.",
+      "imageSearchQuery": "Мозжечок",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_007",
+      "question": "Как называется процесс, при котором растения используют свет для образования органических веществ из углекислого газа и воды?",
+      "answers": [
+        "Фотосинтез",
+        "Транспирация",
+        "Ферментация",
+        "Осмос"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "biologiya"
+      ],
+      "image": "assets/images/q_007.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "При фотосинтезе растения превращают свет, воду и углекислый газ в глюкозу, выделяя кислород.",
+      "imageSearchQuery": "Хлоропласт",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_008",
+      "question": "Какая система письма использовалась в Древней Месопотамии и наносилась на глиняные таблички?",
+      "answers": [
+        "Клинопись",
+        "Иероглифы",
+        "Кириллица",
+        "Деванагари"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pismennost",
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_008.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Клинопись выдавливали заострённой палочкой на сырой глине — это одна из древнейших систем письма.",
+      "imageSearchQuery": "Клинопись",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_009",
+      "question": "Какой объект в Солнечной системе известен Большим красным пятном — гигантским атмосферным вихрем?",
+      "answers": [
+        "Юпитер",
+        "Сатурн",
+        "Нептун",
+        "Марс"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "planety"
+      ],
+      "image": "assets/images/q_009.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Большое красное пятно Юпитера — гигантский шторм шире Земли, бушующий уже несколько столетий.",
+      "imageSearchQuery": "Большое красное пятно",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_010",
+      "question": "Какой термин обозначает способность некоторых животных восстанавливать утраченные части тела?",
+      "answers": [
+        "Регенерация",
+        "Мимикрия",
+        "Метаморфоз",
+        "Эхолокация"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "priroda-zhivotnye",
+        "biologiya"
+      ],
+      "image": "assets/images/q_010.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Регенерация — восстановление утраченных частей тела; у аксолотля так отрастают целые конечности.",
+      "imageSearchQuery": "Аксолотль",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_011",
+      "question": "Какой орган человека способен полностью восстановиться даже из 25% оставшейся ткани?",
+      "answers": [
+        "Печень",
+        "Почка",
+        "Лёгкое",
+        "Поджелудочная"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina",
+        "biologiya"
+      ],
+      "image": "assets/images/q_011.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Печень — единственный внутренний орган с таким регенеративным потенциалом: оставшиеся гепатоциты делятся и восстанавливают исходный объём за 6–8 недель. Именно поэтому возможна пересадка части печени от живого донора.",
+      "imageSearchQuery": "liver regeneration hepatocytes",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_012",
+      "question": "Какая клетка крови не имеет ядра у взрослого человека?",
+      "answers": [
+        "Эритроцит",
+        "Лейкоцит",
+        "Тромбоцит",
+        "Лимфоцит"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina",
+        "biologiya"
+      ],
+      "image": "assets/images/q_012.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Зрелый эритроцит выталкивает ядро при созревании, чтобы вместить максимум гемоглобина. Это делает его похожим на двояковогнутый диск, идеальный для транспорта кислорода.",
+      "imageSearchQuery": "red blood cells no nucleus",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_013",
+      "question": "Какой гормон называют «гормоном голода», потому что его уровень растёт перед едой?",
+      "answers": [
+        "Грелин",
+        "Инсулин",
+        "Лептин",
+        "Кортизол"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_013.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Грелин вырабатывается стенками желудка и сигнализирует мозгу, что пора есть — его концентрация пиковая прямо перед приёмом пищи. Лептин, наоборот, подавляет аппетит, сообщая о насыщении.",
+      "imageSearchQuery": "ghrelin hunger hormone stomach",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_014",
+      "question": "Как называется состояние, при котором сердечная мышца не получает кровь и начинает отмирать?",
+      "answers": [
+        "Инфаркт",
+        "Инсульт",
+        "Ишемия",
+        "Тромбоз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_014.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Инфаркт миокарда происходит при полной закупорке коронарной артерии: без кислорода клетки сердца гибнут за 20–40 минут. Инсульт — аналогичный процесс, но в мозге, а не в сердце.",
+      "imageSearchQuery": "myocardial infarction heart attack blocked artery",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_015",
+      "question": "Какой витамин синтезируется кожей человека под воздействием ультрафиолета?",
+      "answers": [
+        "Витамин D",
+        "Витамин C",
+        "Витамин A",
+        "Витамин K"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_015.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Под UVB-излучением холестерол кожи преобразуется в провитамин D3, который затем активируется в почках и печени. Без него кальций плохо усваивается, что ведёт к рахиту у детей и остеопорозу у взрослых.",
+      "imageSearchQuery": "vitamin D sunlight skin synthesis",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_016",
+      "question": "Как называется самая маленькая кость в теле человека, находящаяся в ухе?",
+      "answers": [
+        "Стремечко",
+        "Молоточек",
+        "Наковальня",
+        "Лабиринт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina",
+        "anatomiya"
+      ],
+      "image": "assets/images/q_016.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Стремечко длиной около 3 мм передаёт вибрации барабанной перепонки во внутреннее ухо. Три слуховые косточки — молоточек, наковальня и стремечко — усиливают звуковое давление примерно в 20 раз.",
+      "imageSearchQuery": "stapes smallest bone ear ossicles",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_017",
+      "question": "Какой нейромедиатор преимущественно отвечает за ощущение удовольствия и награды?",
+      "answers": [
+        "Дофамин",
+        "Серотонин",
+        "Адреналин",
+        "Ацетилхолин"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_017.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дофамин выбрасывается в прилежащем ядре мозга в ответ на предвкушение награды, а не только на само удовольствие. Именно этот механизм лежит в основе формирования зависимостей.",
+      "imageSearchQuery": "dopamine reward system brain",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_018",
+      "question": "Какая группа крови считается «универсальным донором» для переливания эритроцитов?",
+      "answers": [
+        "O (I)",
+        "A (II)",
+        "AB (IV)",
+        "B (III)"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_018.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Эритроциты группы O (первой) не несут антигенов A и B, поэтому их не отвергает иммунная система большинства реципиентов. Однако плазма такой крови содержит антитела к A и B, что важно учитывать при переливании цельной крови.",
+      "imageSearchQuery": "blood type O universal donor transfusion",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_019",
+      "question": "Какое название носит число φ ≈ 1,618, встречающееся в спиралях раковин и пропорциях Парфенона?",
+      "answers": [
+        "Золотое сечение",
+        "Число Эйлера",
+        "Число Авогадро",
+        "Константа Планка"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_019.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Золотое сечение φ = (1 + √5)/2 — единственное число, квадрат которого равен нему же плюс единица; оно порождает последовательность Фибоначчи через пределы отношений соседних членов.",
+      "imageSearchQuery": "golden ratio spiral mathematics",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_020",
+      "question": "Кто впервые ввёл символ π для отношения длины окружности к диаметру?",
+      "answers": [
+        "Уильям Джонс",
+        "Леонард Эйлер",
+        "Архимед",
+        "Лейбниц"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_020.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Уэльский математик Уильям Джонс использовал букву π в этом значении в 1706 году; популярным символ стал после того, как его принял Эйлер в 1737 году.",
+      "imageSearchQuery": "pi symbol history mathematics",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_021",
+      "question": "Как называется теорема, утверждающая, что в любой непротиворечивой системе есть истинные, но недоказуемые утверждения?",
+      "answers": [
+        "Теорема Гёделя",
+        "Теорема Ферма",
+        "Теорема Байеса",
+        "Теорема Пифагора"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_021.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первая теорема о неполноте Гёделя (1931) потрясла математику: она показала, что ни одна достаточно богатая формальная система не может доказать все свои истины изнутри себя.",
+      "imageSearchQuery": "Gödel incompleteness theorem portrait",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_022",
+      "question": "Какое число математики называют «наиболее случайным»: его цифры не подчиняются ни одному алгоритму?",
+      "answers": [
+        "Число Омега",
+        "Число e",
+        "Число π",
+        "Число Рамануджана"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_022.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Константа Омега Чайтина — вероятность того, что случайная программа завершится; её цифры алгоритмически несжимаемы, то есть это абсолютно невычислимое вещественное число.",
+      "imageSearchQuery": "Chaitin omega constant algorithmic randomness",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_023",
+      "question": "Как называется парадокс теории множеств, в котором брадобрей бреет всех, кто не бреется сам?",
+      "answers": [
+        "Парадокс Рассела",
+        "Парадокс Кантора",
+        "Парадокс Бурали-Форти",
+        "Парадокс Гилберта"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_023.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Парадокс Рассела (1901) подорвал наивную теорию множеств: множество всех множеств, не содержащих себя, порождает противоречие — и привёл к созданию аксиоматической теории Цермело–Френкеля.",
+      "imageSearchQuery": "Russell paradox set theory barber",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_024",
+      "question": "Сколько правильных выпуклых многогранников существует в трёхмерном пространстве?",
+      "answers": [
+        "Пять",
+        "Четыре",
+        "Шесть",
+        "Восемь"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_024.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Платоновых тел ровно пять: тетраэдр, куб, октаэдр, додекаэдр и икосаэдр — это доказал ещё Евклид, и в 4D их уже шесть, а в размерностях ≥ 5 — снова три.",
+      "imageSearchQuery": "five Platonic solids geometry",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_025",
+      "question": "Как называется свойство числа, при котором сумма его делителей (кроме него самого) равна ему самому?",
+      "answers": [
+        "Совершенное число",
+        "Простое число",
+        "Дружественное число",
+        "Числа Мерсенна"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_025.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Число 6 = 1 + 2 + 3 — первое совершенное число; следующие: 28, 496, 8128. Все найденные чётные совершенные числа связаны с простыми Мерсенна; нечётных не найдено до сих пор.",
+      "imageSearchQuery": "perfect numbers 6 28 496 mathematics",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_026",
+      "question": "Как называется кривая, вдоль которой шарик скатывается из точки A в точку B быстрее всего (не по прямой)?",
+      "answers": [
+        "Брахистохрона",
+        "Лемниската",
+        "Циклоида",
+        "Эвольвента"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_026.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Брахистохрона (от греч. «кратчайшее время») — дуга циклоиды; в 1696 году задачу одновременно решили Ньютон, Лейбниц, Бернулли и Лопиталь, заложив основы вариационного исчисления.",
+      "imageSearchQuery": "brachistochrone curve cycloid fastest path",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_027",
+      "question": "Как называется математическая константа e ≈ 2,718, основание натурального логарифма?",
+      "answers": [
+        "Число Эйлера",
+        "Число Гаусса",
+        "Число Бернулли",
+        "Число Неймана"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_027.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Константу e впервые описал Якоб Бернулли через задачу о сложных процентах (1683), но буквой e её обозначил Эйлер в 1736 году; формула e^(iπ) + 1 = 0 связывает пять фундаментальных констант математики.",
+      "imageSearchQuery": "Euler number e natural logarithm constant",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_028",
+      "question": "Какая порода кошек не имеет шерсти?",
+      "answers": [
+        "Сфинкс",
+        "Абиссинская",
+        "Бенгальская",
+        "Мейн-кун"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_028.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сфинкс — порода с генетической мутацией, вызывающей отсутствие шерсти. На ощупь кожа сфинкса напоминает замшу и тёплая, потому что у кошки нет теплоизолирующего меха.",
+      "imageSearchQuery": "sphynx cat hairless",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_029",
+      "question": "Какой орган у попугая позволяет ему воспроизводить человеческую речь?",
+      "answers": [
+        "Сиринкс",
+        "Гортань",
+        "Язык",
+        "Нёбо"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_029.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Птицы производят звук не в гортани (как люди), а в сиринксе — органе в основании трахеи. Сиринкс попугаев способен с высокой точностью имитировать частоты человеческой речи.",
+      "imageSearchQuery": "parrot talking close up",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_030",
+      "question": "Как называется движение лап кошки, когда она ритмично давит ими на мягкую поверхность?",
+      "answers": [
+        "Замешивание",
+        "Топтание",
+        "Мечение",
+        "Вылизывание"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_030.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Котята так стимулируют молокоотдачу у матери. Взрослые кошки сохраняют это движение — «замешивание теста» — как реликт детского комфортного поведения.",
+      "imageSearchQuery": "cat kneading blanket",
+      "reviewStatus": "rejected",
+      "reviewNote": "замешивание и топтание для обывателя абсолютно одно и то же, ну или что-то на уровне синонимов"
+    },
+    {
+      "id": "q_031",
+      "question": "Какую часть тела хомяк использует для переноски запасов еды?",
+      "answers": [
+        "Защёчные мешки",
+        "Желудок",
+        "Передние лапы",
+        "Шерсть"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_031.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Защёчные мешки хомяка простираются от щёк до плеч и вмещают объём, сравнимый с объёмом тела животного. Это позволяет делать запасы за одну вылазку.",
+      "imageSearchQuery": "hamster stuffed cheek pouches",
+      "reviewStatus": "rejected",
+      "reviewNote": "такой вопрос гораздо интереснее звучал бы про объем мешков с правильным ответом \"сравнимо с объемом тела животного\". А в базовой постановке вопрос скучный и простейший"
+    },
+    {
+      "id": "q_032",
+      "question": "Слово «робот» впервые появилось в пьесе 1920 года — из какого языка оно пришло в мировые языки?",
+      "answers": [
+        "Чешского",
+        "Польского",
+        "Словацкого",
+        "Сербского"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_032.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Слово «robot» придумал чешский писатель Карел Чапек в пьесе R.U.R. (1920), образовав его от чешского «robota» — барщина, принудительный труд. Оттуда оно разошлось по всем языкам мира.",
+      "imageSearchQuery": "Karel Capek RUR play robots 1920",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_033",
+      "question": "Слово «бойкот» происходит от фамилии человека. Кем по профессии был этот человек?",
+      "answers": [
+        "Управляющим",
+        "Полицейским",
+        "Землевладельцем",
+        "Депутатом"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_033.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Чарльз Бойкотт был управляющим поместьем в Ирландии в 1880 году. Местные фермеры отказались с ним общаться и работать в знак протеста против высоких арендных плат — так родился термин «бойкот».",
+      "imageSearchQuery": "Charles Boycott Ireland 1880 protest",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_034",
+      "question": "Слово «хаос» пришло в русский из греческого. Что оно означало в древнегреческом буквально?",
+      "answers": [
+        "Зияющая пустота",
+        "Война богов",
+        "Тёмный океан",
+        "Первичный огонь"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_034.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Греческое «χάος» (khaos) означало первозданную зияющую бездну — пустое разверстое пространство до появления мира. Лишь позднее слово приобрело значение беспорядка.",
+      "imageSearchQuery": "ancient greek chaos primordial void cosmogony",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_035",
+      "question": "Слово «диван» попало в европейские языки через турецкий, а туда — из персидского. Что означало персидское «dīwān»?",
+      "answers": [
+        "Список, реестр",
+        "Ложе для сна",
+        "Зал совета",
+        "Ковёр из шерсти"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_035.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Персидское «dīwān» значило список, реестр или собрание документов, затем — государственную канцелярию и зал заседаний совета. Скамья вдоль стены в таком зале и дала имя предмету мебели.",
+      "imageSearchQuery": "Persian divan council chamber Ottoman",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_036",
+      "question": "От какого латинского слова происходит русское «экзамен»?",
+      "answers": [
+        "Взвешивание",
+        "Суд",
+        "Допрос",
+        "Испытание огнём"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_036.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Латинское «examen» означало язычок весов и сам процесс взвешивания на весах. Метафора «взвешивания знаний» перенесла слово в образовательный контекст.",
+      "imageSearchQuery": "ancient Roman scales balance weighing",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_037",
+      "question": "Слово «алгебра» происходит от арабского термина из трактата IX века. Что означает арабское «аль-джабр»?",
+      "answers": [
+        "Восстановление",
+        "Вычисление",
+        "Равенство",
+        "Разделение"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_037.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Аль-джабр» буквально — восстановление или вправление (сломанного): перенос отрицательных членов уравнения на другую сторону, чтобы их «починить». Слово взято из заголовка трактата аль-Хорезми.",
+      "imageSearchQuery": "Al-Khwarizmi algebra manuscript Arabic mathematics",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_038",
+      "question": "Слово «каникулы» связано с определённой звездой. Как эта звезда называется?",
+      "answers": [
+        "Сириус",
+        "Вега",
+        "Арктур",
+        "Денеб"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_038.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Латинское «canicula» — маленькая собака, уменьшительное от «canis». Так называли Сириус (Собачью звезду): в Риме её гелиакический восход совпадал с летней жарой и школьными перерывами.",
+      "imageSearchQuery": "Sirius dog star Roman calendar summer",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_039",
+      "question": "Русское слово «тетрадь» восходит к греческому слову, связанному с числом. С каким?",
+      "answers": [
+        "Четыре",
+        "Восемь",
+        "Десять",
+        "Шесть"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_039.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Греческое «tetradion» — уменьшительное от «tetras», четвёрка. Так называли тетрадку из четырёх сложенных листов пергамента, то есть восьми страниц — стандартная единица рукописной книги.",
+      "imageSearchQuery": "ancient Greek parchment quire four sheets manuscript",
+      "reviewStatus": "approved",
+      "reviewNote": "вопросы про происхождение слов достаточно однотипны, немного бы разнообразия"
+    },
+    {
+      "id": "q_040",
+      "question": "Слово «банк» попало в европейские языки из итальянского «banco». Что означало это итальянское слово изначально?",
+      "answers": [
+        "Скамья",
+        "Хранилище",
+        "Торговля",
+        "Касса"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_040.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Средневековые менялы в итальянских городах работали за деревянной скамьёй на рынке — «banco». Когда менялу уличали в мошенничестве, скамью ломали; отсюда «bancarotta» — банкротство (сломанная скамья).",
+      "imageSearchQuery": "medieval Italian money changer bench market",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_041",
+      "question": "Как называлась советская операция 1944 года по освобождению Белоруссии, ставшая одним из крупнейших разгромов немецкой армии за всю войну?",
+      "answers": [
+        "Багратион",
+        "Уран",
+        "Кутузов",
+        "Румянцев"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_041.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Операция «Багратион» (июнь–август 1944) уничтожила группу армий «Центр»: немцы потеряли около 300 000 человек убитыми и пленными. По масштабу разгрома она превзошла Сталинград.",
+      "imageSearchQuery": "операция Багратион 1944 карта",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_042",
+      "question": "Какой советский танк был самым массовым в годы Великой Отечественной войны?",
+      "answers": [
+        "Т-34",
+        "КВ-1",
+        "ИС-2",
+        "Т-70"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_042.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "За годы войны было выпущено более 57 000 танков Т-34 всех модификаций. Простота конструкции и высокая ремонтопригодность делали его основой бронетанковых сил СССР.",
+      "imageSearchQuery": "танк Т-34 Великая Отечественная",
+      "reviewStatus": "rejected",
+      "reviewNote": "выглядит достаточно простым вопросом. Мб сложнее было что-то из серии \"выберите танк, который был разработан в годы ВОВ, но так и не участвовал в боевых дейтсвиях\" или \"количество стран, где на вооружении это оружие\""
+    },
+    {
+      "id": "q_043",
+      "question": "Кто командовал советскими войсками в ходе обороны Сталинграда в 1942–1943 годах на уровне фронтов?",
+      "answers": [
+        "Рокоссовский",
+        "Жуков",
+        "Конев",
+        "Малиновский"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_043.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Донским фронтом, замкнувшим кольцо окружения и принявшим капитуляцию Паулюса, командовал К. К. Рокоссовский. Он же руководил ликвидацией окружённой группировки в январе–феврале 1943 года.",
+      "imageSearchQuery": "Рокоссовский Сталинград 1943",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_044",
+      "question": "Какой город СССР выдержал почти 900-дневную блокаду немецких и финских войск?",
+      "answers": [
+        "Ленинград",
+        "Одесса",
+        "Севастополь",
+        "Тула"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_044.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Блокада Ленинграда длилась с сентября 1941 по январь 1944 года — 872 дня. По различным оценкам, от голода и обстрелов погибло от 800 000 до более чем 1 миллиона мирных жителей.",
+      "imageSearchQuery": "блокада Ленинграда дорога жизни",
+      "reviewStatus": "rejected",
+      "reviewNote": "это несложный вопрос. А вот сколько длилась блокада было бы интереснее"
+    },
+    {
+      "id": "q_045",
+      "question": "Как называлась немецкая операция по захвату СССР, начавшаяся 22 июня 1941 года?",
+      "answers": [
+        "Барбаросса",
+        "Цитадель",
+        "Тайфун",
+        "Блау"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_045.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "План «Барбаросса» предполагал молниеносный разгром СССР за 8–10 недель. Назван в честь германского императора Фридриха I Барбароссы; провал плана стал первым стратегическим поражением Германии.",
+      "imageSearchQuery": "операция Барбаросса 1941 карта",
+      "reviewStatus": "rejected",
+      "reviewNote": "только что был вопрос про название операции, нужно разнообразнее. Не только названия операций и городов"
+    },
+    {
+      "id": "q_046",
+      "question": "Какой советский штурмовик немецкие солдаты прозвали «чёрная смерть» за эффективность ударов по наземным целям?",
+      "answers": [
+        "Ил-2",
+        "Пе-2",
+        "Ту-2",
+        "Су-2"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_046.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ил-2 стал самым массовым боевым самолётом Второй мировой — выпущено более 36 000 единиц. Бронированный корпус защищал экипаж и двигатель, что делало штурмовик крайне живучим.",
+      "imageSearchQuery": "штурмовик Ил-2 Великая Отечественная",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_047",
+      "question": "Какой маршал СССР подписал акт о безоговорочной капитуляции Германии 8 мая 1945 года со стороны советского командования?",
+      "answers": [
+        "Жуков",
+        "Василевский",
+        "Конев",
+        "Рокоссовский"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_047.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Г. К. Жуков подписал акт капитуляции Германии в Карлсхорсте (Берлин) 8–9 мая 1945 года. Именно он принимал Парад Победы на Красной площади 24 июня 1945 года.",
+      "imageSearchQuery": "Жуков подписание капитуляции Германии 1945",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_048",
+      "question": "Какое советское реактивное орудие залпового огня немцы называли «сталинским органом»?",
+      "answers": [
+        "Катюша",
+        "Андрюша",
+        "Ванюша",
+        "Матюша"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_048.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "БМ-13 «Катюша» — советская система залпового огня, впервые применённая в июле 1941 года под Оршей. Характерный вой ракет и одновременность залпа производили сильнейший психологический эффект на противника.",
+      "imageSearchQuery": "Катюша БМ-13 Великая Отечественная",
+      "reviewStatus": "rejected",
+      "reviewNote": "то что Катюша - легко считывается. А вот что это Сталинский орган - интересный факт. Лучше переформулировать \"как немцы называли Катюшу\" и разные варианты ответа. И да, в вопросах нужны ударения в словах, потому что оргАн и Орган это разные вещи"
+    },
+    {
+      "id": "q_049",
+      "question": "В каком городе в феврале 1943 года была окружена и капитулировала немецкая 6-я армия под командованием Паулюса?",
+      "answers": [
+        "Сталинград",
+        "Харьков",
+        "Ростов",
+        "Курск"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_049.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "2 февраля 1943 года в Сталинграде сдались около 91 000 немецких солдат, в том числе 24 генерала и фельдмаршал Паулюс. Это стало коренным переломом на Восточном фронте.",
+      "imageSearchQuery": "капитуляция Паулюса Сталинград 1943",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_050",
+      "question": "Какой предмет одежды британский монарх надевает при открытии парламента поверх мантии?",
+      "answers": [
+        "Корона",
+        "Митра",
+        "Цепь ордена",
+        "Горностаевый берет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_050.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На State Opening of Parliament монарх надевает Имперскую государственную корону, которая весит около 1,06 кг. Чтобы привыкнуть держать голову прямо, Елизавета II тренировалась в ней дома — в том числе читая газеты.",
+      "imageSearchQuery": "Imperial State Crown State Opening Parliament",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_051",
+      "question": "В какой стране монарх по конституции является также главой государственной церкви и носит титул её «Верховного правителя»?",
+      "answers": [
+        "Великобритания",
+        "Норвегия",
+        "Дания",
+        "Швеция"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_051.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Британский монарх носит титул Supreme Governor of the Church of England, закреплённый за Короной с 1559 года. Это не просто почётная роль: монарх официально одобряет назначение архиепископов и епископов.",
+      "imageSearchQuery": "Church of England Supreme Governor monarch",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_052",
+      "question": "Как называется церемония, во время которой нового рыцаря посвящают касанием меча по плечу?",
+      "answers": [
+        "Адубование",
+        "Инвеститура",
+        "Коронация",
+        "Интронизация"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby",
+        "istoriya"
+      ],
+      "image": "assets/images/q_052.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Адубование (accolade) — ритуальный удар плашмя меча по плечу посвящаемого в рыцари. Сегодня монарх использует меч исключительно для этого жеста: касается правого, затем левого плеча.",
+      "imageSearchQuery": "knighting ceremony sword accolade British monarch",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_053",
+      "question": "Какой японский титул носит наследник императорского престола?",
+      "answers": [
+        "Коотайси",
+        "Сёгун",
+        "Дайдзё-дайдзин",
+        "Сэссё"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_053.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Коотайси (皇太子, «великий сын императора») — официальный японский титул наследника престола. Именно так именовали Нарухито до его вступления на трон в 2019 году после отречения отца Акихито.",
+      "imageSearchQuery": "Japanese Crown Prince Naruhito",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_054",
+      "question": "В какой стране традиционно новорождённым принцам королевского дома объявляют о рождении выстрелами из пушек в столице?",
+      "answers": [
+        "Великобритания",
+        "Нидерланды",
+        "Бельгия",
+        "Норвегия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_054.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Великобритании рождение члена королевской семьи отмечается 41 пушечным залпом в Гайд-парке и 62 залпами в Тауэре. Число залпов не случайно: 21 — базовый королевский салют, к которому добавляются 20 за Гайд-парк и 21 за Тауэр.",
+      "imageSearchQuery": "Royal salute gun Hyde Park Tower of London",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "q_055",
+      "question": "Какой орден является высшей рыцарской наградой Великобритании, основанной в XIV веке?",
+      "answers": [
+        "Орден Подвязки",
+        "Орден Бани",
+        "Орден Чертополоха",
+        "Орден Звезды Индии"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby",
+        "istoriya"
+      ],
+      "image": "assets/images/q_055.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Орден Подвязки (Order of the Garter) основан Эдуардом III около 1348 года и насчитывает не более 24 рыцарей-компаньонов одновременно. По легенде, название связано с подвязкой графини Солсберийской, уроненной на балу, — хотя эта история, вероятно, апокрифична.",
+      "imageSearchQuery": "Order of the Garter ceremony Windsor Castle",
+      "reviewStatus": "approved"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>BigQuiz · Админка ревью</title>
+    <link rel="stylesheet" href="/src/admin/admin.css" />
+  </head>
+  <body>
+    <!-- Локальная админка ревью. Доступна только в `npm run dev` по адресу
+         /admin.html. В прод-сборку не попадает (см. vite.config.js). -->
+    <div id="admin-root">
+      <aside id="tree-panel"></aside>
+      <main id="main-panel"></main>
+    </div>
+    <script type="module" src="/src/admin/admin.js"></script>
+  </body>
+</html>

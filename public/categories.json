@@ -1,0 +1,270 @@
+{
+  "version": 4,
+  "description": "Дерево категорий BigQuiz. Канонический источник для приложения. В questions.json поле categories ссылается на id подкатегорий (или верхних категорий) из этого файла.",
+  "categories": [
+    {
+      "id": "istoriya",
+      "name": "История",
+      "subcategories": [
+        { "id": "drevnie-civilizacii", "name": "Древние цивилизации" },
+        { "id": "srednevekovye", "name": "Средневековье" },
+        { "id": "novoe-vremya", "name": "Новое время" },
+        { "id": "xx-vek", "name": "XX век" },
+        { "id": "vov", "name": "Великая Отечественная война" },
+        { "id": "voyny-srazheniya", "name": "Войны и сражения" }
+      ]
+    },
+    {
+      "id": "geografiya",
+      "name": "География",
+      "subcategories": [
+        { "id": "strany-goroda", "name": "Страны и города" },
+        { "id": "gory", "name": "Горы и рельеф" },
+        { "id": "reki-ozyora", "name": "Реки и озёра" },
+        { "id": "morya-okeany", "name": "Моря и океаны" },
+        { "id": "klimat-zony", "name": "Климат и природные зоны" },
+        { "id": "prirodnye-yavleniya", "name": "Природные явления" }
+      ]
+    },
+    {
+      "id": "nauka-tehnika",
+      "name": "Наука",
+      "subcategories": [
+        { "id": "fizika", "name": "Физика" },
+        { "id": "himiya", "name": "Химия" },
+        { "id": "biologiya", "name": "Биология" },
+        { "id": "matematika", "name": "Математика" },
+        { "id": "uchyonye", "name": "Учёные" },
+        { "id": "izobreteniya", "name": "Изобретения" }
+      ]
+    },
+    {
+      "id": "kosmos",
+      "name": "Космос",
+      "subcategories": [
+        { "id": "planety", "name": "Планеты" },
+        { "id": "zvyozdy-galaktiki", "name": "Звёзды и галактики" },
+        { "id": "malye-tela", "name": "Кометы и астероиды" },
+        { "id": "kosmonavtika", "name": "Космонавтика" }
+      ]
+    },
+    {
+      "id": "priroda-zhivotnye",
+      "name": "Природа и животные",
+      "subcategories": [
+        { "id": "mlekopitayushchie", "name": "Млекопитающие" },
+        { "id": "domashnie-zhivotnye", "name": "Домашние животные" },
+        { "id": "pticy", "name": "Птицы" },
+        { "id": "vodnye-obitateli", "name": "Водный мир" },
+        { "id": "nasekomye", "name": "Насекомые" },
+        { "id": "rasteniya", "name": "Растения" },
+        { "id": "dinozavry", "name": "Динозавры" }
+      ]
+    },
+    {
+      "id": "chelovek",
+      "name": "Человек",
+      "subcategories": [
+        { "id": "anatomiya", "name": "Анатомия" },
+        { "id": "medicina", "name": "Медицина" },
+        { "id": "psihologiya", "name": "Психология" }
+      ]
+    },
+    {
+      "id": "eda-napitki",
+      "name": "Еда и напитки",
+      "subcategories": [
+        { "id": "kuhni-mira", "name": "Кухни мира" },
+        { "id": "eda", "name": "Еда и десерты" },
+        { "id": "ovoshchi-frukty", "name": "Овощи, фрукты, ягоды" },
+        { "id": "napitki", "name": "Безалкогольные напитки" },
+        { "id": "spirtnye-napitki", "name": "Спиртные напитки" }
+      ]
+    },
+    {
+      "id": "kino",
+      "name": "Кино и мультфильмы",
+      "subcategories": [
+        { "id": "serialy", "name": "Сериалы" },
+        { "id": "sovetskoe-kino", "name": "Советское и российское кино" },
+        { "id": "komedii", "name": "Комедии" },
+        { "id": "dramy-trillery", "name": "Драмы и триллеры" },
+        { "id": "fantastika-film", "name": "Фантастика" },
+        { "id": "boeviki-priklyucheniya", "name": "Боевики и приключения" },
+        { "id": "horror", "name": "Хоррор" },
+        { "id": "multfilmy", "name": "Мультфильмы" },
+        { "id": "anime", "name": "Аниме" },
+        { "id": "vlastelin-kolec", "name": "Властелин колец" },
+        { "id": "garri-potter", "name": "Гарри Поттер" },
+        { "id": "igra-prestolov", "name": "Игра престолов" },
+        { "id": "zvyozdnye-voyny", "name": "Звёздные войны" },
+        { "id": "aktyory", "name": "Актёры" }
+      ]
+    },
+    {
+      "id": "muzyka",
+      "name": "Музыка",
+      "subcategories": [
+        { "id": "pop", "name": "Поп-музыка" },
+        { "id": "rok", "name": "Рок" },
+        { "id": "klassika-muz", "name": "Классика" },
+        { "id": "hip-hop", "name": "Хип-хоп" },
+        { "id": "instrumenty", "name": "Музыкальные инструменты" },
+        { "id": "ispolniteli", "name": "Группы и исполнители" }
+      ]
+    },
+    {
+      "id": "literatura",
+      "name": "Литература",
+      "subcategories": [
+        { "id": "russkaya-lit", "name": "Русская литература" },
+        { "id": "zarubezhnaya-lit", "name": "Зарубежная литература" },
+        { "id": "klassika-lit", "name": "Классика" },
+        { "id": "skazki", "name": "Сказки" },
+        { "id": "poeziya", "name": "Поэзия" },
+        { "id": "fantastika", "name": "Фантастика и фэнтези" },
+        { "id": "knizhnye-geroi", "name": "Книжные герои" },
+        { "id": "pisateli", "name": "Писатели" }
+      ]
+    },
+    {
+      "id": "iskusstvo",
+      "name": "Искусство",
+      "subcategories": [
+        { "id": "zhivopis", "name": "Живопись" },
+        { "id": "skulptura", "name": "Скульптура" },
+        { "id": "teatr", "name": "Театр" },
+        { "id": "muzei", "name": "Музеи" },
+        { "id": "fotografiya", "name": "Фотография" }
+      ]
+    },
+    {
+      "id": "sport",
+      "name": "Спорт",
+      "subcategories": [
+        { "id": "futbol", "name": "Футбол" },
+        { "id": "hokkey", "name": "Хоккей" },
+        { "id": "tennis", "name": "Теннис" },
+        { "id": "boks-edinoborstva", "name": "Бокс и единоборства" },
+        { "id": "olimpiada", "name": "Олимпийские игры" },
+        { "id": "avtosport", "name": "Автоспорт" }
+      ]
+    },
+    {
+      "id": "moda-stil",
+      "name": "Красота и стиль",
+      "subcategories": [
+        { "id": "odezhda", "name": "Одежда и обувь" },
+        { "id": "brendy-mody", "name": "Бренды" },
+        { "id": "modelery", "name": "Модельеры" },
+        { "id": "kosmetika", "name": "Косметика и парфюмерия" },
+        { "id": "dragocennosti", "name": "Драгоценности и украшения" }
+      ]
+    },
+    {
+      "id": "tehnologii",
+      "name": "Технологии и техника",
+      "subcategories": [
+        { "id": "internet", "name": "Интернет" },
+        { "id": "kompyutery", "name": "Компьютеры" },
+        { "id": "telefony-smartfony", "name": "Телефоны и смартфоны" },
+        { "id": "bytovaya-tehnika", "name": "Бытовая техника" },
+        { "id": "energetika", "name": "Энергетика" },
+        { "id": "promyshlennost", "name": "Промышленность" }
+      ]
+    },
+    {
+      "id": "biznes-dengi",
+      "name": "Бизнес и деньги",
+      "subcategories": [
+        { "id": "dengi-valyuty", "name": "Деньги и валюты" },
+        { "id": "kompanii", "name": "Компании и бренды" },
+        { "id": "predprinimateli", "name": "Предприниматели" },
+        { "id": "reklama", "name": "Реклама и маркетинг" }
+      ]
+    },
+    {
+      "id": "yazyki-slova",
+      "name": "Языки и слова",
+      "subcategories": [
+        { "id": "etimologiya", "name": "Происхождение слов" },
+        { "id": "idiomy", "name": "Пословицы и поговорки" },
+        { "id": "pismennost", "name": "Алфавиты и письменность" }
+      ]
+    },
+    {
+      "id": "mifologiya-religiya",
+      "name": "Мифология и религия",
+      "subcategories": [
+        { "id": "grecheskaya-mifologiya", "name": "Греческая мифология" },
+        { "id": "skandinavskaya-mifologiya", "name": "Скандинавская мифология" },
+        { "id": "mirovye-religii", "name": "Мировые религии" },
+        { "id": "bibliya", "name": "Библия" }
+      ]
+    },
+    {
+      "id": "transport",
+      "name": "Транспорт",
+      "subcategories": [
+        { "id": "avtomobili", "name": "Автомобили" },
+        { "id": "aviaciya", "name": "Самолёты и авиация" },
+        { "id": "poezda", "name": "Железнодорожный транспорт" },
+        { "id": "korabli", "name": "Водный транспорт" }
+      ]
+    },
+    {
+      "id": "arhitektura",
+      "name": "Архитектура и достопримечательности",
+      "subcategories": [
+        { "id": "znamenitye-zdaniya", "name": "Знаменитые здания и сооружения" },
+        { "id": "hramy", "name": "Храмы" },
+        { "id": "stili-arhitektury", "name": "Стили архитектуры" }
+      ]
+    },
+    {
+      "id": "igry-razvlecheniya",
+      "name": "Игры и развлечения",
+      "subcategories": [
+        { "id": "videoigry", "name": "Видеоигры" },
+        { "id": "nastolnye-kartochnye", "name": "Настольные и карточные игры" },
+        { "id": "shahmaty", "name": "Шахматы" },
+        { "id": "golovolomki", "name": "Головоломки" }
+      ]
+    },
+    {
+      "id": "politika-obshchestvo",
+      "name": "Государство и политика",
+      "subcategories": [
+        { "id": "gosudarstva", "name": "Страны и государства" },
+        { "id": "organizacii", "name": "Международные организации" },
+        { "id": "pravo", "name": "Законы и право" }
+      ]
+    },
+    {
+      "id": "lichnosti",
+      "name": "Личности",
+      "subcategories": [
+        { "id": "lichnosti-uchyonye", "name": "Учёные" },
+        { "id": "lichnosti-pisateli", "name": "Писатели и поэты" },
+        { "id": "lichnosti-hudozhniki", "name": "Художники" },
+        { "id": "lichnosti-muzykanty", "name": "Музыканты и композиторы" },
+        { "id": "lichnosti-aktyory", "name": "Актёры и режиссёры" },
+        { "id": "sportsmeny", "name": "Спортсмены" },
+        { "id": "lichnosti-predprinimateli", "name": "Предприниматели" },
+        { "id": "citaty-lichnostey", "name": "Цитаты" }
+      ]
+    },
+    {
+      "id": "kultura-obshchestvo",
+      "name": "Культура и общество",
+      "subcategories": [
+        { "id": "prazdniki", "name": "Праздники" },
+        { "id": "obychai-tradicii", "name": "Обычаи и традиции" },
+        { "id": "obshchestvo", "name": "Общество" },
+        { "id": "zvyozdy", "name": "Звёзды и знаменитости" },
+        { "id": "premii", "name": "Премии и шоу" },
+        { "id": "korolevskie-osoby", "name": "Королевские особы" }
+      ]
+    }
+  ]
+}
