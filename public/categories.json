@@ -194,12 +194,10 @@
     },
     {
       "id": "mifologiya-religiya",
-      "name": "Мифология и религия",
+      "name": "Мифология",
       "subcategories": [
         { "id": "grecheskaya-mifologiya", "name": "Греческая мифология" },
-        { "id": "skandinavskaya-mifologiya", "name": "Скандинавская мифология" },
-        { "id": "mirovye-religii", "name": "Мировые религии" },
-        { "id": "bibliya", "name": "Библия" }
+        { "id": "skandinavskaya-mifologiya", "name": "Скандинавская мифология" }
       ]
     },
     {
@@ -233,7 +231,7 @@
     },
     {
       "id": "politika-obshchestvo",
-      "name": "Государство и политика",
+      "name": "Государство и право",
       "subcategories": [
         { "id": "gosudarstva", "name": "Страны и государства" },
         { "id": "organizacii", "name": "Международные организации" },

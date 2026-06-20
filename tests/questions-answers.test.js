@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { validateAnswerText, validateNoDashes } from '../src/content-rules.js'
+import { validateAnswerText, validateNoDashes, validateNoProhibited } from '../src/content-rules.js'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const questionsPath = join(here, '..', 'public', 'questions.json')
@@ -47,5 +47,22 @@ describe('public/questions.json — длина вариантов ответа',
     })
 
     expect(violations, `Тире вместо дефиса:\n${violations.join('\n')}`).toEqual([])
+  })
+
+  it('нет запрещённых ЯИ тем (3.4): эзотерика/гадания/предсказания', () => {
+    const violations = []
+
+    questions.forEach((question) => {
+      const fields = [['question', question.question], ['explanation', question.explanation]]
+      const answers = Array.isArray(question.answers) ? question.answers : []
+      answers.forEach((answer, index) => fields.push([`answer[${index}]`, answer]))
+
+      fields.forEach(([field, text]) => {
+        const { ok, reasons } = validateNoProhibited(text)
+        if (!ok) violations.push(`${question.id} ${field}: ${reasons.join(', ')} — "${text}"`)
+      })
+    })
+
+    expect(violations, `Запрещённый по 3.4 контент:\n${violations.join('\n')}`).toEqual([])
   })
 })

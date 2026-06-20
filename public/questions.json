@@ -14,12 +14,13 @@
         "priroda-zhivotnye",
         "biologiya"
       ],
-      "image": "assets/images/q_001.jpg",
+      "image": "assets/images/q_001.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Тихоходки переживают охлаждение до -272 °C - на один градус выше абсолютного нуля. В этом состоянии (криптобиоз) обмен веществ почти останавливается, а тело высыхает до 3% влажности.",
       "imageSearchQuery": "Криптобиоз",
-      "reviewStatus": "pending"
+      "reviewStatus": "pending",
+      "reviewNote": "а интереснее было узнать"
     },
     {
       "id": "q_002",
@@ -34,7 +35,7 @@
       "categories": [
         "drevnie-civilizacii"
       ],
-      "image": "assets/images/q_002.jpg",
+      "image": "assets/images/q_002.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Бронза - сплав меди и ~10% олова - заметно тверже чистой меди и лучше держит заточку. Само олово было редким и привозным, поэтому бронза стоила дороже меди - но именно прочность сделала её стандартом эпохи.",
@@ -54,7 +55,7 @@
       "categories": [
         "geografiya"
       ],
-      "image": "assets/images/q_003.jpg",
+      "image": "assets/images/q_003.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Байкал хранит около 23 500 км³ воды - примерно 20% всей жидкой пресной воды Земли, больше, чем все Великие озёра Северной Америки вместе взятые.",
@@ -74,7 +75,7 @@
       "categories": [
         "planety"
       ],
-      "image": "assets/images/q_004.jpg",
+      "image": "assets/images/q_004.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Венера вращается в сторону, противоположную большинству планет, поэтому восход - на западе. Бонус-курьёз: венерианские сутки (243 земных дня) длиннее венерианского года (225 дней).",
@@ -94,7 +95,7 @@
       "categories": [
         "internet"
       ],
-      "image": "assets/images/q_005.jpg",
+      "image": "assets/images/q_005.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Создатель Лу Монтулли позаимствовал термин \"magic cookie\" из Unix-программирования: так называли небольшой токен, который одна программа передаёт другой и получает обратно - браузер делает то же самое с сервером.",
@@ -115,7 +116,7 @@
         "anatomiya",
         "biologiya"
       ],
-      "image": "assets/images/q_006.jpg",
+      "image": "assets/images/q_006.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "В мозжечке около 69 млрд нейронов - больше половины всех нейронов мозга, хотя сам он занимает лишь ~10% его объёма.",
@@ -136,7 +137,7 @@
         "rasteniya",
         "biologiya"
       ],
-      "image": "assets/images/q_007.jpg",
+      "image": "assets/images/q_007.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "КПД фотосинтеза составляет лишь 1-3% от падающего солнечного света: большая часть энергии рассеивается листьями в виде тепла и флуоресценции - иначе хлорофилл перегревался бы и разрушался.",
@@ -157,7 +158,7 @@
         "pismennost",
         "drevnie-civilizacii"
       ],
-      "image": "assets/images/q_008.jpg",
+      "image": "assets/images/q_008.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Писцы Месопотамии срезали тростник под углом - клиновидный кончик давил в сырую глину и оставлял характерные клиновидные оттиски. Отсюда и название: «клинопись».",
@@ -177,7 +178,7 @@
       "categories": [
         "planety"
       ],
-      "image": "assets/images/q_009.jpg",
+      "image": "assets/images/q_009.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Большое красное пятно наблюдается с XVII века - более 350 лет. Этот шторм шире всей Земли и до сих пор не утих.",
@@ -198,7 +199,7 @@
         "priroda-zhivotnye",
         "biologiya"
       ],
-      "image": "assets/images/q_010.jpg",
+      "image": "assets/images/q_010.webp",
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Печень восстанавливает исходную массу за несколько недель - это основа трансплантации долей живым донором: хирург отрезает до 70% органа, и оба фрагмента вырастают заново.",
@@ -343,7 +344,8 @@
       "requiresImage": false,
       "explanation": "Александр Флеминг вернулся из отпуска и обнаружил, что плесень Penicillium notatum уничтожила колонии бактерий вокруг себя. Это случайное наблюдение в 1928 году привело к созданию пенициллина - первого антибиотика, за который Флеминг, Флори и Чейн получили Нобелевскую премию в 1945 году.",
       "imageSearchQuery": "Alexander Fleming penicillin mold petri dish discovery",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "интереснее было бы узнать, что пенициллин изначально был именно плесенью, а не дрожжами или водорослями"
     },
     {
       "id": "q_018",
@@ -363,7 +365,7 @@
       "requiresImage": false,
       "explanation": "В покое сердце перекачивает около 5 литров в минуту - за сутки это 7 200 литров, то есть примерно 7 000 литров - целая цистерна.",
       "imageSearchQuery": "heart pumping blood volume cardiac output diagram",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_019",
@@ -383,7 +385,7 @@
       "requiresImage": false,
       "explanation": "Виктория была носительницей гемофилии и через дочерей и внучек передала её в дома Романовых, Гогенцоллернов и испанских Бурбонов; самый известный случай - цесаревич Алексей, у которого малейшая травма грозила смертельным кровотечением.",
       "imageSearchQuery": "hemophilia royal disease Romanov Alexei Tsarevich history",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_020",
@@ -403,7 +405,8 @@
       "requiresImage": false,
       "explanation": "Золотое сечение задаётся именно этим: целое/большая = большая/меньшая ≈ 1,618. Это единственное деление отрезка, при котором два отношения совпадают - отсюда ощущение «идеальных» пропорций в архитектуре и живописи.",
       "imageSearchQuery": "golden ratio spiral mathematics",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "сложно для восприятия, лучше задать вопрос так, чтобы ответом было золотое сечение"
     },
     {
       "id": "q_021",
@@ -423,7 +426,8 @@
       "requiresImage": false,
       "explanation": "Бесконечная сумма 1/2 + 1/4 + 1/8 + ... равна ровно 1 - сходящийся ряд. Зенон Элейский (V в. до н.э.) не знал теории пределов: бесконечное число шагов укладывается в конечное время, если шаги уменьшаются достаточно быстро.",
       "imageSearchQuery": "Zeno paradox Achilles tortoise illustration",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "сложно, и нет контекста. Какой Ахилл, о чем речь? здесь нет интересного факта, это уже просто разъяснение теоремы на лекции, плохой пример"
     },
     {
       "id": "q_022",
@@ -463,7 +467,8 @@
       "requiresImage": false,
       "explanation": "Теорема о четырёх красках (любую карту можно раскрасить 4 цветами без смежных одноцветных областей) была сформулирована в 1852 году и доказана в 1976 году Аппелем и Хакеном - компьютер перебрал 1936 конфигураций. Это первое в истории математики доказательство, которое невозможно проверить вручную.",
       "imageSearchQuery": "four color theorem map coloring mathematics",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "здесь я бы явно писал \"Теорему Ферма\", это устойчивое словосочетание"
     },
     {
       "id": "q_024",
@@ -483,7 +488,7 @@
       "requiresImage": false,
       "explanation": "51 = 3 × 17, поэтому составное. 53, 59 и 61 - простые. Делимость 51 на 3 легко проверить по сумме цифр (5+1=6), хотя на глаз 51 часто принимают за простое.",
       "imageSearchQuery": "prime numbers mathematics chart",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_025",
@@ -503,7 +508,7 @@
       "requiresImage": false,
       "explanation": "Гипотеза Римана - единственная из 23 задач Гильберта, вошедшая в список задач тысячелетия с призом $1 млн: она связывает нули дзета-функции с расположением простых чисел и остаётся открытой уже более 160 лет. Остальные 3 варианта либо решены (Ферма - Уайлс в 1995, Пуанкаре - Перельман в 2003), либо вовсе не из этого списка.",
       "imageSearchQuery": "David Hilbert mathematician portrait",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_026",
@@ -564,7 +569,7 @@
       "requiresImage": false,
       "explanation": "Синий или сине-чёрный язык - характерная черта чау-чау: высокая концентрация меланина окрашивает слизистую к 8-10 неделям жизни щенка. У всех остальных пород, включая хаски, лабрадора и бульдога, язык розовый.",
       "imageSearchQuery": "chow chow dog blue tongue",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_029",
@@ -605,7 +610,8 @@
       "requiresImage": false,
       "explanation": "Все 20 зубов морской свинки (4 резца и 16 коренных) растут непрерывно всю жизнь - если животное не стачивает их твёрдым кормом, зубы вырастают настолько, что мешают есть. Клыков нет совсем: между резцами и коренными - пустой промежуток, диастема.",
       "imageSearchQuery": "guinea pig teeth close up",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "вопрос хороший, но неправильные ответы бестолковые. Все знают, что у свинок не светятся зубы в темноте, а эмаль с двух сторон это, как раз, нормально"
     },
     {
       "id": "q_031",
@@ -645,7 +651,7 @@
       "requiresImage": false,
       "explanation": "Чихуахуа названа по штату Чиуауа на севере Мексики - именно там в XIX веке европейцы впервые встретили эту крошечную собаку и стали её вывозить. Бигль, шнауцер и спаниель географической привязки в названии не имеют.",
       "imageSearchQuery": "beagle dog breed portrait",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_034",
@@ -665,7 +671,8 @@
       "requiresImage": false,
       "explanation": "Римские анатомы сравнивали движение мышцы под кожей с пробегающим мышонком - то же слово musculus обозначало обоих. Метафора оказалась живучей: через латынь она попала во все романские и германские языки, включая английское muscle.",
       "imageSearchQuery": "anatomy muscle latin etymology illustration",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved",
+      "reviewNote": "интересно!"
     },
     {
       "id": "q_035",
@@ -685,7 +692,7 @@
       "requiresImage": false,
       "explanation": "Чарльз Бойкотт - британский управляющий поместьем в Ирландии: в 1880 году арендаторы отказались с ним иметь дело, прогнали работников и перестали торговать с ним - и газеты описали этот метод его именем, которое мгновенно вошло в европейские языки.",
       "imageSearchQuery": "Captain Boycott Ireland 1880 land league",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_036",
@@ -705,7 +712,8 @@
       "requiresImage": false,
       "explanation": "Этьен де Силуэт - французский министр финансов 1759 года, печально известный жёсткой экономией. Его имя стало насмешливым синонимом всего дешёвого и упрощённого - в том числе контурных портретов без деталей, которые были дешевле живописных.",
       "imageSearchQuery": "silhouette portrait 18th century France Étienne de Silhouette",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "я бы спросил под другим углом - чем был известен министр финансов Силуэт, давший название жанру портретов без деталей? - своей экономике. Тогда этот факт запомнится"
     },
     {
       "id": "q_037",
@@ -867,7 +875,7 @@
       "requiresImage": false,
       "explanation": "Брак Генриха с Екатериной Арагонской (вдовой его брата) был изначально запрещён - и разрешён лишь специальной буллой-диспенсацией Папы Юлия II. Теперь Клименту VII пришлось бы признать ошибку предшественника, а заодно оскорбить племянницу Карла V, чья армия только что взяла Рим.",
       "imageSearchQuery": "Catherine of Aragon Henry VIII Mary I portrait",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_045",
@@ -887,7 +895,8 @@
       "requiresImage": false,
       "explanation": "В вакууме скафандр Леонова раздулся настолько, что он не мог согнуть ни руки, ни ноги и не пролезал в шлюз. Леонов принял решение самостоятельно стравить давление до опасного предела - и только так смог вернуться на борт.",
       "imageSearchQuery": "Alexei Leonov spacewalk 1965",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "Раздулся скафандр - достаточно"
     },
     {
       "id": "q_046",
@@ -1007,7 +1016,8 @@
       "requiresImage": false,
       "explanation": "NASA официально протестовало, называя Тито угрозой безопасности, и угрожало сократить сотрудничество с Россией. Роскосмос всё равно отправил его на МКС в 2001 году на «Союзе ТМ-32», получив около 20 миллионов долларов.",
       "imageSearchQuery": "Dennis Tito space tourist Soyuz ISS 2001",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "нет, неожиданный - это субъективно. Интересный фактом будет то, в какой году он полетел или сколько дне был на орбите. Не стоит полностью строго исключать вопросы такого характера"
     },
     {
       "id": "q_052",
@@ -1028,88 +1038,6 @@
       "explanation": "«Вояджер-1» в 2012 году пересёк гелиопаузу и вышел в межзвёздное пространство - это официально подтверждено NASA. «Пионер-10» тоже вышел за пределы гелиосферы, но «Вояджер-1» сделал это первым.",
       "imageSearchQuery": "Voyager 1 spacecraft interstellar space NASA",
       "reviewStatus": "approved"
-    },
-    {
-      "id": "q_053",
-      "question": "Что в архитектуре Золотого храма символизирует равенство всех людей?",
-      "answers": [
-        "4 входа с разных сторон",
-        "Купол из чистого золота",
-        "Бассейн вокруг здания",
-        "Белые мраморные стены"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "mirovye-religii"
-      ],
-      "image": "assets/images/q_053.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Харимандир-Сахиб в Амритсаре имеет 4 входа, открытых со всех сторон света - это намеренный архитектурный жест: храм принимает всех, независимо от касты, веры и происхождения.",
-      "imageSearchQuery": "Golden Temple Amritsar Harmandir Sahib",
-      "reviewStatus": "rejected",
-      "reviewNote": "а можно над ответами все же подумать лучше? ни один из неправильных вариантов ответа даже близко не натягивается на логику \"равенства людей\". Как бассейн можно прицепить к равенству? "
-    },
-    {
-      "id": "q_054",
-      "question": "Что особенного в Гатах - древнейшей части Авесты?",
-      "answers": [
-        "Написаны от первого лица пророком",
-        "Составлены после смерти Заратустры",
-        "Хранятся только в устной традиции",
-        "Дошли только в греческих переводах"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "mirovye-religii"
-      ],
-      "image": "assets/images/q_054.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Гаты - 17 гимнов, написанных от первого лица и считающихся прямой речью самого Заратустры (предположительно X-XII вв. до н.э.). Это делает их одним из древнейших в мире религиозных текстов с установленным личным автором.",
-      "imageSearchQuery": "Avesta ancient Zoroastrian manuscript Gathas",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_055",
-      "question": "Последователи какой религии считают все мировые религии - иудаизм, христианство, ислам и другие - ступенями к одной истине?",
-      "answers": [
-        "Бахаи",
-        "Мормонизм",
-        "Синтоизм",
-        "Суфизм"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "mirovye-religii"
-      ],
-      "image": "assets/images/q_055.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Вера бахаи возникла в Иране в 1844 году и провозглашает единство всех религий: Будда, Моисей, Христос, Мухаммад - все посланники одного бога. Сегодня у неё около 5-8 миллионов последователей по всему миру.",
-      "imageSearchQuery": "Bahai Lotus Temple New Delhi",
-      "reviewStatus": "pending"
-    },
-    {
-      "id": "q_056",
-      "question": "Какой древний индийский текст процитировал Оппенгеймер при первом испытании атомной бомбы?",
-      "answers": [
-        "Бхагавад-гита",
-        "Ригведа",
-        "Упанишады",
-        "Рамаяна"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "mirovye-religii"
-      ],
-      "image": "assets/images/q_056.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Увидев ядерный гриб в 1945 году, физик Роберт Оппенгеймер вспомнил строку из «Бхагавад-гиты»: «Я стал Смертью, разрушителем миров». В этом тексте бог Кришна наставляет воина Арджуну перед битвой.",
-      "imageSearchQuery": "Bhagavad Gita Krishna Arjuna chariot painting",
-      "reviewStatus": "approved",
-      "reviewNote": "очень сложно, задротство"
     },
     {
       "id": "q_057",
@@ -1170,7 +1098,7 @@
       "requiresImage": false,
       "explanation": "«Золотая перчатка» (с 2010 года - Lev Yashin Award) - приз лучшему голкиперу турнира, введённый ФИФА в 1994 году. Приз носит имя советского вратаря Льва Яшина, единственного голкипера в истории, получившего «Золотой мяч».",
       "imageSearchQuery": "FIFA World Cup Golden Glove award goalkeeper",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_060",
@@ -1210,7 +1138,8 @@
       "requiresImage": false,
       "explanation": "Гарет Бэйл выиграл Лигу чемпионов с «Реалом» в 2014, 2016 и 2018 годах и забил финальные голы в 2018-м против «Ливерпуля», однако «Золотого мяча» за карьеру так и не получил. Роналду (5), Модрич (1) и Зидан (1) - лауреаты.",
       "imageSearchQuery": "Ballon d'Or trophy France Football award",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved",
+      "reviewNote": "интересно!"
     },
     {
       "id": "q_062",
@@ -1230,7 +1159,8 @@
       "requiresImage": false,
       "explanation": "Золотой гол (1993-2004) должен был стимулировать атакующую игру, но дал обратный эффект: команды боялись пропустить и играли сверхосторожно в дополнительное время, превращая овертайм в скучное выжидание. ФИФА отменила правило как не достигшее цели.",
       "imageSearchQuery": "football extra time overtime World Cup knockout",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "я бы спросил вообще, в чем суть этого правила"
     },
     {
       "id": "q_063",
@@ -1250,7 +1180,8 @@
       "requiresImage": false,
       "explanation": "FTP умел передавать файлы, но не понимал гипертекст: он не мог обрабатывать встроенные ссылки и формировать страницу на лету из связанных ресурсов. HTTP создавался специально для этого - в 1989-1991 годах в ЦЕРНе, для обмена научными документами с перекрёстными ссылками.",
       "imageSearchQuery": "HTTP protocol diagram web browser server",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "слишком узко, про интерет одни вопросы про протоколы, неинтересно"
     },
     {
       "id": "q_068",
@@ -1270,7 +1201,8 @@
       "requiresImage": false,
       "explanation": "До DNS все компьютеры интернета скачивали единый файл HOSTS.TXT, который вручную поддерживал Стэнфордский институт. В 1983 году Пол Мокапетрис предложил DNS: распределённую иерархическую систему, которая масштабируется до миллиардов адресов.",
       "imageSearchQuery": "DNS domain name system lookup resolver diagram",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "задротство для сисадминов"
     },
     {
       "id": "q_069",
@@ -1310,7 +1242,8 @@
       "requiresImage": false,
       "explanation": "Сертификат, выданный доверенным центром, криптографически связан с доменным именем. Перехватчик не может подделать сертификат для чужого домена - браузер увидит несоответствие и предупредит пользователя. Именно это делает HTTPS защитой от MITM, а не просто шифрование.",
       "imageSearchQuery": "man in the middle attack network security interception diagram",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "задротство, нужны более общие вопросы и интересные факты про интернет, это текст из уебниаа для безопасников"
     },
     {
       "id": "q_073",
@@ -1350,7 +1283,7 @@
       "requiresImage": false,
       "explanation": "При высыхании влажной известковой штукатурки происходит карбонизация: гидроксид кальция реагирует с CO2 и превращается в карбонат кальция. Пигменты оказываются замурованы внутри этой кристаллической структуры - они не на стене, а в стене.",
       "imageSearchQuery": "fresco technique wet plaster Renaissance wall painting",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_075",
@@ -1370,7 +1303,7 @@
       "requiresImage": false,
       "explanation": "Ван Гог использовал технику импасто - нанесение густой, нетронутой краски мастихином или щетинной кистью. Местами слой на его холстах достигает сантиметра, создавая осязаемый рельеф мазка.",
       "imageSearchQuery": "impasto painting technique thick paint texture Van Gogh",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_076",
@@ -1410,7 +1343,8 @@
       "requiresImage": false,
       "explanation": "Мантенья написал Христа ногами к зрителю, применив радикальный ракурс - резкое перспективное сокращение. Тело длиной почти 2 метра укладывается в холст 68x81 см: ступни огромные, голова кажется маленькой.",
       "imageSearchQuery": "Mantegna Dead Christ foreshortening perspective painting",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "это очевидно"
     },
     {
       "id": "q_078",
@@ -1430,7 +1364,7 @@
       "requiresImage": false,
       "explanation": "Хокусай начал серию как «36 видов», но она пользовалась таким спросом, что издатель допечатал ещё 10 листов - итого 46 гравюр. «Большая волна у Канагавы» входит в первоначальные 36.",
       "imageSearchQuery": "Hokusai Great Wave Kanagawa woodblock print Fuji",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_079",
@@ -1450,7 +1384,7 @@
       "requiresImage": false,
       "explanation": "Теотокопулос родился на Крите (тогда венецианская территория), учился у Тициана в Венеции и переехал в Толедо уже сложившимся мастером. Испанцы не утруждались труднопроизносимым именем и звали его El Greco - Грек.",
       "imageSearchQuery": "El Greco Toledo painting elongated figures",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_080",
@@ -1470,7 +1404,8 @@
       "requiresImage": false,
       "explanation": "Йоханнес Иттен разработал свой 12-частный круг в Баухаусе в 1920-х, опираясь на то, как глаз и психика воспринимают цвет, а не на физику длин волн. Поэтому он используется в обучении художников, а не колористов-инженеров.",
       "imageSearchQuery": "Itten color wheel 12 hues Bauhaus art theory",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "сложно, опять тема из лекции. Интересный факт был бы - как называется такой круг"
     },
     {
       "id": "q_081",
@@ -1490,7 +1425,8 @@
       "requiresImage": false,
       "explanation": "На килограмм шафрана уходит около 150 000 цветков крокуса, каждый из которых даёт всего 3 рыльца и срывается вручную на рассвете за один сезон. Это делает шафран самой дорогой пряностью - дороже золота по весу.",
       "imageSearchQuery": "risotto alla milanese saffron yellow",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "здесь вообще-то часть вопроса ровно совпадает с ответом, это же бред. Куда интереснее факт, что шафран делают из крокусов"
     },
     {
       "id": "q_082",
@@ -1530,7 +1466,7 @@
       "requiresImage": false,
       "explanation": "Традиционное меню якитории включает все части птицы отдельными шпажками: грудку, бедро, кожу (каva), печень (reba), сердечки, хрящи. Принцип «нос-в-хвост» по-японски - это и есть суть якитори, а не просто куриное барбекю.",
       "imageSearchQuery": "shabu shabu Japanese hot pot thin beef",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_084",
@@ -1632,7 +1568,7 @@
       "requiresImage": false,
       "explanation": "Пик видового разнообразия динозавров пришёлся на меловой период (145-66 млн лет назад): именно тогда возникли цератопсиды, анкилозавры, гадрозавры и крупные тираннозавриды. Юрский период знаменит гигантскими зауроподами.",
       "imageSearchQuery": "Cretaceous dinosaurs diversity illustration",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_096",
@@ -1713,7 +1649,8 @@
       "requiresImage": false,
       "explanation": "Гидра обладала регенерацией: на месте каждой срубленной головы вырастали две новые. Геракл понял, что прижигая рану сразу после удара, он не даёт ткани восстановиться. Помогал ему племянник Иолай, державший факел.",
       "imageSearchQuery": "Lernaean Hydra nine heads Heracles Greek myth",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "слишком много текста в ответах - нужно 3 слова максимум, 4 только если вопрос отличный, а сократить какие-то ответы не получается. 5 вообще нельзя. Здесь и вопрос очевидный, интереснее было бы спросить, как называлась гидра"
     },
     {
       "id": "q_100",
@@ -1774,7 +1711,8 @@
       "requiresImage": false,
       "explanation": "«Анадиомена» происходит от греческого «анадюомай» - выныривать, всплывать. Эпитет отсылает к мифу о рождении Афродиты из морской пены у берегов Кипра: богиня буквально «восстала из волн».",
       "imageSearchQuery": "Aphrodite Anadyomene rising from sea Greek mythology",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "но в имени Афродиты же только имя Афродита.."
     },
     {
       "id": "q_103",
@@ -1794,7 +1732,7 @@
       "requiresImage": false,
       "explanation": "Пение Орфея растрогало Аида и Персефону настолько, что они нарушили главный закон: позволили душе вернуться. Единственное условие - идти и не оглядываться до выхода на свет. Орфей не выдержал у самого порога.",
       "imageSearchQuery": "Orpheus Eurydice Hades underworld Greek mythology",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_104",
@@ -1814,7 +1752,8 @@
       "requiresImage": false,
       "explanation": "От имени Сапфо (Sappho) образовалось слово «сапфическая любовь» и «сапфизм», а «лесбиянка» - от острова Лесбос, где она жила. Оба термина зафиксированы с античности; сапфический также обозначает четырёхстрочную строфу, которую она изобрела.",
       "imageSearchQuery": "Delos island birthplace Apollo Artemis Greek mythology",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "сложная конструкция вопроса, при этом элементарный ответ. Сапфо - Сапфическая, очевидно же"
     },
     {
       "id": "q_105",
@@ -1834,7 +1773,8 @@
       "requiresImage": false,
       "explanation": "«Подножка» (running board) позволяла пассажирам забираться в высокие открытые автомобили и служила опорой для водителя при заводке рукояткой. К 1940-м, когда кузова стали ниже и закрытее, она исчезла с большинства моделей.",
       "imageSearchQuery": "1920s car running board vintage automobile",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "что за некорректная формулировка вопроса, в русском языке нет уточнений через два тире. И интереснее было бы спросить, до каких годов подножка была обязательна на автомобиль\n"
     },
     {
       "id": "q_106",
@@ -1915,7 +1855,7 @@
       "requiresImage": false,
       "explanation": "ЗАЗ-965 (1960-1969) имел характерный покатый горб над задней частью кузова, где был спрятан двигатель с воздушным охлаждением - отсюда и прозвище «горбатый». Воздушное охлаждение убирало радиатор и упрощало конструкцию, но делало мотор шумнее.",
       "imageSearchQuery": "ЗАЗ Запорожец советский автомобиль",
-      "reviewStatus": "pending"
+      "reviewStatus": "approved"
     },
     {
       "id": "q_110",
@@ -1935,7 +1875,8 @@
       "requiresImage": false,
       "explanation": "Японская чёрная эмаль высыхала за несколько часов, тогда как другие цвета требовали до 2 недель. На конвейере Форда каждая минута была на счету, поэтому единственным вариантом стал чёрный - отсюда и знаменитая фраза Форда: «любой цвет, если он чёрный». Прозвище же Tin Lizzie («Жестянка Лиззи») отсылало к дешевизне и жестяному виду машины, а не к цвету.",
       "imageSearchQuery": "Ford Model T black tin lizzie 1920s",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "намного интереснее тот факт, что называли его Жестянка Лиззи"
     },
     {
       "id": "q_111",
@@ -2078,7 +2019,8 @@
       "requiresImage": false,
       "explanation": "Богатое кровоснабжение позволяло пластинам работать как радиатор: разворачиваясь к солнцу, динозавр нагревался, а на ветру - охлаждался. Способность пластин краснеть от притока крови, вероятно, использовалась и для сигнализации сородичам.",
       "imageSearchQuery": "stegosaurus plates thermoregulation blood vessels",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "у нас уже есть вопрос и он звучит намного лучше - просто \"какую функцию\". Зачем в вопросе еще писать про сеть сосудов, это делает ответ очевидным"
     },
     {
       "id": "q_118",
@@ -2099,7 +2041,7 @@
       "requiresImage": false,
       "explanation": "Чем крупнее яйцо, тем толще должна быть скорлупа, но тогда зародыш задохнётся - воздух не проходит. Поэтому даже гигантские зауроподы откладывали яйца размером не больше волейбольного мяча, а малыши вырастали быстро.",
       "imageSearchQuery": "sauropod dinosaur egg size fossil",
-      "reviewStatus": "approved"
+      "reviewStatus": "pending"
     },
     {
       "id": "q_119",
@@ -5156,7 +5098,8 @@
       "requiresImage": false,
       "explanation": "Московская битва (1941-1942) включала советскую стратегическую оборонительную фазу, остановившую вермахт у столицы. «Тайфун» - немецкое наступление на Москву, «Уран» - окружение под Сталинградом, «Багратион» - освобождение Белоруссии.",
       "imageSearchQuery": "Курская дуга оборона советские войска 1943",
-      "reviewStatus": "pending"
+      "reviewStatus": "rejected",
+      "reviewNote": "зачем так странно формулировать вопросы? Какая из этих операций Второй мировой была оборонительной, а не наступательной? И так всегда понятно, что вариантов ответа 4, а правильный из них - один. Никогда не уточняй это"
     },
     {
       "id": "q_265",
@@ -5261,7 +5204,8 @@
       "requiresImage": false,
       "explanation": "Перекидывание через стены трупов животных и людей, умерших от чумы или иных болезней, - задокументированная осадная тактика. Именно так, по версии ряда историков, чума попала из Крыма в Европу в XIV веке через осаждённую Каффу.",
       "imageSearchQuery": "medieval siege catapult castle biological warfare",
-      "reviewStatus": "pending"
+      "reviewStatus": "pending",
+      "reviewNote": "тоже можно формулировать лаконичнее. Во время осады замков в Средневековье атакующие часто забрасывали за стены не только камни, но и кое-что другое. Что именно?"
     },
     {
       "id": "q_270",

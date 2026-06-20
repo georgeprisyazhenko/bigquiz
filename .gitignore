@@ -3,10 +3,34 @@ dist/
 .DS_Store
 .env
 
-# Транзиентные артефакты пайплайна вопросов
+# Оригиналы картинок (исходники до сжатия в WebP) — хранятся локально, в архив/репо не нужны
+scripts/images-raw/
+
+# Транзиентные артефакты пайплайна вопросов (I/O воркфлоу, шарды по категориям)
 scripts/gen-out/
 scripts/edit-in/
 scripts/edit-out/
 scripts/audit-in/
 scripts/audit-out/
+scripts/annotate-out/
+scripts/clean-in/
+scripts/clean-out/
+scripts/factcheck-in/
+scripts/factcheck-out/
+scripts/judgecat-in/
+scripts/judgecat-out/
+scripts/rerepair-in/
+scripts/rerepair-out/
+scripts/rescue-in/
+scripts/rescue-out/
+scripts/scrape-out/
+scripts/pilot-*.json
+
+# Бэкапы данных
 public/questions.backup-*.json
+public/*.backup-*.json
+scripts/questions.backup-*.json
+scripts/questions.reviewed-backup.json
+
+# Локальная конфигурация инструментов
+.claude/

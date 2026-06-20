@@ -1,6 +1,7 @@
 import Phaser from 'phaser'
 import './style.css'
 import { initYsdk, loadBestRecord, saveBestRecord } from './ysdk.js'
+import { validateAnswerText, validateNoProhibited } from './content-rules.js'
 
 const GAME_WIDTH = 1120
 const GAME_HEIGHT = 640
@@ -11,7 +12,7 @@ const ANSWERS_BEFORE_AD = 5
 const BLITZ_DURATION_MS = 60000          // длительность одного забега
 const BLITZ_COUNTDOWN_S = 3              // отсчёт 3-2-1 перед стартом
 const BLITZ_TICK_MS = 100               // шаг обновления таймера/шкалы
-const NEXT_QUESTION_DELAY_BLITZ_MS = 400 // короткая пауза показа ответа в Блице
+const NEXT_QUESTION_DELAY_BLITZ_MS = 500 // короткая пауза показа ответа в Блице
 const BLITZ_STATE_KEY = 'bigquiz_blitz_state' // localStorage: незавершённый забег
 
 // Техническое имя лидерборда из Консоли разработчика (сортировка по убыванию,
@@ -109,9 +110,9 @@ const IMAGE_HEIGHT = 250
 const IMAGE_WIDTH = 333
 const IMAGE_X = CONTENT_X + Math.round((CONTENT_WIDTH - IMAGE_WIDTH) / 2)
 const ANSWERS_START_Y = 484
-const ANSWER_BUTTON_WIDTH = 256
+const ANSWER_BUTTON_WIDTH = 261   // 261·2 + 18 = 540 = CONTENT_WIDTH
 const ANSWER_BUTTON_HEIGHT = 56
-const ANSWER_GAP_X = 28
+const ANSWER_GAP_X = 18
 const ANSWER_GAP_Y = 12
 
 // --- HUD Блица: полоса вверху карточки (таймер слева, счёт справа) ---
@@ -424,22 +425,15 @@ class GameScene extends Phaser.Scene {
     const pause = () => {
       this.muteSound()
       this.ysdk?.features?.GameplayAPI?.stop?.()
-      // Таймер Блица не должен «течь», пока вкладка свёрнута/неактивна. Списываем
-      // время до текущего момента, замораживаем тик и сохраняем остаток на диск.
-      if (this.blitzTimerEvent && !this.blitzTimerEvent.paused) {
-        this.syncBlitzRemaining()
-        this.blitzTimerEvent.paused = true
-        this.saveBlitzState()
-      }
+      // Таймер Блица намеренно НЕ замораживаем при сворачивании вкладки — иначе
+      // можно было бы спокойно подсмотреть ответ в соседней вкладке «на паузе».
+      // Время продолжает идти: syncBlitzRemaining() по performance.now() при
+      // возврате спишет реально прошедшее время. Заморозка — только при
+      // перезагрузке страницы (остаток сохраняется в beforeunload).
     }
     const resume = () => {
       this.unmuteSound()
       this.ysdk?.features?.GameplayAPI?.start?.()
-      if (this.blitzTimerEvent && this.blitzTimerEvent.paused) {
-        // Сбрасываем точку отсчёта, чтобы пауза не списалась как прошедшее время.
-        this._blitzLastTick = performance.now()
-        this.blitzTimerEvent.paused = false
-      }
     }
 
     this.ysdk?.on?.('game_api_pause', pause)
@@ -570,6 +564,26 @@ class GameScene extends Phaser.Scene {
 
       if (!Array.isArray(question.answers) || question.answers.length !== 4) {
         errors.push(`Question ${question.id || questionIndex} must have exactly 4 answers`)
+      }
+
+      // Длина вариантов — мягкое предупреждение (не роняем игру: отображение
+      // прикрыто гарантией ≤2 строк в makeAnswerLabel). Жёсткий гейт — тесты.
+      if (Array.isArray(question.answers)) {
+        question.answers.forEach((answer, answerIndex) => {
+          const { ok, reasons } = validateAnswerText(answer)
+          if (!ok) {
+            warnings.push(
+              `Question ${question.id || questionIndex} answer[${answerIndex}] "${answer}": ${reasons.join(', ')}`
+            )
+          }
+        })
+      }
+
+      // Запрещённые ЯИ темы (3.4, эзотерика/гадания) — мягкое предупреждение в игре,
+      // жёсткий гейт в тестах. Политику/религию здесь не ловим (нужен LLM-судья, A.0).
+      for (const text of [question.question, question.explanation]) {
+        const res = validateNoProhibited(text)
+        if (!res.ok) warnings.push(`Question ${question.id || questionIndex}: ${res.reasons.join(', ')}`)
       }
 
       if (
@@ -1733,12 +1747,15 @@ class GameScene extends Phaser.Scene {
 
     const extensionMatch = normalizedPath.match(/\.(jpg|jpeg|png|webp|gif)$/i)
 
+    // .webp пробуем первым: build-конвейер (scripts/optimize-images.js) всегда
+    // отдаёт webp, поэтому исходное расширение в questions.json может быть устаревшим
+    // (.jpg). Так избегаем 404 на каждую картинку до фолбэка.
     if (!extensionMatch) {
       return [
+        `${normalizedPath}.webp`,
         `${normalizedPath}.jpg`,
         `${normalizedPath}.jpeg`,
         `${normalizedPath}.png`,
-        `${normalizedPath}.webp`,
         `${normalizedPath}.gif`
       ]
     }
@@ -1746,11 +1763,11 @@ class GameScene extends Phaser.Scene {
     const pathWithoutExtension = normalizedPath.replace(/\.(jpg|jpeg|png|webp|gif)$/i, '')
 
     const candidates = [
+      `${pathWithoutExtension}.webp`,
       normalizedPath,
       `${pathWithoutExtension}.jpg`,
       `${pathWithoutExtension}.jpeg`,
       `${pathWithoutExtension}.png`,
-      `${pathWithoutExtension}.webp`,
       `${pathWithoutExtension}.gif`
     ]
 
@@ -1859,11 +1876,10 @@ class GameScene extends Phaser.Scene {
 
   // Подпись варианта ответа. Многословные ответы переносятся автопереносом;
   // длинное слово с дефисом (нет пробела — автоперенос не срабатывает) ломаем
-  // по дефису, а совсем длинное слово без дефиса слегка ужимаем по шрифту —
-  // чтобы текст не упирался в края кнопки.
+  // по дефису. Гарантия: текст никогда не занимает >2 строк и не шире плашки —
+  // если не влезает, ужимаем шрифт. Для валидных ответов (см. content-rules.js)
+  // ужатие не требуется; это страховка от просочившихся длинных ответов.
   makeAnswerLabel(centerX, centerY, answer, maxWidth) {
-    const baseSize = parseInt(FONT_SIZE_MD, 10)
-
     const label = this.makeText(centerX, centerY, answer, {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_MD,
@@ -1877,8 +1893,10 @@ class GameScene extends Phaser.Scene {
       label.setText(answer.replace('-', '-\n'))
     }
 
-    let size = baseSize
-    while (label.width > maxWidth && size > 12) {
+    const lineCount = () => label.getWrappedText(label.text).length
+
+    let size = parseInt(FONT_SIZE_MD, 10)
+    while ((label.width > maxWidth || lineCount() > 2) && size > 11) {
       size -= 1
       label.setFontSize(`${size}px`)
     }
@@ -1911,7 +1929,7 @@ class GameScene extends Phaser.Scene {
       this.setCursorPointer(button)
 
       const label = this.makeAnswerLabel(
-        x + buttonWidth / 2, y + buttonHeight / 2, answer, buttonWidth - 40
+        x + buttonWidth / 2, y + buttonHeight / 2, answer, buttonWidth - 24
       )
 
       button.on('pointerover', () => {

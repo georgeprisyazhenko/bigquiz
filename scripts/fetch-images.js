@@ -16,6 +16,7 @@ import path from 'path';
 import https from 'https';
 import http from 'http';
 import { fileURLToPath } from 'url';
+import { optimizeImage } from './optimize-images.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -179,9 +180,11 @@ async function processQuestion(question) {
 
   try {
     await downloadFile(imgUrl, destPath);
-    const sizeKb = Math.round(fs.statSync(destPath).size / 1024);
-    console.log(`  [OK] ${id}.${ext} (${sizeKb} KB) ← ${imgUrl.slice(0, 80)}…`);
-    return { id, status: 'ok', file: `${id}.${ext}` };
+    // Сразу ужимаем в WebP и уносим оригинал в scripts/images-raw/ —
+    // в public/ (а значит в архив) попадает только лёгкий .webp.
+    const { beforeKb, afterKb, webp } = await optimizeImage(destPath);
+    console.log(`  [OK] ${webp} (${beforeKb} KB → ${afterKb} KB) ← ${imgUrl.slice(0, 80)}…`);
+    return { id, status: 'ok', file: webp };
   } catch (e) {
     console.log(`  [ошибка скачивания] ${id}: ${e.message}`);
     return { id, status: 'error', error: e.message };

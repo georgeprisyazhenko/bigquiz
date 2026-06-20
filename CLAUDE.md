@@ -7,8 +7,20 @@
 - `npm run dev` — запустить dev-сервер Vite с HMR
 - `npm run build` — собрать production-версию в `dist/`
 - `npm run preview` — запустить production-версию локально
+- `npm test` — прогнать тесты (vitest, один прогон); `npm run test:watch` — в watch-режиме
 
-Тестовый runner, linter и formatter не настроены.
+Linter и formatter не настроены.
+
+## Обязательное правило: контент-правила ответов
+
+Длина вариантов ответа проверяется кодом — единый источник правды
+`src/content-rules.js` (`validateAnswerText`, лимиты `MAX_ANSWER_*`). Им пользуются
+и валидация в игре (`validateQuestions`, мягкое предупреждение), и тесты
+(`tests/questions-answers.test.js` — жёсткий гейт по `public/questions.json`).
+
+**При изменении лимитов меняй только `src/content-rules.js`** — и игра, и тесты
+подхватят. После правок в `public/questions.json` прогоняй `npm test`: длинные
+ответы (не влезающие в 2 строки) роняют data-тест.
 
 ## Архитектура
 
