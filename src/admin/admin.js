@@ -445,13 +445,18 @@ function gamePreview(q) {
   card.appendChild(gameImage(q))
 
   // Порядок ответов — те же правила, что в игре (src/card-rules.js): числа по убыванию.
+  // Подсветки верного НЕТ — на проде в исходном состоянии карточки её тоже нет
+  // (иначе ответ виден). Какой верный — показано справа.
   const display = orderAnswers(q)
   const ans = document.createElement('div')
   ans.className = 'game-answers'
-  ;(display.answers || []).forEach((a, i) => {
+  ;(display.answers || []).forEach((a) => {
     const el = document.createElement('div')
-    el.className = 'game-answer' + (i === display.correctAnswerIndex ? ' correct' : '')
-    el.textContent = a
+    el.className = 'game-answer'
+    const sp = document.createElement('span')
+    sp.className = 'game-answer-text' // макс. 2 строки + перенос по дефису, как makeAnswerLabel
+    sp.textContent = a
+    el.appendChild(sp)
     ans.appendChild(el)
   })
   card.appendChild(ans)
@@ -462,10 +467,21 @@ function imageCandidates(q) {
   return imageCandidatePaths(q.image || ('assets/images/' + q.id))
 }
 
-// Картинка с перебором расширений (как в игре: .webp первым). Нет ни одной → плейсхолдер.
+// Картинка с перебором расширений (как в игре: .webp первым). Плейсхолдеры —
+// той же формулировкой, что в игре (renderQuestionImage): «изображение не указано»
+// если поля нет, «изображение не загрузилось» если ни один файл не открылся.
 function gameImage(q) {
   const wrap = document.createElement('div')
   wrap.className = 'game-image'
+  const placeholder = (msg) => {
+    wrap.classList.add('empty')
+    wrap.replaceChildren()
+    const ph = document.createElement('span')
+    ph.className = 'game-image-ph'
+    ph.textContent = msg
+    wrap.appendChild(ph)
+  }
+  if (!q.image) { placeholder('изображение не указано'); return wrap }
   const cands = imageCandidates(q)
   let i = 0
   const img = document.createElement('img')
@@ -473,12 +489,7 @@ function gameImage(q) {
   img.addEventListener('error', () => {
     i++
     if (i < cands.length) { img.src = cands[i]; return }
-    img.remove()
-    wrap.classList.add('empty')
-    const ph = document.createElement('span')
-    ph.className = 'game-image-ph'
-    ph.textContent = 'нет картинки'
-    wrap.appendChild(ph)
+    placeholder('изображение не загрузилось')
   })
   img.src = cands[0]
   wrap.appendChild(img)
@@ -506,6 +517,15 @@ function reviewPane(q) {
     head.appendChild(badge)
   }
   pane.appendChild(head)
+
+  // Верный ответ — на превью слева не подсвечен (как на проде), поэтому показываем здесь.
+  const correct = (q.answers || [])[q.correctAnswerIndex]
+  if (correct != null) {
+    const ca = document.createElement('div')
+    ca.className = 'correct-answer'
+    ca.textContent = '✓ Верный ответ: ' + correct
+    pane.appendChild(ca)
+  }
 
   if (q.llmReason) {
     const reason = document.createElement('div')
