@@ -16,6 +16,8 @@ scripts/rerepair-in/
 scripts/rerepair-out/
 scripts/rescue-in/
 scripts/rescue-out/
+scripts/analysis-in/
+scripts/analysis-out/
 
 # Бэкапы данных
 public/questions.backup-*.json
