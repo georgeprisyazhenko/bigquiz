@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const QUESTIONS_FILE = path.join(__dirname, 'public', 'questions.json')
-const VALID_STATUS = ['pending', 'approved', 'rejected']
+const VALID_STATUS = ['pending', 'approved', 'rework', 'discard']
 
 function sendJson(res, code, obj) {
   res.statusCode = code

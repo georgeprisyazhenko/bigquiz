@@ -639,12 +639,13 @@ class GameScene extends Phaser.Scene {
         errors.push(`Question ${question.id || questionIndex} has invalid imageSearchQuery`)
       }
 
-      // reviewStatus/reviewNote — метаданные локальной админки ревью. Игра их
-      // не использует; проверяем только корректность значений, отсутствие — ок.
+      // reviewStatus — жизненный цикл ревью (см. админку). Игра показывает только
+      // 'approved' (см. getRandomQuestion). Прочие статусы живут в пуле ревью,
+      // в прод-json их быть не должно; проверяем лишь корректность значений.
       if (
         question.reviewStatus !== undefined &&
         question.reviewStatus !== null &&
-        !['pending', 'approved', 'rejected'].includes(question.reviewStatus)
+        !['pending', 'approved', 'rework', 'discard'].includes(question.reviewStatus)
       ) {
         errors.push(`Question ${question.id || questionIndex} has invalid reviewStatus`)
       }
@@ -666,19 +667,30 @@ class GameScene extends Phaser.Scene {
   }
 
   getRandomQuestion() {
-    let availableQuestions = this.questions.filter((question) => {
+    // Гейт прода: показываем только одобренные ревью вопросы. Прод-json должен
+    // содержать только их (см. scripts/promote-to-prod.mjs), но фильтр — страховка
+    // на случай, если в файл просочилось что-то со статусом ниже approved.
+    let playable = this.questions.filter((q) => q.reviewStatus === 'approved')
+    if (playable.length === 0) {
+      // Прод собран без статусов (старые данные/ошибка сборки) — не оставляем
+      // игрока с пустым экраном, играем всем, что есть.
+      console.warn('[BigQuiz] нет вопросов со статусом approved — играю всеми вопросами')
+      playable = this.questions
+    }
+
+    let availableQuestions = playable.filter((question) => {
       return !this.shownQuestionIds.has(question.id)
     })
 
     if (availableQuestions.length === 0) {
       this.shownQuestionIds = new Set()
 
-      availableQuestions = this.questions.filter((question) => {
+      availableQuestions = playable.filter((question) => {
         return question.id !== this.lastQuestionId
       })
 
       if (availableQuestions.length === 0) {
-        availableQuestions = [...this.questions]
+        availableQuestions = [...playable]
       }
     }
 
