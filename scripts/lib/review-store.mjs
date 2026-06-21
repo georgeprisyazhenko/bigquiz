@@ -78,6 +78,7 @@ export function saveReview(id, patch) {
     const data = readJson(file)
     const q = (data.questions || []).find((x) => x.id === id)
     if (!q) continue
+    const oldStatus = q.reviewStatus || 'pending'
     for (const key of ['reviewStatus', 'reviewProblem', 'reviewSuggestion', 'reviewTags']) {
       if (patch[key] === undefined) continue
       const v = patch[key]
@@ -85,7 +86,33 @@ export function saveReview(id, patch) {
       else q[key] = v
     }
     writeJson(file, data)
+    // Переход в «На выброс» — негативный пример для анализатора (было + причина).
+    if (q.reviewStatus === 'discard' && oldStatus !== 'discard') {
+      appendLog({ id, action: 'discard', reason: [q.reviewProblem, (q.reviewTags || []).join(',')].filter(Boolean).join(' '), before: snapshot(q) })
+    }
     return { ok: true, id, source: label, reviewStatus: q.reviewStatus || 'pending' }
+  }
+  throw new Error(`question not found: ${id}`)
+}
+
+// Ручная правка текста вопроса (кнопка «Редактировать» в админке). Пишет в журнал
+// действие 'edit' с было/стало — тоже сигнал для анализатора.
+export function editQuestion(id, fields) {
+  for (const [file, label] of [[PROD, 'prod'], [POOL, 'pool']]) {
+    if (!fs.existsSync(file)) continue
+    const data = readJson(file)
+    const q = (data.questions || []).find((x) => x.id === id)
+    if (!q) continue
+    const before = snapshot(q)
+    if (typeof fields.question === 'string') q.question = stripDashes(fields.question)
+    if (Array.isArray(fields.answers) && fields.answers.length === 4) q.answers = fields.answers.map(stripDashes)
+    if (Number.isInteger(fields.correctAnswerIndex) && fields.correctAnswerIndex >= 0 && fields.correctAnswerIndex <= 3) {
+      q.correctAnswerIndex = fields.correctAnswerIndex
+    }
+    if (typeof fields.explanation === 'string') q.explanation = stripDashes(fields.explanation)
+    writeJson(file, data)
+    appendLog({ id, action: 'edit', before, after: snapshot(q) })
+    return { ok: true, id, source: label, gatesOk: gatesOk(q) }
   }
   throw new Error(`question not found: ${id}`)
 }

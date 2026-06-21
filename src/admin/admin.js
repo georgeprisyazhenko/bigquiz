@@ -35,6 +35,7 @@ const state = {
   sourceFilter: 'all',
   view: 'list',
   currentId: null,
+  editing: null,
   expanded: new Set(),
   saveState: 'idle'
 }
@@ -456,27 +457,8 @@ function reviewCard(list) {
     card.appendChild(det)
   }
 
-  const question = document.createElement('div')
-  question.className = 'question'
-  question.textContent = q.question
-  card.appendChild(question)
-
-  const answers = document.createElement('div')
-  answers.className = 'answers'
-  ;(q.answers || []).forEach((a, i) => {
-    const el = document.createElement('div')
-    el.className = 'answer' + (i === q.correctAnswerIndex ? ' correct' : '')
-    el.textContent = a
-    answers.appendChild(el)
-  })
-  card.appendChild(answers)
-
-  if (q.explanation) {
-    const ex = document.createElement('div')
-    ex.className = 'explanation'
-    ex.textContent = q.explanation
-    card.appendChild(ex)
-  }
+  if (state.editing === q.id) appendEditForm(card, q)
+  else appendStatic(card, q)
 
   const meta = document.createElement('div')
   meta.className = 'meta'
@@ -496,6 +478,11 @@ function reviewCard(list) {
   actions.appendChild(verdictBtn(q, 'approved', '✓ Хорошо', 'btn-ok', status))
   actions.appendChild(verdictBtn(q, 'rework', '↻ На доработку', 'btn-rework', status))
   actions.appendChild(verdictBtn(q, 'discard', '✗ На выброс', 'btn-no', status))
+  const editBtn = document.createElement('button')
+  editBtn.className = 'btn btn-edit'
+  editBtn.textContent = state.editing === q.id ? '✕ Отмена' : '✎ Редактировать'
+  editBtn.addEventListener('click', () => { state.editing = state.editing === q.id ? null : q.id; renderContent.replaceInMain() })
+  actions.appendChild(editBtn)
   card.appendChild(actions)
 
   // Причины-чипы
@@ -556,6 +543,108 @@ function reviewCard(list) {
   return review
 }
 
+function appendStatic(card, q) {
+  const question = document.createElement('div')
+  question.className = 'question'
+  question.textContent = q.question
+  card.appendChild(question)
+  const answers = document.createElement('div')
+  answers.className = 'answers'
+  ;(q.answers || []).forEach((a, i) => {
+    const el = document.createElement('div')
+    el.className = 'answer' + (i === q.correctAnswerIndex ? ' correct' : '')
+    el.textContent = a
+    answers.appendChild(el)
+  })
+  card.appendChild(answers)
+  if (q.explanation) {
+    const ex = document.createElement('div')
+    ex.className = 'explanation'
+    ex.textContent = q.explanation
+    card.appendChild(ex)
+  }
+}
+
+function labeled(text, el) {
+  const wrap = document.createElement('div')
+  const lab = document.createElement('div')
+  lab.className = 'field-label'
+  lab.textContent = text
+  wrap.append(lab, el)
+  return wrap
+}
+
+function appendEditForm(card, q) {
+  const form = document.createElement('div')
+  form.className = 'edit-form'
+  const qa = document.createElement('textarea')
+  qa.className = 'note-field edit-question'
+  qa.value = q.question
+  form.appendChild(labeled('Вопрос', qa))
+
+  const ansWrap = document.createElement('div')
+  ansWrap.className = 'edit-answers'
+  const inputs = []
+  ;(q.answers || ['', '', '', '']).forEach((a, i) => {
+    const row = document.createElement('div')
+    row.className = 'edit-answer-row'
+    const radio = document.createElement('input')
+    radio.type = 'radio'
+    radio.name = 'correct-' + q.id
+    radio.checked = i === q.correctAnswerIndex
+    const inp = document.createElement('input')
+    inp.type = 'text'
+    inp.value = a
+    inp.className = 'edit-answer'
+    inputs.push({ radio, inp })
+    row.append(radio, inp)
+    ansWrap.appendChild(row)
+  })
+  form.appendChild(labeled('Ответы (точка — правильный)', ansWrap))
+
+  const exa = document.createElement('textarea')
+  exa.className = 'note-field edit-explanation'
+  exa.value = q.explanation || ''
+  form.appendChild(labeled('Пояснение', exa))
+
+  const bar = document.createElement('div')
+  bar.className = 'edit-bar'
+  const save = document.createElement('button')
+  save.className = 'btn btn-ok'
+  save.textContent = 'Сохранить правку'
+  save.addEventListener('click', () => {
+    const correctIdx = inputs.findIndex((x) => x.radio.checked)
+    saveEdit(q, {
+      question: qa.value,
+      answers: inputs.map((x) => x.inp.value),
+      correctAnswerIndex: correctIdx < 0 ? q.correctAnswerIndex : correctIdx,
+      explanation: exa.value
+    })
+  })
+  const cancel = document.createElement('button')
+  cancel.className = 'btn btn-no inactive'
+  cancel.textContent = 'Отмена'
+  cancel.addEventListener('click', () => { state.editing = null; renderContent.replaceInMain() })
+  bar.append(save, cancel)
+  form.appendChild(bar)
+  card.appendChild(form)
+}
+
+async function saveEdit(q, fields) {
+  try {
+    await flushSaves()
+    const res = await fetch('/__admin/edit-question', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: q.id, ...fields })
+    })
+    const r = await res.json()
+    if (!r.ok) throw new Error(r.error || 'ошибка')
+    state.editing = null
+    toast(r.gatesOk === false ? 'Сохранено, но не проходит код-гейт — в прод не пустит' : 'Правка сохранена', r.gatesOk === false)
+    await reload()
+  } catch (err) { toast('Ошибка: ' + String(err.message || err), true) }
+}
+
 function verdictBtn(q, value, label, cls, current) {
   const b = document.createElement('button')
   b.className = 'btn ' + cls + (current === value ? ' active' : ' inactive')
@@ -567,6 +656,7 @@ function verdictBtn(q, value, label, cls, current) {
 function goTo(list, i) {
   if (i < 0 || i >= list.length) return
   flushSaves()
+  state.editing = null
   state.currentId = list[i].id
   renderContent.replaceInMain()
 }
@@ -584,6 +674,7 @@ function setStatus(q, status) {
   const list = filteredQuestions()
   const idx = list.findIndex((x) => x.id === q.id)
   q.reviewStatus = toggleOff ? 'pending' : status
+  state.editing = null
   saveNow(q)
   if (!toggleOff && state.view === 'review' && idx >= 0) {
     const next = list[idx + 1] || list[idx - 1]
@@ -661,7 +752,9 @@ function setSaveState(s) {
 // ---------- Горячие клавиши ----------
 document.addEventListener('keydown', (e) => {
   if (state.view !== 'review') return
-  if (document.activeElement && document.activeElement.tagName === 'TEXTAREA') return
+  if (state.editing) return
+  const tag = document.activeElement && document.activeElement.tagName
+  if (tag === 'TEXTAREA' || tag === 'INPUT') return
   const list = filteredQuestions()
   const idx = list.findIndex((q) => q.id === state.currentId)
   if (idx < 0) return

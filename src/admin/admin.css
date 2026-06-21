@@ -258,6 +258,25 @@ body {
 .btn-ok { background: var(--ok); color: #07140d; }
 .btn-rework { background: var(--accent); color: #0a0f1a; }
 .btn-no { background: var(--no); color: #1a0703; }
+.btn-edit { background: var(--panel-2); color: var(--muted); border: 1px solid var(--line); margin-left: auto; }
+.btn-edit:hover { border-color: var(--accent); color: var(--text); }
+
+/* Форма ручной правки */
+.edit-form { margin-bottom: 16px; }
+.edit-question { min-height: 60px; font-size: 16px; }
+.edit-answers { display: grid; gap: 8px; margin-bottom: 12px; }
+.edit-answer-row { display: flex; align-items: center; gap: 10px; }
+.edit-answer-row input[type="radio"] { accent-color: var(--ok); width: 18px; height: 18px; flex: 0 0 auto; }
+.edit-answer {
+  flex: 1;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 9px 12px;
+  font: inherit;
+}
+.edit-bar { display: flex; gap: 10px; }
 .btn.inactive { opacity: 0.45; }
 .btn-ok.active { box-shadow: 0 0 0 2px var(--ok); }
 .btn-rework.active { box-shadow: 0 0 0 2px var(--accent); }

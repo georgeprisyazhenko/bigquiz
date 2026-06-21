@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { loadPool, saveReview, promoteToProd, deleteDrops, exportRework } from './scripts/lib/review-store.mjs'
+import { loadPool, saveReview, editQuestion, promoteToProd, deleteDrops, exportRework } from './scripts/lib/review-store.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const POOL_FILE = path.join(__dirname, 'data', 'review-pool.json')
@@ -43,6 +43,16 @@ function adminReviewPlugin() {
         try {
           const { id, reviewStatus, reviewProblem, reviewSuggestion, reviewTags } = await readBody(req)
           sendJson(res, 200, saveReview(id, { reviewStatus, reviewProblem, reviewSuggestion, reviewTags }))
+        } catch (err) { sendJson(res, 400, { ok: false, error: String(err.message || err) }) }
+      })
+
+      // Ручная правка текста вопроса (кнопка «Редактировать»).
+      server.middlewares.use('/__admin/edit-question', async (req, res) => {
+        if (req.method !== 'POST') { res.statusCode = 405; res.end('Method Not Allowed'); return }
+        try {
+          const { id, question, answers, correctAnswerIndex, explanation } = await readBody(req)
+          if (!id) throw new Error('id required')
+          sendJson(res, 200, editQuestion(id, { question, answers, correctAnswerIndex, explanation }))
         } catch (err) { sendJson(res, 400, { ok: false, error: String(err.message || err) }) }
       })
 
