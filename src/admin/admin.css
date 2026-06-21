@@ -339,6 +339,29 @@ kbd {
   padding-left: 10px;
   border-left: 2px solid var(--line);
 }
+.rework-note {
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0 0 12px;
+  padding-left: 10px;
+  border-left: 2px solid rgba(139,202,252,0.4);
+}
+
+/* «Было до доработки» */
+.was {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+.was summary { cursor: pointer; color: var(--muted); }
+.was-body { margin-top: 8px; color: #cdd6ea; }
+.was-q { margin-bottom: 6px; }
+.was-a { color: var(--muted); }
+.was-changed { margin-top: 8px; color: var(--accent); }
 
 /* ---------- Батч-кнопки ---------- */
 .batch { display: flex; gap: 8px; flex-wrap: wrap; }

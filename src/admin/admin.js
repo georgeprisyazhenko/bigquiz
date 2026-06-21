@@ -423,6 +423,39 @@ function reviewCard(list) {
     card.appendChild(reason)
   }
 
+  if (q.reworkNote) {
+    const rn = document.createElement('div')
+    rn.className = 'rework-note'
+    rn.textContent = 'Доработка: ' + q.reworkNote
+    card.appendChild(rn)
+  }
+
+  if (q.preReworkVersion) {
+    const det = document.createElement('details')
+    det.className = 'was'
+    const sum = document.createElement('summary')
+    sum.textContent = 'Было до доработки'
+    det.appendChild(sum)
+    const body = document.createElement('div')
+    body.className = 'was-body'
+    const wq = document.createElement('div')
+    wq.className = 'was-q'
+    wq.textContent = q.preReworkVersion.question
+    body.appendChild(wq)
+    const wa = document.createElement('div')
+    wa.className = 'was-a'
+    wa.textContent = (q.preReworkVersion.answers || []).join(' · ')
+    body.appendChild(wa)
+    if (q.preReworkVersion.reviewProblem) {
+      const wp = document.createElement('div')
+      wp.className = 'was-changed'
+      wp.textContent = 'Проблема была: ' + q.preReworkVersion.reviewProblem
+      body.appendChild(wp)
+    }
+    det.appendChild(body)
+    card.appendChild(det)
+  }
+
   const question = document.createElement('div')
   question.className = 'question'
   question.textContent = q.question

@@ -19,10 +19,31 @@ const PROD = path.join(ROOT, 'public', 'questions.json')
 const POOL = path.join(ROOT, 'data', 'review-pool.json')
 const CATEGORIES = path.join(ROOT, 'public', 'categories.json')
 const POLISH_IN = path.join(ROOT, 'scripts', 'polish-in')
+const LOG = path.join(ROOT, 'data', 'review-log.jsonl')
+const WATERMARK = path.join(ROOT, 'data', '.analyzer-watermark.json')
 
 export const VALID_STATUS = ['pending', 'approved', 'rework', 'discard']
 // Поля «процесса ревью» — не нужны в проде, снимаются при промоушне.
-const REVIEW_FIELDS = ['reviewProblem', 'reviewSuggestion', 'reviewTags', 'reviewNote', 'llmReason', 'preReworkVersion', 'reworkedAt']
+const REVIEW_FIELDS = ['reviewProblem', 'reviewSuggestion', 'reviewTags', 'reviewNote', 'llmReason', 'preReworkVersion', 'reworkedAt', 'reworkNote']
+
+// Журнал действий ревью (обучающий корпус для анализатора Фазы 5).
+// Пишем по факту каждого значимого действия; анализ — пачкой по водяному знаку.
+export function appendLog(entry) {
+  const line = JSON.stringify({ ts: new Date().toISOString(), ...entry })
+  fs.appendFileSync(LOG, line + '\n', 'utf8')
+}
+export function readWatermark() {
+  try { return JSON.parse(fs.readFileSync(WATERMARK, 'utf8')) } catch { return { lastAnalyzed: null } }
+}
+export function writeWatermark(obj) { writeJson(WATERMARK, obj) }
+// Снимок «было» для журнала/preReworkVersion.
+export function snapshot(q) {
+  return {
+    question: q.question, answers: q.answers, correctAnswerIndex: q.correctAnswerIndex,
+    explanation: q.explanation || '',
+    reviewProblem: q.reviewProblem || '', reviewSuggestion: q.reviewSuggestion || '', reviewTags: q.reviewTags || []
+  }
+}
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'))
 const writeJson = (p, obj) => fs.writeFileSync(p, JSON.stringify(obj, null, 2) + '\n', 'utf8')
