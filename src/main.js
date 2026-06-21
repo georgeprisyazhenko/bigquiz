@@ -2,6 +2,7 @@ import Phaser from 'phaser'
 import './style.css'
 import { initYsdk, loadBestRecord, saveBestRecord } from './ysdk.js'
 import { validateAnswerText, validateNoProhibited } from './content-rules.js'
+import { orderAnswers, isNumericAnswerSet, imageCandidatePaths } from './card-rules.js'
 
 const GAME_WIDTH = 1120
 const GAME_HEIGHT = 640
@@ -704,6 +705,16 @@ class GameScene extends Phaser.Scene {
   }
 
   prepareShuffledAnswers(question) {
+    // Правила показа — единый источник src/card-rules.js (их же применяет админка-препрод).
+    // Числовой набор показываем по убыванию (детерминированно), не перемешивая.
+    if (isNumericAnswerSet(question.answers)) {
+      const ordered = orderAnswers(question)
+      this.currentAnswers = ordered.answers
+      this.currentCorrectAnswerIndex = ordered.correctAnswerIndex
+      return
+    }
+
+    // Нечисловые перемешиваем — анти-чит позиции верного ответа.
     const answerItems = question.answers.map((answer, index) => ({
       text: answer,
       originalIndex: index,
@@ -1755,35 +1766,8 @@ class GameScene extends Phaser.Scene {
   }
 
   getImageCandidatePaths(imagePath) {
-    const normalizedPath = this.normalizeImagePath(imagePath)
-
-    const extensionMatch = normalizedPath.match(/\.(jpg|jpeg|png|webp|gif)$/i)
-
-    // .webp пробуем первым: build-конвейер (scripts/optimize-images.js) всегда
-    // отдаёт webp, поэтому исходное расширение в questions.json может быть устаревшим
-    // (.jpg). Так избегаем 404 на каждую картинку до фолбэка.
-    if (!extensionMatch) {
-      return [
-        `${normalizedPath}.webp`,
-        `${normalizedPath}.jpg`,
-        `${normalizedPath}.jpeg`,
-        `${normalizedPath}.png`,
-        `${normalizedPath}.gif`
-      ]
-    }
-
-    const pathWithoutExtension = normalizedPath.replace(/\.(jpg|jpeg|png|webp|gif)$/i, '')
-
-    const candidates = [
-      `${pathWithoutExtension}.webp`,
-      normalizedPath,
-      `${pathWithoutExtension}.jpg`,
-      `${pathWithoutExtension}.jpeg`,
-      `${pathWithoutExtension}.png`,
-      `${pathWithoutExtension}.gif`
-    ]
-
-    return [...new Set(candidates)]
+    // Логика кандидатов вынесена в src/card-rules.js (та же, что в админке-препроде).
+    return imageCandidatePaths(imagePath)
   }
 
   normalizeImagePath(imagePath) {

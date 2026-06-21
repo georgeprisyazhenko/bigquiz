@@ -8,6 +8,8 @@
 // Кнопки-батч: перенести ОК в прод · удалить дропы · отправить на доработку.
 // Сохранение в нужный файл через dev-плагин Vite (scripts/lib/review-store.mjs).
 
+import { orderAnswers, imageCandidatePaths } from '../card-rules.js'
+
 const ALL = '__all__'
 
 // Причины «На доработку / На выброс» — маппинг на наш свод правил (1 клик, мультивыбор).
@@ -396,10 +398,98 @@ function reviewCard(list) {
   nav.append(prev, next, counter)
   review.appendChild(nav)
 
-  const card = document.createElement('div')
-  card.className = 'card'
+  const grid = document.createElement('div')
+  grid.className = 'review-grid'
 
-  // Шапка: id · источник · LLM-вердикт
+  // ЛЕВО: превью как на проде (или форма ручной правки в том же месте)
+  const left = document.createElement('div')
+  left.className = 'preview-pane'
+  if (state.editing === q.id) {
+    const editCard = document.createElement('div')
+    editCard.className = 'game-card edit-card'
+    appendEditForm(editCard, q)
+    left.appendChild(editCard)
+  } else {
+    left.appendChild(gamePreview(q))
+  }
+  grid.appendChild(left)
+
+  // ПРАВО: вся ревью-обвязка
+  grid.appendChild(reviewPane(q))
+  review.appendChild(grid)
+  return review
+}
+
+// Превью вопроса в пропорциях прода (категория · вопрос · картинка 4:3 · ответы 2×2),
+// в админских (тёмных) цветах. Верный ответ подсвечен.
+function gamePreview(q) {
+  const card = document.createElement('div')
+  card.className = 'game-card'
+
+  const cats = document.createElement('div')
+  cats.className = 'game-cats'
+  for (const c of q.categories || []) {
+    const chip = document.createElement('span')
+    chip.className = 'game-chip'
+    const known = state.catIndex.get(c)
+    chip.textContent = known ? known.name : c
+    cats.appendChild(chip)
+  }
+  card.appendChild(cats)
+
+  const ques = document.createElement('div')
+  ques.className = 'game-question'
+  ques.textContent = q.question
+  card.appendChild(ques)
+
+  card.appendChild(gameImage(q))
+
+  // Порядок ответов — те же правила, что в игре (src/card-rules.js): числа по убыванию.
+  const display = orderAnswers(q)
+  const ans = document.createElement('div')
+  ans.className = 'game-answers'
+  ;(display.answers || []).forEach((a, i) => {
+    const el = document.createElement('div')
+    el.className = 'game-answer' + (i === display.correctAnswerIndex ? ' correct' : '')
+    el.textContent = a
+    ans.appendChild(el)
+  })
+  card.appendChild(ans)
+  return card
+}
+
+function imageCandidates(q) {
+  return imageCandidatePaths(q.image || ('assets/images/' + q.id))
+}
+
+// Картинка с перебором расширений (как в игре: .webp первым). Нет ни одной → плейсхолдер.
+function gameImage(q) {
+  const wrap = document.createElement('div')
+  wrap.className = 'game-image'
+  const cands = imageCandidates(q)
+  let i = 0
+  const img = document.createElement('img')
+  img.alt = ''
+  img.addEventListener('error', () => {
+    i++
+    if (i < cands.length) { img.src = cands[i]; return }
+    img.remove()
+    wrap.classList.add('empty')
+    const ph = document.createElement('span')
+    ph.className = 'game-image-ph'
+    ph.textContent = 'нет картинки'
+    wrap.appendChild(ph)
+  })
+  img.src = cands[0]
+  wrap.appendChild(img)
+  return wrap
+}
+
+// Правая колонка: статусы, вердикт, проблема/предложение, причины — всё ревью.
+function reviewPane(q) {
+  const pane = document.createElement('div')
+  pane.className = 'review-pane'
+
   const head = document.createElement('div')
   head.className = 'card-head'
   const qid = document.createElement('span')
@@ -415,20 +505,27 @@ function reviewCard(list) {
     badge.textContent = '↻ прошёл доработку'
     head.appendChild(badge)
   }
-  card.appendChild(head)
+  pane.appendChild(head)
 
   if (q.llmReason) {
     const reason = document.createElement('div')
     reason.className = 'llm-reason'
     reason.textContent = 'Судья: ' + q.llmReason
-    card.appendChild(reason)
+    pane.appendChild(reason)
+  }
+
+  if (q.explanation) {
+    const ex = document.createElement('div')
+    ex.className = 'explanation'
+    ex.textContent = q.explanation
+    pane.appendChild(ex)
   }
 
   if (q.reworkNote) {
     const rn = document.createElement('div')
     rn.className = 'rework-note'
     rn.textContent = 'Доработка: ' + q.reworkNote
-    card.appendChild(rn)
+    pane.appendChild(rn)
   }
 
   if (q.preReworkVersion) {
@@ -454,22 +551,8 @@ function reviewCard(list) {
       body.appendChild(wp)
     }
     det.appendChild(body)
-    card.appendChild(det)
+    pane.appendChild(det)
   }
-
-  if (state.editing === q.id) appendEditForm(card, q)
-  else appendStatic(card, q)
-
-  const meta = document.createElement('div')
-  meta.className = 'meta'
-  for (const c of q.categories || []) {
-    const chip = document.createElement('span')
-    chip.className = 'chip'
-    const known = state.catIndex.get(c)
-    chip.textContent = known ? known.name : c
-    meta.appendChild(chip)
-  }
-  card.appendChild(meta)
 
   // Мой вердикт
   const actions = document.createElement('div')
@@ -483,13 +566,13 @@ function reviewCard(list) {
   editBtn.textContent = state.editing === q.id ? '✕ Отмена' : '✎ Редактировать'
   editBtn.addEventListener('click', () => { state.editing = state.editing === q.id ? null : q.id; renderContent.replaceInMain() })
   actions.appendChild(editBtn)
-  card.appendChild(actions)
+  pane.appendChild(actions)
 
   // Причины-чипы
   const tagsLabel = document.createElement('div')
   tagsLabel.className = 'field-label'
   tagsLabel.textContent = 'Причины (для доработки / выброса)'
-  card.appendChild(tagsLabel)
+  pane.appendChild(tagsLabel)
   const tagsWrap = document.createElement('div')
   tagsWrap.className = 'tag-chips'
   for (const [key, label] of TAGS) {
@@ -506,63 +589,40 @@ function reviewCard(list) {
     })
     tagsWrap.appendChild(chip)
   }
-  card.appendChild(tagsWrap)
+  pane.appendChild(tagsWrap)
 
   // Проблема (пишу только я)
   const probLabel = document.createElement('div')
   probLabel.className = 'field-label'
   probLabel.textContent = 'Проблема — что не так'
-  card.appendChild(probLabel)
+  pane.appendChild(probLabel)
   const problem = document.createElement('textarea')
   problem.className = 'note-field'
   problem.placeholder = 'Что именно не так (увижу при доработке).'
   problem.value = q.reviewProblem || ''
   problem.addEventListener('input', () => { q.reviewProblem = problem.value; scheduleSave(q) })
   problem.addEventListener('blur', () => flushSaves())
-  card.appendChild(problem)
+  pane.appendChild(problem)
 
   // Предложение (пишу только я)
   const sugLabel = document.createElement('div')
   sugLabel.className = 'field-label'
   sugLabel.textContent = 'Предложение — как починить'
-  card.appendChild(sugLabel)
+  pane.appendChild(sugLabel)
   const suggestion = document.createElement('textarea')
   suggestion.className = 'note-field'
   suggestion.placeholder = 'Как бы я это переделал.'
   suggestion.value = q.reviewSuggestion || ''
   suggestion.addEventListener('input', () => { q.reviewSuggestion = suggestion.value; scheduleSave(q) })
   suggestion.addEventListener('blur', () => flushSaves())
-  card.appendChild(suggestion)
+  pane.appendChild(suggestion)
 
   const hint = document.createElement('div')
   hint.className = 'hint'
   hint.innerHTML = 'Клавиши: <kbd>←</kbd> <kbd>→</kbd> листать · <kbd>A</kbd> хорошо · <kbd>R</kbd> доработка · <kbd>D</kbd> выброс'
-  card.appendChild(hint)
+  pane.appendChild(hint)
 
-  review.appendChild(card)
-  return review
-}
-
-function appendStatic(card, q) {
-  const question = document.createElement('div')
-  question.className = 'question'
-  question.textContent = q.question
-  card.appendChild(question)
-  const answers = document.createElement('div')
-  answers.className = 'answers'
-  ;(q.answers || []).forEach((a, i) => {
-    const el = document.createElement('div')
-    el.className = 'answer' + (i === q.correctAnswerIndex ? ' correct' : '')
-    el.textContent = a
-    answers.appendChild(el)
-  })
-  card.appendChild(answers)
-  if (q.explanation) {
-    const ex = document.createElement('div')
-    ex.className = 'explanation'
-    ex.textContent = q.explanation
-    card.appendChild(ex)
-  }
+  return pane
 }
 
 function labeled(text, el) {

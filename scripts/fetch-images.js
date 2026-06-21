@@ -3,11 +3,13 @@
  * Скрипт автоматического подбора изображений для вопросов викторины.
  *
  * Для каждого вопроса без картинки берёт imageSearchQuery (или правильный ответ),
- * ищет изображение в Wikipedia/Wikimedia Commons и СКАЧИВАЕТ ТОЛЬКО PD/CC0
- * (Public Domain / CC0) — чтобы не тащить за собой обязательную атрибуцию
- * (вариант А, см. docs). Лицензия проверяется через imageinfo.extmetadata.
- * Если точной PD/CC0-картинки нет — пробует приблизительный CC0-поиск по теме,
- * иначе пишет вопрос в отчёт (not_found / license_blocked).
+ * ищет изображение в Wikipedia/Wikimedia Commons и СКАЧИВАЕТ свободные для коммерции
+ * лицензии: Public Domain, CC0, CC-BY, CC-BY-SA (вариант B). Несвободное/неизвестное
+ * отклоняется. Лицензия и автор берутся из imageinfo.extmetadata; для CC-BY/CC-BY-SA
+ * атрибуция обязательна — она копится в public/image-credits.json для экрана
+ * «Источники изображений» в игре. PDF/DjVu (титульники книг) не берём.
+ * Если точной картинки нет — пробует приблизительный поиск по теме, иначе пишет
+ * вопрос в отчёт (not_found / license_blocked).
  *
  * Скачанное сразу ужимается в WebP (scripts/optimize-images.js), оригинал
  * уезжает в scripts/images-raw/ — в public/ попадает только лёгкий .webp.
@@ -30,9 +32,12 @@ const ROOT = path.resolve(__dirname, '..');
 const IMAGES_DIR = path.join(ROOT, 'public', 'assets', 'images');
 const QUESTIONS_FILE = path.join(ROOT, 'public', 'questions.json');
 const REPORT_FILE = path.join(__dirname, 'image-fetch-report.json');
+// Кредиты лежат в public/ — их грузит будущий экран «Источники изображений» в игре.
+const CREDITS_FILE = path.join(ROOT, 'public', 'image-credits.json');
 
 const THUMB_SIZE = 800;
-const CONCURRENCY = 4; // одновременных вопросов в работе (бережём API от 429)
+const CONCURRENCY = 2; // одновременных вопросов в работе (бережём API от 429)
+const MIN_REQUEST_GAP_MS = 350; // глобальный интервал между запросами к Wikimedia
 const USER_AGENT = 'BigQuiz-ImageFetcher/1.0 (quiz illustrations; PD/CC0 only)';
 
 let skipExisting = false;
@@ -41,6 +46,16 @@ let skipExisting = false;
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
+}
+
+// Глобальный троттл: резервирует разнесённые слоты даже для параллельных воркеров,
+// чтобы суммарный поток запросов к Wikimedia не упирался в 429.
+let nextRequestSlot = 0;
+async function throttle() {
+  const now = Date.now();
+  const wait = Math.max(0, nextRequestSlot - now);
+  nextRequestSlot = Math.max(now, nextRequestSlot) + MIN_REQUEST_GAP_MS;
+  if (wait) await sleep(wait);
 }
 
 /** Параллельная обработка с ограничением одновременных задач. */
@@ -58,15 +73,20 @@ async function mapLimit(items, limit, fn) {
   return results;
 }
 
-async function apiFetch(url, retries = 3) {
+async function apiFetch(url, retries = 5) {
   for (let attempt = 0; attempt <= retries; attempt++) {
+    await throttle();
     const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-    if (res.status === 429) {
+    if (res.status === 429 || res.status === 503) {
       if (attempt < retries) {
-        await sleep(2000 * (attempt + 1));
+        const retryAfter = parseInt(res.headers.get('retry-after'), 10);
+        const wait = Number.isFinite(retryAfter)
+          ? retryAfter * 1000
+          : Math.min(30000, 1000 * 2 ** attempt); // экспоненциальный бэкофф, потолок 30с
+        await sleep(wait);
         continue;
       }
-      throw new Error('HTTP 429');
+      throw new Error(`HTTP ${res.status}`);
     }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
@@ -101,20 +121,34 @@ function extFromUrl(url) {
 const normTitle = (s) => (s || '').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
 const stripHtml = (s) => (s ? s.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() : '');
 
-// ---------- лицензионный гейт (вариант А: только PD/CC0) ----------
+// PDF/DjVu отдают thumbnail первой страницы книги, а не иллюстрацию — никогда не годятся.
+const isUsableImageFile = (title) => !/\.(pdf|djvu)$/i.test(title || '');
 
-/** true только для Public Domain / CC0; неизвестную лицензию отклоняем (safe default). */
-function isPublicDomainOrCC0(extmeta) {
+// ---------- лицензионный гейт (вариант B: свободные для коммерции) ----------
+
+/**
+ * true для лицензий, разрешающих коммерческое использование: Public Domain, CC0,
+ * CC-BY, CC-BY-SA. Несвободное (fair use), помеченные ограничения и неизвестную
+ * лицензию отклоняем (safe default). Чистый GFDL не принимаем (тяжёлые условия).
+ */
+function isAllowedLicense(extmeta) {
   if (!extmeta) return false;
+  if ((extmeta.Restrictions?.value || '').trim()) return false; // спец-ограничения → мимо
   const code = (extmeta.License?.value || '').toLowerCase().trim();
-  const shortName = (extmeta.LicenseShortName?.value || '').trim();
-  const PD_CODES = new Set(['pd', 'cc0', 'cc-publicdomain', 'cc-pd-mark']);
-  if (PD_CODES.has(code) || code.startsWith('pd-')) return true;
-  if (/public domain/i.test(shortName)) return true;
-  if (/^cc0/i.test(shortName)) return true;
-  if (/^no restrictions$/i.test(shortName)) return true;
+  const name = (extmeta.LicenseShortName?.value || '').trim();
+  if (['pd', 'cc0', 'cc-publicdomain', 'cc-pd-mark'].includes(code)) return true;
+  if (code.startsWith('pd-')) return true;
+  if (code.startsWith('cc-by')) return true; // cc-by-*, cc-by-sa-*
+  if (/public domain/i.test(name)) return true;
+  if (/^cc0/i.test(name)) return true;
+  if (/^no restrictions$/i.test(name)) return true;
+  if (/^cc[ -]by(-sa)?\b/i.test(name)) return true;
   return false;
 }
+
+/** PD/CC0 атрибуции не требуют; CC-BY/CC-BY-SA — требуют (попадут в кредиты). */
+const requiresAttribution = (license) =>
+  !/(public domain|^cc0|^no restrictions)/i.test(license || '');
 
 /**
  * Батч-запрос лицензий и URL для списка File:-заголовков (до 50 за раз).
@@ -136,8 +170,10 @@ async function fetchFileInfo(fileTitles) {
     out.set(normTitle(page.title), {
       thumbUrl: info.thumburl || info.url || null,
       license: ext.LicenseShortName?.value || ext.License?.value || 'unknown',
+      licenseUrl: ext.LicenseUrl?.value || '',
       author: stripHtml(ext.Artist?.value) || 'unknown',
-      allowed: isPublicDomainOrCC0(ext),
+      sourceUrl: info.descriptionurl || '',
+      allowed: isAllowedLicense(ext),
     });
   }
   return out;
@@ -192,13 +228,13 @@ async function searchCommonsFiles(term, limit = 5) {
   const data = await apiFetch(url);
   return (data?.query?.search ?? [])
     .map((r) => r.title)
-    .filter((t) => /^File:/i.test(t));
+    .filter((t) => /^File:/i.test(t) && isUsableImageFile(t));
 }
 
 /** Точные кандидаты по запросу (статья ru/en + поиск + Commons), в порядке точности. */
 async function collectPreciseCandidates(searchQuery) {
   const files = [];
-  const add = (f) => { if (f && !files.includes(f)) files.push(f); };
+  const add = (f) => { if (f && isUsableImageFile(f) && !files.includes(f)) files.push(f); };
   const steps = [
     () => resolvePageImage(searchQuery, 'ru'),
     () => resolvePageImage(searchQuery, 'en'),
@@ -231,38 +267,48 @@ async function processQuestion(question) {
 
   console.log(`  [поиск] ${id}: "${searchQuery}"`);
 
-  // Раунд 1 — точные кандидаты.
-  const precise = await collectPreciseCandidates(searchQuery);
-  let { chosen, blocked } = await pickAllowed(precise);
-
-  // Раунд 2 — приблизительный CC0-поиск по теме, если точной PD/CC0 не нашлось.
-  if (!chosen) {
-    let approx = [];
-    try { approx = await searchCommonsFiles(fallbackQuery, 8); } catch { /* ignore */ }
-    const r2 = await pickAllowed(approx);
-    if (r2.chosen) chosen = r2.chosen;
-    blocked = blocked.concat(r2.blocked);
-  }
-
-  if (!chosen) {
-    if (blocked.length) {
-      console.log(`  [лицензия] ${id} — найдено, но не PD/CC0 (${blocked[0].license})`);
-      return { id, status: 'license_blocked', query: searchQuery, rejectedLicense: blocked[0].license };
-    }
-    console.log(`  [не найдено] ${id}`);
-    return { id, status: 'not_found', query: searchQuery };
-  }
-
-  const ext = extFromUrl(chosen.thumbUrl);
-  const destPath = path.join(IMAGES_DIR, `${id}.${ext}`);
+  // Весь поиск/скачивание под общим try — сбой одного вопроса не должен ронять батч.
   try {
+    // Раунд 1 — точные кандидаты.
+    const precise = await collectPreciseCandidates(searchQuery);
+    let { chosen, blocked } = await pickAllowed(precise);
+
+    // Раунд 2 — приблизительный CC0-поиск по теме, если точной PD/CC0 не нашлось.
+    if (!chosen) {
+      let approx = [];
+      try { approx = await searchCommonsFiles(fallbackQuery, 8); } catch { /* ignore */ }
+      const r2 = await pickAllowed(approx);
+      if (r2.chosen) chosen = r2.chosen;
+      blocked = blocked.concat(r2.blocked);
+    }
+
+    if (!chosen) {
+      if (blocked.length) {
+        console.log(`  [лицензия] ${id} — найдено, но не PD/CC0 (${blocked[0].license})`);
+        return { id, status: 'license_blocked', query: searchQuery, rejectedLicense: blocked[0].license };
+      }
+      console.log(`  [не найдено] ${id}`);
+      return { id, status: 'not_found', query: searchQuery };
+    }
+
+    const ext = extFromUrl(chosen.thumbUrl);
+    const destPath = path.join(IMAGES_DIR, `${id}.${ext}`);
     await downloadFile(chosen.thumbUrl, destPath);
     // Сразу ужимаем в WebP и уносим оригинал в scripts/images-raw/.
     const { beforeKb, afterKb, webp } = await optimizeImage(destPath);
     console.log(`  [OK] ${webp} (${beforeKb} KB → ${afterKb} KB, ${chosen.license}) ← ${chosen.file}`);
-    return { id, status: 'ok', file: webp, license: chosen.license, author: chosen.author };
+    return {
+      id,
+      status: 'ok',
+      file: webp,
+      source: chosen.file,
+      license: chosen.license,
+      licenseUrl: chosen.licenseUrl,
+      author: chosen.author,
+      sourceUrl: chosen.sourceUrl,
+    };
   } catch (e) {
-    console.log(`  [ошибка скачивания] ${id}: ${e.message}`);
+    console.log(`  [ошибка] ${id}: ${e.message}`);
     return { id, status: 'error', query: searchQuery, error: e.message };
   }
 }
@@ -288,7 +334,7 @@ async function main() {
     : questions;
   if (limit) toProcess = toProcess.slice(0, limit);
 
-  console.log(`BigQuiz image fetcher — ${toProcess.length} вопросов (PD/CC0, до ${CONCURRENCY} параллельно)\n`);
+  console.log(`BigQuiz image fetcher — ${toProcess.length} вопросов (PD/CC0/CC-BY/CC-BY-SA, до ${CONCURRENCY} параллельно)\n`);
 
   const settled = await mapLimit(toProcess, CONCURRENCY, processQuestion);
 
@@ -300,26 +346,58 @@ async function main() {
     license_blocked: [],
     error: [],
   };
+  const credits = [];
   for (const r of settled) {
     if (!r) continue;
-    if (r.status === 'ok') report.ok.push({ id: r.id, file: r.file, license: r.license, author: r.author });
-    else if (r.status === 'skipped') report.skipped.push(r.id);
+    if (r.status === 'ok') {
+      report.ok.push({ id: r.id, file: r.file, license: r.license, author: r.author });
+      credits.push({
+        id: r.id,
+        file: r.file,
+        source: r.source,
+        license: r.license,
+        licenseUrl: r.licenseUrl,
+        author: r.author,
+        sourceUrl: r.sourceUrl,
+        attributionRequired: requiresAttribution(r.license),
+      });
+    } else if (r.status === 'skipped') report.skipped.push(r.id);
     else if (r.status === 'not_found') report.not_found.push({ id: r.id, query: r.query });
     else if (r.status === 'license_blocked') report.license_blocked.push({ id: r.id, query: r.query, rejectedLicense: r.rejectedLicense });
     else if (r.status === 'error') report.error.push({ id: r.id, error: r.error });
   }
 
   fs.writeFileSync(REPORT_FILE, JSON.stringify(report, null, 2));
+  writeCredits(credits);
 
+  const needAttr = credits.filter((c) => c.attributionRequired).length;
   console.log('\n── Итог ──');
-  console.log(`  Скачано (PD/CC0):  ${report.ok.length}`);
+  console.log(`  Скачано:           ${report.ok.length} (из них требуют атрибуции: ${needAttr})`);
   if (report.skipped.length) console.log(`  Пропущено:         ${report.skipped.length}`);
   console.log(`  Не найдено:        ${report.not_found.length}`);
   if (report.not_found.length) console.log(`                     ${report.not_found.map((x) => x.id).join(', ')}`);
   console.log(`  Срезано лицензией: ${report.license_blocked.length}`);
   if (report.license_blocked.length) console.log(`                     ${report.license_blocked.map((x) => x.id).join(', ')}`);
   if (report.error.length) console.log(`  Ошибки:            ${report.error.length}`);
-  console.log(`  Отчёт: ${path.relative(ROOT, REPORT_FILE)}`);
+  console.log(`  Отчёт:   ${path.relative(ROOT, REPORT_FILE)}`);
+  console.log(`  Кредиты: ${path.relative(ROOT, CREDITS_FILE)}`);
+}
+
+/**
+ * Мержит новые кредиты в public/image-credits.json по id, не теряя записи вопросов,
+ * которых не было в этом прогоне (частичные запуски / --skip-existing).
+ */
+function writeCredits(entries) {
+  const byId = new Map();
+  if (fs.existsSync(CREDITS_FILE)) {
+    try {
+      const prev = JSON.parse(fs.readFileSync(CREDITS_FILE, 'utf8'));
+      for (const c of prev.images ?? []) byId.set(c.id, c);
+    } catch { /* битый файл — перезапишем */ }
+  }
+  for (const c of entries) byId.set(c.id, c);
+  const images = [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
+  fs.writeFileSync(CREDITS_FILE, JSON.stringify({ generatedAt: new Date().toISOString(), images }, null, 2));
 }
 
 main().catch((err) => { console.error(err); process.exit(1); });
