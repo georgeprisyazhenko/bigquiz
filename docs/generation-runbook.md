@@ -4,7 +4,7 @@
 
 ## Что мы делаем
 
-Наполняем `public/questions.json` неизбитыми вопросами для викторины (взрослая аудитория, Яндекс Игры, русский язык). Подход выстрадан за серию пилотов; **не импровизируй с методом** — следуй артефактам ниже.
+Наполняем базу неизбитыми вопросами для викторины (взрослая аудитория, Яндекс Игры, русский язык). Генерации льются в **ПУЛ ревью** (`data/review-pool.json`), а не в прод — в прод (`public/questions.json`, едет в игру) попадает только одобренное мной после ревью (см. `docs/review-runbook.md`). Подход выстрадан за серию пилотов; **не импровизируй с методом** — следуй артефактам ниже.
 
 ## Источники контекста (прочитай перед запуском)
 
@@ -13,16 +13,18 @@
 | **`docs/category-risks.md`** | ГЛАВНОЕ — инструкция генерации. Принцип «факт, а не ярлык», sweet spot, форматы, анти-миф, риски по подкатегориям (Часть C). |
 | `public/categories.json` | Дерево: 23 категории / 126 подкатегорий (источник истины по `id`). |
 | `docs/categories.md` | Человекочитаемое дерево. |
-| `public/questions.json` | Уже существующие вопросы + отметки ревью (`reviewStatus`/`reviewNote`). НЕ перезаписывать целиком. |
+| `public/questions.json` | ПРОД — только `approved` (едет в игру). НЕ писать сюда напрямую. |
+| `data/review-pool.json` | ПУЛ ревью — сюда льются генерации как `pending`. НЕ перезаписывать целиком. |
 | `scripts/fill-questions.workflow.js` | Воркфлоу: генерация→суд→запись. |
-| `scripts/merge-gen.mjs` | Слияние результатов в questions.json. |
+| `scripts/merge-gen.mjs` | Слияние результатов в ПУЛ (`data/review-pool.json`). |
+| `docs/review-runbook.md` | Полный цикл ревью / доработки / обучения. |
 
 ## Параметры пайплайна (не менять без причины)
 
 - **Генерация:** модель **Sonnet**, 15 вопросов на подкатегорию. `effort` генератора НЕ занижать — он защищает качество.
 - **Судья:** модель **Opus** (наследует дефолт сессии — НЕ задавать model), `effort: 'low'` для скорости. Судит пачку за один вызов по schema с булевыми флагами (`factOverLabel` — главный). Если в ревью пойдёт заметный рост брака — поднять судью до `effort: 'medium'`.
 - **Запись:** Haiku пишет `scripts/gen-out/<subId>.json` (по файлу на подкат, резюмируемо).
-- Из 15 берём только `keep` (обычно ~8–11). `revise`/`drop` не сливаем.
+- Из 15 в пул льём `keep` И `revise` (revise = годная идея с правимым изъяном, дотачивается на доработке). `drop` не сливаем. Все приходят как `pending` с `llmVerdict`.
 
 ## Процедура (пакетами по ~15–20 подкатегорий)
 
@@ -32,7 +34,10 @@
 
 ```bash
 node -e '
-const q=require("./public/questions.json").questions, cats=require("./public/categories.json").categories;
+const fs=require("fs");
+const prod=require("./public/questions.json").questions;
+const pool=fs.existsSync("./data/review-pool.json")?require("./data/review-pool.json").questions:[];
+const q=[...prod,...pool], cats=require("./public/categories.json").categories;
 const cnt={}; for(const x of q)for(const c of (x.categories||[]))cnt[c]=(cnt[c]||0)+1;
 const out=[];
 for(const c of cats)for(const s of c.subcategories||[]){ const n=cnt[s.id]||0; if(n<10) out.push({id:s.id,name:s.name,cat:c.name,have:n}); }
@@ -58,13 +63,13 @@ Workflow({
 
 Воркфлоу пишет результат каждой подкатегории в `scripts/gen-out/<id>.json` и возвращает компактные метрики (keep/revise/drop по подкат). Дождись завершения (придёт уведомление).
 
-### Шаг 3. Слей в questions.json
+### Шаг 3. Слей в пул ревью
 
 ```bash
 node scripts/merge-gen.mjs
 ```
 
-Скрипт сам делает бэкап `public/questions.backup-<timestamp>.json`, дописывает только `keep` как `pending`, обновляет `docs/judge-report.md`, печатает диапазон новых id и итоговое число вопросов.
+Скрипт делает бэкап пула (`data/review-pool.backup-<timestamp>.json`, игнорится git), дописывает `keep`+`revise` как `pending` с `llmVerdict`/`llmReason`, выдаёт сквозные id (max по проду и пулу) и печатает диапазон новых id. В прод ничего не попадает до моего «Хорошо» + `node scripts/promote-to-prod.mjs`.
 
 ### Шаг 4. Ревью и очистка
 

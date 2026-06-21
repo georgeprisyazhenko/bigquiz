@@ -1,4 +1,4 @@
-# BigQuiz — GDD Lite / Game Specification v1.6
+# BigQuiz — GDD Lite / Game Specification v1.7
 
 ## 1. Общая информация
 
@@ -68,7 +68,21 @@
 * `categories` (1–3) — `id` подкатегорий или верхней категории из `categories.json` (отдельных тегов нет);
 * `explanation` — «факт-награда»: короткое объяснение, почему верный ответ верен (показывается при ответе, даёт эффект «о, интересно, буду знать»);
 * `imageSearchQuery` — поисковый запрос для подбора картинки (используется позже при наполнении изображениями).
-* `reviewStatus` / `reviewNote` — метаданные локальной админки ревью (`pending`/`approved`/`rejected` + заметка). Опциональны, игра их не использует. См. `admin.html` (только dev).
+* `reviewStatus` — жизненный цикл ревью: `pending` (не смотрел) / `approved` (Хорошо) / `rework` (На доработку) / `discard` (На выброс). Сопутствующие поля ревью (`reviewProblem`, `reviewSuggestion`, `reviewTags`, `llmVerdict`, `reworkedAt`, `preReworkVersion`) живут в пуле, в прод не попадают. См. раздел 4a и `admin.html` (только dev).
+
+### 4a. Прод / пул ревью (потоки данных)
+
+Два хранилища:
+* **`public/questions.json` — ПРОД.** Только `approved`. Игра берёт **только** его (`getRandomQuestion` фильтрует по `reviewStatus === 'approved'`). Едет в zip-сборку.
+* **`data/review-pool.json` — ПУЛ.** Всё на ревью (генерации, доработки). Вне `public/`, в сборку игры **не** попадает.
+
+Замкнутый цикл «генерация → судья → ревью → обучение»:
+1. Генерация (`fill-questions`) + судья (LLM) → `merge-gen` льёт результат в **пул** как `pending` с `llmVerdict`.
+2. Человек ревьюит в админке (`admin.html`): ставит вердикт, пишет Проблему/Предложение, чипы причин. Может править вручную (`/__admin/edit-question`).
+3. Батч-операции (кнопки админки или CLI): `promote-to-prod` (approved пул → прод, с код-гейтами), `delete-drops` (чистит discard), `export-rework` (rework → `scripts/polish-in` → воркфлоу `polish` → `merge-polish` возвращает в пул с бейджем «прошёл доработку»).
+4. Журнал `data/review-log.jsonl` копит негативные примеры (edit/discard/rework). Анализатор (`prep-analysis` → `analyze-reviews.workflow` → `merge-analysis`) пачкой дистиллирует тренды: аддитивно дописывает примеры в `docs/quality-examples.md` и **предлагает** правки правил в `docs/rubric-proposals/` (свод `category-risks.md` правит только человек).
+
+Операции прод/пул централизованы в `scripts/lib/review-store.mjs` (его делят dev-плагин Vite и CLI-скрипты).
 
 **Требования к вопросу:**
 * максимум 240 символов (желательно до 160);
@@ -354,6 +368,7 @@ const RESOLUTION = Math.min(Math.max(Math.ceil(FIT_SCALE * devicePixelRatio), 2)
 | v0.8 | 2026-06-16 | Три игровых режима (Случайный / Блиц / Уверен?) с вкладками и темами. Система очков (100 × ×1–×5). Yandex SDK: LoadingAPI, GameplayAPI, fullscreen ad, sticky banner. Лидерборд: getEntries, setScore, auth flow. Persistent record (bestScore + maxStreak). HiDPI рендеринг (RESOLUTION 2–4×). categories.json. Правая колонка: РЕКОРД + кнопка «Рейтинг». Mock-оверлей рекламы удалён. |
 | v0.9 | 2026-06-17 | Схема вопроса расширена: `explanation` («факт-награда», обязателен для новых вопросов) и `imageSearchQuery` (запрос для подбора картинки). `validateQuestions()` проверяет оба поля. Таксономия категорий сокращена до 23 категорий / 126 подкатегорий (см. categories.md v4). |
 | v1.0 | 2026-06-17 | Локальная (dev-only) админка ревью `admin.html`: иерархия категорий, режим пролистывания, отметка `reviewStatus` (pending/approved/rejected) + `reviewNote`. Запись в questions.json через dev-плагин Vite (`/__admin/save-question`). Поля ревью добавлены в валидатор. В прод-сборку админка не попадает. |
+| v1.7 | 2026-06-21 | Разделение прод/пул ревью и замкнутый самоулучшающийся цикл. `public/questions.json` теперь ПРОД (только `approved`, игра фильтрует по нему); `data/review-pool.json` — ПУЛ на ревью (вне сборки). Статусы: pending/approved/rework/discard. Админка переписана: два источника, карточка с LLM-вердиктом, моим вердиктом, Проблемой/Предложением (пишет человек), чипами причин, ручной правкой; батч-кнопки промоушна/дропов/доработки. Доработка: `polish` правит rework, `merge-polish` возвращает в пул с «было»/бейджем. Журнал `data/review-log.jsonl` + анализатор (`analyze-reviews.workflow`) → примеры в `quality-examples.md` (аддитивно) и предложения правок свода (вручную). Общий слой `scripts/lib/review-store.mjs`. |
 | v1.6 | 2026-06-20 | Конвейер оптимизации изображений: новый `scripts/optimize-images.js` (`sharp`) приводит картинки к WebP ≤768px/q82, оригиналы переносятся в `scripts/images-raw/` (вне архива). Встроено в `fetch-images.js` (оптимизация сразу после скачивания). npm-скрипты `optimize:images` и `images`. На реальном наборе −77% веса. Цель — уложить картинки в лимит архива ЯИ до выноса во внешнее хранилище. |
 | v1.5 | 2026-06-20 | Платформенный гейт контента (ЯИ 3.4): раздел A.0 в `category-risks.md` (запрет эзотерики/гаданий/предсказаний/действующей религии/текущей политики). Код-детектор `validateNoProhibited`/`PROHIBITED_TOPIC_RE` в `content-rules.js` (предупреждение в `validateQuestions`, жёсткий тест в `npm test`). Флаг `prohibitedYG` в воркфлоу генерации (`fill-questions`) и чистки (`clean-questions`, судьба `drop-prohibited`). |
 | v1.4 | 2026-06-18 | Ответы: контент-правило длины (`src/content-rules.js`: ≤5 слов / ≤44 символов / слово ≤18) — проверяется в `validateQuestions` (предупреждение) и тестами vitest (`tests/`, жёсткий гейт по questions.json). Плашки ответов шире (261, зазор 18), `makeAnswerLabel` гарантирует ≤2 строки. Таймер Блица больше не замирает при сворачивании вкладки (анти-чит) — только при перезагрузке. Пауза показа верного ответа 0.4 → 0.5 с. Добавлен vitest (`npm test`). |
