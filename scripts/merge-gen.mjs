@@ -20,7 +20,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { stripDashes } from '../src/content-rules.js'
+import { stripDashes, validateAnswerText } from '../src/content-rules.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const GENDIR = path.join(ROOT, 'scripts', 'gen-out')
@@ -63,24 +63,33 @@ for (const q of [...prod.questions, ...pool.questions]) {
 const nextId = () => 'q_' + String(++maxNum).padStart(3, '0')
 
 const added = []
-let kept = 0, revise = 0, dropped = 0
+let kept = 0, revise = 0, dropped = 0, downgraded = 0
 
 for (const r of results) {
   const verdictByIndex = new Map((r.verdicts || []).map((v) => [v.index, v]))
   ;(r.questions || []).forEach((q, i) => {
     const v = verdictByIndex.get(i) || { verdict: 'drop', reason: 'нет вердикта судьи' }
     if (v.verdict === 'drop') { dropped++; return }
-    if (v.verdict === 'keep') kept++; else revise++
 
     let cats = (q.categories || []).filter((c) => validIds.has(c))
     if (!cats.includes(r.subId)) cats.unshift(r.subId)
     cats = cats.slice(0, 3)
 
     const id = nextId()
+    const answers = (q.answers || []).map(stripDashes)
+
+    // Код-гейт длины: судья её не считает (LLM ненадёжно). Длинный ответ — НЕ чистый
+    // keep: детерминированно понижаем до revise (всё равно попадёт в пул как pending,
+    // но помечен как требующий доработки, а не «годен»). См. docs/rules-map.md.
+    const overLimit = answers.some((a) => !validateAnswerText(a).ok)
+    let verdict = v.verdict
+    if (overLimit && verdict === 'keep') { verdict = 'revise'; downgraded++ }
+    if (verdict === 'keep') kept++; else revise++
+
     added.push({
       id,
       question: stripDashes(q.question),
-      answers: (q.answers || []).map(stripDashes),
+      answers,
       correctAnswerIndex: q.correctAnswerIndex,
       categories: cats,
       image: `assets/images/${id}.jpg`,
@@ -89,8 +98,8 @@ for (const r of results) {
       explanation: stripDashes(q.explanation || ''),
       imageSearchQuery: q.imageSearchQuery || '',
       reviewStatus: 'pending',
-      llmVerdict: v.verdict,
-      llmReason: v.reason || ''
+      llmVerdict: verdict,
+      llmReason: v.reason || (overLimit ? 'код-гейт: ответ длиннее лимита' : '')
     })
   })
 }
@@ -100,6 +109,7 @@ fs.writeFileSync(POOL, JSON.stringify(pool, null, 2) + '\n', 'utf8')
 
 console.log(`Прочитано подкатегорий: ${results.length}`)
 console.log(`Вердикты: keep ${kept} / revise ${revise} / drop ${dropped} (drop не добавлены)`)
+if (downgraded) console.log(`Код-гейт длины: ${downgraded} keep → revise (ответ длиннее лимита)`)
 console.log(`Добавлено в ПУЛ (data/review-pool.json): ${added.length} как pending`)
 console.log(`Новые id: ${added.length ? added[0].id + ' … ' + added[added.length - 1].id : '—'}`)
 console.log('Ревьюй в admin.html. Очисти scripts/gen-out перед следующей партией.')
