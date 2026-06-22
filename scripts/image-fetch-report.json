@@ -1,133 +1,63 @@
 {
-  "generatedAt": "2026-06-21T14:21:03.748Z",
+  "generatedAt": "2026-06-22T06:26:02.644Z",
   "ok": [
-    {
-      "id": "q_011",
-      "file": "q_011.webp",
-      "license": "Public domain",
-      "author": "Animal Welfare Information Center (U.S.)"
-    },
-    {
-      "id": "q_015",
-      "file": "q_015.webp",
-      "license": "Public domain",
-      "author": "Harris, Vincent Dormer University of Bristol. Library"
-    },
-    {
-      "id": "q_018",
-      "file": "q_018.webp",
-      "license": "Public domain",
-      "author": "Norris, George William, 1875-1965"
-    },
-    {
-      "id": "q_022",
-      "file": "q_022.webp",
-      "license": "CC0",
-      "author": "Drummyfish"
-    },
-    {
-      "id": "q_026",
-      "file": "q_026.webp",
-      "license": "Public domain",
-      "author": "USGS Bee Inventory and Monitoring Lab from Beltsville, Maryland, USA"
-    },
     {
       "id": "q_032",
       "file": "q_032.webp",
       "license": "Public domain",
-      "author": "Stonehenge"
-    },
-    {
-      "id": "q_046",
-      "file": "q_046.webp",
-      "license": "Public domain",
-      "author": "NASA / Harrison H. Schmitt"
-    },
-    {
-      "id": "q_096",
-      "file": "q_096.webp",
-      "license": "Public domain",
-      "author": "Poor, Laura Elizabeth"
-    },
-    {
-      "id": "q_103",
-      "file": "q_103.webp",
-      "license": "Public domain",
-      "author": "Thomas Bulfinch"
+      "author": "Caterinarufo"
     },
     {
       "id": "q_134",
       "file": "q_134.webp",
       "license": "Public domain",
-      "author": "Ivey, G. F. (George Franks), b. 1870"
+      "author": "Jrash of the English Wikipedia and colour adjusted by Themadchopper of English Wikipedia on 3 July 2006."
     },
     {
-      "id": "q_138",
-      "file": "q_138.webp",
+      "id": "q_146",
+      "file": "q_146.webp",
       "license": "Public domain",
-      "author": "United States. Circuit Court (3rd Circuit) Grier, Robert Cooper, 1794-1870 Dickerson, Philemon, 1788-1862 Goodyear, Charles, 1800-1860 Day, Horace H"
-    },
-    {
-      "id": "q_153",
-      "file": "q_153.webp",
-      "license": "Public domain",
-      "author": "Unknown authorUnknown author"
+      "author": "Yikrazuul"
     },
     {
       "id": "q_170",
       "file": "q_170.webp",
-      "license": "Public domain",
-      "author": "Slepicka, Alois Allen.;"
-    },
-    {
-      "id": "q_176",
-      "file": "q_176.webp",
-      "license": "Public domain",
-      "author": "NASA / Johns Hopkins University Applied Physics Laboratory / Southwest Research Institute"
-    },
-    {
-      "id": "q_181",
-      "file": "q_181.webp",
       "license": "CC0",
-      "author": "Mozaikuks"
-    }
-  ],
-  "skipped": [],
-  "not_found": [
-    {
-      "id": "q_027",
-      "query": "Kurt Gödel incompleteness theorem portrait"
-    },
-    {
-      "id": "q_038",
-      "query": "Soviet BM-13 Katyusha rocket launcher WWII"
-    },
-    {
-      "id": "q_137",
-      "query": "Coca-Cola original recipe 1886 coca leaf kola nut pharmacy"
-    },
-    {
-      "id": "q_146",
-      "query": "Флеминг пенициллин чашка Петри плесень"
-    },
-    {
-      "id": "q_189",
-      "query": "hard water limescale kettle"
+      "author": "Umop503"
     },
     {
       "id": "q_230",
-      "query": "мираж пустыня дорога"
+      "file": "q_230.webp",
+      "license": "Public domain",
+      "author": "Universal Studios Entertainment"
     }
   ],
+  "skipped": [],
+  "not_found": [],
   "license_blocked": [
     {
-      "id": "q_003",
-      "query": "Байкал",
-      "rejectedLicense": "CC BY-SA 4.0"
+      "id": "q_018",
+      "query": "Сердце человека",
+      "rejectedLicense": "CC BY-SA 3.0"
     },
     {
-      "id": "q_130",
-      "query": "mexican mole sauce chocolate chili",
+      "id": "q_026",
+      "query": "Спираль Фибоначчи",
+      "rejectedLicense": "CC BY 4.0"
+    },
+    {
+      "id": "q_038",
+      "query": "Катюша БМ-13",
+      "rejectedLicense": "CC BY-SA 2.0"
+    },
+    {
+      "id": "q_137",
+      "query": "Кока-кола",
+      "rejectedLicense": "Public domain"
+    },
+    {
+      "id": "q_176",
+      "query": "Ледник",
       "rejectedLicense": "CC BY-SA 3.0"
     }
   ],

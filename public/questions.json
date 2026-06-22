@@ -83,7 +83,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "В покое сердце перекачивает около 5 литров в минуту, за сутки это около 7 000 литров - целая цистерна.",
-      "imageSearchQuery": "heart pumping blood volume cardiac output diagram",
+      "imageSearchQuery": "Сердце человека",
       "reviewStatus": "approved",
       "correctAnswer": "7 000 литров",
       "llmVerdict": "keep"
@@ -127,7 +127,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Ряд Фибоначчи: каждый член равен сумме двух предыдущих. Его описал Леонардо Пизанский (Фибоначчи) в XIII веке на задаче о кроликах, а отношение соседних чисел стремится к золотому сечению 1,618.",
-      "imageSearchQuery": "Fibonacci sequence spiral nature",
+      "imageSearchQuery": "Спираль Фибоначчи",
       "reviewStatus": "approved",
       "correctAnswer": "Фибоначчи",
       "llmVerdict": "keep"
@@ -171,7 +171,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Порода названа по штату Чиуауа на севере Мексики - именно там в XIX веке европейцы впервые встретили этих собак и начали вывозить на экспорт.",
-      "imageSearchQuery": "beagle dog breed portrait",
+      "imageSearchQuery": "Чихуахуа",
       "reviewStatus": "approved",
       "correctAnswer": "От мексиканского штата",
       "llmVerdict": "keep"
@@ -193,7 +193,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Немцы прозвали БМ-13 «Сталинским органом» (Stalinorgel) - за характерный вой реактивных снарядов и сходство направляющих рамы с органными трубами. Советские бойцы называли её «Катюшей» - по популярной песне.",
-      "imageSearchQuery": "Soviet BM-13 Katyusha rocket launcher WWII",
+      "imageSearchQuery": "Катюша БМ-13",
       "reviewStatus": "approved",
       "correctAnswer": "«Сталинский орган»",
       "llmVerdict": "keep"
@@ -303,7 +303,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Консервная банка появилась в 1810 году, а консервный нож - только в 1858-м: почти 50 лет единственным способом вскрыть банку были молоток и зубило, о чём прямо писали в инструкции.",
-      "imageSearchQuery": "early tin can opener chisel hammer history invention",
+      "imageSearchQuery": "Консервный нож",
       "reviewStatus": "approved",
       "correctAnswer": "Около 50 лет",
       "llmVerdict": "keep"
@@ -326,7 +326,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Фармацевт Джон Пембертон в 1886 году создавал лекарство от головной боли и усталости: листья коки давали кокаин как стимулятор, орехи колы - кофеин. Продавалась в аптеках именно как лечебный тонизирующий сироп.",
-      "imageSearchQuery": "Coca-Cola original recipe 1886 coca leaf kola nut pharmacy",
+      "imageSearchQuery": "Кока-кола",
       "reviewStatus": "approved",
       "correctAnswer": "Как тонизирующее средство",
       "llmVerdict": "keep"
@@ -371,7 +371,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Флеминг уехал в отпуск, оставив незакрытую чашку с культурой стафилококка. Вернувшись в 1928 году, он обнаружил, что плесень Penicillium notatum уничтожила бактерии вокруг себя - случайная небрежность изменила медицину.",
-      "imageSearchQuery": "Флеминг пенициллин чашка Петри плесень",
+      "imageSearchQuery": "Пенициллин",
       "reviewStatus": "approved",
       "correctAnswer": "Уехал, не накрыв чашку",
       "llmVerdict": "keep"
@@ -417,7 +417,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Галлий плавится при ~29,8 °C - чуть ниже температуры кожи. Кусочек галлия медленно превращается в жидкий металл прямо в пальцах, хотя на вид выглядит как обычный серебристый слиток.",
-      "imageSearchQuery": "gallium metal melting in hand",
+      "imageSearchQuery": "Галлий",
       "reviewStatus": "approved",
       "correctAnswer": "Галлий",
       "llmVerdict": "keep"
@@ -440,7 +440,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Плотный многолетний лёд почти не содержит пузырьков воздуха: молекулы воды поглощают красные длины волн и пропускают синие, поэтому толстый лёд выглядит интенсивно голубым.",
-      "imageSearchQuery": "glacier blue ice color mountain",
+      "imageSearchQuery": "Ледник",
       "reviewStatus": "approved",
       "correctAnswer": "Лёд поглощает красный свет",
       "llmVerdict": "keep"
@@ -508,7 +508,7 @@
       "imageRole": "illustrative",
       "requiresImage": false,
       "explanation": "Лучи от предмета огибают раскалённый слой воздуха снизу вверх и приходят к наблюдателю перевёрнутыми, поэтому «лужа» в пустыне - это перевёрнутое изображение неба или предметов у горизонта.",
-      "imageSearchQuery": "мираж пустыня дорога",
+      "imageSearchQuery": "Мираж",
       "reviewStatus": "approved",
       "correctAnswer": "Перевёрнутым",
       "llmVerdict": "keep"
