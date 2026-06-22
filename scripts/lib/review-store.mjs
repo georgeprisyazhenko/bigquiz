@@ -23,8 +23,9 @@ const LOG = path.join(ROOT, 'data', 'review-log.jsonl')
 const WATERMARK = path.join(ROOT, 'data', '.analyzer-watermark.json')
 
 export const VALID_STATUS = ['pending', 'approved', 'rework', 'discard']
-// Поля «процесса ревью» — не нужны в проде, снимаются при промоушне.
-const REVIEW_FIELDS = ['reviewProblem', 'reviewSuggestion', 'reviewTags', 'reviewNote', 'llmReason', 'preReworkVersion', 'reworkedAt', 'reworkNote']
+// Поля «процесса ревью» + легаси-денормализация correctAnswer — не нужны в проде,
+// снимаются при промоушне (correctAnswer избыточен и устаревает, источник — answers[correctAnswerIndex]).
+const REVIEW_FIELDS = ['reviewProblem', 'reviewSuggestion', 'reviewTags', 'reviewNote', 'llmReason', 'preReworkVersion', 'reworkedAt', 'reworkNote', 'correctAnswer']
 
 // Журнал действий ревью (обучающий корпус для анализатора Фазы 5).
 // Пишем по факту каждого значимого действия; анализ — пачкой по водяному знаку.

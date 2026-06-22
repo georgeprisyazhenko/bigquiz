@@ -20,29 +20,6 @@
       "explanation": "Тихоходки переживают охлаждение до -272 °C - на один градус выше абсолютного нуля. В этом состоянии (криптобиоз) обмен веществ почти останавливается, а тело высыхает до 3% влажности.",
       "imageSearchQuery": "Криптобиоз",
       "reviewStatus": "pending",
-      "correctAnswer": "-272 °C",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_002",
-      "question": "Почему бронза вытеснила чистую медь при изготовлении оружия?",
-      "answers": [
-        "Тверже меди",
-        "Дешевле в добыче",
-        "Доступнее в природе",
-        "Легче весит"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "drevnie-civilizacii"
-      ],
-      "image": "assets/images/q_002.webp",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Бронза - сплав меди и ~10% олова - заметно тверже чистой меди и лучше держит заточку. Само олово было редким и привозным, поэтому бронза стоила дороже меди - но именно прочность сделала её стандартом эпохи.",
-      "imageSearchQuery": "Бронзовый век",
-      "reviewStatus": "approved",
-      "correctAnswer": "Тверже меди",
       "llmVerdict": "keep"
     },
     {
@@ -64,7 +41,6 @@
       "explanation": "Венера вращается очень медленно и в обратную сторону - её сутки длиннее года (225 земных дней). Солнце там восходит на западе.",
       "imageSearchQuery": "Венера",
       "reviewStatus": "pending",
-      "correctAnswer": "243 дня",
       "llmVerdict": "keep"
     },
     {
@@ -108,7 +84,6 @@
       "explanation": "В мозжечке около 69 млрд нейронов - больше половины всех нейронов мозга, хотя сам он занимает лишь около 10% его объёма.",
       "imageSearchQuery": "Мозжечок",
       "reviewStatus": "pending",
-      "correctAnswer": "Мозжечок",
       "llmVerdict": "keep"
     },
     {
@@ -131,7 +106,6 @@
       "explanation": "КПД фотосинтеза составляет лишь 1-3% от падающего солнечного света: большая часть энергии рассеивается листьями в виде тепла и флуоресценции, иначе хлорофилл перегревался бы и разрушался.",
       "imageSearchQuery": "Хлоропласт",
       "reviewStatus": "pending",
-      "correctAnswer": "Рассеивает как тепло",
       "llmVerdict": "keep"
     },
     {
@@ -154,29 +128,6 @@
       "explanation": "Писцы срезали тростник под углом - клиновидный кончик давил в сырую глину и оставлял характерные клиновидные оттиски. Отсюда и название: «клинопись».",
       "imageSearchQuery": "Клинопись",
       "reviewStatus": "pending",
-      "correctAnswer": "Тростниковая палочка",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_009",
-      "question": "Сколько лет бушует Большое красное пятно на Юпитере?",
-      "answers": [
-        "Более 350 лет",
-        "Около 50 лет",
-        "Около 100 лет",
-        "Более 500 лет"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "planety"
-      ],
-      "image": "assets/images/q_009.webp",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Шторм наблюдается с XVII века. Большое красное пятно шире всей Земли и до сих пор не утихло.",
-      "imageSearchQuery": "Большое красное пятно",
-      "reviewStatus": "approved",
-      "correctAnswer": "Более 350 лет",
       "llmVerdict": "keep"
     },
     {
@@ -199,7 +150,6 @@
       "explanation": "Печень восстанавливает исходную массу за несколько недель - это основа трансплантации долей живым донором: хирург отрезает до 70% органа, и оба фрагмента вырастают заново.",
       "imageSearchQuery": "Аксолотль",
       "reviewStatus": "pending",
-      "correctAnswer": "Печень",
       "llmVerdict": "keep"
     },
     {
@@ -221,7 +171,6 @@
       "explanation": "У новорождённого около 270-300 костей, со временем многие срастаются, и к взрослому возрасту их остаётся 206. Больше всего костей в кистях и стопах: на них приходится более половины всего скелета.",
       "imageSearchQuery": "human skeleton anatomy bones count illustration",
       "reviewStatus": "rework",
-      "correctAnswer": "Уменьшается",
       "llmVerdict": "keep",
       "reviewTags": [
         "distractors",
@@ -249,7 +198,6 @@
       "explanation": "Кортизол при хроническом избытке запускает катаболизм: расщепляет мышечный белок ради быстрой энергии, поэтому затяжной стресс буквально «съедает» мышцы.",
       "imageSearchQuery": "cortisol stress hormone adrenal glands diagram",
       "reviewStatus": "rework",
-      "correctAnswer": "Разрушает их",
       "llmVerdict": "keep",
       "reviewTags": [
         "boring",
@@ -257,93 +205,6 @@
       ],
       "reviewProblem": "не тот угол",
       "reviewSuggestion": "На какой тип ткани негативно влияет кортизол? "
-    },
-    {
-      "id": "q_014",
-      "question": "Из какого вещества в коже солнечный свет синтезирует витамин D?",
-      "answers": [
-        "Холестерина",
-        "Меланина",
-        "Коллагена",
-        "Кератина"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "medicina"
-      ],
-      "image": "assets/images/q_014.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "UVB-излучение превращает 7-дегидрохолестерин, производное холестерина, в витамин D3 прямо в клетках эпидермиса - именно в коже, а не глубже, поэтому загар без одежды важен для его выработки.",
-      "imageSearchQuery": "vitamin D synthesis skin sunlight UV ultraviolet diagram",
-      "reviewStatus": "approved",
-      "correctAnswer": "Холестерина",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_016",
-      "question": "Какой орган человека восстанавливается, потеряв до 70% своей массы?",
-      "answers": [
-        "Печень",
-        "Сердце",
-        "Лёгкое",
-        "Желудок"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "medicina"
-      ],
-      "image": "assets/images/q_016.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Печень регенерирует из 25-30% исходной ткани за 4-8 недель - именно это позволяет взять долю у живого донора: оставшаяся часть у донора и пересаженная часть у реципиента вырастают до полного объёма.",
-      "imageSearchQuery": "liver regeneration hepatocytes anatomy illustration",
-      "reviewStatus": "approved",
-      "correctAnswer": "Печень",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_017",
-      "question": "Что случайно уничтожило бактерии на забытой чашке Петри и привело к открытию антибиотиков?",
-      "answers": [
-        "Плесень",
-        "Дрожжи",
-        "Лишайник",
-        "Водоросль"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "medicina"
-      ],
-      "image": "assets/images/q_017.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Александр Флеминг вернулся из отпуска и обнаружил, что плесень Penicillium notatum уничтожила колонии бактерий вокруг себя. Это случайное наблюдение в 1928 году привело к созданию пенициллина - первого антибиотика, за который Флеминг, Флори и Чейн получили Нобелевскую премию в 1945 году.",
-      "imageSearchQuery": "Alexander Fleming penicillin mold petri dish discovery",
-      "reviewStatus": "approved",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_019",
-      "question": "Какую болезнь королева Виктория распространила через потомков по королевским домам Европы?",
-      "answers": [
-        "Гемофилию",
-        "Подагру",
-        "Сифилис",
-        "Эпилепсию"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "medicina"
-      ],
-      "image": "assets/images/q_019.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Виктория была носительницей гемофилии и через дочерей и внучек передала её в дома Романовых, Гогенцоллернов и испанских Бурбонов; самый известный случай - цесаревич Алексей, у которого малейшая травма грозила смертельным кровотечением.",
-      "imageSearchQuery": "hemophilia royal disease Romanov Alexei Tsarevich history",
-      "reviewStatus": "approved",
-      "correctAnswer": "Гемофилию",
-      "llmVerdict": "keep"
     },
     {
       "id": "q_020",
@@ -364,7 +225,6 @@
       "explanation": "Золотое сечение: если целое/большая = большая/меньшая ≈ 1,618, то деление «идеально». Парфенон, спирали раковин и пропорции лица да Винчи подчиняются этому соотношению.",
       "imageSearchQuery": "golden ratio spiral mathematics",
       "reviewStatus": "rework",
-      "correctAnswer": "Золотое сечение",
       "llmVerdict": "keep",
       "reviewTags": [
         "language"
@@ -418,78 +278,11 @@
       "explanation": "Теорема о четырёх красках (любую карту можно раскрасить 4 цветами без смежных одноцветных областей) доказана Аппелем и Хакеном - компьютер перебрал 1936 конфигураций. Это первое доказательство в математике, которое невозможно проверить вручную.",
       "imageSearchQuery": "four color theorem map coloring mathematics",
       "reviewStatus": "rework",
-      "correctAnswer": "Четырёх красок",
       "llmVerdict": "keep",
       "reviewProblem": "я уже про это говорил кучу раз - в данном случае нужно писать Теорему Ферма, Теорему Гаусса, потому что это устойчивое сочетание - выкинь одно слово и не так понятно о чем речь",
       "reviewTags": [
         "language"
       ]
-    },
-    {
-      "id": "q_024",
-      "question": "Какое из этих чисел не является простым?",
-      "answers": [
-        "51",
-        "53",
-        "59",
-        "61"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "matematika"
-      ],
-      "image": "assets/images/q_024.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "51 = 3 × 17, поэтому оно составное. 53, 59 и 61 - простые. Делимость 51 на 3 легко проверить по сумме цифр (5+1=6), хотя на глаз 51 часто принимают за простое.",
-      "imageSearchQuery": "prime numbers mathematics chart",
-      "reviewStatus": "approved",
-      "correctAnswer": "51",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_025",
-      "question": "Какая из этих математических проблем до сих пор не решена и входит в список задач тысячелетия с призом $1 млн?",
-      "answers": [
-        "Гипотеза Римана",
-        "Теорема Ферма",
-        "Проблема Пуанкаре",
-        "Теорема четырёх красок"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "matematika"
-      ],
-      "image": "assets/images/q_025.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Гипотеза Римана связывает нули дзета-функции с расположением простых чисел и остаётся открытой более 160 лет - одна из семи задач тысячелетия, за решение каждой обещан $1 млн. Ферма доказал Уайлс (1995), Пуанкаре - Перельман (2003), теорема четырёх красок - Аппель и Хакен (1976).",
-      "imageSearchQuery": "David Hilbert mathematician portrait",
-      "reviewStatus": "approved",
-      "correctAnswer": "Гипотеза Римана",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_028",
-      "question": "Что придаёт языку чау-чау синий цвет?",
-      "answers": [
-        "Меланин",
-        "Биливердин",
-        "Билирубин",
-        "Таннин"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "domashnie-zhivotnye"
-      ],
-      "image": "assets/images/q_028.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Высокая концентрация меланина в слизистой оболочке даёт языку чау-чау характерный синевато-чёрный цвет. Щенки рождаются с розовым языком - пигментация накапливается к 8-10 неделям.",
-      "imageSearchQuery": "chow chow dog blue tongue",
-      "reviewStatus": "approved",
-      "correctAnswer": "Меланин",
-      "llmVerdict": "keep"
     },
     {
       "id": "q_029",
@@ -510,7 +303,6 @@
       "explanation": "Защёчные мешки хомяка - эластичные кожные складки, тянущиеся от щёк до плеч. В них помещается зерно весом до 50% от массы тела - рекорд среди грызунов.",
       "imageSearchQuery": "hamster full cheek pouches",
       "reviewStatus": "rework",
-      "correctAnswer": "Половину",
       "llmVerdict": "keep",
       "reviewProblem": "опять же, цифры / проценты / числа считываются проще, здесь лучше половину написать как 50%",
       "reviewTags": [
@@ -544,50 +336,6 @@
       "reviewSuggestion": "растут всю жизнь / эмаль с одной стороны / голубой оттенок / все коренные"
     },
     {
-      "id": "q_031",
-      "question": "Зачем кошка трётся щекой об углы мебели и предметов?",
-      "answers": [
-        "Метит феромонами",
-        "Просит еды",
-        "Снимает стресс",
-        "Проявляет нежность"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "domashnie-zhivotnye"
-      ],
-      "image": "assets/images/q_031.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В щеках, лбу и основании хвоста кошки - сальные железы с индивидуальным химическим «паспортом». Тёрся о хозяина, она включает его в свою карту запахов, а не проявляет нежность.",
-      "imageSearchQuery": "cat rubbing face on corner bunting",
-      "reviewStatus": "approved",
-      "correctAnswer": "Метит феромонами",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_034",
-      "question": "Латинское «musculus» значило и «мышца», и «мышонок», почему мышцу так назвали?",
-      "answers": [
-        "По движению под кожей",
-        "По форме сухожилия",
-        "По цвету ткани",
-        "По твёрдости волокон"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "etimologiya"
-      ],
-      "image": "assets/images/q_034.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Римские анатомы сравнивали движение мышцы под кожей с пробегающим мышонком - то же слово musculus обозначало обоих. Метафора оказалась живучей: через латынь она попала во все романские и германские языки, включая английское muscle.",
-      "imageSearchQuery": "anatomy muscle latin etymology illustration",
-      "reviewStatus": "approved",
-      "correctAnswer": "По движению под кожей",
-      "llmVerdict": "keep"
-    },
-    {
       "id": "q_035",
       "question": "Что ирландские арендаторы сделали с управляющим Бойкоттом, подарив языку новое слово?",
       "answers": [
@@ -606,7 +354,6 @@
       "explanation": "В 1880 году ирландские арендаторы коллективно отказались иметь дело с управляющим Чарльзом Бойкоттом - прогнали его работников и перестали торговать с ним. Газеты описали этот метод его именем, которое мгновенно вошло в европейские языки.",
       "imageSearchQuery": "Captain Boycott Ireland 1880 land league",
       "reviewStatus": "rework",
-      "correctAnswer": "Отказались с ним общаться",
       "llmVerdict": "keep",
       "reviewTags": [
         "boring",
@@ -634,7 +381,6 @@
       "explanation": "Этьен де Силуэт - министр финансов Франции 1759 года - был известен жёсткой экономией. Его имя стало насмешливым синонимом всего дешёвого и упрощённого, в том числе дешёвых контурных портретов без деталей.",
       "imageSearchQuery": "silhouette portrait 18th century France Étienne de Silhouette",
       "reviewStatus": "rework",
-      "correctAnswer": "Жёсткой экономией",
       "llmVerdict": "keep",
       "reviewProblem": "переносы в ответах это неправильно. Если слово не влезает, то оно целиком переезжает на вторую строку и должно помещаться там. Вероятно, это требуется изменений в коде, подними этот вопрос, когда будешь анализировать",
       "reviewTags": [
@@ -660,7 +406,6 @@
       "explanation": "По греческим мифам, Пан - бог лесов и пастбищ - мог внезапным криком нагнать беспричинный иррациональный ужас на людей и стада. Такой безотчётный страх стали называть «паническим».",
       "imageSearchQuery": "Pan Greek god ancient mythology forest",
       "reviewStatus": "rework",
-      "correctAnswer": "Нагонял ужас криком",
       "fact": {
         "id": "q_037",
         "factVerdict": "true",
@@ -673,28 +418,6 @@
       ],
       "reviewProblem": "все дистракторы +/- похожи и не запоминаемы. Рельано интересный факт - что это бог лесов и пастбищ, а не ужаса",
       "reviewSuggestion": "Слово \"панический\" произошло от греческого бога Пана. Покровителем чего он был? Бог страха / Бог лесов и пастбищ / Бог ветра /  Бог вина"
-    },
-    {
-      "id": "q_039",
-      "question": "На каком самолёте лётчицы 46-го полка совершали ночные бомбардировки, за что немцы прозвали их «ночными ведьмами»?",
-      "answers": [
-        "По-2",
-        "Як-1",
-        "Ли-2",
-        "Ил-2"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "vov"
-      ],
-      "image": "assets/images/q_039.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "46-й гвардейский ночной бомбардировочный полк летал на По-2 - учебном фанерном биплане со скоростью около 130 км/ч. Немцы прозвали лётчиц Nachthexen: мотор глушили при заходе на цель, и самолёт беззвучно планировал к цели.",
-      "imageSearchQuery": "Night Witches Soviet female pilots Po-2 biplane WWII",
-      "reviewStatus": "approved",
-      "correctAnswer": "По-2",
-      "llmVerdict": "keep"
     },
     {
       "id": "q_040",
@@ -715,7 +438,6 @@
       "explanation": "«Фердинанд» (позднее переименованный в «Элефант») участвовал лишь в одном крупном сражении - под Курском в 1943 году. Советские солдаты стали называть «Фердинандом» любое тяжёлое немецкое самоходное орудие - термин прижился в донесениях и мемуарах.",
       "imageSearchQuery": "Elefant Ferdinand heavy tank destroyer WWII Kursk",
       "reviewStatus": "rework",
-      "correctAnswer": "Фердинанд",
       "llmVerdict": "keep",
       "reviewTags": [
         "wording"
@@ -741,14 +463,14 @@
       "requiresImage": false,
       "explanation": "«Раздача мауди» (Maundy Money) - традиция, восходящая к XIV веку. Монарх раздаёт специально отчеканенные серебряные монеты пожилым людям, по числу своих лет. Монеты являются законным платёжным средством, но ценятся как реликвии.",
       "imageSearchQuery": "Maundy Money ceremony British monarch silver coins",
-      "reviewStatus": "pending",
-      "correctAnswer": "Раздача мауди",
+      "reviewStatus": "rework",
       "llmVerdict": "keep",
       "reviewTags": [
         "distractors",
         "leak"
       ],
-      "reviewProblem": "раздает в вопросе и "
+      "reviewProblem": "раздает в вопросе и только один вариант ответа с словом \"раздача\". Помазание вообще не в тему очевидно, как и тронная речь",
+      "reviewSuggestion": "Раздача мауди / Инвеститура / Благодарственный прием / Раздача Кронов"
     },
     {
       "id": "q_042",
@@ -768,8 +490,7 @@
       "requiresImage": false,
       "explanation": "Японское законодательство не предусматривало процедуры отречения. Парламент принял отдельный закон под этот единственный случай. Акихито стал первым отрёкшимся японским императором с 1817 года.",
       "imageSearchQuery": "Emperor Akihito abdication Japan 2019",
-      "reviewStatus": "pending",
-      "correctAnswer": "Принять специальный закон",
+      "reviewStatus": "approved",
       "llmVerdict": "keep"
     },
     {
@@ -790,9 +511,12 @@
       "requiresImage": false,
       "explanation": "Николай II, последний российский император, был внуком Виктории по материнской линии. У неё было 9 детей и 42 внука, занявших троны по всей Европе, включая кайзера Вильгельма II и короля Испании Альфонса XIII. Прозвище «бабушка Европы» закрепилось ещё при её жизни.",
       "imageSearchQuery": "Queen Victoria grandmother of Europe royal descendants",
-      "reviewStatus": "pending",
-      "correctAnswer": "Николай II",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring"
+      ],
+      "reviewProblem": "интереснее было бы спросить, какой европейский монарх получил прозвище \"бабаушка Европы\" за 9 детей и 42 внука, занявших троны по всей Европе? ответ - Королева Виктория"
     },
     {
       "id": "q_044",
@@ -812,9 +536,13 @@
       "requiresImage": false,
       "explanation": "Екатерина Арагонская была тёткой императора Карла V - обе они происходили от Фердинанда и Изабеллы, но Карл V был сыном их дочери Хуаны. В 1527 году его войска разграбили Рим, и Папа фактически оказался в его власти - оскорбить родственницу могущественного покровителя он не мог. Именно это заблокировало развод.",
       "imageSearchQuery": "Catherine of Aragon Henry VIII Mary I portrait",
-      "reviewStatus": "pending",
-      "correctAnswer": "Тёткой",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "wording",
+        "boring"
+      ],
+      "reviewProblem": "очень сложно - в вопросе вопрос, два уточнения про обстоятельства. Это тяжело читать. и понимать, что от тебя хотят. И угол неинтересный. Лучше спросить, что заблокировало развод Генрих VIII "
     },
     {
       "id": "q_045",
@@ -834,9 +562,12 @@
       "requiresImage": false,
       "explanation": "В вакууме скафандр Леонова раздулся настолько, что он не мог согнуть руки и ноги и не пролезал в шлюз. Леонов стравил давление до опасного предела - и только так смог вернуться на борт.",
       "imageSearchQuery": "Alexei Leonov spacewalk 1965",
-      "reviewStatus": "pending",
-      "correctAnswer": "Раздулся скафандр",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "wording"
+      ],
+      "reviewProblem": "Кончился кислород в скафандре = Заканчивался кислород\nКорабль начал разгерметизацию = Разгерметизация корабля\n"
     },
     {
       "id": "q_047",
@@ -856,36 +587,12 @@
       "requiresImage": false,
       "explanation": "Экипаж «Союза-11» провёл на «Салюте-1» 23 дня в 1971 году и погиб при возвращении из-за разгерметизации спускаемого аппарата - первая гибель экипажа в ходе космической миссии.",
       "imageSearchQuery": "Salyut-1 space station Soviet",
-      "reviewStatus": "pending",
-      "correctAnswer": "23 дня",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_048",
-      "question": "Сколько суток суммарно провела в космосе Пегги Уитсон за все экспедиции на МКС?",
-      "answers": [
-        "665 суток",
-        "322 суток",
-        "200 суток",
-        "480 суток"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kosmonavtika"
-      ],
-      "image": "assets/images/q_048.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Пегги Уитсон провела в космосе более 665 суток в ходе трёх экспедиций на МКС - на момент завершения последней экспедиции в 2017 году это был рекорд США по суммарному времени в космосе среди всех астронавтов, не только женщин.",
-      "imageSearchQuery": "Peggy Whitson ISS NASA astronaut",
-      "reviewStatus": "pending",
-      "correctAnswer": "665 суток",
-      "fact": {
-        "id": "q_048",
-        "factVerdict": "true",
-        "explanation": "По завершении трёх долгосрочных экспедиций на МКС (Expedition 5, 16, 50/51/52) Пегги Уитсон накопила ровно 665 суток в космосе — это число подтверждает сам Axiom Space, называя его результатом именно МКС-миссий. После коммерческих рейсов Ax-2 и Ax-4 суммарный налёт вырос до 695 суток, но вопрос ограничен экспедициями на МКС. Источник: axiomspace.com/astronaut/peggy-whitson"
-      },
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "интереснее факт - из-за чего произошла катастрофа при возвращении экипажа - \"разгермитизация при спуске\"",
+      "reviewTags": [
+        "boring"
+      ]
     },
     {
       "id": "q_049",
@@ -905,75 +612,12 @@
       "requiresImage": false,
       "explanation": "Советская «Венера-7» в декабре 1970 года мягко села на Венеру и 23 минуты передавала данные о температуре и давлении - первая успешная межпланетная посадка с телеметрией.",
       "imageSearchQuery": "Venera 7 Venus lander Soviet spacecraft",
-      "reviewStatus": "pending",
-      "correctAnswer": "23 минуты",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_050",
-      "question": "Что из перечисленного не является названием модуля МКС?",
-      "answers": [
-        "Аврора",
-        "Звезда",
-        "Заря",
-        "Destiny"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kosmonavtika"
-      ],
-      "image": "assets/images/q_050.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "«Звезда» - российский служебный модуль, «Заря» - первый запущенный модуль МКС, Destiny - американская лаборатория. «Авроры» среди модулей МКС никогда не было.",
-      "imageSearchQuery": "International Space Station ISS modules diagram",
-      "reviewStatus": "pending",
-      "correctAnswer": "Аврора",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_051",
-      "question": "В каком году первый в мире космический турист Деннис Тито побывал на МКС?",
-      "answers": [
-        "2001",
-        "1999",
-        "2004",
-        "2007"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kosmonavtika"
-      ],
-      "image": "assets/images/q_051.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Деннис Тито полетел на МКС в 2001 году на «Союзе ТМ-32», заплатив около 20 миллионов долларов. NASA возражало против полёта, но Роскосмос всё равно его отправил.",
-      "imageSearchQuery": "Dennis Tito space tourist Soyuz ISS 2001",
-      "reviewStatus": "pending",
-      "correctAnswer": "2001",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_052",
-      "question": "В каком году «Вояджер-1» первым вышел в межзвёздное пространство?",
-      "answers": [
-        "2012",
-        "1990",
-        "2003",
-        "2019"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "kosmonavtika"
-      ],
-      "image": "assets/images/q_052.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "В 2012 году «Вояджер-1» пересёк гелиопаузу и вышел в межзвёздное пространство - через 35 лет после запуска. Это официально подтверждено NASA.",
-      "imageSearchQuery": "Voyager 1 spacecraft interstellar space NASA",
-      "reviewStatus": "pending",
-      "correctAnswer": "2012",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "гибель - плохое слово. И вообще не подходит к аппарату",
+      "reviewTags": [
+        "wording"
+      ]
     },
     {
       "id": "q_057",
@@ -993,9 +637,12 @@
       "requiresImage": false,
       "explanation": "Марадона пробежал с мячом около 60 метров и обвёл пятерых англичан в четвертьфинале ЧМ-1986 в Мехико. Болельщики ФИФА в 2002 году признали этот гол лучшим в истории.",
       "imageSearchQuery": "Maradona goal of the century 1986 World Cup England",
-      "reviewStatus": "pending",
-      "correctAnswer": "Пятерых",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring"
+      ],
+      "reviewProblem": "после ответа все забуду через минуту, сколько там игроков, совершенно неинтересный факт. Лучше спросить, кто автор гола века. ОПять интересный факт уже заложен в вопрос"
     },
     {
       "id": "q_058",
@@ -1015,8 +662,7 @@
       "requiresImage": false,
       "explanation": "На 110-й минуте финала Зидан ударил Матерацци головой в грудь после словесной провокации и был удалён. Италия выиграла по пенальти 5:3 - это был последний матч Зидана в карьере.",
       "imageSearchQuery": "Berlin Olympiastadion 2006 World Cup final Italy France",
-      "reviewStatus": "pending",
-      "correctAnswer": "Удар головой в грудь соперника",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -1037,75 +683,12 @@
       "requiresImage": false,
       "explanation": "Яшин получил «Золотой мяч» в 1963 году - единственный голкипер за всю историю премии. В его честь с 2010 года приз лучшему вратарю каждого ЧМ ФИФА называется «Премией Яшина».",
       "imageSearchQuery": "FIFA World Cup Golden Glove award goalkeeper",
-      "reviewStatus": "pending",
-      "correctAnswer": "Лев Яшин",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_060",
-      "question": "В каком году Бразилия первой в истории выиграла три чемпионата мира?",
-      "answers": [
-        "1970",
-        "1958",
-        "1982",
-        "1994"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "wording"
       ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "futbol"
-      ],
-      "image": "assets/images/q_060.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Бразилия выиграла ЧМ в 1958, 1962 и 1970 годах - первая сборная с тремя титулами. Италия собрала свои три победы позже: 1934, 1938 и 1982.",
-      "imageSearchQuery": "Italy national football team World Cup trophy 1982",
-      "reviewStatus": "pending",
-      "correctAnswer": "1970",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_061",
-      "question": "Кто из этих игроков трижды выигрывал Лигу чемпионов, но так и не получил Золотой мяч?",
-      "answers": [
-        "Гарет Бэйл",
-        "Криштиану Роналду",
-        "Лука Модрич",
-        "Роналдиньо"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "futbol"
-      ],
-      "image": "assets/images/q_061.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "Гарет Бэйл выиграл Лигу чемпионов с «Реалом» в 2014, 2016 и 2018 годах и забил финальный гол в 2018-м против «Ливерпуля», однако «Золотого мяча» за карьеру так и не получил. Роналду (5 Золотых мячей), Модрич (1) и Роналдиньо (1) - лауреаты.",
-      "imageSearchQuery": "Ballon d'Or trophy France Football award",
-      "reviewStatus": "pending",
-      "correctAnswer": "Гарет Бэйл",
-      "llmVerdict": "keep"
-    },
-    {
-      "id": "q_062",
-      "question": "Какое правило гласило, что первый гол в футбольном овертайме немедленно завершает матч?",
-      "answers": [
-        "Золотой гол",
-        "Серебряный гол",
-        "Правило выезда",
-        "Правило фэйр-плей"
-      ],
-      "correctAnswerIndex": 0,
-      "categories": [
-        "futbol"
-      ],
-      "image": "assets/images/q_062.jpg",
-      "imageRole": "illustrative",
-      "requiresImage": false,
-      "explanation": "«Золотой гол» (1993-2004) задумывался для стимуляции атакующей игры, но дал обратный эффект: команды боялись пропустить и сверхосторожно тянули время. ФИФА отменила правило как не достигшее цели.",
-      "imageSearchQuery": "football extra time overtime World Cup knockout",
-      "reviewStatus": "pending",
-      "correctAnswer": "Золотой гол",
-      "llmVerdict": "keep"
+      "reviewProblem": "интересный факт не в том, кто получил награду и в какому году - а то, что это единственный голкипер. Опять факт либо в вопросе, либо в объяснении"
     },
     {
       "id": "q_063",
@@ -1125,8 +708,11 @@
       "requiresImage": false,
       "explanation": "FTP умел передавать файлы, но не понимал гипертекст: он не мог обрабатывать встроенные ссылки и формировать страницу на лету из связанных ресурсов. HTTP создавался специально для этого - в 1989-1991 годах в ЦЕРНе, для обмена научными документами с перекрёстными ссылками.",
       "imageSearchQuery": "HTTP protocol diagram web browser server",
-      "reviewStatus": "pending",
-      "llmVerdict": "keep"
+      "reviewStatus": "discard",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring"
+      ]
     },
     {
       "id": "q_068",
@@ -1146,8 +732,11 @@
       "requiresImage": false,
       "explanation": "До DNS все компьютеры интернета скачивали единый файл HOSTS.TXT, который вручную поддерживал Стэнфордский институт. В 1983 году Пол Мокапетрис предложил DNS: распределённую иерархическую систему, которая масштабируется до миллиардов адресов.",
       "imageSearchQuery": "DNS domain name system lookup resolver diagram",
-      "reviewStatus": "pending",
-      "llmVerdict": "keep"
+      "reviewStatus": "discard",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring"
+      ]
     },
     {
       "id": "q_069",
@@ -1167,9 +756,12 @@
       "requiresImage": false,
       "explanation": "В 1993 году Марк Андриссен и Эрик Бина выпустили Mosaic - первый браузер с графическим интерфейсом для обычных пользователей. Именно он вызвал взрывной рост веба: трафик WWW за год вырос в 341 раз.",
       "imageSearchQuery": "Mosaic web browser 1993 NCSA screenshot",
-      "reviewStatus": "pending",
-      "correctAnswer": "В 341 раз",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "Всемирной паутины - так никто не говорит из людей, трафик интернета. И я бы добавил Первый браузер",
+      "reviewTags": [
+        "wording"
+      ]
     },
     {
       "id": "q_072",
@@ -1189,8 +781,14 @@
       "requiresImage": false,
       "explanation": "Сертификат, выданный доверенным центром, криптографически связан с доменным именем. Перехватчик не может подделать сертификат для чужого домена - браузер увидит несоответствие и предупредит пользователя. Именно это делает HTTPS защитой от MITM, а не просто шифрование.",
       "imageSearchQuery": "man in the middle attack network security interception diagram",
-      "reviewStatus": "pending",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "distractors",
+        "boring",
+        "niche"
+      ],
+      "reviewProblem": "лучше спросить, как называется такой тип атаки. Очень сложные ответы и неинтересный факты. Это не экзамен по ИБ"
     },
     {
       "id": "q_073",
@@ -1210,9 +808,13 @@
       "requiresImage": false,
       "explanation": "Ультрамарин делали из лазурита, который везли из Афганистана «из-за моря» (ultra mare). Пигмент стоил дороже золота, поэтому его берегли для самых важных фигур, прежде всего одежды Мадонны.",
       "imageSearchQuery": "lapis lazuli ultramarine pigment Renaissance painting",
-      "reviewStatus": "pending",
-      "correctAnswer": "Дороже золота",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "distractors",
+        "boring"
+      ],
+      "reviewProblem": "если он дороже золота, то автоматом и дороже серебра. дешевле охры бестолковый вариант. Тут проще угол поменять - из чего делали ультрамарин"
     },
     {
       "id": "q_074",
@@ -1233,7 +835,6 @@
       "explanation": "При высыхании влажной штукатурки гидроксид кальция реагирует с CO2 и превращается в кристаллический карбонат кальция - пигменты замуровываются внутри этой структуры, буквально в стене.",
       "imageSearchQuery": "fresco technique wet plaster Renaissance wall painting",
       "reviewStatus": "pending",
-      "correctAnswer": "Кристаллизация извести",
       "llmVerdict": "keep"
     },
     {
@@ -1254,8 +855,7 @@
       "requiresImage": false,
       "explanation": "Ван Гог использовал импасто - нанесение густой краски мастихином или щетинной кистью. Местами слой на его холстах достигает сантиметра, создавая осязаемый рельеф мазка.",
       "imageSearchQuery": "impasto painting technique thick paint texture Van Gogh",
-      "reviewStatus": "pending",
-      "correctAnswer": "Импасто, густой слой краски",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -1277,7 +877,6 @@
       "explanation": "Сёра и Синьяк наносили крошечные точки чистых красок вплотную - цвет рождался прямо в глазу зрителя (оптическое смешение), а не на палитре.",
       "imageSearchQuery": "pointillism Seurat Signac Cross painters neo-impressionism",
       "reviewStatus": "pending",
-      "correctAnswer": "Точками чистых красок",
       "llmVerdict": "keep"
     },
     {
@@ -1299,7 +898,6 @@
       "explanation": "Мантенья написал Христа ногами к зрителю, применив радикальный ракурс - резкое перспективное сокращение. Ступни кажутся огромными, голова - маленькой, а тело длиной почти 2 метра умещается в холст 68×81 см.",
       "imageSearchQuery": "Mantegna Dead Christ foreshortening perspective painting",
       "reviewStatus": "pending",
-      "correctAnswer": "Перспективный ракурс",
       "llmVerdict": "keep"
     },
     {
@@ -1321,7 +919,6 @@
       "explanation": "Хокусай начал серию как «36 видов», но она пользовалась таким спросом, что издатель допечатал ещё 10 листов - итого 46 гравюр. «Большая волна у Канагавы» входит в первоначальные 36.",
       "imageSearchQuery": "Hokusai Great Wave Kanagawa woodblock print Fuji",
       "reviewStatus": "pending",
-      "correctAnswer": "46",
       "llmVerdict": "keep"
     },
     {
@@ -1342,8 +939,7 @@
       "requiresImage": false,
       "explanation": "Теотокопулос родился на Крите, учился в Венеции и переехал в Толедо уже сложившимся мастером. Испанцы не утруждались труднопроизносимым именем и звали его El Greco - Грек.",
       "imageSearchQuery": "El Greco Toledo painting elongated figures",
-      "reviewStatus": "pending",
-      "correctAnswer": "Критянин с греческим именем",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -1365,7 +961,6 @@
       "explanation": "Йоханнес Иттен разработал свой 12-частный круг в Баухаусе в 1920-х, опираясь на субъективное восприятие цвета глазом и психикой - в отличие от физических моделей вроде круга Мюнселля.",
       "imageSearchQuery": "Itten color wheel 12 hues Bauhaus art theory",
       "reviewStatus": "pending",
-      "correctAnswer": "Круг Иттена",
       "llmVerdict": "keep"
     },
     {
@@ -1387,7 +982,6 @@
       "explanation": "Шафран - это высушенные рыльца крокуса Crocus sativus: каждый цветок даёт лишь 3 рыльца, их срывают вручную на рассвете за единственный сезон. Именно поэтому шафран дороже золота по весу.",
       "imageSearchQuery": "risotto alla milanese saffron yellow",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 150 000",
       "llmVerdict": "keep"
     },
     {
@@ -1429,8 +1023,7 @@
       "requiresImage": false,
       "explanation": "Традиционное меню якитори включает все части птицы отдельными шпажками: грудку, бедро, кожу, печень, сердечки, хрящи. Принцип «нос-в-хвост» по-японски - это и есть суть якитори, а не просто куриное барбекю.",
       "imageSearchQuery": "shabu shabu Japanese hot pot thin beef",
-      "reviewStatus": "pending",
-      "correctAnswer": "Мясо, кожа и потроха птицы",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -1452,7 +1045,6 @@
       "explanation": "Камамбер как общее название не защищён: статус PDO имеет лишь «Camembert de Normandie». Бри де Мо, Рокфор и Пармиджано-Реджано защищены и производятся только в своих регионах.",
       "imageSearchQuery": "camembert cheese PDO EU label",
       "reviewStatus": "pending",
-      "correctAnswer": "Камамбер",
       "llmVerdict": "keep"
     },
     {
@@ -1474,7 +1066,6 @@
       "explanation": "Мадагаскар производит около 80% мировой ванили сорта Бурбон. Хотя ваниль родом из Мексики, именно на Мадагаскаре после завоза в XIX веке сложилось доминирующее промышленное производство.",
       "imageSearchQuery": "Madagascar vanilla plantation pods harvest",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 80%",
       "fact": {
         "id": "q_087",
         "factVerdict": "true",
@@ -1501,7 +1092,6 @@
       "explanation": "Пластины стегозавра пронизаны кровеносными сосудами и работали как радиатор: разворачиваясь к солнцу, динозавр нагревался, а на ветру - охлаждался. Версия о защите отвергнута: пластины стоят по центру спины, а не по бокам.",
       "imageSearchQuery": "stegosaurus back plates closeup",
       "reviewStatus": "pending",
-      "correctAnswer": "Терморегуляция",
       "llmVerdict": "keep"
     },
     {
@@ -1523,7 +1113,6 @@
       "explanation": "У T. rex на передних конечностях было два функциональных пальца с когтями. Предки тираннозавридов имели три пальца, но у T. rex третий редуцировался до рудимента.",
       "imageSearchQuery": "tyrannosaurus rex forearm two fingers fossil",
       "reviewStatus": "pending",
-      "correctAnswer": "Два",
       "llmVerdict": "keep"
     },
     {
@@ -1545,7 +1134,6 @@
       "explanation": "Пик видового разнообразия динозавров пришёлся на меловой период (145-66 млн лет назад): тогда возникли цератопсиды, анкилозавры, гадрозавры и крупные тираннозавриды. Юрский период знаменит гигантскими зауроподами.",
       "imageSearchQuery": "Cretaceous dinosaurs diversity illustration",
       "reviewStatus": "pending",
-      "correctAnswer": "Меловой",
       "llmVerdict": "keep"
     },
     {
@@ -1567,7 +1155,6 @@
       "explanation": "По мифу, Посейдон подарил афинянам первого коня, символ силы и войны. Афина подарила оливковое дерево, символ мира и процветания, и афиняне предпочли её дар.",
       "imageSearchQuery": "Poseidon horse Greek mythology ancient",
       "reviewStatus": "pending",
-      "correctAnswer": "Конь",
       "llmVerdict": "keep"
     },
     {
@@ -1589,7 +1176,6 @@
       "explanation": "Афина вышла из головы Зевса уже взрослой, в полном боевом облачении и с боевым кличем. Зевс заранее проглотил её мать Метиду, опасаясь пророчества.",
       "imageSearchQuery": "Athena born from Zeus head Greek mythology",
       "reviewStatus": "pending",
-      "correctAnswer": "Афина",
       "llmVerdict": "keep"
     },
     {
@@ -1611,7 +1197,6 @@
       "explanation": "На месте каждой срубленной головы вырастали две новые. Племянник Геракла Иолай догадался сразу прижигать шею - так рана не успевала восстановиться. Именно поэтому подвиг засчитали «нечистым».",
       "imageSearchQuery": "Lernaean Hydra nine heads Heracles Greek myth",
       "reviewStatus": "pending",
-      "correctAnswer": "Прижигал шеи факелом",
       "llmVerdict": "keep"
     },
     {
@@ -1633,7 +1218,6 @@
       "explanation": "Лета («забвение») - река в Аиде, из которой души пили перед перерождением, полностью забывая прошлую жизнь. Отсюда выражение «кануть в Лету».",
       "imageSearchQuery": "River Lethe underworld Greek mythology Hades",
       "reviewStatus": "pending",
-      "correctAnswer": "Забывали прошлую жизнь",
       "llmVerdict": "keep"
     },
     {
@@ -1655,7 +1239,6 @@
       "explanation": "Посейдон послал Миносу белоснежного быка для жертвоприношения, но тот пожалел его и оставил. В наказание бог заставил жену Миноса Пасифаю влюбиться в быка - так родился Минотавр.",
       "imageSearchQuery": "Minotaur Minos Pasiphae Labyrinth Crete Greek myth",
       "reviewStatus": "pending",
-      "correctAnswer": "Бык Посейдона",
       "llmVerdict": "keep"
     },
     {
@@ -1677,7 +1260,6 @@
       "explanation": "«Анадиомена» от греческого «анадюомай» - выныривать, всплывать. Эпитет отсылает к рождению Афродиты из морской пены у берегов Кипра: богиня буквально «восстала из волн».",
       "imageSearchQuery": "Aphrodite Anadyomene rising from sea Greek mythology",
       "reviewStatus": "pending",
-      "correctAnswer": "Восставшая из волн",
       "llmVerdict": "keep"
     },
     {
@@ -1699,7 +1281,6 @@
       "explanation": "Сапфо жила на острове Лесбос - отсюда слово «лесбийская». «Сапфическая» образовалось от имени самой поэтессы и обозначает также строфическую форму, которую она изобрела.",
       "imageSearchQuery": "Delos island birthplace Apollo Artemis Greek mythology",
       "reviewStatus": "pending",
-      "correctAnswer": "Лесбийская",
       "llmVerdict": "keep"
     },
     {
@@ -1721,7 +1302,6 @@
       "explanation": "Подножка (running board) позволяла пассажирам забираться в высокие открытые автомобили и служила опорой при заводке рукояткой. К 1940-м кузова массовых легковых моделей стали ниже и закрытее, и подножка исчезла с большинства из них.",
       "imageSearchQuery": "1920s car running board vintage automobile",
       "reviewStatus": "pending",
-      "correctAnswer": "К 1940-м",
       "llmVerdict": "keep"
     },
     {
@@ -1743,7 +1323,6 @@
       "explanation": "Китайский холдинг Geely купил Volvo у Ford за 1,8 млрд долларов. Для многих это сюрприз: Volvo по-прежнему проектируется в Швеции, но юридически принадлежит китайцам.",
       "imageSearchQuery": "Volvo headquarters Gothenburg Sweden",
       "reviewStatus": "pending",
-      "correctAnswer": "Geely",
       "llmVerdict": "keep"
     },
     {
@@ -1765,7 +1344,6 @@
       "explanation": "Veyron (2005) разгонялся до 407 км/ч и стал первым серийным авто быстрее 400 км/ч. Под капотом стоял мотор W16 с четырьмя турбинами мощностью 1001 л.с.",
       "imageSearchQuery": "Bugatti Veyron W16 engine",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 400 км/ч",
       "llmVerdict": "keep"
     },
     {
@@ -1787,7 +1365,6 @@
       "explanation": "Infiniti - люксовое подразделение Nissan, основанное в 1989 году. По той же схеме Toyota создала Lexus, а Honda - Acura.",
       "imageSearchQuery": "German luxury car brands BMW Mercedes Audi",
       "reviewStatus": "pending",
-      "correctAnswer": "Nissan",
       "llmVerdict": "keep"
     },
     {
@@ -1809,7 +1386,6 @@
       "explanation": "ЗАЗ-965 (1960-1969) имел характерный покатый горб над задней частью кузова, где был спрятан двигатель с воздушным охлаждением. Именно этот выступ и дал машине прозвище «горбатый».",
       "imageSearchQuery": "ЗАЗ Запорожец советский автомобиль",
       "reviewStatus": "pending",
-      "correctAnswer": "За покатый выступ над кузовом",
       "llmVerdict": "keep"
     },
     {
@@ -1831,7 +1407,6 @@
       "explanation": "Ford Model T получил прозвище Tin Lizzie («Жестянка Лиззи»), намекая на дешевизну и жестяной облик машины. Именно Lizzie, а не чьё-то имя - это тогдашний сленг для «любой старой рухляди». А то, что с 1914 года авто красили только в чёрный, объяснялось просто: чёрная эмаль сохла в разы быстрее цветных.",
       "imageSearchQuery": "Ford Model T black tin lizzie 1920s",
       "reviewStatus": "pending",
-      "correctAnswer": "Жестянка Лиззи",
       "fact": {
         "id": "q_110",
         "factVerdict": "true",
@@ -1858,7 +1433,6 @@
       "explanation": "Лео Бэкеланд создавал бакелит как замену шеллаку - природному изолятору для электропроводки. Лишь потом материал завоевал ювелирное дело, телефоны и корпуса приборов.",
       "imageSearchQuery": "bakelite electrical insulation early 20th century",
       "reviewStatus": "pending",
-      "correctAnswer": "Изоляция проводов",
       "llmVerdict": "keep"
     },
     {
@@ -1880,7 +1454,6 @@
       "explanation": "В 1945 году инженер Raytheon стоял у магнетрона и обнаружил, что плитка шоколада в кармане растаяла. Первая коммерческая микроволновая печь весила 340 кг и стоила как автомобиль.",
       "imageSearchQuery": "Percy Spencer microwave oven invention 1945",
       "reviewStatus": "pending",
-      "correctAnswer": "Шоколадный батончик",
       "llmVerdict": "keep"
     },
     {
@@ -1902,7 +1475,6 @@
       "explanation": "В 1856 году 18-летний Пёркин пытался получить хинин - лекарство от малярии, но вместо него получил тёмный осадок - мовеин, пурпурный краситель. Эта случайная находка дала старт всей синтетической химии красок.",
       "imageSearchQuery": "William Perkin mauveine synthetic dye 1856",
       "reviewStatus": "pending",
-      "correctAnswer": "Хинин",
       "llmVerdict": "keep"
     },
     {
@@ -1924,7 +1496,6 @@
       "explanation": "Нейлон синтезирован DuPont в 1935 году, тефлон - в 1938-м, полиэстер - в 1941-м, кевлар - в 1965-м. Нейлон дебютировал как замена шёлку для женских чулок.",
       "imageSearchQuery": "nylon invention DuPont 1935 stockings",
       "reviewStatus": "pending",
-      "correctAnswer": "Нейлон",
       "llmVerdict": "keep"
     },
     {
@@ -1946,7 +1517,6 @@
       "explanation": "Жозеф Мари Жаккар в 1804 году применил пробитые карты для управления узорами на ткацком станке. Чарльз Бэббидж перенял идею для своей Аналитической машины, а IBM использовала перфокарты до 1980-х.",
       "imageSearchQuery": "Jacquard loom punch cards weaving pattern 1804",
       "reviewStatus": "pending",
-      "correctAnswer": "Ткацкие станки",
       "llmVerdict": "keep"
     },
     {
@@ -1969,7 +1539,6 @@
       "explanation": "Настоящий велоцираптор был около метра длиной и весил примерно 15 кг - размером с крупную индейку. В «Парке юрского периода» его роль сыграл дейноних, вдвое крупнее.",
       "imageSearchQuery": "velociraptor real size comparison turkey",
       "reviewStatus": "pending",
-      "correctAnswer": "Индейка",
       "llmVerdict": "keep"
     },
     {
@@ -2013,8 +1582,7 @@
       "requiresImage": false,
       "explanation": "Чем крупнее яйцо, тем толще должна быть скорлупа, но тогда зародыш задохнётся - воздух не проходит. Поэтому даже гигантские зауроподы откладывали яйца размером не больше волейбольного мяча, а малыши вырастали быстро.",
       "imageSearchQuery": "sauropod dinosaur egg size fossil",
-      "reviewStatus": "pending",
-      "correctAnswer": "Скорлупа перестала бы пропускать воздух",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2038,7 +1606,6 @@
       "explanation": "Окаменелости из Китая показали перья у десятков видов нептичьих динозавров-теропод. Птицы не изобрели перья - они унаследовали их от своих предков.",
       "imageSearchQuery": "feathered dinosaur fossils Anchiornis",
       "reviewStatus": "pending",
-      "correctAnswer": "Перья",
       "llmVerdict": "keep"
     },
     {
@@ -2061,7 +1628,6 @@
       "explanation": "В окаменевших перьях сохранились меланосомы - крошечные пигментные структуры. По их форме и расположению учёные восстановили реальный цвет: например, анхиорнис был чёрно-белым с рыжей «шапочкой».",
       "imageSearchQuery": "Anchiornis dinosaur color reconstruction melanosomes",
       "reviewStatus": "pending",
-      "correctAnswer": "Меланосомы в перьях",
       "llmVerdict": "keep"
     },
     {
@@ -2083,7 +1649,6 @@
       "explanation": "Патаготитан весил около 70 тонн. Взрослый африканский слон - 6-7 тонн, то есть нужно примерно 10 слонов. При этом динозавр вырастал до таких размеров, питаясь только растениями.",
       "imageSearchQuery": "Patagotitan mayorum size comparison elephant",
       "reviewStatus": "pending",
-      "correctAnswer": "10",
       "fact": {
         "id": "q_121",
         "factVerdict": "true",
@@ -2109,8 +1674,7 @@
       "requiresImage": false,
       "explanation": "Тим Бернерс-Ли создал сайт info.cern.ch специально для того, чтобы объяснить коллегам, что такое Всемирная паутина и как ею пользоваться - страница была буквально инструкцией к самой себе.",
       "imageSearchQuery": "first website CERN 1991 screenshot",
-      "reviewStatus": "pending",
-      "correctAnswer": "Объяснение, что такое веб",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2133,7 +1697,6 @@
       "explanation": "В торговых записях @ читался как «по цене»: «10 яблок @ 5 центов», то есть по пять центов штука. Рэй Томлинсон в 1971 году взял именно этот символ для email, чтобы разделить имя пользователя и адрес сервера.",
       "imageSearchQuery": "at sign @ merchant ledger historical",
       "reviewStatus": "pending",
-      "correctAnswer": "Цену за единицу товара",
       "llmVerdict": "keep"
     },
     {
@@ -2155,7 +1718,6 @@
       "explanation": "Первый баннер AT&T на сайте HotWired собрал около 44% кликов, почти каждый второй посетитель нажимал. Сегодня средний баннер не дотягивает до 0,1%: люди выработали «баннерную слепоту».",
       "imageSearchQuery": "first banner ad 1994 AT&T HotWired",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 44%",
       "fact": {
         "id": "q_124",
         "factVerdict": "true",
@@ -2183,7 +1745,6 @@
       "explanation": "Модель была такая: браузер бесплатен для всех, чтобы захватить рынок, а корпоративные клиенты платили за серверы Netscape, на которых держали свои сайты. Это один из первых примеров бизнес-модели «платформа бесплатно, инфраструктура за деньги».",
       "imageSearchQuery": "Netscape Navigator browser 1994 screenshot",
       "reviewStatus": "pending",
-      "correctAnswer": "Продажа серверного ПО компаниям",
       "llmVerdict": "keep"
     },
     {
@@ -2204,8 +1765,7 @@
       "requiresImage": false,
       "explanation": "В ранних сетях один компьютер держал сразу несколько служб: почту (mail.), файлы (ftp.), новости (news.). Приставка www просто говорила: «это именно веб-сервер». Сегодня большинство сайтов работают и без неё, это дань традиции.",
       "imageSearchQuery": "www world wide web address bar browser",
-      "reviewStatus": "pending",
-      "correctAnswer": "Отличить веб от других служб",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2227,8 +1787,7 @@
       "requiresImage": false,
       "explanation": "Пар поднимается по конусу, охлаждается о стенки и стекает обратно на мясо - блюдо тушится в собственном соку почти без воды, даже в пустыне.",
       "imageSearchQuery": "tajine moroccan clay pot cooking",
-      "reviewStatus": "pending",
-      "correctAnswer": "Собирать конденсат обратно",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2250,7 +1809,6 @@
       "explanation": "Слово «карри» - британское обобщение: в Индии каждый регион смешивает свой набор специй (масала) по-своему; единого рецепта не существует, а порошок карри придумали в Англии для упрощения.",
       "imageSearchQuery": "indian spice masala curry powder mix",
       "reviewStatus": "pending",
-      "correctAnswer": "Смесью специй",
       "llmVerdict": "keep"
     },
     {
@@ -2271,8 +1829,7 @@
       "requiresImage": false,
       "explanation": "За 12-36 месяцев выдержки из сыра уходит почти вся влага, белки распадаются на аминокислоты и образуются кристаллы тирозина. Именно сухая хрупкая матрица из распавшихся белков заставляет пармезан крошиться, а кристаллы дают насыщенный умами-вкус.",
       "imageSearchQuery": "parmesan cheese crystals break crumble",
-      "reviewStatus": "pending",
-      "correctAnswer": "Потеря влаги за годы выдержки",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2293,8 +1850,7 @@
       "requiresImage": false,
       "explanation": "Соль вытягивает влагу из клеток через осмос - листья становятся мягкими и эластичными, затем рассол смывают и набивают капусту пастой из перца, имбиря и чеснока для ферментации.",
       "imageSearchQuery": "kimchi salted cabbage preparation korean",
-      "reviewStatus": "pending",
-      "correctAnswer": "Вытянуть воду из листьев",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2316,7 +1872,6 @@
       "explanation": "В 1945 году Перси Спенсер стоял рядом с магнетроном и заметил, что шоколадный батончик в его кармане расплавился. Он начал эксперименты, и уже через два года появилась первая коммерческая микроволновая печь.",
       "imageSearchQuery": "Percy Spencer microwave oven invention chocolate bar",
       "reviewStatus": "pending",
-      "correctAnswer": "Шоколадный батончик",
       "llmVerdict": "keep"
     },
     {
@@ -2338,7 +1893,6 @@
       "explanation": "Спенсер Сильвер в 3M случайно создал слабый клей, который не прилипал намертво - это сочли дефектом и положили на полку. Лишь через 6 лет коллега Артур Фрай вспомнил о нём, когда закладка выпала из его молитвенника.",
       "imageSearchQuery": "Post-it note invention Spencer Silver 3M sticky note",
       "reviewStatus": "pending",
-      "correctAnswer": "Клей сочли браком",
       "llmVerdict": "keep"
     },
     {
@@ -2360,7 +1914,6 @@
       "explanation": "Шариковая ручка, в отличие от перьевой, работает при пониженном давлении на высоте и не вытекает чернилами - именно это свойство сделало её незаменимой в кабине самолёта: компания Биро с 1943 года поставляла ручки лётчикам RAF задолго до выхода на массовый рынок.",
       "imageSearchQuery": "ballpoint pen invention aviation pressure writing",
       "reviewStatus": "pending",
-      "correctAnswer": "Пишут при любом давлении",
       "llmVerdict": "keep"
     },
     {
@@ -2383,7 +1936,6 @@
       "explanation": "В 1898 году Байер выпустил диацетилморфин под торговым названием «Heroin» и рекламировал как безопасный заменитель морфия. Через несколько лет стало ясно, что он вызывает зависимость куда сильнее морфия.",
       "imageSearchQuery": "Bayer heroin 1898 advertisement medicine history",
       "reviewStatus": "pending",
-      "correctAnswer": "Героин",
       "llmVerdict": "keep"
     },
     {
@@ -2405,7 +1957,6 @@
       "explanation": "Нитроглицерин взрывался от малейшего толчка, пока в 1867 году Нобель не смешал его с кизельгуром - пористой осадочной породой из панцирей диатомовых водорослей. Она впитывала жидкость и гасила случайные удары: так родился динамит.",
       "imageSearchQuery": "dynamite Nobel invention nitroglycerin kieselguhr mining safety",
       "reviewStatus": "pending",
-      "correctAnswer": "Кизельгур",
       "llmVerdict": "keep"
     },
     {
@@ -2427,7 +1978,6 @@
       "explanation": "В 1938 году химик Рой Планкетт в DuPont исследовал новые фреоны (хладагенты для холодильников), когда у него заморозился и полимеризовался баллон с тетрафторэтиленом. Полученный порошок оказался сверхскользким и химически инертным - это и был тефлон.",
       "imageSearchQuery": "Teflon PTFE discovery Roy Plunkett DuPont 1938 accident",
       "reviewStatus": "pending",
-      "correctAnswer": "Разработка хладагентов",
       "llmVerdict": "keep"
     },
     {
@@ -2450,7 +2000,6 @@
       "explanation": "Два боковых сердца прокачивают кровь через жабры для насыщения кислородом - при реактивном плавании жаберные сердца останавливаются, и осьминог быстро задыхается от нагрузки. Третье, системное сердце продолжает гнать кровь по телу.",
       "imageSearchQuery": "осьминог сердце анатомия",
       "reviewStatus": "pending",
-      "correctAnswer": "Прокачивают кровь через жабры",
       "llmVerdict": "keep"
     },
     {
@@ -2473,7 +2022,6 @@
       "explanation": "Латинское virus означало прежде всего яд - именно в этом смысле слово употребляли Пастер и Ивановский ещё до понимания природы вирусов. В конце XIX века выяснилось, что существуют возбудители, проходящие через бактериальные фильтры.",
       "imageSearchQuery": "вирус под микроскопом латынь",
       "reviewStatus": "pending",
-      "correctAnswer": "Яд",
       "llmVerdict": "keep"
     },
     {
@@ -2495,8 +2043,7 @@
       "requiresImage": false,
       "explanation": "Морской огурец выбрасывает кишечник и дыхательные деревья через анус - хищник занят добычей, пока сам огурец уползает. Внутренности полностью отрастают за несколько недель.",
       "imageSearchQuery": "морской огурец эвисцерация защита",
-      "reviewStatus": "pending",
-      "correctAnswer": "Отвлечь хищника",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2519,7 +2066,6 @@
       "explanation": "Фламинго едят водоросли и рачков, богатых каротиноидами, которые откладываются в перьях и коже. В зоопарках без специальной добавки птицы постепенно бледнеют до белого.",
       "imageSearchQuery": "фламинго розовый цвет каротиноиды",
       "reviewStatus": "pending",
-      "correctAnswer": "Пигменты из корма",
       "llmVerdict": "keep"
     },
     {
@@ -2542,7 +2088,6 @@
       "explanation": "Основная масса нейронов коры мозга формируется ещё до рождения и живёт столько, сколько вы. Это значит, что у 70-летнего человека большинство нейронов тоже примерно 70 лет от роду - самые старые клетки тела.",
       "imageSearchQuery": "нейроны мозга возраст",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 70 лет",
       "llmVerdict": "keep"
     },
     {
@@ -2564,8 +2109,7 @@
       "requiresImage": false,
       "explanation": "Объеденное растение выбрасывает в воздух летучие соединения - жасмонаты и терпены. Соседние растения «чуют» их и начинают накапливать горькие вещества в листьях ещё до нападения. Это химическая сигнализация на уровне целого леса.",
       "imageSearchQuery": "растения химические сигналы летучие вещества листья",
-      "reviewStatus": "pending",
-      "correctAnswer": "Выделяют летучие вещества в воздух",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2587,7 +2131,6 @@
       "explanation": "Смена цвета у хамелеонов - прежде всего социальный сигнал: ярко вспыхивают самцы при виде соперника или самки, темнеют при стрессе. Маскировка под фон - скорее побочный эффект, чем основная функция.",
       "imageSearchQuery": "хамелеон смена цвета общение",
       "reviewStatus": "pending",
-      "correctAnswer": "Общаться с другими хамелеонами",
       "llmVerdict": "keep"
     },
     {
@@ -2609,8 +2152,7 @@
       "requiresImage": false,
       "explanation": "Оба издают ультразвуковые сигналы и слышат их отражение от препятствий и добычи. Эхолокация возникла у этих животных независимо - классический пример конвергентной эволюции: одинаковое решение при разной родословной.",
       "imageSearchQuery": "эхолокация летучая мышь дельфин конвергенция",
-      "reviewStatus": "pending",
-      "correctAnswer": "Эхолокация",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2632,8 +2174,7 @@
       "requiresImage": false,
       "explanation": "Паутина почти целиком состоит из белка, а его синтез очень затратен. Поедая повреждённую сеть, паук возвращает до 90% аминокислот обратно в организм и быстро строит новую - экономная биологическая переработка.",
       "imageSearchQuery": "паук паутина белок переработка",
-      "reviewStatus": "pending",
-      "correctAnswer": "Вернуть белок для новой сети",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2656,7 +2197,6 @@
       "explanation": "При стрессе или старении Turritopsis dohrnii превращается обратно в полип и проходит весь цикл развития сначала. Теоретически этот процесс может повторяться бесконечно - единственное известное биологически потенциально бессмертное многоклеточное животное.",
       "imageSearchQuery": "бессмертная медуза Turritopsis dohrnii ювенильная стадия",
       "reviewStatus": "pending",
-      "correctAnswer": "В полип",
       "llmVerdict": "keep"
     },
     {
@@ -2678,7 +2218,6 @@
       "explanation": "В жарком климате волосы под плотным льном кишели паразитами. Бритая голова была самым практичным способом соблюдать гигиену, а парик надевался поверх - для статуса и защиты от солнца.",
       "imageSearchQuery": "ancient Egypt shaved head priest wig",
       "reviewStatus": "pending",
-      "correctAnswer": "Защита от вшей",
       "llmVerdict": "keep"
     },
     {
@@ -2700,8 +2239,7 @@
       "requiresImage": false,
       "explanation": "По-латыни gladius - меч; листья гладиолуса узкие и заострённые, как клинок. То же слово дало имя гладиаторам - буквально «людям с мечом».",
       "imageSearchQuery": "Roman gladius sword gladiator",
-      "reviewStatus": "pending",
-      "correctAnswer": "Листья похожи на меч",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2724,7 +2262,6 @@
       "explanation": "Камень хрупок на излом: вытянутая рука легко ломалась бы под собственным весом или при транспортировке. Прижатые руки - инженерное решение, позволявшее сохранить скульптуру целой на века. Бронзовые статуи греков уже могли стоять с поднятыми руками.",
       "imageSearchQuery": "Egyptian stone statue arms sides Khafre",
       "reviewStatus": "pending",
-      "correctAnswer": "Прочность скульптуры",
       "llmVerdict": "keep"
     },
     {
@@ -2747,7 +2284,6 @@
       "explanation": "Кипу - система узелков из разноцветных шнуров - позволяла инкам записывать числа, налоги, переписи и, возможно, нарративы. Расшифровать все функции кипу учёные не могут до сих пор.",
       "imageSearchQuery": "Inca quipu knotted cord record keeping",
       "reviewStatus": "pending",
-      "correctAnswer": "Узелки на верёвках",
       "llmVerdict": "keep"
     },
     {
@@ -2770,7 +2306,6 @@
       "explanation": "Янус смотрел одновременно назад и вперёд - его два лица олицетворяли переход между старым и новым. Именно поэтому бог всех начал и порогов дал имя январю - первому месяцу года.",
       "imageSearchQuery": "Janus Roman god two faces temple",
       "reviewStatus": "pending",
-      "correctAnswer": "Прошлое и будущее",
       "llmVerdict": "keep"
     },
     {
@@ -2791,8 +2326,7 @@
       "requiresImage": false,
       "explanation": "По верованиям египтян, в загробном мире умершего могли призвать выполнять общественные работы - возделывать поля, рыть каналы. Ушебти должны были откликнуться вместо хозяина и сделать эту работу. Богатых хоронили с сотнями таких «заместителей».",
       "imageSearchQuery": "Egyptian ushabti funerary figurines shabti tomb",
-      "reviewStatus": "pending",
-      "correctAnswer": "Выполнять работу за умершего",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2815,7 +2349,6 @@
       "explanation": "Римляне применяли хоробат - деревянный уровень с канавкой, заполненной водой: горизонталь определялась по поверхности воды в покое. Это позволяло выдерживать уклон около 0,3 м на километр по всей длине трассы без единого насоса.",
       "imageSearchQuery": "Roman aqueduct slope gravity water flow Pont du Gard",
       "reviewStatus": "pending",
-      "correctAnswer": "Деревянный уровень с водой",
       "llmVerdict": "keep"
     },
     {
@@ -2837,7 +2370,6 @@
       "explanation": "У майя вытянутый плоский череп считался красивым и являлся признаком высокого статуса. Деформация начиналась с рождения, пока кости черепа ещё мягкие. Такой облик, по ряду интерпретаций, напоминал форму початка кукурузы - священного для майя растения.",
       "imageSearchQuery": "Maya skull deformation cranial noble aristocrat",
       "reviewStatus": "pending",
-      "correctAnswer": "Принадлежность к знати",
       "fact": {
         "id": "q_160",
         "factVerdict": "true",
@@ -2865,7 +2397,6 @@
       "explanation": "Египетско-хеттский договор около 1259 г. до н.э. - древнейший известный международный договор. Его копии хранились у обоих царей на серебряных табличках. Современная копия висит в штаб-квартире ООН в Нью-Йорке как символ дипломатии.",
       "imageSearchQuery": "Hittite Egyptian peace treaty Kadesh silver tablet",
       "reviewStatus": "pending",
-      "correctAnswer": "В штаб-квартире ООН",
       "llmVerdict": "keep"
     },
     {
@@ -2888,7 +2419,6 @@
       "explanation": "Шумерская клинопись возникла около 3200 года до нашей эры - примерно в то же время, что и египетские иероглифы (~3100 до н.э.), однако на 2000 лет раньше финикийского алфавита (около 1050 г. до н.э.) и почти на 2400 лет раньше греческого (около 800 г. до н.э.).",
       "imageSearchQuery": "Sumerian cuneiform clay tablet writing 3200 BC",
       "reviewStatus": "pending",
-      "correctAnswer": "Шумерская клинопись",
       "llmVerdict": "keep"
     },
     {
@@ -2910,7 +2440,6 @@
       "explanation": "На Земле горячий газ поднимается вверх из-за разницы плотностей - это и вытягивает пламя. В невесомости конвекция не работает, газ расходится равномерно во все стороны, и пламя становится почти идеальным синеватым шариком.",
       "imageSearchQuery": "candle flame zero gravity ISS experiment",
       "reviewStatus": "pending",
-      "correctAnswer": "Нет конвекции воздуха",
       "llmVerdict": "keep"
     },
     {
@@ -2932,7 +2461,6 @@
       "explanation": "В безэховой камере люди начинают отчётливо слышать биение сердца, движение крови и работу суставов - шумы собственного тела, которые в обычной жизни заглушает фоновый шум.",
       "imageSearchQuery": "anechoic chamber room",
       "reviewStatus": "pending",
-      "correctAnswer": "Звуки своего тела",
       "llmVerdict": "keep"
     },
     {
@@ -2974,7 +2502,7 @@
       "requiresImage": false,
       "explanation": "На сухой дороге накапливается масло и пыль. Первые капли дождя их не смывают, а создают тонкую жирную эмульсию - это резко снижает трение. Сильный дождь в конце концов смывает эту плёнку, и трение частично возвращается.",
       "imageSearchQuery": "wet road first rain dangerous slippery",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -2995,8 +2523,7 @@
       "requiresImage": false,
       "explanation": "У сырого яйца жидкое содержимое по инерции продолжает вращаться даже после того, как вы остановили скорлупу, и сразу раскручивает её снова. Варёный белок и желток жёстко связаны со скорлупой, поэтому всё яйцо останавливается вместе - этим трюком пользуются, чтобы не перепутать сырое и варёное яйцо.",
       "imageSearchQuery": "train passengers inertia lean forward braking",
-      "reviewStatus": "pending",
-      "correctAnswer": "Жидкий желток внутри продолжает вращаться",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3018,7 +2545,6 @@
       "explanation": "На поверхности на тело давит атмосфера - примерно 1 бар. Каждые 10 метров воды добавляют ещё 1 бар. На глубине 10 м давление равно 2 барам: 1 атмосфера плюс столб воды. Именно поэтому дайверам нужна декомпрессия.",
       "imageSearchQuery": "underwater pressure diving depth",
       "reviewStatus": "pending",
-      "correctAnswer": "Вдвое больше",
       "llmVerdict": "keep"
     },
     {
@@ -3040,7 +2566,6 @@
       "explanation": "Подъёмная сила складывается из двух механизмов: над крылом воздух ускоряется и давление падает (эффект Бернулли, тянет вверх), а снизу крыло отклоняет поток вниз и получает реактивный толчок вверх. Точные доли зависят от формы и угла атаки крыла.",
       "imageSearchQuery": "airplane wing lift aerodynamics",
       "reviewStatus": "pending",
-      "correctAnswer": "Двух эффектов одновременно",
       "llmVerdict": "keep"
     },
     {
@@ -3062,7 +2587,6 @@
       "explanation": "Рентгеновские фотоны выбивают электроны из атомов - и чем тяжелее атом, тем эффективнее он их поглощает. Кальций (атомный номер 20) в 3 раза тяжелее углерода и кислорода, составляющих мягкие ткани, поэтому кости буквально непрозрачны для рентгена.",
       "imageSearchQuery": "electromagnetic spectrum visible light radio waves x-ray",
       "reviewStatus": "pending",
-      "correctAnswer": "Тяжёлые атомы кальция",
       "llmVerdict": "keep"
     },
     {
@@ -3084,7 +2608,6 @@
       "explanation": "Физически радуга - это полная окружность вокруг точки, противоположной солнцу. С земли виден лишь верхний полукруг - горизонт прячет нижнюю часть. С самолёта или высокой горы при правильных условиях её можно увидеть целиком.",
       "imageSearchQuery": "circular rainbow from airplane full circle",
       "reviewStatus": "pending",
-      "correctAnswer": "Полный круг",
       "llmVerdict": "keep"
     },
     {
@@ -3105,8 +2628,7 @@
       "requiresImage": false,
       "explanation": "Бетон и сталь расширяются при нагреве и сжимаются на морозе. Без компенсационных швов летний жар или зимний холод вызвали бы огромные напряжения - покрытие бы вздыбилось или треснуло. Зазоры позволяют плитам свободно двигаться при изменении температуры.",
       "imageSearchQuery": "expansion joint bridge concrete road",
-      "reviewStatus": "pending",
-      "correctAnswer": "Бетон расширяется от жары",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3129,7 +2651,6 @@
       "explanation": "Точка кипения зависит от атмосферного давления: на высоте 5000 м давление вдвое ниже, и вода закипает уже при ~83 °C - поэтому сварить яйцо вкрутую в горах заметно сложнее.",
       "imageSearchQuery": "mountain altitude boiling water cooking",
       "reviewStatus": "pending",
-      "correctAnswer": "Давление воздуха ниже",
       "llmVerdict": "keep"
     },
     {
@@ -3150,8 +2671,7 @@
       "requiresImage": false,
       "explanation": "На высоте 8848 м атмосферное давление составляет около трети от нормального: доля кислорода та же, но молекул в каждом вдохе в три раза меньше - это называют «зоной смерти».",
       "imageSearchQuery": "Everest climber oxygen mask high altitude",
-      "reviewStatus": "pending",
-      "correctAnswer": "Воздух слишком разрежен",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3174,7 +2694,6 @@
       "explanation": "Южный склон обращён к солнцу и получает прямые лучи под большим углом большую часть дня - поэтому на нём растут другие растения, а снег тает раньше, чем на северном склоне той же горы.",
       "imageSearchQuery": "mountain south slope vegetation difference sunlight",
       "reviewStatus": "pending",
-      "correctAnswer": "Больше солнечных часов",
       "llmVerdict": "keep"
     },
     {
@@ -3197,7 +2716,6 @@
       "explanation": "Земля сплюснута у полюсов и выпуклая на экваторе: Чимборасо в Эквадоре стоит почти на самом экваторе, поэтому его вершина на 6384 км от центра Земли - на 2 км дальше, чем вершина Эвереста.",
       "imageSearchQuery": "Chimborazo volcano Ecuador highest point from Earth center",
       "reviewStatus": "pending",
-      "correctAnswer": "Вулкан Чимборасо",
       "llmVerdict": "keep"
     },
     {
@@ -3219,8 +2737,7 @@
       "requiresImage": false,
       "explanation": "Нагорья Тибести и Ахаггар - остатки древних вулканических массивов и поднятых блоков коры: Сахара была не всегда пустыней, а горы появились задолго до того, как климат стал сухим.",
       "imageSearchQuery": "Sahara mountains Tibesti volcanic peaks desert",
-      "reviewStatus": "pending",
-      "correctAnswer": "Древние вулканы и поднятие плит",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3241,8 +2758,7 @@
       "requiresImage": false,
       "explanation": "Уральские горы старше 300 миллионов лет: ветер, вода и перепады температур постепенно стачивают вершины. Альпы моложе 30 миллионов лет - их пики не успели сгладиться, а активные ледники продолжают вырезать острые гребни.",
       "imageSearchQuery": "old rounded Ural mountains vs sharp Alps peaks comparison",
-      "reviewStatus": "pending",
-      "correctAnswer": "Эрозия сглаживает миллионы лет",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3264,7 +2780,6 @@
       "explanation": "Монблан - складчатая гора из гранита и кристаллических сланцев, поднятых столкновением плит. Килиманджаро, Фудзияма и Этна - вулканы, сложенные из застывшей лавы и пепла.",
       "imageSearchQuery": "Mont Blanc granite non-volcanic mountain Alps",
       "reviewStatus": "pending",
-      "correctAnswer": "Монблан",
       "llmVerdict": "keep"
     },
     {
@@ -3308,7 +2823,6 @@
       "explanation": "Сода и кислота (уксус, кефир) реагируют прямо в тесте - образуются пузырьки CO₂, которые поднимают выпечку без дрожжей. Без кислоты сода не разлагается нужным образом и даёт мыльный привкус.",
       "imageSearchQuery": "baking soda vinegar reaction dough",
       "reviewStatus": "pending",
-      "correctAnswer": "Выделяется углекислый газ",
       "llmVerdict": "keep"
     },
     {
@@ -3331,7 +2845,6 @@
       "explanation": "Температура плавления галлия - около 29,8 °C, что ниже температуры тела. Серебристый металл выглядит твёрдым, но буквально тает в пальцах, оставляя блестящую лужицу.",
       "imageSearchQuery": "gallium melting in hand",
       "reviewStatus": "pending",
-      "correctAnswer": "Галлий",
       "llmVerdict": "keep"
     },
     {
@@ -3354,7 +2867,6 @@
       "explanation": "В клетках картофеля есть фенолы и фермент полифенолоксидаза - при разрезании они контактируют с кислородом воздуха и образуют тёмные пигменты. Именно поэтому картошку кладут в воду - без доступа кислорода реакция не идёт.",
       "imageSearchQuery": "potato oxidation browning cut",
       "reviewStatus": "pending",
-      "correctAnswer": "Окисляются фенольные вещества",
       "llmVerdict": "keep"
     },
     {
@@ -3376,7 +2888,6 @@
       "explanation": "Молекула мыла двуголова: один конец тянется к жиру, другой - к воде. Окружая каплю жира со всех сторон, молекулы образуют мицеллу - шарик, который вода легко смывает.",
       "imageSearchQuery": "soap micelle fat molecule diagram",
       "reviewStatus": "pending",
-      "correctAnswer": "Мицелла",
       "llmVerdict": "keep"
     },
     {
@@ -3399,7 +2910,6 @@
       "explanation": "Фермент каталаза, которого много в клетках крови и тканей, мгновенно разлагает перекись на воду и кислород. Пузырьки - это и есть выделяющийся O₂; на здоровой коже реакция почти не видна, а на ране - бурная.",
       "imageSearchQuery": "hydrogen peroxide wound bubbling",
       "reviewStatus": "pending",
-      "correctAnswer": "Выделяется кислород",
       "llmVerdict": "keep"
     },
     {
@@ -3420,8 +2930,7 @@
       "requiresImage": false,
       "explanation": "Реакция растворения выделяет огромное количество тепла. Если лить воду в кислоту, небольшой объём воды моментально закипает и разбрызгивает горячую кислоту. В воде кислота разбавляется постепенно и безопасно. Ядовитый газ при этом не образуется.",
       "imageSearchQuery": "sulfuric acid water mixing laboratory safety",
-      "reviewStatus": "pending",
-      "correctAnswer": "Жидкость закипит и брызнет",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3443,7 +2952,6 @@
       "explanation": "Патина - плотный слой карбонатов и сульфатов меди - в отличие от ржавчины не шелушится, а защищает металл. Именно поэтому Статуя Свободы зелёная: она медная, и патина надёжно хранит её уже больше века.",
       "imageSearchQuery": "copper patina green Statue of Liberty",
       "reviewStatus": "pending",
-      "correctAnswer": "Патина",
       "llmVerdict": "keep"
     },
     {
@@ -3466,7 +2974,6 @@
       "explanation": "Большинство бактерий плохо переносят кислую среду: при pH ниже 4,5 их ферменты не работают. Лимонная кислота снижает pH продукта и блокирует рост опасных микроорганизмов - это один из старейших приёмов консервации.",
       "imageSearchQuery": "citric acid food preservation canning",
       "reviewStatus": "pending",
-      "correctAnswer": "Подавить рост бактерий",
       "llmVerdict": "keep"
     },
     {
@@ -3489,7 +2996,6 @@
       "explanation": "Гелий в 7 раз легче воздуха - звук распространяется в нём быстрее, и резонансные частоты голосового тракта повышаются. Сами связки колеблются с той же частотой, но тембр меняется из-за ускорения звука в резонаторе - поэтому эффект временный.",
       "imageSearchQuery": "helium balloon voice funny",
       "reviewStatus": "pending",
-      "correctAnswer": "В газе ускоряется звук",
       "llmVerdict": "keep"
     },
     {
@@ -3512,7 +3018,6 @@
       "explanation": "Мастер выдувал стеклянный шар, затем раскручивал его у огня - центробежная сила расплющивала шар в круглый диск, тонкий в центре и толстый по краям. Это и есть кроновое стекло.",
       "imageSearchQuery": "amorphous solid glass chocolate structure",
       "reviewStatus": "pending",
-      "correctAnswer": "Раскручивали до диска",
       "llmVerdict": "keep"
     },
     {
@@ -3534,8 +3039,7 @@
       "requiresImage": false,
       "explanation": "Вечная мерзлота - промёрзший слой почвы, который не оттаивает даже летом - служит водоупором. Талая вода не уходит в землю и стоит лужами, превращая тундру в заболоченную равнину при скромных 150-250 мм осадков в год.",
       "imageSearchQuery": "permafrost tundra waterlogged summer",
-      "reviewStatus": "pending",
-      "correctAnswer": "Мерзлота не пускает воду вглубь",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3557,8 +3061,7 @@
       "requiresImage": false,
       "explanation": "Баобаб и некоторые другие деревья саванны накапливают в губчатой древесине тысячи литров воды. Это позволяет им пережить засуху длиной в несколько месяцев, когда дождей почти нет.",
       "imageSearchQuery": "baobab tree savanna water storage trunk",
-      "reviewStatus": "pending",
-      "correctAnswer": "Запасают воду на сухой сезон",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3580,7 +3083,6 @@
       "explanation": "В пустынях нет облаков и почти нет влаги - днём поверхность раскаляется до +50-60 °C, а ночью без «одеяла» из водяного пара быстро остывает. Суточный перепад в 40-50 градусов фиксируется в экстремальных районах Сахары и Гоби.",
       "imageSearchQuery": "desert temperature night day difference Sahara",
       "reviewStatus": "pending",
-      "correctAnswer": "40-50 градусов",
       "fact": {
         "id": "q_197",
         "factVerdict": "true",
@@ -3607,7 +3109,6 @@
       "explanation": "Экваториальные и муссонные леса получают обильные дожди большую часть года, туманный лес насыщается влагой через постоянный туман. Тундра парадоксально сухая: осадков там меньше, чем в ряде пустынь, - холод просто не даёт влаге испаряться.",
       "imageSearchQuery": "tundra dry cold landscape rainfall",
       "reviewStatus": "pending",
-      "correctAnswer": "Тундра",
       "llmVerdict": "keep"
     },
     {
@@ -3629,7 +3130,6 @@
       "explanation": "В степи осадков вполне хватает для роста деревьев, однако периодические пожары выжигают молодые деревца до того, как они успевают укорениться и нарастить толстую кору. Именно огонь, а не засуха или мороз, признаётся главным барьером для леса в степной зоне.",
       "imageSearchQuery": "steppe grassland treeless landscape wind",
       "reviewStatus": "pending",
-      "correctAnswer": "Пожары",
       "llmVerdict": "keep"
     },
     {
@@ -3651,7 +3151,6 @@
       "explanation": "В некоторых районах чилийской пустыни Атакама дождь не выпадал десятилетиями - метеорологи фиксировали периоды засухи дольше 15-20 лет. Именно поэтому Атакама считается самым засушливым нетропическим местом на Земле.",
       "imageSearchQuery": "Atacama desert driest place no rain Chile",
       "reviewStatus": "pending",
-      "correctAnswer": "20 лет",
       "llmVerdict": "keep"
     },
     {
@@ -3674,7 +3173,6 @@
       "explanation": "В тропическом лесу дождь идёт ежедневно и очень обильно. Острый кончик - дренажное приспособление: вода стекает быстро, не давая разрастаться водорослям и мхам, которые закрыли бы поры листа и мешали фотосинтезу.",
       "imageSearchQuery": "tropical rainforest leaf drip tip water drainage",
       "reviewStatus": "pending",
-      "correctAnswer": "Быстрее отводить воду",
       "llmVerdict": "keep"
     },
     {
@@ -3696,8 +3194,7 @@
       "requiresImage": false,
       "explanation": "Холодный воздух почти не содержит влаги. Антарктида технически является пустыней: осадков там выпадает меньше 200 мм в год. Многокилометровые ледники накоплены за миллионы лет - слой за слоем из минимальных осадков.",
       "imageSearchQuery": "Antarctica dry polar desert ice sheet",
-      "reviewStatus": "pending",
-      "correctAnswer": "Слишком холодно, воздух сухой",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3719,7 +3216,6 @@
       "explanation": "Якутск - один из полюсов холода: зимой до -50 °C. Скандинавские города на той же широте согреваются атлантическими воздушными массами, а Якутск вдали от любых океанов - это и есть континентальность климата.",
       "imageSearchQuery": "continental climate maritime oceanic Yakutsk London comparison",
       "reviewStatus": "pending",
-      "correctAnswer": "Дальше от океана",
       "llmVerdict": "keep"
     },
     {
@@ -3740,8 +3236,7 @@
       "requiresImage": false,
       "explanation": "Берёза требует периода зимнего покоя при низких температурах: без промерзания почвы её почки не закладываются правильно, а жаркое сухое средиземноморское лето обезвоживает листья с тонкой кутикулой. Олива и пробковый дуб, напротив, приспособлены именно к летней засухе.",
       "imageSearchQuery": "Mediterranean evergreen forest macchia cork oak",
-      "reviewStatus": "pending",
-      "correctAnswer": "Ей нужна холодная зима",
+      "reviewStatus": "rework",
       "fact": {
         "id": "q_204",
         "factVerdict": "true",
@@ -3768,8 +3263,7 @@
       "requiresImage": false,
       "explanation": "Летом суша прогревается быстрее океана, воздух над ней поднимается, и влажный морской ветер втягивается вглубь континента - начинается сезон дождей. Зимой всё наоборот. Этот цикл повторяется так стабильно, что в Индии фермеры столетиями планируют посев по дате прихода муссона.",
       "imageSearchQuery": "monsoon India season rain wind pattern",
-      "reviewStatus": "pending",
-      "correctAnswer": "Разный нагрев суши и моря",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3791,7 +3285,6 @@
       "explanation": "Пустынями считаются все территории с осадками менее 250 мм в год - и знойная Сахара, и холодная Гоби, и ледяная Антарктида. В сумме они занимают около 33% суши, то есть каждый третий квадратный километр земли - это пустыня.",
       "imageSearchQuery": "desert coverage map world proportion land area",
       "reviewStatus": "pending",
-      "correctAnswer": "Треть",
       "llmVerdict": "keep"
     },
     {
@@ -3813,8 +3306,7 @@
       "requiresImage": false,
       "explanation": "Балтика принимает сток множества рек, а узкие мелкие проливы почти не пускают солёную атлантическую воду. Солёность здесь в 5-8 раз ниже океанской.",
       "imageSearchQuery": "Балтийское море вид сверху",
-      "reviewStatus": "pending",
-      "correctAnswer": "Много рек и закрытые проливы",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3836,8 +3328,7 @@
       "requiresImage": false,
       "explanation": "Саргассово море окружено четырьмя крупными течениями, которые образуют замкнутое кольцо. Внутри почти нет ветра и волн, поэтому водоросли-саргассы накапливались здесь тысячелетиями.",
       "imageSearchQuery": "Саргассово море водоросли",
-      "reviewStatus": "pending",
-      "correctAnswer": "Четыре течения замыкают кольцо",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3859,8 +3350,7 @@
       "requiresImage": false,
       "explanation": "Термохалинная циркуляция движется плотностными различиями: холодная солёная вода тяжелее и тонет, вытесняя тёплую снизу. Именно разница плотности запускает глубинный конвейер, переносящий тепло между океанами.",
       "imageSearchQuery": "термохалинная циркуляция конвейер схема",
-      "reviewStatus": "pending",
-      "correctAnswer": "Разница солёности и температуры",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3882,8 +3372,7 @@
       "requiresImage": false,
       "explanation": "В тропических водах мало питательных веществ и почти нет планктона - вода прозрачна и выглядит ярко-синей. Возле полюсов питательный апвеллинг кормит фитопланктон, который даёт зелёный оттенок.",
       "imageSearchQuery": "цвет океана экватор полюс спутник",
-      "reviewStatus": "pending",
-      "correctAnswer": "Там больше планктона",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3906,7 +3395,6 @@
       "explanation": "Тетис - огромный океан между суперконтинентами, исчезнувший около 5 млн лет назад. Каспийское море - его реликт: вода в нём солоноватая, в 3 раза менее солёная, чем в настоящем море.",
       "imageSearchQuery": "Каспийское море вид со спутника",
       "reviewStatus": "pending",
-      "correctAnswer": "Каспийское",
       "llmVerdict": "keep"
     },
     {
@@ -3928,7 +3416,6 @@
       "explanation": "Бенджамин Франклин в 1770-х годах рекомендовал капитанам опускать термометр за борт: вода в Гольфстриме на 5-10 °C теплее окружающего океана, что легко заметить.",
       "imageSearchQuery": "Бенджамин Франклин карта Гольфстрима",
       "reviewStatus": "pending",
-      "correctAnswer": "Опускали термометр за борт",
       "fact": {
         "id": "q_212",
         "factVerdict": "true",
@@ -3955,8 +3442,7 @@
       "requiresImage": false,
       "explanation": "Гибралтарский пролив шириной около 14 км и глубиной 300 м не пропускает достаточно воды за короткий приливной цикл. Амплитуда приливов в Средиземном море - считанные сантиметры.",
       "imageSearchQuery": "Гибралтарский пролив вид сверху",
-      "reviewStatus": "pending",
-      "correctAnswer": "Гибралтарский пролив слишком узкий",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -3979,7 +3465,6 @@
       "explanation": "Фитопланктон в верхних 200 м океана производит около 50-80% кислорода атмосферы - больше, чем все наземные леса вместе взятые.",
       "imageSearchQuery": "фитопланктон микроскоп ocean oxygen",
       "reviewStatus": "pending",
-      "correctAnswer": "Морской фитопланктон",
       "llmVerdict": "keep"
     },
     {
@@ -4023,7 +3508,6 @@
       "explanation": "После атаки брандерами флот рассеялся и пошёл домой вокруг Шотландии и Ирландии. Атлантические штормы уничтожили около половины кораблей - больше, чем весь английский флот за всю кампанию.",
       "imageSearchQuery": "Spanish Armada storm 1588 ships wreck",
       "reviewStatus": "pending",
-      "correctAnswer": "Атлантические штормы",
       "llmVerdict": "keep"
     },
     {
@@ -4045,8 +3529,7 @@
       "requiresImage": false,
       "explanation": "Каперское свидетельство (lettre de marque) превращало пирата в «законного» корсара: он мог захватывать суда противника и делить добычу с казной. Без бумаги - пиратство и виселица; с бумагой - почти государственная служба.",
       "imageSearchQuery": "privateer letter of marque pirate ship 17th century",
-      "reviewStatus": "pending",
-      "correctAnswer": "Законный захват вражеских судов",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4069,7 +3552,6 @@
       "explanation": "К 1500 году, менее чем через 50 лет после пресса Гутенберга, печатная книга стоила в 80-100 раз дешевле рукописной. Это сделало книгу доступной горожанину, а не только монастырю, и запустило Реформацию.",
       "imageSearchQuery": "Gutenberg printing press movable type 15th century",
       "reviewStatus": "pending",
-      "correctAnswer": "Примерно в 100 раз",
       "llmVerdict": "keep"
     },
     {
@@ -4092,7 +3574,6 @@
       "explanation": "Из пяти кораблей вернулся один «Виктория» с 18 выжившими и трюмом, набитым пряностями с Молуккских островов. Груз гвоздики и мускатного ореха покрыл стоимость всей экспедиции - пряности стоили дороже золота.",
       "imageSearchQuery": "Magellan Elcano expedition spices Moluccas 1522",
       "reviewStatus": "pending",
-      "correctAnswer": "Гвоздику и мускат",
       "llmVerdict": "keep"
     },
     {
@@ -4115,7 +3596,6 @@
       "explanation": "Ришелье и Людовик XIII запретили дуэли под угрозой смерти - и исполняли этот указ. Победитель был виновен в убийстве. Дворяне всё равно дрались, но победа грозила плахой так же, как поражение - гибелью.",
       "imageSearchQuery": "French duel 17th century Richelieu prohibition",
       "reviewStatus": "pending",
-      "correctAnswer": "Смертная казнь",
       "llmVerdict": "keep"
     },
     {
@@ -4138,7 +3618,6 @@
       "explanation": "VOC получила от Нидерландов Generaal Octrooi - устав, фактически дававший корпорации государственные полномочия: армия, флот, суд, монета. Это сделало её первой в мире акционерной компанией с суверенными правами.",
       "imageSearchQuery": "Dutch East India Company VOC charter 17th century",
       "reviewStatus": "pending",
-      "correctAnswer": "Особый государственный устав",
       "llmVerdict": "keep"
     },
     {
@@ -4161,7 +3640,6 @@
       "explanation": "Какао привезли в Европу как лекарство - его прописывали от усталости, лихорадки и желудочных расстройств. Только в XVIII веке шоколадные дома стали местом удовольствия, а не аптекой.",
       "imageSearchQuery": "chocolate medicine apothecary 18th century Europe",
       "reviewStatus": "pending",
-      "correctAnswer": "Какао",
       "llmVerdict": "keep"
     },
     {
@@ -4183,8 +3661,7 @@
       "requiresImage": false,
       "explanation": "Армия жила на сухари, солонину и крупу - всё с огромным сроком хранения, но без витамина C. Свежие овощи и фрукты в опустошённых деревнях найти было почти невозможно. Цинга выбивала людей наравне с морозом.",
       "imageSearchQuery": "Napoleon army 1812 Russia soldiers march supply wagons",
-      "reviewStatus": "pending",
-      "correctAnswer": "Не хватало свежих овощей",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4206,8 +3683,7 @@
       "requiresImage": false,
       "explanation": "Молекулы воды при замерзании соединяются водородными связями и выстраиваются в тетраэдрическую координацию, которая порождает гексагональную кристаллическую решётку - именно поэтому шесть, а не пять и не восемь.",
       "imageSearchQuery": "снежинка шестиугольная кристалл",
-      "reviewStatus": "pending",
-      "correctAnswer": "Водородные связи строят решётку",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4229,7 +3705,6 @@
       "explanation": "В глазе урагана воздух опускается, а нисходящий поток подавляет образование облаков и ветра. Это затишье диаметром 20-50 км окружено стеной из самых яростных ветров.",
       "imageSearchQuery": "глаз урагана вид сверху",
       "reviewStatus": "pending",
-      "correctAnswer": "Воздух опускается вниз",
       "llmVerdict": "keep"
     },
     {
@@ -4252,7 +3727,6 @@
       "explanation": "Вращение Земли отклоняет движущиеся массы воздуха - это сила Кориолиса. В Северном полушарии она закручивает ураганы против часовой стрелки, в Южном - наоборот.",
       "imageSearchQuery": "ураган вид из космоса спираль",
       "reviewStatus": "pending",
-      "correctAnswer": "Из-за вращения Земли",
       "llmVerdict": "keep"
     },
     {
@@ -4274,7 +3748,6 @@
       "explanation": "В открытом океане цунами - это пологая волна длиной сотни километров и высотой меньше метра, которую корабли не замечают. Высота резко растёт только у берега, где дно мелеет и волна замедляется, «сжимаясь» в высоту.",
       "imageSearchQuery": "цунами волна берег",
       "reviewStatus": "pending",
-      "correctAnswer": "Меньше метра",
       "llmVerdict": "keep"
     },
     {
@@ -4296,8 +3769,7 @@
       "requiresImage": false,
       "explanation": "Заряженные частицы солнечного ветра возбуждают атомы кислорода и азота в верхней атмосфере. Возвращаясь в нормальное состояние, атомы отдают энергию светом: кислород даёт зелёный и красный, азот - синий и фиолетовый.",
       "imageSearchQuery": "северное сияние зелёный фиолетовый",
-      "reviewStatus": "pending",
-      "correctAnswer": "Возбуждённые атомы излучают свет",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4319,7 +3791,6 @@
       "explanation": "Звук проходит примерно 340 м/с - то есть один километр за три секунды. Народное правило «посчитай секунды и раздели на три - это километры» работает вполне точно и без приборов.",
       "imageSearchQuery": "гроза молния ночь",
       "reviewStatus": "pending",
-      "correctAnswer": "Делили секунды на 3",
       "llmVerdict": "keep"
     },
     {
@@ -4341,7 +3812,7 @@
       "requiresImage": false,
       "explanation": "Луна притягивает ближнюю сторону Земли сильнее, а дальнюю - слабее центра. В итоге вода вздувается одновременно с двух сторон: на ближней - от притяжения, на дальней - от инерции. Два горба воды и дают два прилива за сутки.",
       "imageSearchQuery": "прилив отлив двойной Луна",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4363,7 +3834,6 @@
       "explanation": "Одноклеточные динофлагеллаты содержат фермент люциферазу, который окисляет люциферин - это выделяет холодный голубой свет. Механическое возмущение воды (волна, весло, нос корабля) запускает реакцию мгновенно.",
       "imageSearchQuery": "биолюминесценция волны море ночь",
       "reviewStatus": "pending",
-      "correctAnswer": "Химическая реакция в клетках",
       "llmVerdict": "keep"
     },
     {
@@ -4386,7 +3856,6 @@
       "explanation": "С земли горизонт обрезает радугу в дугу. Если смотреть сверху при достаточном количестве капель ниже, радуга замыкается в полное кольцо. Пилоты и прыгуны с парашютом наблюдают это регулярно.",
       "imageSearchQuery": "радуга полный круг вид с самолёта",
       "reviewStatus": "pending",
-      "correctAnswer": "Полный круг",
       "llmVerdict": "keep"
     },
     {
@@ -4409,7 +3878,6 @@
       "explanation": "Байкал, самое глубокое озеро планеты (~1642 м), при относительно скромной площади вмещает около 23 000 км³ воды - почти пятую часть всей незамёрзшей пресной воды Земли.",
       "imageSearchQuery": "Байкал озеро глубина вид сверху",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 20%",
       "llmVerdict": "keep"
     },
     {
@@ -4432,7 +3900,6 @@
       "explanation": "Исток реки - не чёткая точка, а зона из нескольких ручьёв-кандидатов и сезонных источников. Какой именно ручей считать началом Нила или Амазонки - вопрос договорённости, и в зависимости от выбора итоговая длина меняется на сотни километров.",
       "imageSearchQuery": "исток реки Амазонка горный ручей",
       "reviewStatus": "pending",
-      "correctAnswer": "Разные точки истока",
       "llmVerdict": "keep"
     },
     {
@@ -4455,7 +3922,6 @@
       "explanation": "В 1960-х советские ирригационные проекты перенаправили Амударью и Сырдарью на хлопковые поля, питавшие Арал, реки фактически иссякли. На месте моря осталась солончаковая пустыня с ржавыми кораблями.",
       "imageSearchQuery": "Аральское море высохло корабли пустыня",
       "reviewStatus": "pending",
-      "correctAnswer": "Отвод воды на орошение",
       "llmVerdict": "keep"
     },
     {
@@ -4476,8 +3942,7 @@
       "requiresImage": false,
       "explanation": "Каждый разлив оставлял на пойме слой богатого минералами ила. Нильские паводки тысячелетиями удобряли египетские поля без всякого труда земледельца - именно это позволило первым цивилизациям процветать в долинах рек.",
       "imageSearchQuery": "пойма реки разлив половодье ил",
-      "reviewStatus": "pending",
-      "correctAnswer": "Паводки несли плодородный ил",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4500,7 +3965,6 @@
       "explanation": "Титикака расположено на высоте 3812 м в сухом высокогорном климате. Лишь около 10% воды уходит через единственную реку Десагуадеро - остальное испаряется прямо с поверхности под интенсивным горным солнцем.",
       "imageSearchQuery": "озеро Титикака Анды высокогорье",
       "reviewStatus": "pending",
-      "correctAnswer": "Испаряется с поверхности",
       "llmVerdict": "keep"
     },
     {
@@ -4522,8 +3986,7 @@
       "requiresImage": false,
       "explanation": "Малейший изгиб ускоряет воду у внешнего берега и замедляет у внутреннего - внешний берег размывается, петля углубляется сама собой. Такие петли называются меандрами, по имени реки Меандр в Турции.",
       "imageSearchQuery": "меандры реки вид сверху петли",
-      "reviewStatus": "pending",
-      "correctAnswer": "Размыв внешнего берега петли",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4546,7 +4009,6 @@
       "explanation": "Устье Цяньтан имеет форму воронки: океан широкий, а русло резко сужается. Приливная масса воды сжимается, волна нарастает до 9 метров и мчится вверх по реке со скоростью 40 км/ч, заставляя реку течь вспять. Это явление называется приливным бором.",
       "imageSearchQuery": "приливная волна бор река Цяньтан",
       "reviewStatus": "pending",
-      "correctAnswer": "Устье сужается воронкой",
       "llmVerdict": "keep"
     },
     {
@@ -4569,7 +4031,6 @@
       "explanation": "Чёрный цвет создают гуминовые и фульвовые кислоты - продукты разложения листьев и древесины тропического леса. Эта кислая «чайная» вода почти стерильна, а при слиянии с жёлто-бурой Амазонкой образуется знаменитая «Встреча вод».",
       "imageSearchQuery": "Риу-Негру чёрная вода встреча рек Амазонка",
       "reviewStatus": "pending",
-      "correctAnswer": "Растворённые органические кислоты",
       "llmVerdict": "keep"
     },
     {
@@ -4592,7 +4053,6 @@
       "explanation": "Если два рыцаря несли одинаковый символ, в разгаре битвы их можно было перепутать - с фатальными последствиями. Герольды вели реестры гербов и следили за их уникальностью; с XIV века в Европе появились герольдические палаты, действующие до сих пор.",
       "imageSearchQuery": "medieval knight heraldic shield tournament",
       "reviewStatus": "pending",
-      "correctAnswer": "Различать рыцарей в бою",
       "llmVerdict": "keep"
     },
     {
@@ -4636,8 +4096,7 @@
       "requiresImage": false,
       "explanation": "Латинское название Сириуса - Canicula («малая собачка», от canis - собака). В дни его гелиакического восхода наступал летний зной, школьников отпускали домой - эти дни и назвали «каникулами».",
       "imageSearchQuery": "Sirius star ancient Roman calendar summer",
-      "reviewStatus": "pending",
-      "correctAnswer": "Совпадали с восходом звезды Сириуса",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4660,7 +4119,6 @@
       "explanation": "В Средневековье сахар ввозили с Востока как редкое снадобье и считали тёплым, влажным веществом, исправляющим дисбаланс гуморов. Только в XVII-XVIII веках он окончательно переехал из аптек в кухню.",
       "imageSearchQuery": "medieval apothecary sugar spices medicine",
       "reviewStatus": "pending",
-      "correctAnswer": "Лекарством",
       "llmVerdict": "keep"
     },
     {
@@ -4682,8 +4140,7 @@
       "requiresImage": false,
       "explanation": "Наказание называлось «повешение, потрошение и четвертование» (hanged, drawn and quartered). Части тела развешивали над воротами крепостей по всей стране - устрашающий публичный сигнал об измене. Знать удостаивалась «привилегии» обезглавливания.",
       "imageSearchQuery": "medieval England traitor execution city gates",
-      "reviewStatus": "pending",
-      "correctAnswer": "Вешали, потрошили и четвертовали",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4705,8 +4162,7 @@
       "requiresImage": false,
       "explanation": "Нотр-Дам строили около 200 лет (1163-1345), Кёльнский собор - 632 года (1248-1880), Шартрский - около 65 лет. Для Средневековья многовековое строительство было нормой: сменялись поколения мастеров, войны, источники финансирования.",
       "imageSearchQuery": "Gothic cathedrals Notre Dame Cologne Chartres construction",
-      "reviewStatus": "pending",
-      "correctAnswer": "Все строились дольше 60 лет",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4728,7 +4184,6 @@
       "explanation": "Чёрная смерть унесла около 25 миллионов человек - от 30 до 40% населения Европы. Некоторые регионы потеряли больше половины жителей, а уровень населения до эпидемии восстановился лишь к концу XV века.",
       "imageSearchQuery": "Black Death plague Europe 1347 medieval population",
       "reviewStatus": "pending",
-      "correctAnswer": "30-40%",
       "llmVerdict": "keep"
     },
     {
@@ -4751,7 +4206,6 @@
       "explanation": "Выступающие башни позволяли вести фланковый огонь вдоль куртины - стрелять в тех, кто добрался до подножия стены и «спрятался» от лучников наверху. Без таких башен у осаждающих было мёртвое пространство у основания, где они могли долбить стену в безопасности.",
       "imageSearchQuery": "medieval castle flanking towers curtain wall",
       "reviewStatus": "pending",
-      "correctAnswer": "Простреливать стену вдоль",
       "llmVerdict": "keep"
     },
     {
@@ -4773,7 +4227,6 @@
       "explanation": "Полное церемониальное имя Бангкока - 169 букв на тайском языке; оно включает описание города как «места ангелов, великого города, вечных драгоценностей». В разговоре тайцы говорят просто «Крунг Тхеп» - «Город ангелов».",
       "imageSearchQuery": "Bangkok city skyline Thailand",
       "reviewStatus": "pending",
-      "correctAnswer": "169",
       "llmVerdict": "keep"
     },
     {
@@ -4795,8 +4248,7 @@
       "requiresImage": false,
       "explanation": "До 1776 года Британия ссылала осуждённых в американские колонии. После войны за независимость США этот путь закрылся, тюрьмы переполнились, и в 1787 году первый флот с 750 каторжниками отплыл в Австралию.",
       "imageSearchQuery": "First Fleet Australia 1788 convict ships",
-      "reviewStatus": "pending",
-      "correctAnswer": "США стали независимыми",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4818,7 +4270,6 @@
       "explanation": "В 1960 году президент Кубичек перенёс столицу в центр страны, чтобы освоить необжитый внутренний регион. Бразилиа построили с нуля всего за 3 года - один из самых быстрых случаев возведения столицы в истории.",
       "imageSearchQuery": "Brasilia aerial view capital Brazil",
       "reviewStatus": "pending",
-      "correctAnswer": "3 года",
       "llmVerdict": "keep"
     },
     {
@@ -4841,7 +4292,6 @@
       "explanation": "Сингапур стоит у входа в Малаккский пролив - одного из самых загруженных морских перекрёстков мира. Через его порт проходит около пятой части мировой торговли, превратив крошечный остров в финансовый и логистический узел глобального масштаба.",
       "imageSearchQuery": "Singapore port container ships Strait of Malacca",
       "reviewStatus": "pending",
-      "correctAnswer": "Малаккский",
       "llmVerdict": "keep"
     },
     {
@@ -4863,7 +4313,6 @@
       "explanation": "Сидней - крупнейший город Австралии, но никогда не был столицей: ею является Канберра, специально построенная как компромисс между Сиднеем и Мельбурном. Дели, Стамбул и Рио-де-Жанейро - все были столицами своих государств.",
       "imageSearchQuery": "Sydney Opera House Harbour Bridge",
       "reviewStatus": "pending",
-      "correctAnswer": "Сидней",
       "llmVerdict": "keep"
     },
     {
@@ -4886,7 +4335,6 @@
       "explanation": "Фьорды - это бывшие ледниковые долины. Гигантские ледники двигались к морю, выскребая U-образные желоба в скалах. Когда ледники растаяли около 10 000 лет назад, море затопило эти долины - так возникли длинные узкие заливы с отвесными стенами.",
       "imageSearchQuery": "Norway fjord glacier valley Geiranger",
       "reviewStatus": "pending",
-      "correctAnswer": "Ледниковая эрозия",
       "llmVerdict": "keep"
     },
     {
@@ -4908,7 +4356,6 @@
       "explanation": "В 1950-х Дубай был рыбацкой деревней с населением несколько тысяч человек. Нефть нашли в 1966 году, доходы вложили в порт и аэропорт, и уже в 1979 году появился первый небоскрёб - Dubai World Trade Center. От деревни до мегаполиса прошло около 30 лет.",
       "imageSearchQuery": "Dubai skyline Burj Khalifa modern city",
       "reviewStatus": "pending",
-      "correctAnswer": "Около 30 лет",
       "llmVerdict": "keep"
     },
     {
@@ -4930,8 +4377,7 @@
       "requiresImage": false,
       "explanation": "При старте реактивных снарядов БМ-13 позади пусковой установки вырывался мощный выброс раскалённых газов - в нескольких метрах он мог опалить или сбить с ног. Расчёт отходил строго в сторону, а не назад.",
       "imageSearchQuery": "Катюша БМ-13 реактивный залп",
-      "reviewStatus": "pending",
-      "correctAnswer": "Позади вырывался выброс раскалённых газов",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -4954,7 +4400,6 @@
       "explanation": "Шасси Ju 87 было неубирающимся и закрыто большими обтекателями, напоминавшими лапти, - самый узнаваемый силуэт немецкой авиации в начале войны.",
       "imageSearchQuery": "Ju 87 Stuka самолёт шасси обтекатели",
       "reviewStatus": "pending",
-      "correctAnswer": "Неубирающееся шасси",
       "llmVerdict": "keep"
     },
     {
@@ -4977,7 +4422,6 @@
       "explanation": "Когда кольцо блокады замкнулось, единственной нитью стала Дорога жизни через Ладожское озеро, но её пропускной способности не хватало - норма хлеба для иждивенцев упала до 125 г в сутки, люди умирали от голода.",
       "imageSearchQuery": "блокада Ленинграда карта кольцо",
       "reviewStatus": "pending",
-      "correctAnswer": "125 граммов",
       "llmVerdict": "keep"
     },
     {
@@ -4999,8 +4443,7 @@
       "requiresImage": false,
       "explanation": "Ложная каска провоцировала вражеского снайпера выстрелить - по вспышке, звуку и направлению пробоины можно было точно определить его огневую позицию и нейтрализовать её.",
       "imageSearchQuery": "снайпер окоп передовая Вторая мировая",
-      "reviewStatus": "pending",
-      "correctAnswer": "Засечь позицию врага по выстрелу",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5023,7 +4466,6 @@
       "explanation": "По ленд-лизу СССР получил около 400 000 грузовиков - прежде всего Studebaker US6, ставший основным тягачом «Катюш». Без этих машин логистика советских наступлений 1943-1945 годов была бы кардинально сложнее.",
       "imageSearchQuery": "Studebaker US6 советский грузовик ленд-лиз",
       "reviewStatus": "pending",
-      "correctAnswer": "Ленд-лиз",
       "llmVerdict": "keep"
     },
     {
@@ -5046,7 +4488,6 @@
       "explanation": "Пакля или ветошь были под рукой у каждого экипажа - простое и надёжное средство. Без такой затычки грязь в стволе при выстреле давала критическое давление и могло разорвать пушку.",
       "imageSearchQuery": "танковая пушка ствол ветошь Вторая мировая",
       "reviewStatus": "pending",
-      "correctAnswer": "Паклей и ветошью",
       "llmVerdict": "keep"
     },
     {
@@ -5068,8 +4509,7 @@
       "requiresImage": false,
       "explanation": "Равномерный стук метронома означал, что радиосеть работает и в случае налёта сигнал тревоги придёт вовремя. Горожане называли этот звук «пульсом города» - он давал понять, что Ленинград держится.",
       "imageSearchQuery": "ленинградское радио метроном блокада репродуктор",
-      "reviewStatus": "pending",
-      "correctAnswer": "Сигнал, что радио работает",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5092,7 +4532,6 @@
       "explanation": "Московская битва (1941-1942) включала советскую стратегическую оборонительную фазу, остановившую вермахт у столицы. «Уран» - окружение под Сталинградом, «Багратион» - освобождение Белоруссии, «Висло-Одерская» - стремительное наступление от Вислы до Одера в 1945 году.",
       "imageSearchQuery": "Курская дуга оборона советские войска 1943",
       "reviewStatus": "pending",
-      "correctAnswer": "Московская битва",
       "llmVerdict": "keep"
     },
     {
@@ -5115,7 +4554,6 @@
       "explanation": "Рабочие получали 250 г хлеба в сутки - максимальный паёк в блокадном городе. Служащие и дети получали лишь 125 г. Даже 250 г были вдвое ниже физиологического минимума, а хлеб содержал значительную долю суррогатов.",
       "imageSearchQuery": "блокадный хлеб 125 граммов Ленинград",
       "reviewStatus": "pending",
-      "correctAnswer": "250 граммов",
       "llmVerdict": "keep"
     },
     {
@@ -5138,7 +4576,6 @@
       "explanation": "Война шла с 1337 по 1453 год - 116 лет. Название «Столетняя» придумали историки XIX века задним числом, округлив для красоты.",
       "imageSearchQuery": "Hundred Years War battle medieval France England",
       "reviewStatus": "pending",
-      "correctAnswer": "116 лет",
       "llmVerdict": "keep"
     },
     {
@@ -5161,7 +4598,6 @@
       "explanation": "Англо-занзибарская война 1896 года - официально кратчайшая в истории: после ультиматума флот Британии открыл огонь по дворцу, и уже через 38-45 минут занзибарский флаг был спущен.",
       "imageSearchQuery": "Anglo-Zanzibar War 1896 shortest war history",
       "reviewStatus": "pending",
-      "correctAnswer": "Занзибар",
       "llmVerdict": "keep"
     },
     {
@@ -5184,7 +4620,6 @@
       "explanation": "Ганнибал намеренно прогнул центр, заставив римлян давить вперёд, а затем охватил их с обоих флангов конницей - классическое двойное окружение. Этот манёвр изучают в военных академиях до сих пор.",
       "imageSearchQuery": "Battle of Cannae Hannibal double envelopment map",
       "reviewStatus": "pending",
-      "correctAnswer": "Преднамеренный прогиб центра",
       "llmVerdict": "keep"
     },
     {
@@ -5229,7 +4664,6 @@
       "explanation": "Маршал Груши получил приказ преследовать пруссаков, но не вернулся к полю боя. Пока он гнался не туда, прусские войска Блюхера подоспели к Веллингтону - и судьба битвы была решена.",
       "imageSearchQuery": "Battle of Waterloo Napoleon defeat 1815 map",
       "reviewStatus": "pending",
-      "correctAnswer": "Груши",
       "llmVerdict": "keep"
     },
     {
@@ -5251,8 +4685,7 @@
       "requiresImage": false,
       "explanation": "Ракеты Конгрива запускали с простых деревянных рам или прямо с земли, без тяжёлых орудийных лафетов - это делало их удобными для кораблей и быстрых манёвров. Точность была низкой, зато психологический эффект и поджигающий заряд были огромны.",
       "imageSearchQuery": "Congreve rockets Napoleonic Wars British military",
-      "reviewStatus": "pending",
-      "correctAnswer": "Не нужен орудийный лафет",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5274,8 +4707,7 @@
       "requiresImage": false,
       "explanation": "«Свинья» - узкий клин с бронированными рыцарями впереди и пехотой по бокам. Задача - пробить брешь в середине вражеского строя и разрезать его. На Чудском озере в 1242 году Александр Невский разбил этот строй, заманив тевтонцев на лёд.",
       "imageSearchQuery": "Teutonic Knights wedge formation Battle on the Ice medieval",
-      "reviewStatus": "pending",
-      "correctAnswer": "Прорвать центр и рассечь строй",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5297,8 +4729,7 @@
       "requiresImage": false,
       "explanation": "Телеграф впервые применили в военных целях в Крымской войне (1853-1856): британцы и французы передавали приказы по кабелю из Варны в штаб под Севастополем, сократив время связи с недель до минут.",
       "imageSearchQuery": "military telegraph wire 19th century war communication",
-      "reviewStatus": "pending",
-      "correctAnswer": "Крымская война (1853-1856)",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5321,7 +4752,6 @@
       "explanation": "Солдаты вышли из окопов, обменялись сигаретами и провели совместные похороны погибших - это зафиксировано в письмах и рапортах. Знаменитый «футбольный матч» - популярная легенда без документального подтверждения.",
       "imageSearchQuery": "Christmas Truce 1914 World War I soldiers football",
       "reviewStatus": "pending",
-      "correctAnswer": "Похоронили погибших",
       "llmVerdict": "keep"
     },
     {
@@ -5343,8 +4773,7 @@
       "requiresImage": false,
       "explanation": "В углах квадратного иллюминатора при перепадах давления концентрировалось напряжение - именно это стало причиной двух катастроф De Havilland Comet в 1954 году. После расследования всю авиацию перевели на овальные и круглые иллюминаторы без острых углов.",
       "imageSearchQuery": "De Havilland Comet aircraft window oval",
-      "reviewStatus": "pending",
-      "correctAnswer": "Углы трескались под давлением",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5367,7 +4796,6 @@
       "explanation": "Лодка несколько дней шла без связи, а американские эсминцы забрасывали её учебными глубинными бомбами. Экипаж решил, что война уже идёт, но офицер Василий Архипов, чьё согласие требовалось по уставу, отказал - и пуск не состоялся.",
       "imageSearchQuery": "Cuban missile crisis Soviet submarine B-59",
       "reviewStatus": "pending",
-      "correctAnswer": "Отказ старшего офицера",
       "llmVerdict": "keep"
     },
     {
@@ -5390,7 +4818,6 @@
       "explanation": "Немецкое подразделение IBM - Dehomag - поставляло машины Hollerith и обслуживало их прямо в лагерях. Колонки карточки кодировали национальность, причину ареста, место содержания и судьбу узника; это многократно ускорило систематизацию и перемещение миллионов людей.",
       "imageSearchQuery": "IBM Hollerith punch card Nazi Germany",
       "reviewStatus": "pending",
-      "correctAnswer": "Учёт заключённых по категориям",
       "llmVerdict": "keep"
     },
     {
@@ -5412,8 +4839,7 @@
       "requiresImage": false,
       "explanation": "Инженеры намеренно выбрали простейший тональный сигнал на частотах 20 и 40 МГц, любой радиолюбитель с дешёвым приёмником мог убедиться, что спутник летит. Это был и технический аргумент, и пропагандистский ход: весь мир слышал советский сигнал из космоса.",
       "imageSearchQuery": "Sputnik 1 satellite radio signal beep",
-      "reviewStatus": "pending",
-      "correctAnswer": "Любой мог поймать простой сигнал",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5436,7 +4862,6 @@
       "explanation": "Флеминг заметил плесень, убивающую бактерии; Кувер искал прицел для оружия, а вещество прилипало ко всему; у Спенсера шоколадный батончик в кармане расплавился, когда он стоял рядом с работающим магнетроном, - все три изобретения вышли из случайного наблюдения.",
       "imageSearchQuery": "accidental inventions penicillin microwave superglue",
       "reviewStatus": "pending",
-      "correctAnswer": "Открыты случайно",
       "llmVerdict": "keep"
     },
     {
@@ -5458,8 +4883,7 @@
       "requiresImage": false,
       "explanation": "Гавайские таможенники заполнили форму 6059-B в шутку: в графе «место отправления» написали «Луна», груз - «лунные породы и пыль». Заполненный бланк сохранился и стал одним из самых известных курьёзов американской таможенной службы.",
       "imageSearchQuery": "Apollo 11 astronauts customs declaration form 1969",
-      "reviewStatus": "pending",
-      "correctAnswer": "Шутка таможенных чиновников",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5481,8 +4905,7 @@
       "requiresImage": false,
       "explanation": "Воюющие страны замалчивали эпидемию из-за военной цензуры, чтобы не подрывать моральный дух. Нейтральная Испания цензуры не вводила и открыто сообщала о тысячах больных, мировая пресса цитировала испанские источники, и название прилипло.",
       "imageSearchQuery": "Spanish flu 1918 newspaper Spain censorship",
-      "reviewStatus": "pending",
-      "correctAnswer": "Испания не вводила цензуру",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -5784,7 +5207,7 @@
       "requiresImage": false,
       "explanation": "Конь Наполеона по кличке Маренго (в честь битвы 1800 года) был захвачен британцами при Ватерлоо; его скелет выставлен в Национальном армейском музее в Лондоне.",
       "imageSearchQuery": "Скелет боевого коня",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -6305,7 +5728,7 @@
       "requiresImage": false,
       "explanation": "«Москва слезам не верит» (1979) получила «Оскар» в 1981 году как лучший иностранный фильм - единственный советский фильм, удостоенный этой награды после «Войны и мира».",
       "imageSearchQuery": "«Москва слезам не верит»",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -6957,7 +6380,7 @@
       "requiresImage": false,
       "explanation": "Первый промышленный пылесос Сесила Бута был настолько громоздким, что его везли на конной повозке и оставляли на улице, а шланги заводили через окна внутрь дома.",
       "imageSearchQuery": "Агрегат стоял на улице",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -7089,7 +6512,7 @@
       "requiresImage": false,
       "explanation": "40-метровая стальная статуя Чингисхана под Улан-Батором - крупнейшая конная статуя в мире. Внутри есть лифт, ведущий на смотровую площадку на голове коня.",
       "imageSearchQuery": "Лифт и смотровая площадка",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -7457,7 +6880,7 @@
       "requiresImage": false,
       "explanation": "В скелетоне спортсмен лежит животом на санях лицом вниз и головой вперёд. В бобслее экипаж едет спиной вперёд в закрытом кузове.",
       "imageSearchQuery": "Спортсмен едет лицом вниз",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -7630,7 +7053,7 @@
       "requiresImage": false,
       "explanation": "По османскому обычаю осуждённый вельможа получал шанс на побег: если он успевал добежать от места казни до ворот дворца раньше палача, приговор отменяли.",
       "imageSearchQuery": "Обогнать палача в беге",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -8087,7 +7510,7 @@
       "requiresImage": false,
       "explanation": "Toe loop по-английски - прыжок с носка конька; русские болельщики услышали «тулуп» и прозвище прижилось. Официально прыжок изобрёл Брюс Мэйпс в 1920-х.",
       "imageSearchQuery": "Английское слово «toe loop»",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -8625,7 +8048,7 @@
       "requiresImage": false,
       "explanation": "Миклухо-Маклай демонстративно засыпал перед вооружёнными туземцами, показывая полное отсутствие страха. Этот жест произвёл неизгладимое впечатление и открыл ему путь к дружбе с папуасами.",
       "imageSearchQuery": "Засыпал у них на виду",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -9375,7 +8798,7 @@
       "requiresImage": false,
       "explanation": "Во время Второй мировой войны импорт бамбука из Азии в США прекратился, и спортсменам пришлось переходить на металлические шесты. Позже появился фибергласс, давший ещё больший прирост результатов.",
       "imageSearchQuery": "Прекратился импорт бамбука из Азии",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -9397,7 +8820,7 @@
       "requiresImage": false,
       "explanation": "В порыве злости Иванишевич разбил все три запасные ракетки, после чего был вынужден сняться с матча - по правилам турнира играть без инвентаря нельзя.",
       "imageSearchQuery": "Сломал все ракетки",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -9743,7 +9166,7 @@
       "requiresImage": false,
       "explanation": "Скульптура Давида Черны у Музея Кафки в Праге - две фигуры, чьи струи пишут на водной поверхности слова SMS, присланных посетителями на специальный номер. Механизм поворачивает тазы фигур, меняя направление струи.",
       "imageSearchQuery": "Писать текст SMS струями",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -9978,7 +9401,7 @@
       "requiresImage": false,
       "explanation": "В 2010 году на заводе Foxconn, собирающем технику Apple, прокатилась волна самоубийств среди рабочих. Руководство натянуло сетки, чтобы предотвратить прыжки с этажей.",
       "imageSearchQuery": "Чтобы поймать прыгающих рабочих",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -10000,7 +9423,7 @@
       "requiresImage": false,
       "explanation": "Около 90% взрослых китайцев имеют лактазную недостаточность: фермент лактаза перестаёт вырабатываться после детства, и молочные продукты вызывают дискомфорт.",
       "imageSearchQuery": "Непереносимость лактозы",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -12097,7 +11520,7 @@
       "requiresImage": false,
       "explanation": "Ламбрекен - горизонтальная полоса ткани или жёсткое украшение над окном, скрывающее карниз. Слово пришло из французского языка.",
       "imageSearchQuery": "Декоративная драпировка над шторой",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -12616,7 +12039,7 @@
       "requiresImage": false,
       "explanation": "Timberland подняла цены на свои ботинки выше, чем у Topsiders, - и продажи резко выросли: более высокая цена сигнализировала покупателям о лучшем качестве.",
       "imageSearchQuery": "Подняла цены выше конкурента",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -12767,7 +12190,7 @@
       "requiresImage": false,
       "explanation": "Это арабские имена семи главных звёзд Большой Медведицы. Арабские астрономы дали им имена ещё в средние века, и они до сих пор официальны в МАС.",
       "imageSearchQuery": "Звёзды Большой Медведицы",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -13305,7 +12728,7 @@
       "requiresImage": false,
       "explanation": "По синтоистским представлениям, смерть - источник ритуальной скверны (кэгарэ). Дворец умершего правителя становился нечистым, и новый государь обязан был строить резиденцию с нуля.",
       "imageSearchQuery": "Дом умершего считался нечистым",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -13544,7 +12967,7 @@
       "requiresImage": false,
       "explanation": "Уильям Джеймс утверждал: сам акт наблюдения за сознанием меняет его содержание. Включая свет, чтобы посмотреть на темноту, мы её уничтожаем - парадокс, предвосхитивший идеи когнитивной психологии.",
       "imageSearchQuery": "Рассмотреть, как выглядит тьма",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -13739,7 +13162,7 @@
       "requiresImage": false,
       "explanation": "Ганаш - эмульсия горячих сливок и шоколада. Используется как начинка трюфелей, покрытие тортов и основа конфет. Изобретён во Франции в XIX веке.",
       "imageSearchQuery": "Крем из шоколада и сливок",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -13867,7 +13290,7 @@
       "requiresImage": false,
       "explanation": "Alfa Romeo 33 Stradale 1967 года оснащалась V8 объёмом лишь 2 литра, выдававшим 230 л.с. при 8800 об/мин - фантастический показатель для серийного авто той эпохи.",
       "imageSearchQuery": "V8 объёмом всего 2 литра",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -14256,7 +13679,7 @@
       "requiresImage": false,
       "explanation": "В «Тёмной комнате» ЦУМа (до революции - «Мюр и Мерилиз») дамы примеряли вечерние туалеты при газовом свете, чтобы видеть, как платье будет смотреться на балу или ужине.",
       "imageSearchQuery": "Видеть платье при вечернем свете",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -14366,7 +13789,7 @@
       "requiresImage": false,
       "explanation": "Грот «Руины» (1821 г., архитектор Бове) символизирует победу над Наполеоном: в его основание вмурованы подлинные обломки московских зданий, сожжённых в 1812 году. Это памятник прямо из пепла войны.",
       "imageSearchQuery": "Обломки домов, сожжённых при Наполеоне",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -14647,7 +14070,7 @@
       "requiresImage": false,
       "explanation": "В средневековой Польше действовали законы о сословном платье: служанкам запрещалось носить меха, шёлк и украшения - одеяние дворянки на простолюдинке каралось штрафом.",
       "imageSearchQuery": "Одевались выше своего сословия",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -14927,7 +14350,7 @@
       "requiresImage": false,
       "explanation": "«Касабланка» (1942) с Хамфри Богартом и Ингрид Бергман считается одним из величайших фильмов всех времён. Финальная реплика «Луи, думаю, это начало прекрасной дружбы» вошла в культуру.",
       "imageSearchQuery": "«Касабланка»",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -14948,7 +14371,7 @@
       "requiresImage": false,
       "explanation": "«1+1» (Intouchables, 2011) стал одним из самых кассовых французских фильмов в истории. В основе - реальная история дружбы парализованного аристократа Филиппа Поццо ди Борго и его сиделки Абделя Селлу.",
       "imageSearchQuery": "«1+1»",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -15355,7 +14778,7 @@
       "requiresImage": false,
       "explanation": "Перед каждым спинным плавником катрана расположен острый ядовитый шип - защита от хищников. У большинства акул такого оружия нет.",
       "imageSearchQuery": "Ядовитые шипы на плавниках",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -15613,7 +15036,7 @@
       "requiresImage": false,
       "explanation": "Настоящее имя художника - Ерун ван Акен. Псевдоним «Босх» он взял от названия родного города Хертогенбос в Нидерландах, сократив его до последнего слога.",
       "imageSearchQuery": "Родного города художника",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -15701,7 +15124,7 @@
       "requiresImage": false,
       "explanation": "Микеланджело имел в виду апостолов: святые были людьми бедными и не носили позолоченных одежд. Ответ сохранился в «Жизнеописаниях» Вазари.",
       "imageSearchQuery": "«Они были люди бедные»",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -15787,7 +15210,7 @@
       "requiresImage": false,
       "explanation": "В книге «Женщина и автомобиль» Дороти Левитт советовала дамам держать при себе ручное зеркальце, чтобы видеть, что происходит сзади. Так она предвосхитила появление зеркала заднего вида, ставшего стандартом лишь в 1910-х.",
       "imageSearchQuery": "Советом смотреть в зеркальце сзади",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -16979,7 +16402,7 @@
       "requiresImage": false,
       "explanation": "В 1914 году Паустовский работал вагоновожатым на московском трамвае, но скоро въехал в молоковоз. После этого его перевели в кондукторы.",
       "imageSearchQuery": "Врезался в молоковоз",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {
@@ -17134,7 +16557,7 @@
       "requiresImage": false,
       "explanation": "Рецензент Current Cinema в 1977 году написал о «Звёздных войнах» именно так - фильм стал кассовым рекордсменом, хотя критики поначалу встретили его без восторга.",
       "imageSearchQuery": "«Звёздные войны»",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "llmVerdict": "keep"
     },
     {

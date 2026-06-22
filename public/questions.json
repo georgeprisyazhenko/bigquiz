@@ -19,7 +19,6 @@
       "explanation": "Байкал хранит около 23 500 км³ воды - примерно 20% всей жидкой пресной воды Земли. Это больше, чем все Великие озёра Северной Америки вместе взятые.",
       "imageSearchQuery": "Байкал",
       "reviewStatus": "approved",
-      "correctAnswer": "20%",
       "llmVerdict": "keep"
     },
     {
@@ -41,7 +40,6 @@
       "explanation": "Островки Лангерганса занимают лишь 1-2% объёма поджелудочной - крошечная доля, гибель бета-клеток которой запускает сахарный диабет 1 типа.",
       "imageSearchQuery": "pancreas insulin beta cells islets of Langerhans illustration",
       "reviewStatus": "approved",
-      "correctAnswer": "1-2%",
       "llmVerdict": "keep"
     },
     {
@@ -63,7 +61,6 @@
       "explanation": "Между двумя слоями перикарда находится 15-50 мл жидкости, она смазывает поверхности, снижая трение при каждом из ~100 000 ударов сердца в сутки.",
       "imageSearchQuery": "heart anatomy mitral valve aorta pericardium diagram",
       "reviewStatus": "approved",
-      "correctAnswer": "Снижает трение",
       "llmVerdict": "keep"
     },
     {
@@ -85,7 +82,6 @@
       "explanation": "В покое сердце перекачивает около 5 литров в минуту, за сутки это около 7 000 литров - целая цистерна.",
       "imageSearchQuery": "Сердце человека",
       "reviewStatus": "approved",
-      "correctAnswer": "7 000 литров",
       "llmVerdict": "keep"
     },
     {
@@ -107,7 +103,6 @@
       "explanation": "Правильных многогранников ровно 5: тетраэдр, куб, октаэдр, додекаэдр и икосаэдр - это доказал ещё Евклид. Платон связывал их с элементами (огонь, земля, воздух, вода, эфир), отсюда второе название - Платоновы тела.",
       "imageSearchQuery": "five Platonic solids tetrahedron cube octahedron dodecahedron icosahedron",
       "reviewStatus": "approved",
-      "correctAnswer": "5",
       "llmVerdict": "keep"
     },
     {
@@ -129,7 +124,6 @@
       "explanation": "Ряд Фибоначчи: каждый член равен сумме двух предыдущих. Его описал Леонардо Пизанский (Фибоначчи) в XIII веке на задаче о кроликах, а отношение соседних чисел стремится к золотому сечению 1,618.",
       "imageSearchQuery": "Спираль Фибоначчи",
       "reviewStatus": "approved",
-      "correctAnswer": "Фибоначчи",
       "llmVerdict": "keep"
     },
     {
@@ -151,7 +145,6 @@
       "explanation": "Курт Гёдель опубликовал теоремы о неполноте в 1931 году. Они разрушили мечту Гильберта об аксиоматизации всей математики: ни одна непротиворечивая система не может быть одновременно полной.",
       "imageSearchQuery": "Kurt Gödel incompleteness theorem portrait",
       "reviewStatus": "approved",
-      "correctAnswer": "Гёдель",
       "llmVerdict": "keep"
     },
     {
@@ -173,7 +166,6 @@
       "explanation": "Порода названа по штату Чиуауа на севере Мексики - именно там в XIX веке европейцы впервые встретили этих собак и начали вывозить на экспорт.",
       "imageSearchQuery": "Чихуахуа",
       "reviewStatus": "approved",
-      "correctAnswer": "От мексиканского штата",
       "llmVerdict": "keep"
     },
     {
@@ -195,7 +187,6 @@
       "explanation": "Немцы прозвали БМ-13 «Сталинским органом» (Stalinorgel) - за характерный вой реактивных снарядов и сходство направляющих рамы с органными трубами. Советские бойцы называли её «Катюшей» - по популярной песне.",
       "imageSearchQuery": "Катюша БМ-13",
       "reviewStatus": "approved",
-      "correctAnswer": "«Сталинский орган»",
       "llmVerdict": "keep"
     },
     {
@@ -217,7 +208,6 @@
       "explanation": "Шесть успешных посадок: Apollo 11, 12, 14, 15, 16 и 17 (1969-1972). Apollo 13 был аварийным - экипаж облетел Луну и вернулся, не высадившись.",
       "imageSearchQuery": "Apollo lunar landings Moon surface astronaut",
       "reviewStatus": "approved",
-      "correctAnswer": "6",
       "llmVerdict": "keep"
     },
     {
@@ -239,7 +229,6 @@
       "explanation": "Шлем Аида (кинея) делал носящего невидимым. Персею его одолжили нимфы, и с его помощью герой скрылся от сестёр-горгон после убийства Медузы.",
       "imageSearchQuery": "Perseus helmet of invisibility Hades Greek mythology",
       "reviewStatus": "approved",
-      "correctAnswer": "Аиду",
       "llmVerdict": "keep"
     },
     {
@@ -261,7 +250,6 @@
       "explanation": "Пение Орфея растрогало Аида и Персефону настолько, что они нарушили главный закон: позволили душе вернуться. Единственное условие - идти и не оглядываться до выхода на свет. Орфей не выдержал у самого порога.",
       "imageSearchQuery": "Orpheus Eurydice Hades underworld Greek mythology",
       "reviewStatus": "approved",
-      "correctAnswer": "Не оглядываться до выхода",
       "llmVerdict": "keep"
     },
     {
@@ -283,7 +271,6 @@
       "explanation": "В моле-негро шоколад добавляют не для сладости - он даёт горечь и глубину цвета; вместе с чили, специями и орехами соус может содержать свыше 30 ингредиентов и вариться несколько часов.",
       "imageSearchQuery": "mexican mole sauce chocolate chili",
       "reviewStatus": "approved",
-      "correctAnswer": "Горький шоколад",
       "llmVerdict": "keep"
     },
     {
@@ -305,7 +292,6 @@
       "explanation": "Консервная банка появилась в 1810 году, а консервный нож - только в 1858-м: почти 50 лет единственным способом вскрыть банку были молоток и зубило, о чём прямо писали в инструкции.",
       "imageSearchQuery": "Консервный нож",
       "reviewStatus": "approved",
-      "correctAnswer": "Около 50 лет",
       "llmVerdict": "keep"
     },
     {
@@ -328,7 +314,6 @@
       "explanation": "Фармацевт Джон Пембертон в 1886 году создавал лекарство от головной боли и усталости: листья коки давали кокаин как стимулятор, орехи колы - кофеин. Продавалась в аптеках именно как лечебный тонизирующий сироп.",
       "imageSearchQuery": "Кока-кола",
       "reviewStatus": "approved",
-      "correctAnswer": "Как тонизирующее средство",
       "llmVerdict": "keep"
     },
     {
@@ -350,7 +335,6 @@
       "explanation": "До 1839 года каучук плавился летом и трескался зимой - он был практически бесполезен. Случайно попав на раскалённую плиту, смесь с серой превратилась в стабильную эластичную резину, которую Гудьир назвал вулканизированной.",
       "imageSearchQuery": "Charles Goodyear vulcanized rubber invention stove accident",
       "reviewStatus": "approved",
-      "correctAnswer": "Затвердела и стала эластичной",
       "llmVerdict": "keep"
     },
     {
@@ -373,7 +357,6 @@
       "explanation": "Флеминг уехал в отпуск, оставив незакрытую чашку с культурой стафилококка. Вернувшись в 1928 году, он обнаружил, что плесень Penicillium notatum уничтожила бактерии вокруг себя - случайная небрежность изменила медицину.",
       "imageSearchQuery": "Пенициллин",
       "reviewStatus": "approved",
-      "correctAnswer": "Уехал, не накрыв чашку",
       "llmVerdict": "keep"
     },
     {
@@ -396,7 +379,6 @@
       "explanation": "В 1799 году солдаты армии Наполеона укрепляли форт Джульен в Розетте и разбирали старую кладку - лейтенант Бушар заметил плиту в разбираемой стене. Надпись на трёх языках (египетские иероглифы, демотическое письмо и греческий) стала ключом к расшифровке иероглифов.",
       "imageSearchQuery": "Rosetta Stone discovery Fort Julien Egypt 1799",
       "reviewStatus": "approved",
-      "correctAnswer": "Разбирали старую стену",
       "llmVerdict": "keep"
     },
     {
@@ -419,7 +401,6 @@
       "explanation": "Галлий плавится при ~29,8 °C - чуть ниже температуры кожи. Кусочек галлия медленно превращается в жидкий металл прямо в пальцах, хотя на вид выглядит как обычный серебристый слиток.",
       "imageSearchQuery": "Галлий",
       "reviewStatus": "approved",
-      "correctAnswer": "Галлий",
       "llmVerdict": "keep"
     },
     {
@@ -442,7 +423,6 @@
       "explanation": "Плотный многолетний лёд почти не содержит пузырьков воздуха: молекулы воды поглощают красные длины волн и пропускают синие, поэтому толстый лёд выглядит интенсивно голубым.",
       "imageSearchQuery": "Ледник",
       "reviewStatus": "approved",
-      "correctAnswer": "Лёд поглощает красный свет",
       "llmVerdict": "keep"
     },
     {
@@ -465,7 +445,6 @@
       "explanation": "Дождевая вода поглощает углекислый газ из воздуха и почвы, превращаясь в слабую угольную кислоту: она медленно растворяет известняк CaCO₃, за миллионы лет вымывая огромные полости - карстовые пещеры.",
       "imageSearchQuery": "limestone cave karst formation stalactites",
       "reviewStatus": "approved",
-      "correctAnswer": "Слабая кислота из дождя",
       "llmVerdict": "keep"
     },
     {
@@ -487,7 +466,6 @@
       "explanation": "Соли кальция и магния попадают в воду при прохождении через известняки и доломиты. Именно они дают накипь в чайнике - при нагреве соли выпадают в осадок и оседают на стенках.",
       "imageSearchQuery": "hard water limescale kettle",
       "reviewStatus": "approved",
-      "correctAnswer": "Соли кальция и магния",
       "llmVerdict": "keep"
     },
     {
@@ -510,7 +488,410 @@
       "explanation": "Лучи от предмета огибают раскалённый слой воздуха снизу вверх и приходят к наблюдателю перевёрнутыми, поэтому «лужа» в пустыне - это перевёрнутое изображение неба или предметов у горизонта.",
       "imageSearchQuery": "Мираж",
       "reviewStatus": "approved",
-      "correctAnswer": "Перевёрнутым",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_002",
+      "question": "Почему бронза вытеснила чистую медь при изготовлении оружия?",
+      "answers": [
+        "Тверже меди",
+        "Дешевле в добыче",
+        "Доступнее в природе",
+        "Легче весит"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_002.webp",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бронза - сплав меди и ~10% олова - заметно тверже чистой меди и лучше держит заточку. Само олово было редким и привозным, поэтому бронза стоила дороже меди - но именно прочность сделала её стандартом эпохи.",
+      "imageSearchQuery": "Бронзовый век",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_009",
+      "question": "Сколько лет бушует Большое красное пятно на Юпитере?",
+      "answers": [
+        "Более 350 лет",
+        "Около 50 лет",
+        "Около 100 лет",
+        "Более 500 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "planety"
+      ],
+      "image": "assets/images/q_009.webp",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шторм наблюдается с XVII века. Большое красное пятно шире всей Земли и до сих пор не утихло.",
+      "imageSearchQuery": "Большое красное пятно",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_014",
+      "question": "Из какого вещества в коже солнечный свет синтезирует витамин D?",
+      "answers": [
+        "Холестерина",
+        "Меланина",
+        "Коллагена",
+        "Кератина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_014.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "UVB-излучение превращает 7-дегидрохолестерин, производное холестерина, в витамин D3 прямо в клетках эпидермиса - именно в коже, а не глубже, поэтому загар без одежды важен для его выработки.",
+      "imageSearchQuery": "vitamin D synthesis skin sunlight UV ultraviolet diagram",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_016",
+      "question": "Какой орган человека восстанавливается, потеряв до 70% своей массы?",
+      "answers": [
+        "Печень",
+        "Сердце",
+        "Лёгкое",
+        "Желудок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_016.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Печень регенерирует из 25-30% исходной ткани за 4-8 недель - именно это позволяет взять долю у живого донора: оставшаяся часть у донора и пересаженная часть у реципиента вырастают до полного объёма.",
+      "imageSearchQuery": "liver regeneration hepatocytes anatomy illustration",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_017",
+      "question": "Что случайно уничтожило бактерии на забытой чашке Петри и привело к открытию антибиотиков?",
+      "answers": [
+        "Плесень",
+        "Дрожжи",
+        "Лишайник",
+        "Водоросль"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_017.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Александр Флеминг вернулся из отпуска и обнаружил, что плесень Penicillium notatum уничтожила колонии бактерий вокруг себя. Это случайное наблюдение в 1928 году привело к созданию пенициллина - первого антибиотика, за который Флеминг, Флори и Чейн получили Нобелевскую премию в 1945 году.",
+      "imageSearchQuery": "Alexander Fleming penicillin mold petri dish discovery",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_019",
+      "question": "Какую болезнь королева Виктория распространила через потомков по королевским домам Европы?",
+      "answers": [
+        "Гемофилию",
+        "Подагру",
+        "Сифилис",
+        "Эпилепсию"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_019.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Виктория была носительницей гемофилии и через дочерей и внучек передала её в дома Романовых, Гогенцоллернов и испанских Бурбонов; самый известный случай - цесаревич Алексей, у которого малейшая травма грозила смертельным кровотечением.",
+      "imageSearchQuery": "hemophilia royal disease Romanov Alexei Tsarevich history",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_024",
+      "question": "Какое из этих чисел не является простым?",
+      "answers": [
+        "51",
+        "53",
+        "59",
+        "61"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_024.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "51 = 3 × 17, поэтому оно составное. 53, 59 и 61 - простые. Делимость 51 на 3 легко проверить по сумме цифр (5+1=6), хотя на глаз 51 часто принимают за простое.",
+      "imageSearchQuery": "prime numbers mathematics chart",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_025",
+      "question": "Какая из этих математических проблем до сих пор не решена и входит в список задач тысячелетия с призом $1 млн?",
+      "answers": [
+        "Гипотеза Римана",
+        "Теорема Ферма",
+        "Проблема Пуанкаре",
+        "Теорема четырёх красок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_025.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гипотеза Римана связывает нули дзета-функции с расположением простых чисел и остаётся открытой более 160 лет - одна из семи задач тысячелетия, за решение каждой обещан $1 млн. Ферма доказал Уайлс (1995), Пуанкаре - Перельман (2003), теорема четырёх красок - Аппель и Хакен (1976).",
+      "imageSearchQuery": "David Hilbert mathematician portrait",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_028",
+      "question": "Что придаёт языку чау-чау синий цвет?",
+      "answers": [
+        "Меланин",
+        "Биливердин",
+        "Билирубин",
+        "Таннин"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_028.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Высокая концентрация меланина в слизистой оболочке даёт языку чау-чау характерный синевато-чёрный цвет. Щенки рождаются с розовым языком - пигментация накапливается к 8-10 неделям.",
+      "imageSearchQuery": "chow chow dog blue tongue",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_031",
+      "question": "Зачем кошка трётся щекой об углы мебели и предметов?",
+      "answers": [
+        "Метит феромонами",
+        "Просит еды",
+        "Снимает стресс",
+        "Проявляет нежность"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_031.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В щеках, лбу и основании хвоста кошки - сальные железы с индивидуальным химическим «паспортом». Тёрся о хозяина, она включает его в свою карту запахов, а не проявляет нежность.",
+      "imageSearchQuery": "cat rubbing face on corner bunting",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_034",
+      "question": "Латинское «musculus» значило и «мышца», и «мышонок», почему мышцу так назвали?",
+      "answers": [
+        "По движению под кожей",
+        "По форме сухожилия",
+        "По цвету ткани",
+        "По твёрдости волокон"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_034.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Римские анатомы сравнивали движение мышцы под кожей с пробегающим мышонком - то же слово musculus обозначало обоих. Метафора оказалась живучей: через латынь она попала во все романские и германские языки, включая английское muscle.",
+      "imageSearchQuery": "anatomy muscle latin etymology illustration",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_039",
+      "question": "На каком самолёте лётчицы 46-го полка совершали ночные бомбардировки, за что немцы прозвали их «ночными ведьмами»?",
+      "answers": [
+        "По-2",
+        "Як-1",
+        "Ли-2",
+        "Ил-2"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_039.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "46-й гвардейский ночной бомбардировочный полк летал на По-2 - учебном фанерном биплане со скоростью около 130 км/ч. Немцы прозвали лётчиц Nachthexen: мотор глушили при заходе на цель, и самолёт беззвучно планировал к цели.",
+      "imageSearchQuery": "Night Witches Soviet female pilots Po-2 biplane WWII",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_048",
+      "question": "Сколько суток суммарно провела в космосе Пегги Уитсон за все экспедиции на МКС?",
+      "answers": [
+        "665 суток",
+        "322 суток",
+        "200 суток",
+        "480 суток"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_048.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пегги Уитсон провела в космосе более 665 суток в ходе трёх экспедиций на МКС - на момент завершения последней экспедиции в 2017 году это был рекорд США по суммарному времени в космосе среди всех астронавтов, не только женщин.",
+      "imageSearchQuery": "Peggy Whitson ISS NASA astronaut",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_048",
+        "factVerdict": "true",
+        "explanation": "По завершении трёх долгосрочных экспедиций на МКС (Expedition 5, 16, 50/51/52) Пегги Уитсон накопила ровно 665 суток в космосе — это число подтверждает сам Axiom Space, называя его результатом именно МКС-миссий. После коммерческих рейсов Ax-2 и Ax-4 суммарный налёт вырос до 695 суток, но вопрос ограничен экспедициями на МКС. Источник: axiomspace.com/astronaut/peggy-whitson"
+      },
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_050",
+      "question": "Что из перечисленного не является названием модуля МКС?",
+      "answers": [
+        "Аврора",
+        "Звезда",
+        "Заря",
+        "Destiny"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_050.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Звезда» - российский служебный модуль, «Заря» - первый запущенный модуль МКС, Destiny - американская лаборатория. «Авроры» среди модулей МКС никогда не было.",
+      "imageSearchQuery": "International Space Station ISS modules diagram",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_051",
+      "question": "В каком году первый в мире космический турист Деннис Тито побывал на МКС?",
+      "answers": [
+        "2001",
+        "1999",
+        "2004",
+        "2007"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_051.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Деннис Тито полетел на МКС в 2001 году на «Союзе ТМ-32», заплатив около 20 миллионов долларов. NASA возражало против полёта, но Роскосмос всё равно его отправил.",
+      "imageSearchQuery": "Dennis Tito space tourist Soyuz ISS 2001",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_052",
+      "question": "В каком году «Вояджер-1» первым вышел в межзвёздное пространство?",
+      "answers": [
+        "2012",
+        "1990",
+        "2003",
+        "2019"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_052.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 2012 году «Вояджер-1» пересёк гелиопаузу и вышел в межзвёздное пространство - через 35 лет после запуска. Это официально подтверждено NASA.",
+      "imageSearchQuery": "Voyager 1 spacecraft interstellar space NASA",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_060",
+      "question": "В каком году Бразилия первой в истории выиграла три чемпионата мира?",
+      "answers": [
+        "1970",
+        "1958",
+        "1982",
+        "1994"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_060.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бразилия выиграла ЧМ в 1958, 1962 и 1970 годах - первая сборная с тремя титулами. Италия собрала свои три победы позже: 1934, 1938 и 1982.",
+      "imageSearchQuery": "Italy national football team World Cup trophy 1982",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_061",
+      "question": "Кто из этих игроков трижды выигрывал Лигу чемпионов, но так и не получил Золотой мяч?",
+      "answers": [
+        "Гарет Бэйл",
+        "Криштиану Роналду",
+        "Лука Модрич",
+        "Роналдиньо"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_061.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гарет Бэйл выиграл Лигу чемпионов с «Реалом» в 2014, 2016 и 2018 годах и забил финальный гол в 2018-м против «Ливерпуля», однако «Золотого мяча» за карьеру так и не получил. Роналду (5 Золотых мячей), Модрич (1) и Роналдиньо (1) - лауреаты.",
+      "imageSearchQuery": "Ballon d'Or trophy France Football award",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_062",
+      "question": "Какое правило гласило, что первый гол в футбольном овертайме немедленно завершает матч?",
+      "answers": [
+        "Золотой гол",
+        "Серебряный гол",
+        "Правило выезда",
+        "Правило фэйр-плей"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_062.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Золотой гол» (1993-2004) задумывался для стимуляции атакующей игры, но дал обратный эффект: команды боялись пропустить и сверхосторожно тянули время. ФИФА отменила правило как не достигшее цели.",
+      "imageSearchQuery": "football extra time overtime World Cup knockout",
+      "reviewStatus": "approved",
       "llmVerdict": "keep"
     }
   ]
