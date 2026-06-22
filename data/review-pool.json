@@ -41,7 +41,7 @@
       "requiresImage": false,
       "explanation": "Бронза - сплав меди и ~10% олова - заметно тверже чистой меди и лучше держит заточку. Само олово было редким и привозным, поэтому бронза стоила дороже меди - но именно прочность сделала её стандартом эпохи.",
       "imageSearchQuery": "Бронзовый век",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Тверже меди",
       "llmVerdict": "keep"
     },
@@ -175,7 +175,7 @@
       "requiresImage": false,
       "explanation": "Шторм наблюдается с XVII века. Большое красное пятно шире всей Земли и до сих пор не утихло.",
       "imageSearchQuery": "Большое красное пятно",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Более 350 лет",
       "llmVerdict": "keep"
     },
@@ -220,9 +220,15 @@
       "requiresImage": false,
       "explanation": "У новорождённого около 270-300 костей, со временем многие срастаются, и к взрослому возрасту их остаётся 206. Больше всего костей в кистях и стопах: на них приходится более половины всего скелета.",
       "imageSearchQuery": "human skeleton anatomy bones count illustration",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Уменьшается",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "distractors",
+        "boring"
+      ],
+      "reviewProblem": "неинтересно",
+      "reviewSuggestion": "Какое количество костей у новорожденного?"
     },
     {
       "id": "q_013",
@@ -242,9 +248,15 @@
       "requiresImage": false,
       "explanation": "Кортизол при хроническом избытке запускает катаболизм: расщепляет мышечный белок ради быстрой энергии, поэтому затяжной стресс буквально «съедает» мышцы.",
       "imageSearchQuery": "cortisol stress hormone adrenal glands diagram",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Разрушает их",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring",
+        "banal"
+      ],
+      "reviewProblem": "не тот угол",
+      "reviewSuggestion": "На какой тип ткани негативно влияет кортизол? "
     },
     {
       "id": "q_014",
@@ -264,7 +276,7 @@
       "requiresImage": false,
       "explanation": "UVB-излучение превращает 7-дегидрохолестерин, производное холестерина, в витамин D3 прямо в клетках эпидермиса - именно в коже, а не глубже, поэтому загар без одежды важен для его выработки.",
       "imageSearchQuery": "vitamin D synthesis skin sunlight UV ultraviolet diagram",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Холестерина",
       "llmVerdict": "keep"
     },
@@ -286,7 +298,7 @@
       "requiresImage": false,
       "explanation": "Печень регенерирует из 25-30% исходной ткани за 4-8 недель - именно это позволяет взять долю у живого донора: оставшаяся часть у донора и пересаженная часть у реципиента вырастают до полного объёма.",
       "imageSearchQuery": "liver regeneration hepatocytes anatomy illustration",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Печень",
       "llmVerdict": "keep"
     },
@@ -308,7 +320,7 @@
       "requiresImage": false,
       "explanation": "Александр Флеминг вернулся из отпуска и обнаружил, что плесень Penicillium notatum уничтожила колонии бактерий вокруг себя. Это случайное наблюдение в 1928 году привело к созданию пенициллина - первого антибиотика, за который Флеминг, Флори и Чейн получили Нобелевскую премию в 1945 году.",
       "imageSearchQuery": "Alexander Fleming penicillin mold petri dish discovery",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "llmVerdict": "keep"
     },
     {
@@ -329,7 +341,7 @@
       "requiresImage": false,
       "explanation": "Виктория была носительницей гемофилии и через дочерей и внучек передала её в дома Романовых, Гогенцоллернов и испанских Бурбонов; самый известный случай - цесаревич Алексей, у которого малейшая травма грозила смертельным кровотечением.",
       "imageSearchQuery": "hemophilia royal disease Romanov Alexei Tsarevich history",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Гемофилию",
       "llmVerdict": "keep"
     },
@@ -351,9 +363,14 @@
       "requiresImage": false,
       "explanation": "Золотое сечение: если целое/большая = большая/меньшая ≈ 1,618, то деление «идеально». Парфенон, спирали раковин и пропорции лица да Винчи подчиняются этому соотношению.",
       "imageSearchQuery": "golden ratio spiral mathematics",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Золотое сечение",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "language"
+      ],
+      "reviewProblem": "тяжело воспринимается вопрос, я бы угол поменял",
+      "reviewSuggestion": "Какой коэффициент соотношения в золотом сечении?"
     },
     {
       "id": "q_021",
@@ -373,8 +390,14 @@
       "requiresImage": false,
       "explanation": "Бесконечная сумма 1/2 + 1/4 + 1/8 + ... равна ровно 1 - сходящийся ряд. Зенон Элейский (V в. до н.э.) не знал теории пределов: бесконечное число шагов укладывается в конечное время, если шаги уменьшаются достаточно быстро.",
       "imageSearchQuery": "Zeno paradox Achilles tortoise illustration",
-      "reviewStatus": "pending",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "wording",
+        "boring"
+      ],
+      "reviewProblem": "нет контекста: что за Ахилл, о чем речь",
+      "reviewSuggestion": "О чем логический парадокс про Ахиллеса и черепаху? Сходящиеся ряды / дискретные поля / ... - что-то такого плана"
     },
     {
       "id": "q_023",
@@ -394,9 +417,13 @@
       "requiresImage": false,
       "explanation": "Теорема о четырёх красках (любую карту можно раскрасить 4 цветами без смежных одноцветных областей) доказана Аппелем и Хакеном - компьютер перебрал 1936 конфигураций. Это первое доказательство в математике, которое невозможно проверить вручную.",
       "imageSearchQuery": "four color theorem map coloring mathematics",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Четырёх красок",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewProblem": "я уже про это говорил кучу раз - в данном случае нужно писать Теорему Ферма, Теорему Гаусса, потому что это устойчивое сочетание - выкинь одно слово и не так понятно о чем речь",
+      "reviewTags": [
+        "language"
+      ]
     },
     {
       "id": "q_024",
@@ -416,7 +443,7 @@
       "requiresImage": false,
       "explanation": "51 = 3 × 17, поэтому оно составное. 53, 59 и 61 - простые. Делимость 51 на 3 легко проверить по сумме цифр (5+1=6), хотя на глаз 51 часто принимают за простое.",
       "imageSearchQuery": "prime numbers mathematics chart",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "51",
       "llmVerdict": "keep"
     },
@@ -438,7 +465,7 @@
       "requiresImage": false,
       "explanation": "Гипотеза Римана связывает нули дзета-функции с расположением простых чисел и остаётся открытой более 160 лет - одна из семи задач тысячелетия, за решение каждой обещан $1 млн. Ферма доказал Уайлс (1995), Пуанкаре - Перельман (2003), теорема четырёх красок - Аппель и Хакен (1976).",
       "imageSearchQuery": "David Hilbert mathematician portrait",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Гипотеза Римана",
       "llmVerdict": "keep"
     },
@@ -460,7 +487,7 @@
       "requiresImage": false,
       "explanation": "Высокая концентрация меланина в слизистой оболочке даёт языку чау-чау характерный синевато-чёрный цвет. Щенки рождаются с розовым языком - пигментация накапливается к 8-10 неделям.",
       "imageSearchQuery": "chow chow dog blue tongue",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Меланин",
       "llmVerdict": "keep"
     },
@@ -482,9 +509,13 @@
       "requiresImage": false,
       "explanation": "Защёчные мешки хомяка - эластичные кожные складки, тянущиеся от щёк до плеч. В них помещается зерно весом до 50% от массы тела - рекорд среди грызунов.",
       "imageSearchQuery": "hamster full cheek pouches",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Половину",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewProblem": "опять же, цифры / проценты / числа считываются проще, здесь лучше половину написать как 50%",
+      "reviewTags": [
+        "language"
+      ]
     },
     {
       "id": "q_030",
@@ -504,8 +535,13 @@
       "requiresImage": false,
       "explanation": "Все 20 зубов морской свинки (4 резца и 16 коренных) растут непрерывно всю жизнь - если животное не стачивает их твёрдым кормом, зубы вырастают настолько, что мешают есть. Клыков нет совсем: между резцами и коренными - пустой промежуток, диастема.",
       "imageSearchQuery": "guinea pig teeth close up",
-      "reviewStatus": "pending",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "я уже писал это, бестолковые дистракторы. Светятся в темноте, серьезно? меняются с возрастом воспринимается как растут всю жизнь",
+      "reviewTags": [
+        "distractors"
+      ],
+      "reviewSuggestion": "растут всю жизнь / эмаль с одной стороны / голубой оттенок / все коренные"
     },
     {
       "id": "q_031",
@@ -525,7 +561,7 @@
       "requiresImage": false,
       "explanation": "В щеках, лбу и основании хвоста кошки - сальные железы с индивидуальным химическим «паспортом». Тёрся о хозяина, она включает его в свою карту запахов, а не проявляет нежность.",
       "imageSearchQuery": "cat rubbing face on corner bunting",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "Метит феромонами",
       "llmVerdict": "keep"
     },
@@ -547,7 +583,7 @@
       "requiresImage": false,
       "explanation": "Римские анатомы сравнивали движение мышцы под кожей с пробегающим мышонком - то же слово musculus обозначало обоих. Метафора оказалась живучей: через латынь она попала во все романские и германские языки, включая английское muscle.",
       "imageSearchQuery": "anatomy muscle latin etymology illustration",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "По движению под кожей",
       "llmVerdict": "keep"
     },
@@ -569,9 +605,15 @@
       "requiresImage": false,
       "explanation": "В 1880 году ирландские арендаторы коллективно отказались иметь дело с управляющим Чарльзом Бойкоттом - прогнали его работников и перестали торговать с ним. Газеты описали этот метод его именем, которое мгновенно вошло в европейские языки.",
       "imageSearchQuery": "Captain Boycott Ireland 1880 land league",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Отказались с ним общаться",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring",
+        "banal"
+      ],
+      "reviewProblem": "зачем поменял хороший угол?",
+      "reviewSuggestion": "кем работал Чарльз Бойкотт, чье имя стало нарицательным?"
     },
     {
       "id": "q_036",
@@ -591,9 +633,13 @@
       "requiresImage": false,
       "explanation": "Этьен де Силуэт - министр финансов Франции 1759 года - был известен жёсткой экономией. Его имя стало насмешливым синонимом всего дешёвого и упрощённого, в том числе дешёвых контурных портретов без деталей.",
       "imageSearchQuery": "silhouette portrait 18th century France Étienne de Silhouette",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Жёсткой экономией",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewProblem": "переносы в ответах это неправильно. Если слово не влезает, то оно целиком переезжает на вторую строку и должно помещаться там. Вероятно, это требуется изменений в коде, подними этот вопрос, когда будешь анализировать",
+      "reviewTags": [
+        "language"
+      ]
     },
     {
       "id": "q_037",
@@ -613,14 +659,20 @@
       "requiresImage": false,
       "explanation": "По греческим мифам, Пан - бог лесов и пастбищ - мог внезапным криком нагнать беспричинный иррациональный ужас на людей и стада. Такой безотчётный страх стали называть «паническим».",
       "imageSearchQuery": "Pan Greek god ancient mythology forest",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Нагонял ужас криком",
       "fact": {
         "id": "q_037",
         "factVerdict": "true",
         "explanation": "По данным Merriam-Webster и Wikipedia, слово «паника» восходит к греч. «panikos» — внезапный ужас, связанный с Паном, который, когда его будили с дневного сна, издавал оглушительный крик, повергавший людей и стада в безумное бегство. Именно этот крик считается мифологическим источником «панического страха»."
       },
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "boring",
+        "distractors"
+      ],
+      "reviewProblem": "все дистракторы +/- похожи и не запоминаемы. Рельано интересный факт - что это бог лесов и пастбищ, а не ужаса",
+      "reviewSuggestion": "Слово \"панический\" произошло от греческого бога Пана. Покровителем чего он был? Бог страха / Бог лесов и пастбищ / Бог ветра /  Бог вина"
     },
     {
       "id": "q_039",
@@ -640,7 +692,7 @@
       "requiresImage": false,
       "explanation": "46-й гвардейский ночной бомбардировочный полк летал на По-2 - учебном фанерном биплане со скоростью около 130 км/ч. Немцы прозвали лётчиц Nachthexen: мотор глушили при заходе на цель, и самолёт беззвучно планировал к цели.",
       "imageSearchQuery": "Night Witches Soviet female pilots Po-2 biplane WWII",
-      "reviewStatus": "pending",
+      "reviewStatus": "approved",
       "correctAnswer": "По-2",
       "llmVerdict": "keep"
     },
@@ -664,7 +716,12 @@
       "imageSearchQuery": "Elefant Ferdinand heavy tank destroyer WWII Kursk",
       "reviewStatus": "pending",
       "correctAnswer": "Фердинанд",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "wording"
+      ],
+      "reviewProblem": "имя - не очень корректно для названия самоходки ",
+      "reviewSuggestion": "Как советские солдаты называли любое тяжёлое немецкое самоходное орудие, несмтотря"
     },
     {
       "id": "q_041",
