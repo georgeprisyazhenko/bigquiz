@@ -893,6 +893,449 @@
       "imageSearchQuery": "football extra time overtime World Cup knockout",
       "reviewStatus": "approved",
       "llmVerdict": "keep"
+    },
+    {
+      "id": "q_004",
+      "question": "Сколько земных дней длятся сутки на Венере?",
+      "answers": [
+        "243 дня",
+        "365 дней",
+        "90 дней",
+        "150 дней"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "planety"
+      ],
+      "image": "assets/images/q_004.webp",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Венера вращается очень медленно и в обратную сторону - её сутки длиннее года (225 земных дней). Солнце там восходит на западе.",
+      "imageSearchQuery": "Венера",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_006",
+      "question": "Какой отдел мозга, занимая лишь около 10% его объёма, содержит больше половины всех нейронов?",
+      "answers": [
+        "Мозжечок",
+        "Большие полушария",
+        "Мозговой ствол",
+        "Промежуточный мозг"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anatomiya",
+        "biologiya"
+      ],
+      "image": "assets/images/q_006.webp",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В мозжечке около 69 млрд нейронов - больше половины всех нейронов мозга, хотя сам он занимает лишь около 10% его объёма.",
+      "imageSearchQuery": "Мозжечок",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_076",
+      "question": "Как художники-пуантилисты добивались нужного цвета на холсте?",
+      "answers": [
+        "Точками чистых красок",
+        "Смешением на палитре",
+        "Лессировкой слоёв",
+        "Подмалёвком и глазурью"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_076.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сёра и Синьяк наносили крошечные точки чистых красок вплотную - цвет рождался прямо в глазу зрителя (оптическое смешение), а не на палитре.",
+      "imageSearchQuery": "pointillism Seurat Signac Cross painters neo-impressionism",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_078",
+      "question": "Сколько гравюр на самом деле вышло в серии «Тридцать шесть видов горы Фудзи» Хокусая?",
+      "answers": [
+        "24",
+        "36",
+        "46",
+        "100"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_078.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хокусай начал серию как «36 видов», но она пользовалась таким спросом, что издатель допечатал ещё 10 листов - итого 46 гравюр. «Большая волна у Канагавы» входит в первоначальные 36.",
+      "imageSearchQuery": "Hokusai Great Wave Kanagawa woodblock print Fuji",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_080",
+      "question": "Как называется 12-частный цветовой круг, разработанный в Баухаусе для обучения художников?",
+      "answers": [
+        "Круг Иттена",
+        "Круг Мюнселла",
+        "Круг Освальда",
+        "Круг Гёте"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_080.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Йоханнес Иттен разработал свой 12-частный круг в Баухаусе в 1920-х, опираясь на субъективное восприятие цвета глазом и психикой - в отличие от физических моделей вроде круга Мюнселля.",
+      "imageSearchQuery": "Itten color wheel 12 hues Bauhaus art theory",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_081",
+      "question": "Сколько цветков крокуса нужно, чтобы получить 1 кг шафрана?",
+      "answers": [
+        "Около 150 000",
+        "Около 5 000",
+        "Около 30 000",
+        "Около 500 000"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_081.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шафран - это высушенные рыльца крокуса Crocus sativus: каждый цветок даёт лишь 3 рыльца, их срывают вручную на рассвете за единственный сезон. Именно поэтому шафран дороже золота по весу.",
+      "imageSearchQuery": "risotto alla milanese saffron yellow",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_082",
+      "question": "Какой злак является основой эфиопской лепёшки ынджера?",
+      "answers": [
+        "Тефф",
+        "Сорго",
+        "Просо",
+        "Ячмень"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_082.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ынджера делается из теффа - мелкого злака, эндемичного для Эфиопии. Тесто ферментируется несколько дней, что даёт лепёшке кислинку и губчатую текстуру, удобную для зачерпывания рагу.",
+      "imageSearchQuery": "injera Ethiopian flatbread teff",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_092",
+      "question": "Какой геологический период считается временем наибольшего разнообразия видов динозавров?",
+      "answers": [
+        "Триасовый",
+        "Юрский",
+        "Меловой",
+        "Эоцен"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_092.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пик видового разнообразия динозавров пришёлся на меловой период (145-66 млн лет назад): тогда возникли цератопсиды, анкилозавры, гадрозавры и крупные тираннозавриды. Юрский период знаменит гигантскими зауроподами.",
+      "imageSearchQuery": "Cretaceous dinosaurs diversity illustration",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_097",
+      "question": "Каким животным Посейдон одарил Афины в споре с богиней Афиной за покровительство над городом?",
+      "answers": [
+        "Конь",
+        "Дельфин",
+        "Белый бык",
+        "Орёл"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_097.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По мифу, Посейдон подарил афинянам первого коня, символ силы и войны. Афина подарила оливковое дерево, символ мира и процветания, и афиняне предпочли её дар.",
+      "imageSearchQuery": "Poseidon horse Greek mythology ancient",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_098",
+      "question": "Кто из богов-олимпийцев родился уже взрослым и в полных боевых доспехах?",
+      "answers": [
+        "Афина",
+        "Арес",
+        "Аполлон",
+        "Гефест"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_098.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Афина вышла из головы Зевса уже взрослой, в полном боевом облачении и с боевым кличем. Зевс заранее проглотил её мать Метиду, опасаясь пророчества.",
+      "imageSearchQuery": "Athena born from Zeus head Greek mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_099",
+      "question": "Что делал Иолай, пока Геракл рубил головы Лернейской гидры?",
+      "answers": [
+        "Прижигал шеи факелом",
+        "Прикрывал щитом",
+        "Отвлекал чудовище",
+        "Держал коней"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_099.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На месте каждой срубленной головы вырастали две новые. Племянник Геракла Иолай догадался сразу прижигать шею - так рана не успевала восстановиться. Именно поэтому подвиг засчитали «нечистым».",
+      "imageSearchQuery": "Lernaean Hydra nine heads Heracles Greek myth",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_105",
+      "question": "К какому десятилетию подножка исчезла с большинства массовых легковых автомобилей?",
+      "answers": [
+        "К 1940-м",
+        "К 1960-м",
+        "К 1970-м",
+        "К 1980-м"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_105.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Подножка (running board) позволяла пассажирам забираться в высокие открытые автомобили и служила опорой при заводке рукояткой. К 1940-м кузова массовых легковых моделей стали ниже и закрытее, и подножка исчезла с большинства из них.",
+      "imageSearchQuery": "1920s car running board vintage automobile",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_106",
+      "question": "Какой китайский холдинг купил шведскую марку Volvo у Ford в 2010 году?",
+      "answers": [
+        "Geely",
+        "Chery",
+        "SAIC",
+        "BYD"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_106.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Китайский холдинг Geely купил Volvo у Ford за 1,8 млрд долларов. Для многих это сюрприз: Volvo по-прежнему проектируется в Швеции, но юридически принадлежит китайцам.",
+      "imageSearchQuery": "Volvo headquarters Gothenburg Sweden",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_107",
+      "question": "Какую максимальную скорость развивал первый Bugatti Veyron?",
+      "answers": [
+        "Около 350 км/ч",
+        "Около 300 км/ч",
+        "Около 400 км/ч",
+        "Около 500 км/ч"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_107.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Veyron (2005) разгонялся до 407 км/ч и стал первым серийным авто быстрее 400 км/ч. Под капотом стоял мотор W16 с четырьмя турбинами мощностью 1001 л.с.",
+      "imageSearchQuery": "Bugatti Veyron W16 engine",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_108",
+      "question": "Люксовый бренд Infiniti является подразделением какого японского автоконцерна?",
+      "answers": [
+        "Nissan",
+        "Honda",
+        "Toyota",
+        "Mitsubishi"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_108.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Infiniti - люксовое подразделение Nissan, основанное в 1989 году. По той же схеме Toyota создала Lexus, а Honda - Acura.",
+      "imageSearchQuery": "German luxury car brands BMW Mercedes Audi",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_111",
+      "question": "Для какой цели изначально создавался пластик бакелит в 1907 году?",
+      "answers": [
+        "Изоляция проводов",
+        "Зубные протезы",
+        "Пуговицы",
+        "Упаковка консервов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_111.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Лео Бэкеланд создавал бакелит как замену шеллаку - природному изолятору для электропроводки. Лишь потом материал завоевал ювелирное дело, телефоны и корпуса приборов.",
+      "imageSearchQuery": "bakelite electrical insulation early 20th century",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_112",
+      "question": "Какой материал Перси Спенсер случайно расплавил в кармане, что привело к изобретению микроволновки?",
+      "answers": [
+        "Шоколадный батончик",
+        "Кусок сыра",
+        "Карамель",
+        "Восковой мелок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_112.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1945 году инженер Raytheon стоял у магнетрона и обнаружил, что плитка шоколада в кармане растаяла. Первая коммерческая микроволновая печь весила 340 кг и стоила как автомобиль.",
+      "imageSearchQuery": "Percy Spencer microwave oven invention 1945",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_113",
+      "question": "Что пытался синтезировать Пёркин, когда случайно открыл первый синтетический краситель?",
+      "answers": [
+        "Хинин",
+        "Аспирин",
+        "Морфин",
+        "Кодеин"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_113.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1856 году 18-летний Пёркин пытался получить хинин - лекарство от малярии, но вместо него получил тёмный осадок - мовеин, пурпурный краситель. Эта случайная находка дала старт всей синтетической химии красок.",
+      "imageSearchQuery": "William Perkin mauveine synthetic dye 1856",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_114",
+      "question": "Какой из этих материалов был изобретён раньше остальных?",
+      "answers": [
+        "Нейлон",
+        "Тефлон",
+        "Полиэстер",
+        "Кевлар"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_114.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Нейлон синтезирован DuPont в 1935 году, тефлон - в 1938-м, полиэстер - в 1941-м, кевлар - в 1965-м. Нейлон дебютировал как замена шёлку для женских чулок.",
+      "imageSearchQuery": "nylon invention DuPont 1935 stockings",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_115",
+      "question": "Для чего первоначально применялся перфокарточный метод Жаккара, позже использованный в первых ЭВМ?",
+      "answers": [
+        "Ткацкие станки",
+        "Паровые машины",
+        "Банковский учёт",
+        "Телеграфные коды"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_115.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Жозеф Мари Жаккар в 1804 году применил пробитые карты для управления узорами на ткацком станке. Чарльз Бэббидж перенял идею для своей Аналитической машины, а IBM использовала перфокарты до 1980-х.",
+      "imageSearchQuery": "Jacquard loom punch cards weaving pattern 1804",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_116",
+      "question": "Какого размера был настоящий велоцираптор, а не голливудский?",
+      "answers": [
+        "Индейка",
+        "Волк",
+        "Корова",
+        "Человек"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry",
+        "biologiya"
+      ],
+      "image": "assets/images/q_116.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Настоящий велоцираптор был около метра длиной и весил примерно 15 кг - размером с крупную индейку. В «Парке юрского периода» его роль сыграл дейноних, вдвое крупнее.",
+      "imageSearchQuery": "velociraptor real size comparison turkey",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
     }
   ]
 }
