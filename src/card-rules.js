@@ -26,20 +26,49 @@ export function isNumericAnswerSet(answers) {
     answers.every((a) => parseLeadingNumber(a) !== null)
 }
 
-// Порядок ответов по детерминированным правилам показа.
+// Детерминированное перемешивание по строковому seed (одинаковый seed → один порядок).
+// Нужно превью-админке: верный не должен быть всегда первым (как в данных), но порядок
+// для конкретного вопроса стабилен между перерисовками. mulberry32 + FNV-1a — без зависимостей.
+function hashSeed(str) {
+  let h = 2166136261
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619) }
+  return h >>> 0
+}
+function seededShuffle(arr, seedStr) {
+  let a = hashSeed(String(seedStr))
+  const rng = () => {
+    a |= 0; a = (a + 0x6D2B79F5) | 0
+    let t = Math.imul(a ^ (a >>> 15), 1 | a)
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+  }
+  const out = [...arr]
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1))
+    ;[out[i], out[j]] = [out[j], out[i]]
+  }
+  return out
+}
+
+// Порядок ответов по правилам показа. Возвращает { answers, correctAnswerIndex }
+// с пересчитанным индексом верного.
 // ПРАВИЛО: числовой набор → по убыванию значения (а не вразнобой).
-// Остальное возвращаем как есть (в игре нечисловые дополнительно перемешиваются
-// при показе для анти-чита позиции; это косметика, не правило).
-// Возвращает { answers, correctAnswerIndex } с пересчитанным индексом верного.
-export function orderAnswers(question) {
+// Нечисловой набор: с opts.seed → детерминированно перемешан (превью-админка, чтобы
+// верный не был всегда первым); без seed → как есть (игра перемешивает сама случайно
+// при каждом показе — анти-чит позиции).
+export function orderAnswers(question, opts = {}) {
   const answers = (question && question.answers) || []
   const ci = question ? question.correctAnswerIndex : 0
-  if (!isNumericAnswerSet(answers)) {
-    return { answers: [...answers], correctAnswerIndex: ci }
-  }
   const correctText = answers[ci]
-  const sorted = [...answers].sort((a, b) => parseLeadingNumber(b) - parseLeadingNumber(a))
-  return { answers: sorted, correctAnswerIndex: sorted.indexOf(correctText) }
+  if (isNumericAnswerSet(answers)) {
+    const sorted = [...answers].sort((a, b) => parseLeadingNumber(b) - parseLeadingNumber(a))
+    return { answers: sorted, correctAnswerIndex: sorted.indexOf(correctText) }
+  }
+  if (opts.seed != null) {
+    const shuffled = seededShuffle(answers, opts.seed)
+    return { answers: shuffled, correctAnswerIndex: shuffled.indexOf(correctText) }
+  }
+  return { answers: [...answers], correctAnswerIndex: ci }
 }
 
 // Кандидаты пути картинки (.webp первым — build-конвейер всегда отдаёт webp,

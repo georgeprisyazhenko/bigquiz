@@ -444,10 +444,11 @@ function gamePreview(q) {
 
   card.appendChild(gameImage(q))
 
-  // Порядок ответов — те же правила, что в игре (src/card-rules.js): числа по убыванию.
+  // Порядок ответов — те же правила, что в игре (src/card-rules.js): числа по убыванию,
+  // нечисловые перемешаны (seed по id — стабильно, но верный не всегда первый, как на проде).
   // Подсветки верного НЕТ — на проде в исходном состоянии карточки её тоже нет
   // (иначе ответ виден). Какой верный — показано справа.
-  const display = orderAnswers(q)
+  const display = orderAnswers(q, { seed: q.id })
   const ans = document.createElement('div')
   ans.className = 'game-answers'
   ;(display.answers || []).forEach((a) => {

@@ -34,11 +34,30 @@ describe('card-rules: orderAnswers', () => {
     expect(o.answers[o.correctAnswerIndex]).toBe('5')
   })
 
-  it('текстовый набор не трогаем', () => {
+  it('текстовый набор без seed не трогаем', () => {
     const q = { answers: ['Тихоходка', 'Дафния', 'Планария', 'Морская звезда'], correctAnswerIndex: 0 }
     const o = orderAnswers(q)
     expect(o.answers).toEqual(q.answers)
     expect(o.correctAnswerIndex).toBe(0)
+  })
+
+  it('текстовый набор с seed: детерминированно перемешан, индекс верного отслежен', () => {
+    const q = { id: 'q_999', answers: ['А', 'Б', 'В', 'Г'], correctAnswerIndex: 0 }
+    const o1 = orderAnswers(q, { seed: q.id })
+    const o2 = orderAnswers(q, { seed: q.id })
+    expect(o1.answers).toEqual(o2.answers) // тот же seed → тот же порядок
+    expect(o1.answers.slice().sort()).toEqual(['А', 'Б', 'В', 'Г']) // те же 4 варианта
+    expect(o1.answers[o1.correctAnswerIndex]).toBe('А') // верный отслежен после перемешивания
+  })
+
+  it('seed разбрасывает верный по позициям (не всегда первый)', () => {
+    // на наборе id у вопросов с верным index 0 хотя бы часть НЕ остаётся первой
+    const positions = new Set()
+    for (let i = 0; i < 20; i++) {
+      const o = orderAnswers({ id: 'q_' + i, answers: ['A', 'B', 'C', 'D'], correctAnswerIndex: 0 }, { seed: 'q_' + i })
+      positions.add(o.correctAnswerIndex)
+    }
+    expect(positions.size).toBeGreaterThan(1)
   })
 })
 
