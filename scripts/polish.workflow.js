@@ -164,6 +164,10 @@ async function listInputs() {
   return (r && r.files) || []
 }
 
+// args.noWeb === true → пропустить Fact-стадию (никаких WebSearch/WebFetch).
+// Уместно для прогонов про длину/формулировку, где факты уже проверены при генерации.
+const NO_WEB = !!(args && args.noWeb)
+
 phase('Repair')
 const results = await pipeline(
   args && Array.isArray(args.files) ? args.files : await listInputs(),
@@ -214,10 +218,10 @@ const results = await pipeline(
     return rep
   },
 
-  // 4. Fact (веб) — только сомнительные выжившие с высоким углом
+  // 4. Fact (веб) — только сомнительные выжившие с высоким углом. args.noWeb → пропустить.
   async (rep) => {
     if (!rep) return null
-    const doubtful = rep.items.filter(it => !it.drop && it.factDoubt && it.angle > 2)
+    const doubtful = NO_WEB ? [] : rep.items.filter(it => !it.drop && it.factDoubt && it.angle > 2)
     if (doubtful.length) {
       const facts = await parallel(doubtful.map(q => () => agent(factPrompt(q), { label: `fact:${q.id}`, phase: 'Fact', model: 'sonnet', effort: 'medium', schema: FACT_SCHEMA })))
       const fById = new Map(facts.filter(Boolean).map(f => [f.id, f]))
