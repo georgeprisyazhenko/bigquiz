@@ -253,8 +253,9 @@ body {
   font-weight: 700;
   font-size: 17px;
   line-height: 1.2;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  overflow-wrap: normal;   /* перенос ТОЛЬКО по словам, без авто-переноса внутри слова */
+  word-break: normal;
+  hyphens: none;
   max-width: 100%;
 }
 

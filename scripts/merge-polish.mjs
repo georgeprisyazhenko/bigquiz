@@ -70,10 +70,10 @@ for (const q of data.questions) {
 
   if (!gatesOk({ question: newQ, answers: newA })) {
     // Правка не уложилась в гейт (обычно: укорочены не все ответы) — оставляем в
-    // ОЧЕРЕДИ (rework, не pending), чтобы добить следующим проходом, а не потерять.
+    // ОЧЕРЕДИ (rework), чтобы добить следующим проходом, а не потерять. reworkedAt НЕ
+    // ставим: правка не применена, бейдж «прошёл доработку» был бы враньём.
     q.reviewStatus = 'rework'
-    q.reworkedAt = now
-    q.reworkNote = 'гейт не пройден (повтор доработки): ' + (r.changed || '').slice(0, 80)
+    q.reworkNote = 'доработка не применена (гейт длины) — нужна повторная'
     stat.reverted++
     appendLog({ id: q.id, action: 'rework-revert', reason: 'code-gate', before, after: null })
     continue
