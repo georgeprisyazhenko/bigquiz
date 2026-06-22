@@ -714,14 +714,14 @@
       "requiresImage": false,
       "explanation": "«Фердинанд» (позднее переименованный в «Элефант») участвовал лишь в одном крупном сражении - под Курском в 1943 году. Советские солдаты стали называть «Фердинандом» любое тяжёлое немецкое самоходное орудие - термин прижился в донесениях и мемуарах.",
       "imageSearchQuery": "Elefant Ferdinand heavy tank destroyer WWII Kursk",
-      "reviewStatus": "pending",
+      "reviewStatus": "rework",
       "correctAnswer": "Фердинанд",
       "llmVerdict": "keep",
       "reviewTags": [
         "wording"
       ],
       "reviewProblem": "имя - не очень корректно для названия самоходки ",
-      "reviewSuggestion": "Как советские солдаты называли любое тяжёлое немецкое самоходное орудие, несмтотря"
+      "reviewSuggestion": "Как советские солдаты называли любое тяжёлое немецкое самоходное орудие?"
     },
     {
       "id": "q_041",
@@ -743,7 +743,12 @@
       "imageSearchQuery": "Maundy Money ceremony British monarch silver coins",
       "reviewStatus": "pending",
       "correctAnswer": "Раздача мауди",
-      "llmVerdict": "keep"
+      "llmVerdict": "keep",
+      "reviewTags": [
+        "distractors",
+        "leak"
+      ],
+      "reviewProblem": "раздает в вопросе и "
     },
     {
       "id": "q_042",
