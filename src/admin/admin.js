@@ -9,6 +9,7 @@
 // Сохранение в нужный файл через dev-плагин Vite (scripts/lib/review-store.mjs).
 
 import { orderAnswers, imageCandidatePaths } from '../card-rules.js'
+import { validateAnswerText } from '../content-rules.js'
 
 const ALL = '__all__'
 
@@ -455,13 +456,26 @@ function gamePreview(q) {
     const el = document.createElement('div')
     el.className = 'game-answer'
     const sp = document.createElement('span')
-    sp.className = 'game-answer-text' // макс. 2 строки + перенос по дефису, как makeAnswerLabel
+    sp.className = 'game-answer-text'
     sp.textContent = a
     el.appendChild(sp)
     ans.appendChild(el)
   })
   card.appendChild(ans)
+  // Ужать шрифт ответов до ≤2 строк (как makeAnswerLabel в игре) — после вставки в DOM.
+  requestAnimationFrame(() => ans.querySelectorAll('.game-answer-text').forEach(fitAnswerText))
   return card
+}
+
+// Повторяет makeAnswerLabel: уменьшает шрифт с 17px до 11px, пока текст не влезет в 2 строки.
+function fitAnswerText(span) {
+  let size = 17
+  span.style.fontSize = size + 'px'
+  const twoLines = () => Math.ceil((parseFloat(getComputedStyle(span).lineHeight) || size * 1.2) * 2) + 1
+  while (size > 11 && span.scrollHeight > twoLines()) {
+    size -= 1
+    span.style.fontSize = size + 'px'
+  }
 }
 
 function imageCandidates(q) {
@@ -526,6 +540,16 @@ function reviewPane(q) {
     ca.className = 'correct-answer'
     ca.textContent = '✓ Верный ответ: ' + correct
     pane.appendChild(ca)
+  }
+
+  // Контент-гейт длины (src/content-rules.js): ответы вне лимита на проде мельчают —
+  // повод на доработку. Предупреждение здесь, чтобы превью слева осталось как на проде.
+  const tooLong = (q.answers || []).filter((a) => !validateAnswerText(a).ok)
+  if (tooLong.length) {
+    const w = document.createElement('div')
+    w.className = 'answer-warning'
+    w.textContent = '⚠ Ответ длиннее лимита (≤5 слов / ≤44 симв.): ' + tooLong.map((a) => `«${a}»`).join(', ')
+    pane.appendChild(w)
   }
 
   if (q.llmReason) {
