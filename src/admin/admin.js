@@ -462,20 +462,7 @@ function gamePreview(q) {
     ans.appendChild(el)
   })
   card.appendChild(ans)
-  // Ужать шрифт ответов до ≤2 строк (как makeAnswerLabel в игре) — после вставки в DOM.
-  requestAnimationFrame(() => ans.querySelectorAll('.game-answer-text').forEach(fitAnswerText))
   return card
-}
-
-// Повторяет makeAnswerLabel: уменьшает шрифт с 17px до 11px, пока текст не влезет в 2 строки.
-function fitAnswerText(span) {
-  let size = 17
-  span.style.fontSize = size + 'px'
-  const twoLines = () => Math.ceil((parseFloat(getComputedStyle(span).lineHeight) || size * 1.2) * 2) + 1
-  while (size > 11 && span.scrollHeight > twoLines()) {
-    size -= 1
-    span.style.fontSize = size + 'px'
-  }
 }
 
 function imageCandidates(q) {
@@ -548,7 +535,7 @@ function reviewPane(q) {
   if (tooLong.length) {
     const w = document.createElement('div')
     w.className = 'answer-warning'
-    w.textContent = '⚠ Ответ длиннее лимита (≤5 слов / ≤44 симв.): ' + tooLong.map((a) => `«${a}»`).join(', ')
+    w.textContent = '⚠ Ответ длиннее лимита (≤3 значимых слов / ≤44 симв.) — переформулировать: ' + tooLong.map((a) => `«${a}»`).join(', ')
     pane.appendChild(w)
   }
 

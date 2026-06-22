@@ -1885,16 +1885,11 @@ class GameScene extends Phaser.Scene {
       align: 'center'
     }).setOrigin(0.5)
 
+    // Перенос по дефису, если не влезает в ширину. Шрифт НЕ ужимаем: валидный ответ
+    // (≤3 значимых слова / ≤44 симв., src/content-rules.js) и так влезает в 2 строки.
+    // Если не влезает — это сигнал переформулировать ответ, а не мельчить текст.
     if (label.width > maxWidth && answer.includes('-')) {
       label.setText(answer.replace('-', '-\n'))
-    }
-
-    const lineCount = () => label.getWrappedText(label.text).length
-
-    let size = parseInt(FONT_SIZE_MD, 10)
-    while ((label.width > maxWidth || lineCount() > 2) && size > 11) {
-      size -= 1
-      label.setFontSize(`${size}px`)
     }
 
     return label

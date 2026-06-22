@@ -13,11 +13,10 @@ describe('validateAnswerText', () => {
   })
 
   it('граница по символам: ровно MAX ок, MAX+1 нет', () => {
-    // Несколько слов по 10 букв (≤ MAX_WORD_CHARS, ≤ MAX_ANSWER_WORDS), чтобы
-    // единственным фактором была общая длина.
-    const w = 'а'.repeat(10)
-    const ok = [w, w, w, 'а'.repeat(11)].join(' ')        // 44 символа, 4 слова
-    const tooLong = [w, w, w, 'а'.repeat(12)].join(' ')   // 45 символов, 4 слова
+    // 3 слова (≤ MAX_ANSWER_WORDS) по ≤ MAX_WORD_CHARS букв, чтобы единственным
+    // фактором была общая длина: 16+16+10 + 2 пробела = 44.
+    const ok = ['а'.repeat(16), 'а'.repeat(16), 'а'.repeat(10)].join(' ')   // 44 символа, 3 слова
+    const tooLong = ['а'.repeat(16), 'а'.repeat(16), 'а'.repeat(11)].join(' ') // 45 символов, 3 слова
     expect(ok.length).toBe(MAX_ANSWER_CHARS)
     expect(tooLong.length).toBe(MAX_ANSWER_CHARS + 1)
     expect(validateAnswerText(ok).ok).toBe(true)

@@ -4,13 +4,27 @@
 //
 // Чистый модуль без Phaser — импортируется и в браузере, и в Node (vitest).
 //
-// Лимиты подобраны так, чтобы валидный ответ гарантированно влезал в ≤2 строки
-// на плашке ответа (ширина ~261px, шрифт 17px bold) без ужатия шрифта. Рантайм
-// (makeAnswerLabel) дополнительно страхует ужатием, но цель — чтобы до него не доходило.
+// Лимиты подобраны так, чтобы валидный ответ влезал в ≤2 строки на плашке ответа
+// (ширина ~261px, шрифт 17px bold). Шрифт НЕ ужимается ни в игре, ни в превью —
+// если ответ не влезает по лимиту, его НУЖНО ПЕРЕФОРМУЛИРОВАТЬ, а не мельчить.
 
-export const MAX_ANSWER_WORDS = 5   // 1–3 слова идеал, до 5 допустимо
+export const MAX_ANSWER_WORDS = 3   // значимых слов (предлоги не в счёт); идеал 1–2
 export const MAX_ANSWER_CHARS = 44  // влезает в 2 строки на плашке ответа
 export const MAX_WORD_CHARS = 18    // одиночное слово (без пробелов) — в одну строку
+
+// Русские предлоги — не считаются за «значимое слово» (правило лимита по словам).
+const PREPOSITIONS = new Set([
+  'в', 'во', 'на', 'над', 'под', 'подо', 'при', 'про', 'за', 'к', 'ко', 'у', 'о', 'об', 'обо',
+  'от', 'ото', 'до', 'из', 'изо', 'с', 'со', 'по', 'для', 'без', 'через', 'между', 'меж',
+  'перед', 'передо', 'среди', 'около', 'возле', 'вокруг', 'вдоль', 'после', 'кроме', 'ради',
+  'сквозь', 'против', 'насчёт', 'вместо', 'из-за', 'из-под'
+])
+
+// Значимые слова в ответе: токены без пунктуации, исключая предлоги.
+export function contentWords(text) {
+  return (text ?? '').trim().split(/\s+/).filter(Boolean)
+    .filter((w) => !PREPOSITIONS.has(w.toLowerCase().replace(/[.,!?;:()«»"'`]/g, '')))
+}
 
 // Проверяет один вариант ответа. Возвращает { ok, reasons }.
 export function validateAnswerText(text) {
@@ -21,12 +35,13 @@ export function validateAnswerText(text) {
     reasons.push(`длина ${value.length} > ${MAX_ANSWER_CHARS} символов`)
   }
 
-  const words = value.split(/\s+/).filter(Boolean)
+  const words = contentWords(value)
   if (words.length > MAX_ANSWER_WORDS) {
-    reasons.push(`слов ${words.length} > ${MAX_ANSWER_WORDS}`)
+    reasons.push(`значимых слов ${words.length} > ${MAX_ANSWER_WORDS} (предлоги не в счёт)`)
   }
 
-  const longestWord = words.reduce((max, word) => Math.max(max, word.length), 0)
+  const allTokens = value.split(/\s+/).filter(Boolean)
+  const longestWord = allTokens.reduce((max, word) => Math.max(max, word.length), 0)
   if (longestWord > MAX_WORD_CHARS) {
     reasons.push(`длинное слово ${longestWord} > ${MAX_WORD_CHARS} символов`)
   }
