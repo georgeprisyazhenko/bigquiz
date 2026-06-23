@@ -2,13 +2,14 @@
 /**
  * Скрипт автоматического подбора изображений для вопросов викторины.
  *
- * Для каждого вопроса без картинки берёт imageSearchQuery (или правильный ответ),
- * ищет изображение в Wikipedia/Wikimedia Commons и СКАЧИВАЕТ ТОЛЬКО PD/CC0
- * (Public Domain / CC0) — их можно показывать без обязательной атрибуции.
- * CC-BY/CC-BY-SA и несвободное/неизвестное отклоняется. Лицензия берётся из
- * imageinfo.extmetadata. PDF/DjVu (титульники книг) не берём.
- * Если точной картинки нет — пробует приблизительный поиск по теме, иначе пишет
- * вопрос в отчёт (not_found / license_blocked).
+ * Для каждого вопроса без картинки берёт imageSearchQuery (или правильный ответ)
+ * и ищет изображение параллельно в трёх источниках:
+ *   1. Wikipedia / Wikimedia Commons — PD/CC0, проверяется через extmetadata
+ *   2. Openverse (openverse.org)     — фильтр cc0,pdm на стороне API
+ *   3. MET Museum Open Access        — isPublicDomain: true, ключ не нужен
+ * Побеждает тот, кто ответит первым. СКАЧИВАЕТ ТОЛЬКО PD/CC0 — без атрибуции.
+ * CC-BY/CC-BY-SA и несвободное/неизвестное отклоняется. PDF/DjVu не берём.
+ * Если ничего не нашлось — пишет вопрос в отчёт (not_found / license_blocked).
  *
  * Скачанное сразу ужимается в WebP (scripts/optimize-images.js), оригинал
  * уезжает в scripts/images-raw/ — в public/ попадает только лёгкий .webp.
@@ -33,8 +34,8 @@ const QUESTIONS_FILE = path.join(ROOT, 'public', 'questions.json');
 const REPORT_FILE = path.join(__dirname, 'image-fetch-report.json');
 
 const THUMB_SIZE = 800;
-const CONCURRENCY = 2; // одновременных вопросов в работе (бережём API от 429)
-const MIN_REQUEST_GAP_MS = 350; // глобальный интервал между запросами к Wikimedia
+const CONCURRENCY = 3; // одновременных вопросов; внутри каждого — 3 источника параллельно
+const MIN_REQUEST_GAP_MS = 350; // троттл только для Wikimedia API
 const USER_AGENT = 'BigQuiz-ImageFetcher/1.0 (quiz illustrations; PD/CC0 only)';
 
 let skipExisting = false;
@@ -70,6 +71,7 @@ async function mapLimit(items, limit, fn) {
   return results;
 }
 
+/** Fetch с Wikimedia-троттлом — только для запросов к *.wikipedia.org / commons.wikimedia.org. */
 async function apiFetch(url, retries = 5) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     await throttle();
@@ -79,10 +81,23 @@ async function apiFetch(url, retries = 5) {
         const retryAfter = parseInt(res.headers.get('retry-after'), 10);
         const wait = Number.isFinite(retryAfter)
           ? retryAfter * 1000
-          : Math.min(30000, 1000 * 2 ** attempt); // экспоненциальный бэкофф, потолок 30с
+          : Math.min(30000, 1000 * 2 ** attempt);
         await sleep(wait);
         continue;
       }
+      throw new Error(`HTTP ${res.status}`);
+    }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  }
+}
+
+/** Fetch без троттла — для внешних источников (Openverse, MET). */
+async function jsonFetch(url, retries = 3) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+    if (res.status === 429 || res.status === 503) {
+      if (attempt < retries) { await sleep(Math.min(5000, 500 * 2 ** attempt)); continue; }
       throw new Error(`HTTP ${res.status}`);
     }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -236,6 +251,111 @@ async function searchCommonsFiles(term, limit = 5) {
 }
 
 /**
+ * Для Wikimedia URL из Openverse получает правильный thumbUrl через Commons imageinfo API.
+ * Нельзя конструировать URL вручную: Wikimedia не генерирует thumbnail больше оригинала.
+ */
+async function wikimediaThumbFromUrl(directUrl) {
+  const m = directUrl.match(/\/commons\/(?:[a-f0-9]\/[a-f0-9]{2}\/)(.+)$/i);
+  if (!m) return null;
+  const filename = m[1]; // уже percent-encoded
+  const apiUrl = `https://commons.wikimedia.org/w/api.php?action=query&format=json`
+    + `&prop=imageinfo&iiprop=url&iiurlwidth=${THUMB_SIZE}&titles=File:${filename}`;
+  const data = await apiFetch(apiUrl);
+  for (const page of Object.values(data?.query?.pages ?? {})) {
+    return page.imageinfo?.[0]?.thumburl || null;
+  }
+  return null;
+}
+
+/**
+ * Openverse API — уже фильтрует по CC0/PDM, возвращает прямые URL.
+ * @returns {Promise<{thumbUrl,file,license,author}|null>} первый подходящий результат
+ */
+async function searchOpenverse(term, limit = 5) {
+  const url = `https://api.openverse.org/v1/images/?`
+    + `q=${encodeURIComponent(term)}&license=cc0,pdm&page_size=${limit}`;
+  const data = await jsonFetch(url);
+  const results = data?.results ?? [];
+  for (const r of results) {
+    if (!r.url) continue;
+    let thumbUrl;
+    if (/upload\.wikimedia\.org/i.test(r.url)) {
+      // Для Wikimedia: берём thumbUrl через Commons API (прямой URL отдаёт 424/400)
+      thumbUrl = await wikimediaThumbFromUrl(r.url);
+      if (!thumbUrl) continue;
+    } else {
+      thumbUrl = r.thumbnail || r.url;
+    }
+    return {
+      thumbUrl,
+      file: r.url || r.foreign_landing_url || r.id,
+      license: r.license_version ? `${r.license}-${r.license_version}` : r.license,
+      author: r.creator || 'unknown',
+      allowed: true,
+    };
+  }
+  return null;
+}
+
+/**
+ * Перебирает варианты запросов в Openverse и возвращает первый результат.
+ */
+async function pickFromOpenverse(queries) {
+  for (const q of queries.filter(Boolean)) {
+    try {
+      const result = await searchOpenverse(q);
+      if (result) return result;
+    } catch { /* next */ }
+  }
+  return null;
+}
+
+/**
+ * Metropolitan Museum of Art Open Access — isPublicDomain: true, ключ не нужен.
+ * @returns {Promise<{thumbUrl,file,license,author}|null>}
+ */
+async function findInMET(term) {
+  const variants = [term, simplifyQuery(term), firstWords(term, 3)]
+    .filter(Boolean).filter((v, i, a) => a.indexOf(v) === i);
+  for (const v of variants) {
+    try {
+      const data = await jsonFetch(
+        `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${encodeURIComponent(v)}&hasImages=true`
+      );
+      for (const objId of (data?.objectIDs ?? []).slice(0, 5)) {
+        const obj = await jsonFetch(
+          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${objId}`
+        );
+        if (obj?.isPublicDomain && obj?.primaryImageSmall) {
+          return {
+            thumbUrl: obj.primaryImageSmall,
+            file: `MET-${objId}: ${(obj.title || '').slice(0, 50)}`,
+            license: 'Public domain',
+            author: obj.artistDisplayName || 'unknown',
+            allowed: true,
+          };
+        }
+      }
+    } catch { /* следующий вариант */ }
+  }
+  return null;
+}
+
+/** Resolves with the first non-null value, or null when all settle to null/error. */
+function raceNonNull(promises) {
+  return new Promise((resolve) => {
+    let pending = promises.length;
+    if (!pending) { resolve(null); return; }
+    for (const p of promises) {
+      Promise.resolve(p).then(
+        (v) => { if (v != null) resolve(v); else if (--pending === 0) resolve(null); },
+        ()  => { if (--pending === 0) resolve(null); }
+      );
+    }
+  });
+}
+
+/**
  * Точные кандидаты по запросу. Пробуем несколько вариантов запроса (полный,
  * без наполнителей, первые 3 слова), т.к. многословные imageSearchQuery плохо
  * матчатся на заголовок статьи и AND-поиск Commons. Картинки статей Wikipedia
@@ -269,6 +389,20 @@ async function collectPreciseCandidates(searchQuery) {
 
 // ---------- основная логика ----------
 
+/** Wikipedia/Commons поиск — возвращает {chosen, blocked}. */
+async function findInWikimedia(searchQuery, fallbackQuery) {
+  const precise = await collectPreciseCandidates(searchQuery);
+  let { chosen, blocked } = await pickAllowed(precise);
+  if (!chosen) {
+    let approx = [];
+    try { approx = await searchCommonsFiles(fallbackQuery, 8); } catch { /* ignore */ }
+    const r2 = await pickAllowed(approx);
+    if (r2.chosen) chosen = r2.chosen;
+    blocked = blocked.concat(r2.blocked);
+  }
+  return { chosen, blocked };
+}
+
 async function processQuestion(question) {
   const id = question.id;
   const searchQuery = question.imageSearchQuery
@@ -286,25 +420,28 @@ async function processQuestion(question) {
 
   console.log(`  [поиск] ${id}: "${searchQuery}"`);
 
-  // Весь поиск/скачивание под общим try — сбой одного вопроса не должен ронять батч.
   try {
-    // Раунд 1 — точные кандидаты.
-    const precise = await collectPreciseCandidates(searchQuery);
-    let { chosen, blocked } = await pickAllowed(precise);
+    // Три источника стартуют параллельно; побеждает тот, кто ответит первым.
+    let wikimediaBlocked = [];
 
-    // Раунд 2 — приблизительный CC0-поиск по теме, если точной PD/CC0 не нашлось.
-    if (!chosen) {
-      let approx = [];
-      try { approx = await searchCommonsFiles(fallbackQuery, 8); } catch { /* ignore */ }
-      const r2 = await pickAllowed(approx);
-      if (r2.chosen) chosen = r2.chosen;
-      blocked = blocked.concat(r2.blocked);
-    }
+    const wikimediaP = findInWikimedia(searchQuery, fallbackQuery)
+      .then(r => { wikimediaBlocked = r.blocked; return r.chosen; })
+      .catch(() => null);
+
+    const openverseP = pickFromOpenverse([searchQuery, fallbackQuery])
+      .then(r => { if (r) console.log(`  [openverse] ${id} → ${r.file}`); return r; })
+      .catch(() => null);
+
+    const metP = findInMET(searchQuery)
+      .then(r => { if (r) console.log(`  [met] ${id} → ${r.file}`); return r; })
+      .catch(() => null);
+
+    const chosen = await raceNonNull([wikimediaP, openverseP, metP]);
 
     if (!chosen) {
-      if (blocked.length) {
-        console.log(`  [лицензия] ${id} — найдено, но не PD/CC0 (${blocked[0].license})`);
-        return { id, status: 'license_blocked', query: searchQuery, rejectedLicense: blocked[0].license };
+      if (wikimediaBlocked.length) {
+        console.log(`  [лицензия] ${id} — найдено, но не PD/CC0 (${wikimediaBlocked[0].license})`);
+        return { id, status: 'license_blocked', query: searchQuery, rejectedLicense: wikimediaBlocked[0].license };
       }
       console.log(`  [не найдено] ${id}`);
       return { id, status: 'not_found', query: searchQuery };
@@ -313,7 +450,6 @@ async function processQuestion(question) {
     const ext = extFromUrl(chosen.thumbUrl);
     const destPath = path.join(IMAGES_DIR, `${id}.${ext}`);
     await downloadFile(chosen.thumbUrl, destPath);
-    // Сразу ужимаем в WebP и уносим оригинал в scripts/images-raw/.
     const { beforeKb, afterKb, webp } = await optimizeImage(destPath);
     console.log(`  [OK] ${webp} (${beforeKb} KB → ${afterKb} KB, ${chosen.license}) ← ${chosen.file}`);
     return { id, status: 'ok', file: webp, license: chosen.license, author: chosen.author };
@@ -344,7 +480,7 @@ async function main() {
     : questions;
   if (limit) toProcess = toProcess.slice(0, limit);
 
-  console.log(`BigQuiz image fetcher — ${toProcess.length} вопросов (PD/CC0, до ${CONCURRENCY} параллельно)\n`);
+  console.log(`BigQuiz image fetcher — ${toProcess.length} вопросов (Wikimedia+Openverse+MET параллельно, до ${CONCURRENCY} вопросов одновременно)\n`);
 
   const settled = await mapLimit(toProcess, CONCURRENCY, processQuestion);
 

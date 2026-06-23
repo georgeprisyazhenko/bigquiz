@@ -1,64 +1,18 @@
 {
-  "generatedAt": "2026-06-22T06:26:02.644Z",
-  "ok": [
-    {
-      "id": "q_032",
-      "file": "q_032.webp",
-      "license": "Public domain",
-      "author": "Caterinarufo"
-    },
-    {
-      "id": "q_134",
-      "file": "q_134.webp",
-      "license": "Public domain",
-      "author": "Jrash of the English Wikipedia and colour adjusted by Themadchopper of English Wikipedia on 3 July 2006."
-    },
-    {
-      "id": "q_146",
-      "file": "q_146.webp",
-      "license": "Public domain",
-      "author": "Yikrazuul"
-    },
-    {
-      "id": "q_170",
-      "file": "q_170.webp",
-      "license": "CC0",
-      "author": "Umop503"
-    },
-    {
-      "id": "q_230",
-      "file": "q_230.webp",
-      "license": "Public domain",
-      "author": "Universal Studios Entertainment"
-    }
-  ],
+  "generatedAt": "2026-06-22T08:02:00.995Z",
+  "ok": [],
   "skipped": [],
   "not_found": [],
   "license_blocked": [
-    {
-      "id": "q_018",
-      "query": "Сердце человека",
-      "rejectedLicense": "CC BY-SA 3.0"
-    },
     {
       "id": "q_026",
       "query": "Спираль Фибоначчи",
       "rejectedLicense": "CC BY 4.0"
     },
     {
-      "id": "q_038",
-      "query": "Катюша БМ-13",
-      "rejectedLicense": "CC BY-SA 2.0"
-    },
-    {
       "id": "q_137",
       "query": "Кока-кола",
       "rejectedLicense": "Public domain"
-    },
-    {
-      "id": "q_176",
-      "query": "Ледник",
-      "rejectedLicense": "CC BY-SA 3.0"
     }
   ],
   "error": []

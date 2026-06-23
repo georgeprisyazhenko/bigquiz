@@ -3365,6 +3365,4334 @@
       "imageSearchQuery": "permafrost tundra waterlogged summer",
       "reviewStatus": "approved",
       "llmVerdict": "keep"
+    },
+    {
+      "id": "q_021",
+      "question": "Кого, согласно древнему парадоксу, не может догнать быстроногий Ахиллес?",
+      "answers": [
+        "Черепаху",
+        "Орла",
+        "Колесницу",
+        "Зайца"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_021.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В парадоксе Зенона Ахиллес не догоняет черепаху: пока он добегает до её места, она чуть отползает. На деле догоняет - сумма бесконечно убывающих отрезков конечна. Строго это объяснили лишь через понятие предела.",
+      "imageSearchQuery": "Zeno paradox Achilles tortoise illustration",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "нет контекста: что за Ахилл, о чем речь",
+      "reviewSuggestion": "О чем логический парадокс про Ахиллеса и черепаху? Сходящиеся ряды / дискретные поля / ... - что-то такого плана",
+      "reviewTags": [
+        "wording",
+        "boring"
+      ]
+    },
+    {
+      "id": "q_023",
+      "question": "Какую теорему в 1976 году впервые доказали с помощью компьютера, перебравшего более тысячи конфигураций?",
+      "answers": [
+        "Теорему о четырёх красках",
+        "Теорему Гёделя",
+        "Теорему Ферма",
+        "Теорему Гаусса"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_023.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Теорема о четырёх красках (любую карту можно раскрасить 4 цветами без смежных одноцветных областей) доказана Аппелем и Хакеном - компьютер перебрал 1936 конфигураций. Это первое доказательство в математике, которое невозможно проверить вручную.",
+      "imageSearchQuery": "four color theorem map coloring mathematics",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "я уже про это говорил кучу раз - в данном случае нужно писать Теорему Ферма, Теорему Гаусса, потому что это устойчивое сочетание - выкинь одно слово и не так понятно о чем речь",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_058",
+      "question": "За что Зидан получил красную карточку в финале чемпионата мира 2006 года?",
+      "answers": [
+        "Боднул соперника в грудь",
+        "Симуляция",
+        "Удар ногой",
+        "Нецензурная брань"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_058.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На 110-й минуте финала Зидан ударил Матерацци головой в грудь после словесной провокации и был удалён с поля. Италия выиграла по пенальти 5:3 - это был последний матч Зидана в карьере.",
+      "imageSearchQuery": "Berlin Olympiastadion 2006 World Cup final Italy France",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "Удар головой в грудь кого?\n",
+      "reviewSuggestion": "Удар соперника головой \n",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_083",
+      "question": "В чём главный принцип якитори, отличающий его от обычного куриного барбекю?",
+      "answers": [
+        "Каждая часть на шпажке",
+        "Маринуют в соевом соусе",
+        "Уголь бинчотан",
+        "Подача с соусом терияки"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_083.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Якитори означает буквально «жареная птица», но главная суть - принцип «нос-в-хвост»: используются все части курицы (грудка, бедро, кожа, печень, сердечки, хрящи), каждая нанизывается отдельно. Это отличает якитори от обычного барбекю, где жарят целиком или крупными кусками.",
+      "imageSearchQuery": "shabu shabu Japanese hot pot thin beef",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "Подача с соусом тэрияки - в русском терияки пишется",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_087",
+      "question": "Где выращивают большую часть мировой ванили?",
+      "answers": [
+        "Мадагаскар",
+        "Мексика",
+        "Бразилия",
+        "Индия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_087.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На Мадагаскаре выращивают около 80% мировой ванили. Хотя родина растения - Мексика, именно мадагаскарская «бурбонская» ваниль стала эталоном вкуса.",
+      "imageSearchQuery": "Madagascar vanilla plantation pods harvest",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_087",
+        "factVerdict": "true",
+        "explanation": "Мадагаскар действительно является крупнейшим производителем ванили в мире с долей около 80% мирового производства (иногда называют 75–85% в зависимости от года и методологии). Это широко подтверждается отраслевыми источниками (Bloomberg, VanillaPura, Norohy и др.)."
+      },
+      "llmVerdict": "keep",
+      "reviewProblem": "я бы поменял угол, где выращивают до 80% ванили. Ну и \"около\" в каждом ответе не стоит писать",
+      "reviewTags": [
+        "distractors",
+        "boring"
+      ]
+    },
+    {
+      "id": "q_141",
+      "question": "Сколько сердец у осьминога?",
+      "answers": [
+        "3",
+        "1",
+        "2",
+        "4"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "vodnye-obitateli"
+      ],
+      "image": "assets/images/q_141.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "У осьминога три сердца: одно гонит кровь по телу, два других - через жабры. Когда осьминог плывёт, главное сердце перегружается, поэтому осьминоги чаще предпочитают ползать.",
+      "imageSearchQuery": "осьминог сердце анатомия",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "опять интересный факт уже в вопросе - у осьминога 3 сердца. Именно в этом вау эффект. Нужно спросить, для чего еще два",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_179",
+      "question": "Какова природа высочайших гор Сахары, поднимающихся выше 3000 метров?",
+      "answers": [
+        "Вулканическая",
+        "Складчатая",
+        "Осадочная",
+        "Песчаная"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory",
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_179.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Высшая точка Сахары - вулкан Эми-Куси (3415 м) в нагорье Тибести. Сахарские горы Тибести и Ахаггар - древние вулканы, а не наметённый ветром песок.",
+      "imageSearchQuery": "Sahara mountains Tibesti volcanic peaks desert",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "я бы поменя угол: какая природа возникновения Нагорья Тибести и Ахаггар в Сахаре, высотой более 3000 метров? ",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_183",
+      "question": "Какое свойство золота не даёт кислороду воздуха окислять его?",
+      "answers": [
+        "Высокий электродный потенциал",
+        "Оксидная плёнка",
+        "Малая пористость",
+        "Плотная упаковка атомов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya"
+      ],
+      "image": "assets/images/q_183.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Золото стоит в самом конце электрохимического ряда активности - его электродный потенциал (+1,5 В) настолько высок, что кислород воздуха просто не в силах его окислить. Именно поэтому украшения из египетских гробниц выглядят как новые спустя 3000 лет.",
+      "imageSearchQuery": "gold ancient jewelry unchanged",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "высокий электродный потенциал чего? кислорода или золота?",
+      "reviewSuggestion": "Какое свойство золота не дает кислороду окислять его?",
+      "reviewTags": [
+        "wording",
+        "language"
+      ]
+    },
+    {
+      "id": "q_196",
+      "question": "Почему деревья в саванне часто имеют широкий приземистый ствол, раздутый как бочка?",
+      "answers": [
+        "Запасают воду впрок",
+        "Защищаются от ветра",
+        "Охлаждают корни",
+        "Отпугивают насекомых"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony",
+        "priroda-zhivotnye"
+      ],
+      "image": "assets/images/q_196.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Баобаб и некоторые другие деревья саванны накапливают в губчатой древесине тысячи литров воды. Это позволяет им пережить засуху длиной в несколько месяцев, когда дождей почти нет.",
+      "imageSearchQuery": "baobab tree savanna water storage trunk",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_197",
+      "question": "Каким может быть максимальный суточный перепад температур в экстремальных пустынях?",
+      "answers": [
+        "Менее 5 градусов",
+        "10-15 градусов",
+        "25-30 градусов",
+        "40-50 градусов"
+      ],
+      "correctAnswerIndex": 3,
+      "categories": [
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_197.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В пустынях нет облаков и почти нет влаги - днём поверхность раскаляется до +50-60 °C, а ночью без «одеяла» из водяного пара быстро остывает. Суточный перепад в 40-50 градусов фиксируется в экстремальных районах Сахары и Гоби.",
+      "imageSearchQuery": "desert temperature night day difference Sahara",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_197",
+        "factVerdict": "true",
+        "explanation": "В экстремальных пустынях (Сахара, Гоби) суточный перепад температур действительно может достигать 40–50°C и более: в Сахаре зафиксированы случаи, когда днём температура поднималась до +50–55°C, а ночью опускалась до 0°C и ниже. Источники: novate.ru, chto-kak-skolko.ru."
+      },
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_199",
+      "question": "Какой фактор экологи считают главным, не позволяющим лесу закрепиться в степи?",
+      "answers": [
+        "Пожары",
+        "Летние засухи",
+        "Зимние морозы",
+        "Нашествия саранчи"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_199.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В степи осадков вполне хватает для роста деревьев, однако периодические пожары выжигают молодые деревца до того, как они успевают укорениться и нарастить толстую кору. Именно огонь, а не засуха или мороз, признаётся главным барьером для леса в степной зоне.",
+      "imageSearchQuery": "steppe grassland treeless landscape wind",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_200",
+      "question": "Сколько лет может не быть дождей в самой засушливой пустыне планеты?",
+      "answers": [
+        "3 года",
+        "7 лет",
+        "20 лет",
+        "50 лет"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_200.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В некоторых районах чилийской пустыни Атакама дождь не выпадал десятилетиями - метеорологи фиксировали периоды засухи дольше 15-20 лет. Именно поэтому Атакама считается самым засушливым нетропическим местом на Земле.",
+      "imageSearchQuery": "Atacama desert driest place no rain Chile",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_201",
+      "question": "Почему листья растений тропического леса часто оканчиваются острым «капельным кончиком»?",
+      "answers": [
+        "Быстрее отводить воду",
+        "Поймать больше света",
+        "Отпугивать насекомых",
+        "Не ломаться от ветра"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony",
+        "priroda-zhivotnye"
+      ],
+      "image": "assets/images/q_201.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В тропическом лесу дождь идёт ежедневно и очень обильно. Острый кончик - дренажное приспособление: вода стекает быстро, не давая разрастаться водорослям и мхам, которые закрыли бы поры листа и мешали фотосинтезу.",
+      "imageSearchQuery": "tropical rainforest leaf drip tip water drainage",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "не согласованы ответ и вопрос почему? - не ломаться от ветра.\n",
+      "reviewTags": [
+        "language",
+        "wording"
+      ]
+    },
+    {
+      "id": "q_202",
+      "question": "Где находится самая большая пустыня Земли?",
+      "answers": [
+        "Антарктида",
+        "Сахара",
+        "Аравия",
+        "Австралия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony",
+        "prirodnye-yavleniya"
+      ],
+      "image": "assets/images/q_202.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пустыню определяет не жара, а сухость: в Антарктиде выпадает менее 20 см осадков в год. Это делает её крупнейшей пустыней планеты - больше Сахары.",
+      "imageSearchQuery": "Antarctica dry polar desert ice sheet",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "я бы поменял угол - интересный факт, что в год в Антарктиде меньше 20см осадков в год. У нас все же интересный факт должен быть, а не учительское объяснение всех причинно-следственных связей",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_205",
+      "question": "Насколько точно в Индии предсказывают приход летнего муссона?",
+      "answers": [
+        "До недели",
+        "До месяца",
+        "До сезона",
+        "Непредсказуем"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony",
+        "prirodnye-yavleniya"
+      ],
+      "image": "assets/images/q_205.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Летний муссон приходит в Индию настолько регулярно, что дату предсказывают с точностью до недели. По нему веками планируют посевную - от муссона зависит весь урожай.",
+      "imageSearchQuery": "monsoon India season rain wind pattern",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "опять вопрос с экзамена. Интересны факт это то, что в Индии по муссону планируют посев, меняй угол",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_206",
+      "question": "Сколько процентов площади суши занимают пустыни всех типов, жаркие, холодные и арктические?",
+      "answers": [
+        "1/3",
+        "1/10",
+        "1/2",
+        "1/5"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_206.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пустынями считаются все территории с осадками менее 250 мм в год - и знойная Сахара, и холодная Гоби, и ледяная Антарктида. В сумме они занимают около 33% суши, то есть каждый третий квадратный километр земли - это пустыня.",
+      "imageSearchQuery": "desert coverage map world proportion land area",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "я уже жестко рекомендовал где числа, писать цифрами, ну или дробями, или процентами. Почему здесь словами?",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_207",
+      "question": "Какое море считается самым пресным в мире?",
+      "answers": [
+        "Балтийское",
+        "Средиземное",
+        "Красное",
+        "Чёрное"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_207.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Балтику впадает множество рек, а с океаном её связывают лишь узкие проливы - солёность тут в 5-8 раз ниже океанской. Красное и Средиземное, наоборот, среди самых солёных.",
+      "imageSearchQuery": "Балтийское море вид сверху",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "опять вопрос с экзамена \"а додумайся почему\". Здесь интересный факт это что именно Балтийское море считается самым пресным, все",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_208",
+      "question": "Какое море на Земле не имеет берегов?",
+      "answers": [
+        "Саргассово",
+        "Карибское",
+        "Аравийское",
+        "Тасманово"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "prirodnye-yavleniya"
+      ],
+      "image": "assets/images/q_208.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Саргассово море в Атлантике ограничено не сушей, а океаническими течениями, замкнутыми в кольцо. Внутри скапливаются плавучие водоросли саргассы - отсюда и название.",
+      "imageSearchQuery": "Саргассово море водоросли",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "опять вопрос с экзамена \"почему\" с обдумыванием, вместо знания факта. Интересный факт в том, что саргасово море накапливает водоросли посреди воды, все",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_209",
+      "question": "Что движет глубинным «конвейером» океана, полностью обновляющим воды за тысячу лет?",
+      "answers": [
+        "Разница солёности и температуры",
+        "Вращение Земли",
+        "Постоянные ветры",
+        "Притяжение Луны"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "prirodnye-yavleniya"
+      ],
+      "image": "assets/images/q_209.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Термохалинная циркуляция движется плотностными различиями: холодная солёная вода тяжелее и тонет, вытесняя тёплую снизу. Именно разница плотности запускает глубинный конвейер, переносящий тепло между океанами.",
+      "imageSearchQuery": "термохалинная циркуляция конвейер схема",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "в ответах, где через запятую перечисляется, нужно писать И ",
+      "reviewSuggestion": "Разница солёности и температуры",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_210",
+      "question": "Почему вода у полюсов зеленее, чем у экватора?",
+      "answers": [
+        "Там больше планктона",
+        "Льды вносят минералы",
+        "Малый угол солнца",
+        "Там меньше соли"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "vodnye-obitateli"
+      ],
+      "image": "assets/images/q_210.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В тропических водах мало питательных веществ и почти нет планктона - вода прозрачна и выглядит ярко-синей. Возле полюсов питательный апвеллинг кормит фитопланктон, который даёт зелёный оттенок.",
+      "imageSearchQuery": "цвет океана экватор полюс спутник",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_211",
+      "question": "Какое из современных морей считается реликтом древнего океана Тетис?",
+      "answers": [
+        "Каспийское",
+        "Балтийское",
+        "Северное",
+        "Красное"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "reki-ozyora"
+      ],
+      "image": "assets/images/q_211.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тетис - огромный океан между суперконтинентами, исчезнувший около 5 млн лет назад. Каспийское море - его реликт: вода в нём солоноватая, в 3 раза менее солёная, чем в настоящем море.",
+      "imageSearchQuery": "Каспийское море вид со спутника",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_212",
+      "question": "Как мореплаватели до эпохи спутников понимали, что судно вошло в Гольфстрим?",
+      "answers": [
+        "Опускали термометр за борт",
+        "Следили за цветом неба",
+        "Проверяли магнитный компас",
+        "Измеряли скорость по хронометру"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany"
+      ],
+      "image": "assets/images/q_212.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бенджамин Франклин в 1770-х годах рекомендовал капитанам опускать термометр за борт: вода в Гольфстриме на 5-10 °C теплее окружающего океана, что легко заметить.",
+      "imageSearchQuery": "Бенджамин Франклин карта Гольфстрима",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_212",
+        "factVerdict": "true",
+        "explanation": "Факт подтверждён исторически: Бенджамин Франклин с 1775 года систематически измерял температуру воды, опуская термометр за борт, и составил первую карту Гольфстрима. Гольфстрим заметно теплее окружающего океана, что делало термометр надёжным навигационным инструментом на протяжении десятилетий. Источник: scienceandthesea.org, founders.archives.gov."
+      },
+      "llmVerdict": "keep",
+      "reviewProblem": "GPS - это еще что такое? у нас запрещены аббревиатуры английские",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_213",
+      "question": "В каком из этих морей почти нет приливов?",
+      "answers": [
+        "Средиземное",
+        "Северное",
+        "Аравийское",
+        "Берингово"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "prirodnye-yavleniya"
+      ],
+      "image": "assets/images/q_213.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Приливы в Средиземном море почти незаметны - обычно меньше 30 см. Оно связано с Атлантикой лишь узким Гибралтарским проливом, через который приливная волна почти не проходит.",
+      "imageSearchQuery": "Гибралтарский пролив вид сверху",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "какой именно пролив? в ответе он появляется внезапно. А ветер сглаживает уровень чего? почему два ответа про дно одинаковые почти? Опять же, интересный факт, что в средиземном море нет приливов, этого достаточно",
+      "reviewTags": [
+        "distractors",
+        "boring"
+      ]
+    },
+    {
+      "id": "q_214",
+      "question": "Что производит больше половины кислорода на Земле?",
+      "answers": [
+        "Морской фитопланктон",
+        "Наземные леса",
+        "Подводные леса ламинарии",
+        "Коралловые рифы"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "morya-okeany",
+        "vodnye-obitateli"
+      ],
+      "image": "assets/images/q_214.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фитопланктон в верхних 200 м океана производит около 50-80% кислорода атмосферы - больше, чем все наземные леса вместе взятые.",
+      "imageSearchQuery": "фитопланктон микроскоп ocean oxygen",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_216",
+      "question": "Что уничтожило больше кораблей испанской Непобедимой армады, чем весь английский флот?",
+      "answers": [
+        "Атлантические штормы",
+        "Нехватка провизии",
+        "Брандеры",
+        "Болезни экипажей"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya",
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_216.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "После атаки брандерами флот рассеялся и пошёл домой вокруг Шотландии и Ирландии. Атлантические штормы уничтожили около половины кораблей - больше, чем весь английский флот за всю кампанию.",
+      "imageSearchQuery": "Spanish Armada storm 1588 ships wreck",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_217",
+      "question": "Что позволяло «каперское свидетельство» капитану корабля в XVI-XVII веках?",
+      "answers": [
+        "Законно грабить суда",
+        "Торговать в закрытых портах",
+        "Вербовать матросов силой",
+        "Открывать новые земли"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya",
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_217.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Каперское свидетельство (lettre de marque) превращало пирата в «законного» корсара: он мог захватывать суда противника и делить добычу с казной. Без бумаги - пиратство и виселица; с бумагой - почти государственная служба.",
+      "imageSearchQuery": "privateer letter of marque pirate ship 17th century",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "ответы не согласованы между собой и с вопросом. ",
+      "reviewSuggestion": "Открывать новые земли / Законно грабить суда / Торговать в закрытых портах  / Вербовать матросов",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_218",
+      "question": "Насколько дешевле стала книга в Европе за 50 лет после изобретения печатного станка Гутенберга?",
+      "answers": [
+        "В 100 раз",
+        "В 30 раз",
+        "В 15 раз",
+        "В 5 раз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya",
+        "istoriya"
+      ],
+      "image": "assets/images/q_218.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "К 1500 году, менее чем через 50 лет после пресса Гутенберга, печатная книга стоила в 80-100 раз дешевле рукописной. Это сделало книгу доступной горожанину, а не только монастырю, и запустило Реформацию.",
+      "imageSearchQuery": "Gutenberg printing press movable type 15th century",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "много вопросов, где дается диапазон в ответе, это сложно считывать и нет необходимости",
+      "reviewSuggestion": "в 30 раз / в 15 раз / в 5 раз / в 90 раз",
+      "reviewTags": [
+        "language",
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_219",
+      "question": "Что экспедиция Магеллана-Элькано привезла домой в 1522 году, окупив всё путешествие с лихвой?",
+      "answers": [
+        "Гвоздику и мускат",
+        "Золото ацтеков",
+        "Шёлк и фарфор",
+        "Карты новых островов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya",
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_219.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Из пяти кораблей вернулся один «Виктория» с 18 выжившими и трюмом, набитым пряностями с Молуккских островов. Груз гвоздики и мускатного ореха покрыл стоимость всей экспедиции - пряности стоили дороже золота.",
+      "imageSearchQuery": "Magellan Elcano expedition spices Moluccas 1522",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_248",
+      "question": "Сколько лет потребовалось Европе, чтобы восстановить население до уровня до Чёрной смерти?",
+      "answers": [
+        "20-30 лет",
+        "50-70 лет",
+        "130-150 лет",
+        "250-300 лет"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "srednevekovye"
+      ],
+      "image": "assets/images/q_248.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Чёрная смерть 1347-1353 годов унесла около 30-40% европейцев, и население Европы вернулось к прежнему уровню лишь к концу XV века - спустя почти полтора столетия. Опустошение было настолько глубоким, что целые деревни исчезли с карты навсегда.",
+      "imageSearchQuery": "Black Death plague Europe 1347 medieval population",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_261",
+      "question": "На каком шасси чаще всего монтировали «Катюши» - советские реактивные миномёты?",
+      "answers": [
+        "Studebaker US6",
+        "ЗИС-6",
+        "Ford AA",
+        "ГАЗ-АА"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_261.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Основным тягачом «Катюш» стал американский Studebaker US6, поставлявшийся по ленд-лизу. СССР получил около 400 000 таких грузовиков - каждый третий советский грузовик на фронте был американским.",
+      "imageSearchQuery": "Studebaker US6 советский грузовик ленд-лиз",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_264",
+      "question": "Насколько близко к Кремлю подошли немецкие войска в битве за Москву 1941 года?",
+      "answers": [
+        "30 км",
+        "120 км",
+        "300 км",
+        "600 км"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov",
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_264.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В конце ноября 1941 немцы заняли Красную Поляну - около 30 км от Кремля, ближайшая точка за всю войну. В бинокли они различали здания столицы. Дальше их отбросило декабрьское контрнаступление.",
+      "imageSearchQuery": "Курская дуга оборона советские войска 1943",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_270",
+      "question": "Что делал маршал Груши, пока Блюхер громил Наполеона при Ватерлоо?",
+      "answers": [
+        "Гнался за пруссаками",
+        "Охранял обозы",
+        "Взял Брюссель",
+        "Отступил в Париж"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "voyny-srazheniya",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_270.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Груши точно выполнял приказ: преследовал пруссаков на восток. Но те уже развернулись и шли к Ватерлоо. Груши не отступил от буквы приказа - и пропустил битву, которая решила судьбу Наполеона.",
+      "imageSearchQuery": "Battle of Waterloo Napoleon defeat 1815 map",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_273",
+      "question": "В какой войне впервые применили телеграф для военного командования?",
+      "answers": [
+        "Крымская война (1853-1856)",
+        "Война в США (1861-1865)",
+        "Франко-прусская война (1870-1871)",
+        "Первая мировая (1914-1918)"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "voyny-srazheniya",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_273.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Телеграф впервые применили в военных целях в Крымской войне (1853-1856): британцы и французы передавали приказы по кабелю из Варны в штаб под Севастополем, сократив время связи с недель до минут.",
+      "imageSearchQuery": "military telegraph wire 19th century war communication",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_284",
+      "question": "Как назывался первый советский журнал мод, вышедший в 1923 году?",
+      "answers": [
+        "«Ателье»",
+        "«Красная мода»",
+        "«Крестьянка»",
+        "«Советская красавица»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "xx-vek",
+        "moda-stil"
+      ],
+      "image": "assets/images/q_284.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1923 году, в разгар НЭПа, в Советской России вышел журнал мод с элегантным французским названием «Ателье» - издание просуществовало недолго, но стало первым опытом советской модной прессы.",
+      "imageSearchQuery": "«Ателье»",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_291",
+      "question": "Что означает слово «сом», название валюты Киргизии?",
+      "answers": [
+        "Чистый",
+        "Монета",
+        "Золотой",
+        "Серебряный"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dengi-valyuty"
+      ],
+      "image": "assets/images/q_291.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Сом» в переводе с киргизского означает «чистый» - имелось в виду чистое серебро как мерило ценности. Валюта введена в 1993 году после распада СССР.",
+      "imageSearchQuery": "Чистый",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_292",
+      "question": "Какой породы была собака Муму из рассказа Тургенева?",
+      "answers": [
+        "Дворняга",
+        "Спаниель",
+        "Болонка",
+        "Пудель"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "russkaya-lit",
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_292.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В рассказе Тургенева Муму описана как «маленькая собачка испанской породы» - литературоведы идентифицируют её как спаниеля. Небольшая и тихая, она стала символом безответной преданности.",
+      "imageSearchQuery": "Спаниель",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_293",
+      "question": "Чем уникальна птица питоху из Новой Гвинеи среди всех птиц?",
+      "answers": [
+        "Немая",
+        "Ядовитые перья",
+        "Видит ультрафиолет",
+        "Светится в темноте"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "pticy"
+      ],
+      "image": "assets/images/q_293.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Питоху - единственная доказанно ядовитая птица: в перьях и коже содержится батрахотоксин, тот же яд, что у ядовитых лягушек-дендробатид.",
+      "imageSearchQuery": "Ядовитые перья",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "летает задом наперед? ну что за бред",
+      "reviewTags": [
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_294",
+      "question": "Что больше всего любит делать Свинка Пеппа?",
+      "answers": [
+        "Прыгать по лужам",
+        "Хрюкать",
+        "Есть варенье",
+        "Читать комиксы"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "multfilmy"
+      ],
+      "image": "assets/images/q_294.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Прыжки по лужам - главное занятие Пеппы в мультсериале: она делает это почти в каждой серии и всегда в красных резиновых сапожках.",
+      "imageSearchQuery": "Прыгать по лужам",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_295",
+      "question": "Какая реликвия Наполеона хранится в Национальном армейском музее в Лондоне?",
+      "answers": [
+        "Скелет боевого коня",
+        "Личная шпага",
+        "Парадная треуголка",
+        "Портрет работы Давида"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya",
+        "muzei"
+      ],
+      "image": "assets/images/q_295.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Конь Наполеона по кличке Маренго (в честь битвы 1800 года) был захвачен британцами при Ватерлоо; его скелет выставлен в Национальном армейском музее в Лондоне.",
+      "imageSearchQuery": "Скелет боевого коня",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "почему наполеоновской эпохи, если это не просто эпохи, а конкретно Наполеона? и это интересный факт",
+      "reviewSuggestion": "Портрет работы Давида / Личная шпага / Скелет боевого коня / Парадная треуголка",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_296",
+      "question": "Каким по длине был спинозавр, крупнейший известный хищный динозавр?",
+      "answers": [
+        "15 метров",
+        "7 метров",
+        "25 метров",
+        "40 метров"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_296.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Спинозавр достигал 14-15 метров в длину и превосходил тираннозавра, длина которого составляла около 12 метров. Спинозавр также охотился на рыбу, полупогружаясь в воду.",
+      "imageSearchQuery": "Около 15 метров",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "опять около в каждом вопросы. Мы это запрещали",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_297",
+      "question": "Какого «мата» не существует в шахматах?",
+      "answers": [
+        "Взрослый",
+        "Детский",
+        "Дурацкий",
+        "Линейный"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "shahmaty"
+      ],
+      "image": "assets/images/q_297.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Детский, дурацкий и линейный маты - реальные шахматные термины для конкретных финальных позиций; «взрослый мат» не существует ни в одном своде правил.",
+      "imageSearchQuery": "Взрослый",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_298",
+      "question": "На чём ехали пассажиры первого в мире метро, открывшегося в Лондоне в 1863 году?",
+      "answers": [
+        "Паровые вагоны",
+        "Электрички",
+        "Конные вагоны",
+        "Кабельные вагоны"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_298.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первое лондонское метро (линия Метрополитен) работало на паровой тяге: вагоны тянули настоящие паровозы, а пассажиры дышали дымом прямо в туннелях. Электрификацию провели лишь в 1905 году.",
+      "imageSearchQuery": "Паровые вагоны",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_299",
+      "question": "В какой стране снимали кинотрилогию «Властелин колец» Питера Джексона?",
+      "answers": [
+        "Новая Зеландия",
+        "Австралия",
+        "Исландия",
+        "Норвегия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vlastelin-kolec",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_299.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джексон принципиально снимал на родине - в Новой Зеландии: фьорды, луга и вулканические плато Южного острова стали Средиземьем, а съёмки дали толчок местному кинобизнесу.",
+      "imageSearchQuery": "Новая Зеландия",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_300",
+      "question": "Что определяло цвет первых билетов московского метро: красный или жёлтый?",
+      "answers": [
+        "Направление поездки",
+        "Будни или выходной",
+        "Ветка маршрута",
+        "Наличие пересадки"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poezda"
+      ],
+      "image": "assets/images/q_300.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1935 году в московском метро было только одно направление, и цвет билета указывал, едет ли пассажир «туда» или «обратно»: красный для одного, жёлтый для другого.",
+      "imageSearchQuery": "Направление поездки",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_301",
+      "question": "Какова протяжённость Готтардского базисного тоннеля в Швейцарии?",
+      "answers": [
+        "57 км",
+        "33 км",
+        "80 км",
+        "42 км"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya",
+        "poezda"
+      ],
+      "image": "assets/images/q_301.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Готтардский базисный тоннель длиной 57,09 км открылся в 2016 году - он является самым длинным железнодорожным тоннелем в мире, пролегает под Альпами и проходит на глубине до 2 300 м.",
+      "imageSearchQuery": "57 км",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_302",
+      "question": "В каком турецком городе заканчивался маршрут легендарного «Восточного экспресса»?",
+      "answers": [
+        "Стамбул",
+        "Анкара",
+        "Измир",
+        "Бодрум"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "strany-goroda",
+        "poezda"
+      ],
+      "image": "assets/images/q_302.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Восточный экспресс» курсировал из Парижа в Стамбул (тогда Константинополь) - именно там заканчивался маршрут. Поезд стал символом роскошных европейских путешествий XIX-XX веков и вдохновил Агату Кристи на одноимённый детектив.",
+      "imageSearchQuery": "Стамбул",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_309",
+      "question": "Коко Шанель никогда вслух не произносила имя своей главной соперницы Эльзы Скиапарелли - как она её называла?",
+      "answers": [
+        "Та итальянка",
+        "Эта выскочка",
+        "Просто самозванка",
+        "Моя копия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "modelery"
+      ],
+      "image": "assets/images/q_309.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шанель и Скиапарелли были заклятыми соперницами в 1930-х, но Шанель принципиально не произносила имя конкурентки вслух - только «та итальянка». Такой демонстративный бойкот имени был её способом унизить соперницу, отказывая ей даже в праве на личность.",
+      "imageSearchQuery": "Эльзой Скиапарелли",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_343",
+      "question": "На каком топливе работали самые первые автомобили?",
+      "answers": [
+        "Уголь",
+        "Нефть",
+        "Спирт",
+        "Бензин"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_343.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Паровые автомобили конца XVIII - начала XIX века топились углём: пар приводил в движение поршень. Двигатель внутреннего сгорания на бензине появился лишь в 1880-х.",
+      "imageSearchQuery": "Уголь",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_344",
+      "question": "Какую часть своей жизни средний автомобиль проводит на стоянке?",
+      "answers": [
+        "50%",
+        "60%",
+        "80%",
+        "95%"
+      ],
+      "correctAnswerIndex": 3,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_344.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Большинство машин используются около 1 часа в сутки: остальные 23 часа автомобиль стоит - это примерно 95% всего срока службы.",
+      "imageSearchQuery": "95%",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_345",
+      "question": "В каком виде спорта греческий принц Константин завоевал золото Олимпиады 1960 года?",
+      "answers": [
+        "Парусный спорт",
+        "Конный спорт",
+        "Академическая гребля",
+        "Фехтование"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "olimpiada",
+        "lichnosti"
+      ],
+      "image": "assets/images/q_345.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Константин (впоследствии король Греции) победил на Олимпиаде 1960 года в парусном спорте - редкий случай, когда будущий монарх становился олимпийским чемпионом.",
+      "imageSearchQuery": "Парусный спорт",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_346",
+      "question": "Какое прозвище носил хоккеист Павел Буре?",
+      "answers": [
+        "Русская ракета",
+        "Белый вихрь",
+        "Северный тигр",
+        "Сибирский экспресс"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hokkey",
+        "lichnosti"
+      ],
+      "image": "assets/images/q_346.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Павла Буре прозвали «Русской ракетой» за феноменальную скорость катания - в НХЛ он считался одним из самых быстрых форвардов своего времени.",
+      "imageSearchQuery": "Русская ракета",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_347",
+      "question": "Чем является авокадо с точки зрения ботаники?",
+      "answers": [
+        "Ягода",
+        "Фрукт",
+        "Овощ",
+        "Корнеплод"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "ovoshchi-frukty"
+      ],
+      "image": "assets/images/q_347.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ботанически авокадо - ягода: одно крупное семя окружено мясистым перикарпом. По той же классификации ягодами считаются бананы и арбузы.",
+      "imageSearchQuery": "Ягода",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_348",
+      "question": "Какой фрукт запрещён в самолётах и отелях из-за невыносимого запаха?",
+      "answers": [
+        "Дуриан",
+        "Карамбола",
+        "Мангостин",
+        "Рамбутан"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "ovoshchi-frukty"
+      ],
+      "image": "assets/images/q_348.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дуриан источает настолько острый запах, что его провоз запрещён в общественном транспорте и в номерах отелей Юго-Восточной Азии. При этом на вкус его сравнивают с кремом крем-брюле.",
+      "imageSearchQuery": "Дуриан",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_349",
+      "question": "Почему шланги первого промышленного пылесоса (Великобритания, 1901) закидывали прямо в окна домов?",
+      "answers": [
+        "Агрегат стоял на улице",
+        "Слишком жёсткие шланги",
+        "Меньше шума в доме",
+        "Лучше тянуло воздух"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "bytovaya-tehnika",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_349.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый промышленный пылесос Сесила Бута был настолько громоздким, что его везли на конной повозке и оставляли на улице, а шланги заводили через окна внутрь дома.",
+      "imageSearchQuery": "Агрегат стоял на улице",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "проемы не подходили тоже верный ответ",
+      "reviewTags": [
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_350",
+      "question": "Сальвадор Дали говорил: «Единственное различие между безумцем и мной в том, что я…»",
+      "answers": [
+        "Не безумен",
+        "Превзошёл безумие",
+        "Не верю в безумие",
+        "Горжусь безумием"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "lichnosti-hudozhniki",
+        "citaty-lichnostey"
+      ],
+      "image": "assets/images/q_350.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дали настаивал на собственной вменяемости: в отличие от настоящего безумца, он полностью контролировал свои эксцентричные выходки и использовал их как инструмент эпатажа.",
+      "imageSearchQuery": "Не безумен",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_351",
+      "question": "Памятник какому изобретению стоит в чешском городе Дачице?",
+      "answers": [
+        "Сахару-рафинаду",
+        "Пенициллину",
+        "Чайному пакетику",
+        "Крему от загара"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "eda-napitki"
+      ],
+      "image": "assets/images/q_351.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Именно в Дачице в 1843 году фабрикант Якуб Кристоф Рад впервые спрессовал сахар в кубик - по просьбе жены, поранившей руку при колке сахарной головы. Памятный монумент украшает центр города.",
+      "imageSearchQuery": "Сахару-рафинаду",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_352",
+      "question": "Что Билл Гейтс предложил ввести для каждого электронного письма, чтобы побороть спам?",
+      "answers": [
+        "Платную электронную марку",
+        "Капчу при отправке",
+        "Цифровую подпись",
+        "Фото отправителя"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet",
+        "lichnosti-predprinimateli"
+      ],
+      "image": "assets/images/q_352.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 2004 году Гейтс заявил, что за каждое электронное письмо отправитель должен платить небольшую сумму. Легитимный пользователь пострадает мало, а спамер, рассылающий миллиарды писем, разорится.",
+      "imageSearchQuery": "Платную электронную марку",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "я уже в 5й раз (!!) пишу, что здесь забыли ключевое слово (электронного письма)",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_353",
+      "question": "Какой зарубежный компьютер был взят за образец при создании советской ЭВМ «Агат»?",
+      "answers": [
+        "Apple II",
+        "Commodore 64",
+        "ZX Spectrum",
+        "Atari 800"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kompyutery",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_353.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Агат» - советский персональный компьютер 1984 года, совместимый с Apple II. Он создавался на основе изучения образцов Apple II и частично копировал его архитектуру.",
+      "imageSearchQuery": "Apple II",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_354",
+      "question": "Кому из древнегреческих философов приписывают изобретение водяного будильника?",
+      "answers": [
+        "Платону",
+        "Архимеду",
+        "Сократу",
+        "Герону Александрийскому"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "lichnosti-uchyonye",
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_354.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По свидетельству Афинея, Платон использовал водяные часы с поплавком, который срабатывал утром и будил учеников - это первый известный будильник в истории.",
+      "imageSearchQuery": "Платону",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_355",
+      "question": "Что находится внутри 40-метровой стальной статуи Чингисхана под Улан-Батором?",
+      "answers": [
+        "Смотровая площадка с лифтом",
+        "Музей оружия",
+        "Хранилище реликвий",
+        "Кинозал"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "istoriya"
+      ],
+      "image": "assets/images/q_355.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "40-метровая стальная статуя Чингисхана под Улан-Батором - крупнейшая конная статуя в мире. Внутри есть лифт, ведущий на смотровую площадку на голове коня.",
+      "imageSearchQuery": "Лифт и смотровая площадка",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_356",
+      "question": "Какому органу установлен памятник в испанском городе Льяносе?",
+      "answers": [
+        "Печени",
+        "Мозгу",
+        "Почке",
+        "Сердцу"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anatomiya",
+        "muzei"
+      ],
+      "image": "assets/images/q_356.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В испанском городе Льянос де Аридан на острове Гран-Канария стоит монумент в виде печени - дань уважения органу, который жители считают символом жизненной силы.",
+      "imageSearchQuery": "Печени",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_357",
+      "question": "Во сколько раз индийская Статуя Единства, самая высокая в мире, выше Статуи Свободы?",
+      "answers": [
+        "В 2 раза",
+        "В 3 раза",
+        "В 1,5 раза",
+        "Одинаковая высота"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura"
+      ],
+      "image": "assets/images/q_357.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Статуя Единства» в Индии (182 метра, открыта в 2018 году) посвящена Сардару Пателю - «железному человеку Индии». Она почти вдвое выше Статуи Свободы: 182 м против 93 м с постаментом (соотношение ≈ 1,96).",
+      "imageSearchQuery": "Примерно вдвое",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "и че за статуя? почему один объект назван, а второй нет? учитывая, что инетересный факт связан именно с статуей единства",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_358",
+      "question": "Кем является Миссис Маллард, героиня детской книги, памятник которой стоит в Бостоне и в Москве?",
+      "answers": [
+        "Утка",
+        "Сорока",
+        "Мышка",
+        "Кошка"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "literatura"
+      ],
+      "image": "assets/images/q_358.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Миссис Маллард - героиня книги Роберта Макклоски 'Дайте дорогу утятам' (1941). Бронзовая скульптура в Бостонском парке Паблик-Гарден стала символом города; копию подарила Москве первая леди США Барбара Буш в 1991 году.",
+      "imageSearchQuery": "Утка",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "это что за формулировка, в конце и тире, и запятая, так в русском языке не делается. Зачем вообще вопрос в конце задавать?",
+      "reviewSuggestion": "Кем является Миссис Маллард, героиня детской книги, памятник которой стоит в Бостоне и в Москве?",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_359",
+      "question": "Для чего используется памятник Николе Тесле в Кремниевой долине?",
+      "answers": [
+        "Раздаёт Wi-Fi",
+        "Показывает точное время",
+        "Вырабатывает электричество",
+        "Конденсирует воду"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet",
+        "lichnosti-uchyonye"
+      ],
+      "image": "assets/images/q_359.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Памятник Тесле в Пало-Альто, установленный в 2013 году на народные средства, оснащён Wi-Fi-роутером. Это дань уважению учёному, чьи разработки в области передачи энергии и радио легли в основу беспроводной связи.",
+      "imageSearchQuery": "Раздаёт Wi-Fi",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_360",
+      "question": "Какую надпись видел каждый входящий в храм Аполлона в Дельфах?",
+      "answers": [
+        "«Познай самого себя»",
+        "«Суета сует»",
+        "«Жизнь коротка, веселись»",
+        "«Боги приветствуют тебя»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "mifologiya-religiya"
+      ],
+      "image": "assets/images/q_360.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Изречение «Познай самого себя» (греч. «гноти сеавтон») было высечено на пропилеях храма Аполлона в Дельфах. Его приписывали Сократу, Фалесу и другим мудрецам - авторство по сей день спорно.",
+      "imageSearchQuery": "«Познай самого себя»",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_361",
+      "question": "Как назывался крупнейший открытый бассейн в мире, работавший на месте храма Христа Спасителя?",
+      "answers": [
+        "«Москва»",
+        "«Чайка»",
+        "«Россия»",
+        "«Парус»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "istoriya"
+      ],
+      "image": "assets/images/q_361.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бассейн «Москва» диаметром 130 метров был крупнейшим открытым бассейном в мире. Зимой пар от него клубился над центром столицы. В 1994 году на этом месте начали восстанавливать храм Христа Спасителя.",
+      "imageSearchQuery": "«Москва»",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_362",
+      "question": "Где расположен музей «Кристальные миры Swarovski» в австрийском Ваттенсе?",
+      "answers": [
+        "Под землёй",
+        "На вершине горы",
+        "В старом замке",
+        "На берегу озера"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "iskusstvo"
+      ],
+      "image": "assets/images/q_362.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Музей Swarovski Kristallwelten (1995) вырыт прямо в холме: входом служит голова великана, изрыгающая воду, а внутри - тринадцать подземных залов с кристальными инсталляциями.",
+      "imageSearchQuery": "Под землёй",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_363",
+      "question": "Что продал Буратино, чтобы раздобыть свои первые четыре сольдо?",
+      "answers": [
+        "Азбуку",
+        "Куртку папы Карло",
+        "Старый башмак",
+        "Деревянную ложку"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki"
+      ],
+      "image": "assets/images/q_363.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Папа Карло купил Буратино азбуку, продав свою куртку; Буратино же продал азбуку, не дойдя до школы, чтобы попасть в театр Карабаса-Барабаса.",
+      "imageSearchQuery": "Азбуку",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_364",
+      "question": "Какое животное стало талисманом приставки Dendy?",
+      "answers": [
+        "Слонёнок",
+        "Ёжик",
+        "Тигрёнок",
+        "Медвежонок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "videoigry"
+      ],
+      "image": "assets/images/q_364.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Талисманом российской торговой марки Dendy стал слонёнок Денди. Компания «Steepler» выбрала его, чтобы подчеркнуть дружелюбие продукта, ориентированного на детей. Приставка была клоном Famicom и продавалась в России в начале 1990-х.",
+      "imageSearchQuery": "Слонёнок",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_365",
+      "question": "Каким вином Миледи пыталась отравить д'Артаньяна в «Трёх мушкетёрах»?",
+      "answers": [
+        "Анжуйским",
+        "Бордо",
+        "Бургундским",
+        "Шампанским"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zarubezhnaya-lit",
+        "spirtnye-napitki"
+      ],
+      "image": "assets/images/q_365.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В романе Дюма именно в анжуйское вино Миледи подсыпала яд, намереваясь убить д'Артаньяна, но оно досталось де Варду.",
+      "imageSearchQuery": "Анжуйским",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_366",
+      "question": "Как отец Скарлетт О'Хары получил поместье Тара в «Унесённых ветром»?",
+      "answers": [
+        "Выиграл в карты",
+        "Получил в наследство",
+        "Купил",
+        "Получил в приданое"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zarubezhnaya-lit",
+        "knizhnye-geroi"
+      ],
+      "image": "assets/images/q_366.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джеральд О'Хара выиграл поместье Тара в карточной игре у её прежнего владельца - этот факт из предыстории романа раскрывается в самом начале книги.",
+      "imageSearchQuery": "Выиграл в карты",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_367",
+      "question": "В каком городе был основан Greenpeace?",
+      "answers": [
+        "Ванкувер",
+        "Амстердам",
+        "Осло",
+        "Лондон"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "organizacii"
+      ],
+      "image": "assets/images/q_367.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Greenpeace основан в 1971 году в Ванкувере группой активистов, которые вышли в море протестовать против ядерных испытаний США у берегов Аляски. Штаб-квартира организации позже переехала в Амстердам.",
+      "imageSearchQuery": "Ванкувер",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_368",
+      "question": "Из чего получают яд кураре, которым индейцы Южной Америки смазывали стрелы?",
+      "answers": [
+        "Корни стрихноса",
+        "Кора цикуты",
+        "Железы жабы",
+        "Яд тарантула"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "biologiya"
+      ],
+      "image": "assets/images/q_368.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Основу кураре составляет кора и корни лиан Strychnos toxifera и Chondodendron tomentosum. Яд блокирует нервно-мышечную передачу, вызывая паралич дыхания.",
+      "imageSearchQuery": "Корни стрихноса",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_369",
+      "question": "От какого здания ведётся отсчёт расстояний по дорогам из Вены?",
+      "answers": [
+        "Собор Святого Стефана",
+        "Ратуша",
+        "Хофбург",
+        "Венская опера"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_369.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Центральный портал Штефансдома считается нулевой точкой Вены - отсюда официально отмеряются расстояния до других городов по австрийским дорогам.",
+      "imageSearchQuery": "Собор Святого Стефана",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_370",
+      "question": "Как называется вода, в которой атомы водорода заменены дейтерием?",
+      "answers": [
+        "Тяжёлая",
+        "Лёгкая",
+        "Дистиллированная",
+        "Тритиевая"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya"
+      ],
+      "image": "assets/images/q_370.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тяжёлая вода (D₂O) содержит изотоп дейтерий вместо обычного водорода. Она используется в ядерных реакторах как замедлитель нейтронов и внешне неотличима от обычной воды.",
+      "imageSearchQuery": "Тяжёлая",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_371",
+      "question": "В какой стране расположена гора Арарат, главный национальный символ Армении?",
+      "answers": [
+        "Турция",
+        "Армения",
+        "Иран",
+        "Грузия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "geografiya",
+        "mifologiya-religiya"
+      ],
+      "image": "assets/images/q_371.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Арарат находится на территории Турции с 1921 года - после советско-турецкого договора. При этом гора изображена на гербе Армении и остаётся её главным культурным символом.",
+      "imageSearchQuery": "Турция",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_372",
+      "question": "Чем скелетон отличается от бобслея?",
+      "answers": [
+        "Едут лицом вниз",
+        "Нет металлических полозьев",
+        "Это командный вид",
+        "Трасса длиннее"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "olimpiada"
+      ],
+      "image": "assets/images/q_372.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В скелетоне спортсмен лежит животом на санях лицом вниз и головой вперёд. В бобслее экипаж едет спиной вперёд в закрытом кузове.",
+      "imageSearchQuery": "Спортсмен едет лицом вниз",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "Едят лицом вниз - ничего, что это про прием пищи?",
+      "reviewSuggestion": "Едут лицом вниз",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_373",
+      "question": "Как финны называют свою хоккейную сборную?",
+      "answers": [
+        "Львы",
+        "Пингвины",
+        "Волки",
+        "Медведи"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hokkey"
+      ],
+      "image": "assets/images/q_373.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хоккейная сборная Финляндии носит прозвище «Лейоnat» («Львята» / «Львы») - по изображению льва на национальном гербе страны.",
+      "imageSearchQuery": "Львы",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_374",
+      "question": "Как в Болгарии называют зубы мудрости?",
+      "answers": [
+        "Умники",
+        "Дурники",
+        "Последышки",
+        "Поздники"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya",
+        "obychai-tradicii"
+      ],
+      "image": "assets/images/q_374.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В болгарском языке зубы мудрости называют «умники» - в отличие от русского, где акцент на «мудрости», болгары подчёркивают интеллект.",
+      "imageSearchQuery": "Умники",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_375",
+      "question": "Как называется желобок между верхней губой и носом?",
+      "answers": [
+        "Фильтрум",
+        "Коллумелла",
+        "Гнатион",
+        "Френулум"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anatomiya"
+      ],
+      "image": "assets/images/q_375.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фильтрум (от лат. filtrum - фильтр) - вертикальный желобок над губой. У многих животных он помогает переносить запахи от носа к губам; у людей эта функция утрачена.",
+      "imageSearchQuery": "Фильтрум",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_376",
+      "question": "Сколько весил крупнейший в истории алмаз до огранки?",
+      "answers": [
+        "100 граммов",
+        "300 граммов",
+        "600 граммов",
+        "1 кг"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "dragocennosti"
+      ],
+      "image": "assets/images/q_376.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Алмаз «Куллинан», найденный в Южной Африке в 1905 году, весил 621,2 грамма (3106 каратов). Его распилили на несколько частей, крупнейшие из которых теперь украшают британские королевские регалии.",
+      "imageSearchQuery": "Более 600 граммов",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "с т.з вариантов ответа более 1кг автоматом означает, что и  более 600гр\nтакого не должно быть",
+      "reviewTags": [
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_377",
+      "question": "Из какой страны тюльпаны попали в Нидерланды, где стали символом страны?",
+      "answers": [
+        "Турция",
+        "Персия",
+        "Афганистан",
+        "Китай"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_377.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Нидерланды тюльпаны попали из Османской империи в XVI веке через дипломата Ожье де Бусбека. Слово «тюльпан» произошло от турецкого «тюлбенд» - тюрбан, на который похож цветок.",
+      "imageSearchQuery": "Турция",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_378",
+      "question": "Зачем дома в средневековом Амстердаме строили с наклоном вперёд?",
+      "answers": [
+        "Защита груза при подъёме",
+        "Устойчивость к наводнениям",
+        "Экономия места на улице",
+        "Сушка белья"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "srednevekovye"
+      ],
+      "image": "assets/images/q_378.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фасады наклонены наружу, чтобы мебель и товары, поднимаемые на верхние этажи через балочный крюк, не царапали стену и не падали на прохожих.",
+      "imageSearchQuery": "Защита груза при подъёме",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_379",
+      "question": "На сколько километров тянется кольцевой тоннель Большого адронного коллайдера?",
+      "answers": [
+        "27 км",
+        "10 км",
+        "54 км",
+        "100 км"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_379.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кольцевой тоннель БАК под границей Швейцарии и Франции имеет длину 27 км - это самое большое научное устройство в мире. Сам коллайдер расположен вблизи Женевы.",
+      "imageSearchQuery": "27 км",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_380",
+      "question": "Как осуждённый на смерть вельможа мог спастись по обычаю Османской империи?",
+      "answers": [
+        "Обогнать палача в беге",
+        "Победить палача в бою",
+        "Уплатить выкуп",
+        "Назвать поручителя из знати"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "obychai-tradicii",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_380.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По османскому обычаю осуждённый вельможа получал шанс на побег: если он успевал добежать от места казни до ворот дворца раньше палача, приговор отменяли.",
+      "imageSearchQuery": "Обогнать палача в беге",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_381",
+      "question": "Кто первой среди женщин перелетела Атлантику в одиночку?",
+      "answers": [
+        "Амелия Эрхарт",
+        "Марина Раскова",
+        "Бесси Коулман",
+        "Валентина Гризодубова"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "aviaciya",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_381.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1932 году Амелия Эрхарт перелетела Атлантику соло за 14 часов 56 минут - от Ньюфаундленда до Северной Ирландии, повторив маршрут Линдберга пятью годами позже.",
+      "imageSearchQuery": "Амелия Эрхарт",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_382",
+      "question": "Чем в XIX веке немецкие стеклодувы объясняли появление стеклянных ёлочных шаров?",
+      "answers": [
+        "Заменой дорогих фруктов",
+        "Данью католической традиции",
+        "Защитой от злых духов",
+        "Имитацией снежинок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "prazdniki",
+        "obychai-tradicii"
+      ],
+      "image": "assets/images/q_382.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первые стеклянные ёлочные шары появились в Тюрингии (Германия) в середине XIX века: стеклодувы делали их как дешёвую замену яблокам и орехам, которые традиционно вешали на ёлку.",
+      "imageSearchQuery": "Заменой дорогих фруктов",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_384",
+      "question": "Когда в России отмечают день рождения Деда Мороза?",
+      "answers": [
+        "18 ноября",
+        "31 декабря",
+        "1 января",
+        "7 января"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "prazdniki"
+      ],
+      "image": "assets/images/q_384.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дата 18 ноября выбрана как начало зимы в Великом Устюге - вотчине Деда Мороза; с этого дня он официально начинает принимать гостей.",
+      "imageSearchQuery": "18 ноября",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_385",
+      "question": "Чей официальный день рождения Великобритания отмечает во вторую субботу июня?",
+      "answers": [
+        "Монарха",
+        "Принца Уэльского",
+        "Принцессы",
+        "Наследника"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "prazdniki",
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_385.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Trooping the Colour - официальный парад в честь дня рождения монарха - проводится летом, хотя реальная дата рождения может быть иной. Традиция восходит к XVIII веку, когда праздник перенесли ради лучшей погоды.",
+      "imageSearchQuery": "Монарха",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_386",
+      "question": "Как лондонцы прозвали небоскрёб 30 St Mary Axe, спроектированный Норманом Фостером?",
+      "answers": [
+        "Корнишон",
+        "Баклажан",
+        "Кабачок",
+        "Морковка"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_386.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Огурец-корнишон - официальное прозвище башни за характерную обтекаемую форму; архитектурно она также называется Swiss Re Building по первому арендатору.",
+      "imageSearchQuery": "Корнишон",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_387",
+      "question": "Как называется старейший из сохранившихся мостов Парижа?",
+      "answers": [
+        "Новый мост",
+        "Мост Сен-Луи",
+        "Мост Сен-Мишель",
+        "Мост Нотр-Дам"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura",
+        "geografiya"
+      ],
+      "image": "assets/images/q_387.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Pont Neuf - «Новый мост» - был заложен в 1578 году и стал первым каменным мостом Парижа без домов на нём. Несмотря на название, он старейший из сохранившихся мостов города.",
+      "imageSearchQuery": "Новый мост",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_388",
+      "question": "Какая оперетта по традиции исполняется каждую новогоднюю ночь в Венской государственной опере?",
+      "answers": [
+        "«Летучая мышь»",
+        "«Весёлая вдова»",
+        "«Цыганский барон»",
+        "«Принцесса цирка»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klassika-muz",
+        "teatr"
+      ],
+      "image": "assets/images/q_388.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Летучая мышь» Иоганна Штрауса-сына ставится в Вене каждый год 31 декабря с конца XIX века - это одна из самых стойких театральных традиций Европы.",
+      "imageSearchQuery": "«Летучая мышь»",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_389",
+      "question": "В каком месяце в Петербурге самые длинные белые ночи?",
+      "answers": [
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "prirodnye-yavleniya",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_389.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Около летнего солнцестояния (21-22 июня) солнце уходит ниже горизонта менее чем на 7°, и сумерки не переходят в полную тьму - белые ночи в Петербурге длятся с мая по июль, но пик приходится на июнь.",
+      "imageSearchQuery": "Июнь",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_390",
+      "question": "Сколько раз Германия выигрывала чемпионаты мира и Европы по футболу в сумме?",
+      "answers": [
+        "7",
+        "5",
+        "6",
+        "8"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_390.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Германия выиграла 4 чемпионата мира (1954, 1974, 1990, 2014) и 3 чемпионата Европы (1972, 1980, 1996) - больше, чем любая другая сборная.",
+      "imageSearchQuery": "7",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_391",
+      "question": "Что случилось с колумбийским футболистом Андресом Эскобаром после автогола на ЧМ-1994?",
+      "answers": [
+        "Был убит",
+        "Пожизненно дисквалифицирован",
+        "Оштрафован",
+        "Лишён гражданства"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol",
+        "lichnosti"
+      ],
+      "image": "assets/images/q_391.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Через несколько дней после возвращения в Колумбию Эскобар был застрелен - по версии следствия, убийство связано с проигрышем ставок наркокартелей на команду.",
+      "imageSearchQuery": "Был убит",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_392",
+      "question": "Как дословно переводится с французского слово «шофёр»?",
+      "answers": [
+        "Кочегар",
+        "Извозчик",
+        "Капитан",
+        "Наездник"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_392.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первые автомобили работали на паровых двигателях, и водитель должен был топить котёл - отсюда chauffeur, «тот, кто разогревает».",
+      "imageSearchQuery": "Кочегар",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_393",
+      "question": "В каком городе Российской империи в 1904 году выдали первый в стране автомобильный номер?",
+      "answers": [
+        "Рига",
+        "Санкт-Петербург",
+        "Москва",
+        "Киев"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_393.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый автомобильный номер в Российской империи был выдан в Риге в 1904 году - город тогда входил в состав России и был одним из центров автомобильного движения.",
+      "imageSearchQuery": "Рига",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_394",
+      "question": "Что было необычным в первом светофоре в мире, установленном в 1868 году?",
+      "answers": [
+        "Работал на газу",
+        "Имел 5 сигналов",
+        "Управлялся автоматически",
+        "Был для пешеходов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya",
+        "transport"
+      ],
+      "image": "assets/images/q_394.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый светофор появился в Лондоне у здания парламента в 1868 году. Он был газовым и управлялся вручную полицейским. Вскоре устройство взорвалось из-за утечки газа и было убрано.",
+      "imageSearchQuery": "Работал на газу",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_395",
+      "question": "Как в авторалли называют навигационную инструкцию с описанием поворотов, которую штурман читает вслух пилоту?",
+      "answers": [
+        "Легенда",
+        "Маршрут",
+        "Схема",
+        "Паспорт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtosport",
+        "avtomobili"
+      ],
+      "image": "assets/images/q_395.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В авторалли «легендой» называют подробную инструкцию с описанием поворотов, уклонов и ориентиров - штурман читает её вслух пилоту во время гонки.",
+      "imageSearchQuery": "Легенда",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_396",
+      "question": "Что греческий глава семьи разбивает о стену дома в новогоднюю ночь на удачу?",
+      "answers": [
+        "Гранат",
+        "Бутылку вина",
+        "Тарелку",
+        "Зеркало"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "prazdniki",
+        "obychai-tradicii"
+      ],
+      "image": "assets/images/q_396.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Разбитый гранат рассыпает семена - символ изобилия и плодородия на весь год. Чем больше семян рассыплется у порога, тем удачнее будет год для семьи.",
+      "imageSearchQuery": "Гранат",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_397",
+      "question": "Как зовут греческого и кипрского аналога Деда Мороза?",
+      "answers": [
+        "Василий",
+        "Пётр",
+        "Фёдор",
+        "Константин"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "prazdniki",
+        "obychai-tradicii"
+      ],
+      "image": "assets/images/q_397.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Агиос Василис (Святой Василий) приносит подарки детям в Греции и на Кипре в ночь с 31 декабря на 1 января, а не на Рождество. Он назван в честь Василия Великого, чей день - 1 января.",
+      "imageSearchQuery": "Василий",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_398",
+      "question": "Кто поздравил россиян с Новым 1994 годом на НТВ вместо обычных политиков?",
+      "answers": [
+        "Сергей Мавроди",
+        "Алла Пугачёва",
+        "Виктор Черномырдин",
+        "Борис Ельцин"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "xx-vek",
+        "obshchestvo"
+      ],
+      "image": "assets/images/q_398.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "НТВ в новогоднюю ночь 1994 года дало слово Сергею Мавроди - основателю финансовой пирамиды МММ, находившемуся тогда на пике популярности.",
+      "imageSearchQuery": "Сергей Мавроди",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_399",
+      "question": "Что в Китае бросали в очаг в новогоднюю ночь, чтобы треском отпугнуть злых духов?",
+      "answers": [
+        "Побеги бамбука",
+        "Пучки соломы",
+        "Сухие дрова",
+        "Имбирный корень"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "prazdniki",
+        "obychai-tradicii"
+      ],
+      "image": "assets/images/q_399.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Треск горящего бамбука отпугивал злых духов - отсюда традиция, давшая начало петардам. Само слово «петарда» этимологически связано с треском.",
+      "imageSearchQuery": "Побеги бамбука",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_400",
+      "question": "Какое дерево является символом Чехии и часто встречается на гербах чешских городов?",
+      "answers": [
+        "Липа",
+        "Дуб",
+        "Сосна",
+        "Ель"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_400.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Липа - символ Чехии и Средней Европы: её изображение встречается на гербах десятков чешских городов. В чешском фольклоре липа символизирует мир и родную землю.",
+      "imageSearchQuery": "Липа",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_401",
+      "question": "Откуда взялось название прыжка «тулуп» в фигурном катании?",
+      "answers": [
+        "Английское «toe loop»",
+        "Фамилия фигуриста",
+        "Имя тренера",
+        "Французское «прыжок»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "olimpiada"
+      ],
+      "image": "assets/images/q_401.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Toe loop по-английски - прыжок с носка конька; русские болельщики услышали «тулуп» и прозвище прижилось. Официально прыжок изобрёл Брюс Мэйпс в 1920-х.",
+      "imageSearchQuery": "Английское слово «toe loop»",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_402",
+      "question": "Что любит плювиофил?",
+      "answers": [
+        "Дождь",
+        "Снег",
+        "Туман",
+        "Ветер"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_402.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Плювиофил» от лат. pluvia (дождь) + греч. philos (любящий). Людей, которых дождь успокаивает и радует, называют плювиофилами.",
+      "imageSearchQuery": "Дождь",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_403",
+      "question": "Почему первый шейный позвонок называют атлантом?",
+      "answers": [
+        "Держит череп",
+        "Имеет отросток-зуб",
+        "Самый крупный",
+        "Срастается первым"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anatomiya"
+      ],
+      "image": "assets/images/q_403.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый шейный позвонок назвали атлантом по аналогии с титаном Атлантом, державшим небесный свод: позвонок несёт на себе всю тяжесть черепа.",
+      "imageSearchQuery": "Держит череп",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_404",
+      "question": "Какими сосудами занимается флеболог?",
+      "answers": [
+        "Венами",
+        "Артериями",
+        "Лимфатическими",
+        "Капиллярами"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_404.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Флеболог специализируется на диагностике и лечении заболеваний вен - варикоза, тромбофлебита. Название от лат. phlebos (вена).",
+      "imageSearchQuery": "Венами",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_405",
+      "question": "Какими органами занимается нефролог?",
+      "answers": [
+        "Почками",
+        "Печенью",
+        "Лёгкими",
+        "Желудком"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_405.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Нефролог лечит заболевания почек - от пиелонефрита до хронической почечной недостаточности. Название от греч. nephros (почка).",
+      "imageSearchQuery": "Почками",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_406",
+      "question": "Чьё имя носит синдром, при котором человек пытается сам себе сделать операцию?",
+      "answers": [
+        "Ван Гога",
+        "Парацельса",
+        "Мюнхгаузена",
+        "Авиценны"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "psihologiya"
+      ],
+      "image": "assets/images/q_406.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Синдром Ван Гога - редкое психическое расстройство, при котором человек настаивает на хирургическом вмешательстве или пытается провести его самостоятельно. Назван по аналогии с тем, как художник отрезал себе мочку уха.",
+      "imageSearchQuery": "Ван Гога",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_407",
+      "question": "Какую болезнь французы называли «итальянской», а итальянцы «французской»?",
+      "answers": [
+        "Сифилис",
+        "Туберкулёз",
+        "Оспа",
+        "Грипп"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_407.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сифилис распространился в Европе после 1494 года, и каждая страна сваливала его происхождение на соседей: французы - на итальянцев, итальянцы - на французов.",
+      "imageSearchQuery": "Сифилис",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_408",
+      "question": "Что такое эффект Стрейзанд?",
+      "answers": [
+        "Реклама через запрет",
+        "Подражание знаменитости",
+        "Рост цен после запрета",
+        "Любовь к животным"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "obshchestvo",
+        "internet"
+      ],
+      "image": "assets/images/q_408.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Барбра Стрейзанд подала в суд, требуя удалить фото своего дома - и вместо 6 просмотров снимок увидели миллионы. Теперь эффектом Стрейзанд называют рост интереса к чему-либо из-за попытки это скрыть.",
+      "imageSearchQuery": "Реклама через запрет",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_409",
+      "question": "Что такое вариоляция, попавшая в Западную Европу из Турции в XVIII веке?",
+      "answers": [
+        "Намеренное заражение оспой",
+        "Карантин для моряков",
+        "Кровопускание при лихорадке",
+        "Прогревание на солнце"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_409.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Вариоляция - введение содержимого оспенных пустул здоровому человеку для выработки иммунитета; это прямой предшественник вакцинации, которую Дженнер разработал в 1796 году.",
+      "imageSearchQuery": "Намеренное заражение оспой",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_410",
+      "question": "Что Чебышёв представил на Всемирной выставке в Париже в 1878 году под названием «стопоходящая машина»?",
+      "answers": [
+        "Шагающий механизм",
+        "Паровой автомобиль",
+        "Подводную лодку",
+        "Воздушный шар"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya",
+        "lichnosti-uchyonye"
+      ],
+      "image": "assets/images/q_410.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Чебышёв создал механизм из рычагов, который имитировал походку человека - стопа двигалась по эллипсообразной траектории. Это первый в истории самоходный шагающий прибор.",
+      "imageSearchQuery": "Шагающий механизм",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_411",
+      "question": "Что означает слово «вафля» в переводе с немецкого?",
+      "answers": [
+        "Соты",
+        "Клетку",
+        "Хлеб",
+        "Камень"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "eda"
+      ],
+      "image": "assets/images/q_411.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Немецкое Waffel восходит к средненидерландскому wafel - соты, ячейки. Характерная сетчатая форма вафли и дала ей имя по аналогии с пчелиными сотами.",
+      "imageSearchQuery": "Соты",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_412",
+      "question": "Чернилами какого цвета в Корее не пишут имена живых людей из-за ассоциации с именами умерших?",
+      "answers": [
+        "Красными",
+        "Синими",
+        "Чёрными",
+        "Зелёными"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "obychai-tradicii"
+      ],
+      "image": "assets/images/q_412.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Корее красными чернилами традиционно вписывали имена умерших в семейные книги: написать имя живого человека красным считается плохой приметой, предвещающей его скорую смерть.",
+      "imageSearchQuery": "Красными",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_413",
+      "question": "Как переводится с малайского название фрукта салак?",
+      "answers": [
+        "Змеиный фрукт",
+        "Лягушачий фрукт",
+        "Птичий фрукт",
+        "Черепаший фрукт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_413.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кожура салака покрыта коричневой чешуёй, напоминающей змеиную кожу, - отсюда название. Фрукт растёт в Индонезии и Малайзии.",
+      "imageSearchQuery": "Змеиный фрукт",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_414",
+      "question": "Какой породы бронзовые собаки на станции «Площадь Революции», которым трут нос на удачу?",
+      "answers": [
+        "Немецкая овчарка",
+        "Доберман",
+        "Ротвейлер",
+        "Лабрадор"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "arhitektura"
+      ],
+      "image": "assets/images/q_414.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На «Площади Революции» - 76 бронзовых фигур работы Манизера (1938), в том числе пограничники с немецкими овчарками. Студенты МГУ натёрли носы собакам до блеска, веря, что это приносит удачу на экзаменах.",
+      "imageSearchQuery": "Немецкая овчарка",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_415",
+      "question": "Что соединила первая линия московского метро?",
+      "answers": [
+        "Два парка",
+        "Вокзалы",
+        "Стадионы",
+        "Набережные"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya",
+        "poezda"
+      ],
+      "image": "assets/images/q_415.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первая линия, открытая в 1935 году, шла от станции «Сокольники» до «Парка культуры» - то есть буквально от одного парка до другого, что удивляет, когда ожидаешь транспортных узлов.",
+      "imageSearchQuery": "Два парка",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_416",
+      "question": "В честь кого было названо Московское метро при открытии в 1935 году?",
+      "answers": [
+        "Кагановича",
+        "Ленина",
+        "Молотова",
+        "Сталина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poezda",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_416.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Метрополитен открыли с именем Лазаря Кагановича: именно он руководил строительством. В 1955 году переименовали в честь Ленина, а с 1990-го метро носит нынешнее название.",
+      "imageSearchQuery": "Кагановича",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_417",
+      "question": "В каком городе в 1913 году открылся первый метрополитен Южной Америки?",
+      "answers": [
+        "Буэнос-Айрес",
+        "Сан-Паулу",
+        "Рио-де-Жанейро",
+        "Каракас"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poezda",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_417.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Метро Буэнос-Айреса - старейшее в Южной Америке и во всём Южном полушарии, открыто в 1913 году. Его первая линия была проложена под главным проспектом Авенида-де-Майо.",
+      "imageSearchQuery": "Буэнос-Айрес",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_418",
+      "question": "Какого цвета старейшая ветка метро в Будапеште, открытая ещё в XIX веке и работающая до сих пор?",
+      "answers": [
+        "Жёлтая",
+        "Красная",
+        "Синяя",
+        "Зелёная"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poezda",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_418.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Жёлтая линия (М1) открылась в 1896 году к тысячелетию Венгрии - она была второй подземной электрической линией в мире после Лондона. Сейчас это объект наследия ЮНЕСКО.",
+      "imageSearchQuery": "Жёлтая",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_419",
+      "question": "Какую награду получила станция метро «Маяковская» на Всемирной выставке в Нью-Йорке в 1939 году?",
+      "answers": [
+        "Гран-при за архитектуру",
+        "Золотую медаль жюри",
+        "Приз союза архитекторов",
+        "Диплом лучшего транспорта"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya",
+        "stili-arhitektury"
+      ],
+      "image": "assets/images/q_419.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На выставке 1939 года в Нью-Йорке макет «Маяковской» получил Гран-при - единственная советская станция метро, удостоенная международной архитектурной премии.",
+      "imageSearchQuery": "Гран-при за архитектуру",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_420",
+      "question": "Сколько станций было в московском метро в день открытия в 1935 году?",
+      "answers": [
+        "13",
+        "7",
+        "11",
+        "21"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poezda"
+      ],
+      "image": "assets/images/q_420.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "15 мая 1935 года открылась первая очередь из 13 станций на единственной линии от Сокольников до Парка культуры с ответвлением до Смоленской.",
+      "imageSearchQuery": "13",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_421",
+      "question": "Какая станция московского метро носит имя Триумфальных ворот, стоявших здесь со времён Петра I?",
+      "answers": [
+        "Красные ворота",
+        "Кутузовская",
+        "Смоленская",
+        "Лубянка"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_421.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Красные (то есть красивые) ворота - деревянная Триумфальная арка, возведённая при Петре I и заменённая каменной при Елизавете; снесена в 1927 году, но имя осталось у станции.",
+      "imageSearchQuery": "Красные ворота",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_422",
+      "question": "На какой станции Московского метро Сталин выступал с речью 6 ноября 1941 года?",
+      "answers": [
+        "Маяковская",
+        "Кропоткинская",
+        "Площадь Революции",
+        "Александровский сад"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_422.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Торжественное заседание по случаю годовщины Октябрьской революции прошло прямо на платформе станции «Маяковская» - немцы стояли в 30 км от Москвы, и бомбоубежище метро было безопаснее любого зала.",
+      "imageSearchQuery": "Маяковская",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_423",
+      "question": "Кто в «Игре престолов» произносит фразу «Я не собираюсь вязать у камина, пока мужчины сражаются за меня»?",
+      "answers": [
+        "Лианна Мормонт",
+        "Санса Старк",
+        "Оленна Тирелл",
+        "Бриенна Тарт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "igra-prestolov"
+      ],
+      "image": "assets/images/q_423.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Маленькая, но непреклонная правительница острова Медвежий, Лианна Мормонт, произносит эту фразу, объявляя о своём намерении лично сражаться при Винтерфелле.",
+      "imageSearchQuery": "Лианна Мормонт",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_424",
+      "question": "Кто казнил Мизинца в «Игре престолов»?",
+      "answers": [
+        "Арья Старк",
+        "Санса Старк",
+        "Джон Сноу",
+        "Бриенна Тарт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "igra-prestolov"
+      ],
+      "image": "assets/images/q_424.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Санса вынесла приговор, а Арья привела его в исполнение тем самым валирийским кинжалом, который когда-то был частью заговора против Брана.",
+      "imageSearchQuery": "Арья Старк",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_425",
+      "question": "Как переводится название «Вавилон» на аккадском языке?",
+      "answers": [
+        "Ворота Бога",
+        "Город Бога",
+        "Башня Бога",
+        "Престол Бога"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_425.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На аккадском «Баб-илим» означает «Ворота Бога». Отсюда же библейское «Вавилон» и слово «вавилонское смешение», вошедшее во многие языки.",
+      "imageSearchQuery": "Ворота Бога",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_428",
+      "question": "Как называется памятник бездомной собаке в переходе московского метро «Менделеевская»?",
+      "answers": [
+        "Сочувствие",
+        "Верность",
+        "Надежда",
+        "Дружба"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_428.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бронзовая собака «Сочувствие» появилась на «Менделеевской» в 2007 году - единственный в московской подземке памятник бездомным животным, призывающий к гуманному отношению.",
+      "imageSearchQuery": "Сочувствие",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_445",
+      "question": "Как называется корабль Морфеуса в «Матрице»?",
+      "answers": [
+        "«Навуходоносор»",
+        "«Юпитер»",
+        "«Цезарь»",
+        "«Давид»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika"
+      ],
+      "image": "assets/images/q_445.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Навуходоносор» - судно на воздушной подушке, на котором команда Морфеуса перемещается по подземному миру Зиона. Название взято у вавилонского царя, известного по Библии.",
+      "imageSearchQuery": "«Навуходоносор»",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_447",
+      "question": "Сколько раз ДиКаприо номинировался на «Оскар» до победы с «Выжившим»?",
+      "answers": [
+        "4 раза",
+        "2 раза",
+        "3 раза",
+        "6 раз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "aktyory",
+        "lichnosti"
+      ],
+      "image": "assets/images/q_447.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "До «Выжившего» ДиКаприо четырежды оставался без «Оскара» - за «Что гложет Гилберта Грейпа», «Авиатора», «Кровавый алмаз» и «Волка с Уолл-стрит». Победа на пятой номинации в 2016 году стала событием года.",
+      "imageSearchQuery": "«Выживший»",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_451",
+      "question": "Что производил завод Оскара Шиндлера, рабочих которого он спасал от нацистских депортаций?",
+      "answers": [
+        "Эмалированную посуду",
+        "Армейское обмундирование",
+        "Артиллерийские снаряды",
+        "Кожаные изделия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "xx-vek",
+        "dramy-trillery"
+      ],
+      "image": "assets/images/q_451.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шиндлер арендовал в Кракове эмалировочный завод и записывал евреев «незаменимыми» рабочими. Парадокс: людей спасали от смерти обычные кастрюли и миски.",
+      "imageSearchQuery": "Краков",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_455",
+      "question": "Какая дисциплина фристайла была исключена из олимпийской программы?",
+      "answers": [
+        "Лыжный балет",
+        "Могул",
+        "Акробатика",
+        "Ски-кросс"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "olimpiada"
+      ],
+      "image": "assets/images/q_455.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Лыжный балет - хореографические фигуры под музыку на пологом склоне - был демонстрационной дисциплиной на Олимпиаде 1988 и 1992 годов, но в программу так и не вошёл и к 2000-м исчез полностью.",
+      "imageSearchQuery": "Слалом",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_456",
+      "question": "Сколько весят перчатки боксёров на профессиональных боях?",
+      "answers": [
+        "8 унций",
+        "16 унций",
+        "24 унции",
+        "32 унции"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "boks-edinoborstva"
+      ],
+      "image": "assets/images/q_456.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Перчатки на профи-боях весят всего 8-10 унций (~230-280 г) - легче тренировочных. Чем легче перчатка, тем жёстче удар, поэтому бой опаснее спарринга.",
+      "imageSearchQuery": "Унциях",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_463",
+      "question": "В каком виде спорта выступила первая в истории олимпийская чемпионка?",
+      "answers": [
+        "Теннис",
+        "Лёгкая атлетика",
+        "Плавание",
+        "Гимнастика"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "olimpiada",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_463.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первой олимпийской чемпионкой в истории стала британская теннисистка Шарлотта Купер на Играх 1900 года в Париже - именно тогда женщин впервые допустили к соревнованиям в теннисе, гольфе и парусном спорте.",
+      "imageSearchQuery": "Париж 1900",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_468",
+      "question": "Какая компания спонсирует Олимпиаду непрерывно с 1928 года - дольше любой другой в истории Игр?",
+      "answers": [
+        "Coca-Cola",
+        "Adidas",
+        "Visa",
+        "Samsung"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "olimpiada",
+        "kompanii"
+      ],
+      "image": "assets/images/q_468.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Coca-Cola не пропустила ни одной Олимпиады с Амстердама-1928 - почти 100 лет непрерывно. Это абсолютный рекорд корпоративного партнёрства в истории Олимпийских игр.",
+      "imageSearchQuery": "1928",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_482",
+      "question": "Какой цвет в китайской системе пяти стихий символизирует воду и мудрость?",
+      "answers": [
+        "Чёрный",
+        "Синий",
+        "Белый",
+        "Серый"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "obychai-tradicii",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_482.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В системе у-син вода связана с севером, зимой и мудростью - и всё это олицетворяет чёрный, а не синий. Красный - противоположность: огонь, юг, страсть.",
+      "imageSearchQuery": "Вода",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_500",
+      "question": "Красный и какой цвет при смешении дают нейтральный серый?",
+      "answers": [
+        "Зелёный",
+        "Фиолетовый",
+        "Оранжевый",
+        "Синий"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_500.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Красный и зелёный - дополнительные цвета: они расположены напротив друг друга на цветовом круге и при смешении полностью нейтрализуют друг друга, давая серый. Именно поэтому зелёный корректор нейтрализует красноту на коже.",
+      "imageSearchQuery": "Комплементарные",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_503",
+      "question": "Сколько работ создал Пабло Пикассо за всю жизнь, по оценке Музея современного искусства?",
+      "answers": [
+        "50 000",
+        "10 000",
+        "200 000",
+        "500 000"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "lichnosti-hudozhniki",
+        "zhivopis"
+      ],
+      "image": "assets/images/q_503.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По оценке Музея современного искусства, Пикассо создал около 50 000 работ - картины, рисунки, скульптуры, керамику, гравюры. Это делает его одним из самых плодовитых художников в истории.",
+      "imageSearchQuery": "Более 20 000",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_506",
+      "question": "Тренчкот - культовый плащ с погонами и кольцами на поясе - изначально создавался для кого?",
+      "answers": [
+        "Офицеров Первой мировой",
+        "Лондонских детективов",
+        "Полярных исследователей",
+        "Железнодорожных кондукторов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "odezhda",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_506.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тренчкот разработан для британских офицеров в окопах (trench - траншея) Первой мировой: непромокаемый, с погонами для знаков различия и металлическими кольцами на поясе - для гранат.",
+      "imageSearchQuery": "Траншейное пальто",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_508",
+      "question": "Где посетителей официально просили не пользоваться духами Poison от Dior?",
+      "answers": [
+        "В ресторанах",
+        "В метро",
+        "В библиотеках",
+        "В магазинах"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmetika",
+        "kompanii"
+      ],
+      "image": "assets/images/q_508.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Аромат Poison (1985) был настолько мощным, что рестораны и театры просили гостей не наносить его. Скандал только подстегнул продажи и сделал духи легендарными.",
+      "imageSearchQuery": "Dior",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_509",
+      "question": "На чём отец Кристиана Диора сколотил состояние, давшее сыну художественное образование?",
+      "answers": [
+        "Химические удобрения",
+        "Торговля тканями",
+        "Банковское дело",
+        "Виноделие"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "lichnosti-predprinimateli",
+        "brendy-mody"
+      ],
+      "image": "assets/images/q_509.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Отец великого кутюрье Морис Диор разбогател на производстве и продаже химических удобрений - деньги с навоза и гуано оплатили художественное воспитание будущего короля моды. В кризис 1929-1930-х семья потеряла всё, и Диор начинал дизайнером с нуля.",
+      "imageSearchQuery": "Кристиана Диора",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_513",
+      "question": "Для кого Леви Страусс и портной Джейкоб Дэвис изобрели джинсы с медными заклёпками в 1873 году?",
+      "answers": [
+        "Золотоискатели",
+        "Ковбои",
+        "Железнодорожники",
+        "Фермеры"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "lichnosti-predprinimateli",
+        "brendy-mody"
+      ],
+      "image": "assets/images/q_513.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джинсы придумали для золотоискателей Калифорнийской лихорадки - медные заклёпки на карманах не давали швам расходиться под весом самородков и инструментов. С ковбоями их связали позже.",
+      "imageSearchQuery": "Германия",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_514",
+      "question": "Как западная пресса прозвала советскую манекенщицу Регину Збарскую?",
+      "answers": [
+        "оружием Кремля",
+        "советской Мэрилин Монро",
+        "железной леди моды",
+        "лицом соцреализма"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "xx-vek",
+        "modelery"
+      ],
+      "image": "assets/images/q_514.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Збарская возила советскую моду на Запад в 1960-е, и зарубежные журналы окрестили её «самым красивым оружием Кремля» - намекая, что её красота служила мягкой силой СССР в холодной войне.",
+      "imageSearchQuery": "Регина Збарская",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_524",
+      "question": "Какой альбом стал дебютным для группы ДДТ?",
+      "answers": [
+        "«Свинья на радуге»",
+        "«Я получил эту роль»",
+        "«Периферия»",
+        "«Время»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rok"
+      ],
+      "image": "assets/images/q_524.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дебют ДДТ - «Свинья на радуге» (1982), записан подпольно в Уфе и сразу запрещён советской цензурой. Группа была под угрозой уголовного преследования.",
+      "imageSearchQuery": "«Свинья на радуге»",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_539",
+      "question": "До какого веса вырастает гигантский дождевик - самый крупный съедобный гриб?",
+      "answers": [
+        "До 22 кг",
+        "До 5 кг",
+        "До 50 кг",
+        "До 10 кг"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "rasteniya"
+      ],
+      "image": "assets/images/q_539.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гигантский дождевик (Calvatia gigantea) достигает 22 кг - это рекорд среди съедобных грибов. В молодости он съедобен и по вкусу напоминает тофу.",
+      "imageSearchQuery": "Дождевик",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_561",
+      "question": "Зачем на гурте (ребре) монеты делают насечки?",
+      "answers": [
+        "Защита от обрезки",
+        "Удобство захвата",
+        "Обозначение номинала",
+        "Знак монетного двора"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dengi-valyuty"
+      ],
+      "image": "assets/images/q_561.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Насечки на гурте появились в XVII веке: мошенники срезали края золотых и серебряных монет, а металл пускали в переплавку. Рифление делало порчу заметной сразу.",
+      "imageSearchQuery": "Гурт",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_563",
+      "question": "Сколько лет Япония владела Кореей - с аннексии 1910 года до конца Второй мировой?",
+      "answers": [
+        "15 лет",
+        "25 лет",
+        "35 лет",
+        "50 лет"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "voyny-srazheniya",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_563.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Япония аннексировала Корею в 1910 году - через 5 лет после победы в русско-японской войне - и владела ею ровно 35 лет, до капитуляции в августе 1945 года. После этого страну разделили на Северную и Южную Корею.",
+      "imageSearchQuery": "Япония",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_571",
+      "question": "Что Андре Ситроен превратил в публичное зрелище в своём салоне на Елисейских полях в 1927 году?",
+      "answers": [
+        "Покупку машины",
+        "Тест-драйв",
+        "Сборку автомобиля",
+        "Подписание контракта"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "reklama",
+        "kompanii"
+      ],
+      "image": "assets/images/q_571.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ситроен открыл на Елисейских полях огромный стеклянный шоурум - первый в мире автосалон-витрина, где прохожие с улицы наблюдали за покупкой, а сделка стала публичным шоу.",
+      "imageSearchQuery": "Андре Ситроен",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_590",
+      "question": "Что Макбет называет «главным кормильцем на пиру жизни»?",
+      "answers": [
+        "Сон",
+        "Власть",
+        "Победа",
+        "Золото"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zarubezhnaya-lit",
+        "klassika-lit"
+      ],
+      "image": "assets/images/q_590.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В акте II Макбет, убив Дункана, восклицает: «Макбет зарезал сон - невинный сон, главного кормильца на пиру жизни». Шекспир вложил в уста убийцы одну из самых красивых поэтических метафор сна в мировой литературе.",
+      "imageSearchQuery": "Сон",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_593",
+      "question": "На сколько сантиметров бамбук вырастает за одни сутки?",
+      "answers": [
+        "10 см",
+        "30 см",
+        "60 см",
+        "90 см"
+      ],
+      "correctAnswerIndex": 3,
+      "categories": [
+        "rasteniya"
+      ],
+      "image": "assets/images/q_593.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бамбук - рекордсмен роста среди растений: некоторые виды прибавляют до 91 см за сутки. Секрет в том, что все клетки стебля делятся одновременно по всей его длине.",
+      "imageSearchQuery": "Бамбук",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_599",
+      "question": "Кто спроектировал вокзал Ньюгати в Будапеште?",
+      "answers": [
+        "Густав Эйфель",
+        "Антонио Гауди",
+        "Виктор Орта",
+        "Виктор Балтар"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_599.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Густав Эйфель спроектировал Ньюгати в 1877 году - за 12 лет до своей знаменитой парижской башни. Для большинства людей он навсегда остался «человеком одной башни», хотя его бюро возводило металлические конструкции по всей Европе.",
+      "imageSearchQuery": "Густав Эйфель",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_632",
+      "question": "Какая порода собак считалась любимицей японских императорских дворов и жила у Николая II?",
+      "answers": [
+        "Японский хин",
+        "Акита-ину",
+        "Чау-чау",
+        "Пекинес"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_632.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Японский хин - крошечная декоративная собачка императорских дворов Японии и Китая. Вау-факт: эту же изящную породу держал у себя дома маршал Жуков - железный полководец с боевым псом оказался любителем придворных малюток.",
+      "imageSearchQuery": "Японский хин",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_634",
+      "question": "Какой символ чеканится на монете 100 иен - самой ходовой в Японии?",
+      "answers": [
+        "Сакура",
+        "Хризантема",
+        "Фудзи",
+        "Журавль"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dengi-valyuty"
+      ],
+      "image": "assets/images/q_634.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На 100-иеновой монете - сакура, символ мимолётной красоты. Японцы носят образ национального цветка буквально в кармане каждый день.",
+      "imageSearchQuery": "100 иен",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_638",
+      "question": "В честь кого пилот Пол Тиббетс назвал бомбардировщик, сбросивший бомбу на Хиросиму?",
+      "answers": [
+        "матери Тиббетса",
+        "жены Рузвельта",
+        "дочери Оппенгеймера",
+        "подруги Черчилля"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "xx-vek",
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_638.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тиббетс назвал самолёт Enola Gay в честь своей матери - Энолы Гэй Тиббетс. Сам пилот нанёс надпись на нос фюзеляжа в ночь перед вылетом, не предупредив экипаж.",
+      "imageSearchQuery": "Тиниан",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_650",
+      "question": "Как называется валюта Египта - самой населённой арабской страны?",
+      "answers": [
+        "Фунт",
+        "Динар",
+        "Дирхам",
+        "Риал"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dengi-valyuty"
+      ],
+      "image": "assets/images/q_650.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Египетский фунт - официальная валюта с 1834 года, название унаследовано от британского колониального влияния. Среди арабских стран только Египет называет свою валюту «фунтом», как Великобритания.",
+      "imageSearchQuery": "Египта",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_653",
+      "question": "Чем прославился австралийский остров Кенгуру помимо своей фауны?",
+      "answers": [
+        "Пчелиный заповедник",
+        "Коала-парк",
+        "Питомник китов",
+        "Змеиный заповедник"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "strany-goroda",
+        "priroda-zhivotnye"
+      ],
+      "image": "assets/images/q_653.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "С 1885 года на острове Кенгуру законодательно запрещено держать любых пчёл, кроме лигурийских, - так сложился старейший в мире пчелиный заповедник. Сегодня здесь живёт последняя чистопородная популяция лигурийских пчёл, исчезнувших у себя на родине в Италии из-за болезней и скрещивания.",
+      "imageSearchQuery": "Кенгуру",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_663",
+      "question": "Из чего состоит ганаш - основа шоколадных трюфелей?",
+      "answers": [
+        "горячие сливки и шоколад",
+        "масло и какао",
+        "желтки и шоколад",
+        "молоко и крахмал"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "eda"
+      ],
+      "image": "assets/images/q_663.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ганаш - это просто горячие сливки, вылитые на шоколад и перемешанные до эмульсии. Никаких яиц, муки или загустителей - только два ингредиента, и именно из этой смеси делают начинку трюфелей и покрытие тортов.",
+      "imageSearchQuery": "Крем из шоколада и сливок",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_664",
+      "question": "Что является основой десерта пралине?",
+      "answers": [
+        "Взбитые сливки",
+        "Орехи в карамели",
+        "Заварной крем",
+        "Яичный белок"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "eda"
+      ],
+      "image": "assets/images/q_664.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пралине - это орехи (миндаль или фундук), карамелизованные в сахаре; изобретение приписывают повару маршала Прален в XVII веке.",
+      "imageSearchQuery": "Орехи в карамели",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_678",
+      "question": "Какая площадь Москвы старше Красной?",
+      "answers": [
+        "Соборная",
+        "Ивановская",
+        "Сенатская",
+        "Манежная"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_678.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Соборная площадь Кремля сложилась при Иване III в XV веке - раньше, чем появилась Красная. На ней стоят главные соборы и Грановитая палата, и именно она, а не Красная, была первым парадным центром Москвы.",
+      "imageSearchQuery": "Соборная",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_681",
+      "question": "Чем была марка Kiehl's до того, как её купил L'Oréal?",
+      "answers": [
+        "Аптека в Нью-Йорке",
+        "Парфюмерный дом",
+        "Косметическая лаборатория",
+        "Семейная ферма"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmetika",
+        "kompanii"
+      ],
+      "image": "assets/images/q_681.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Kiehl's открылась как обычная аптека в Нью-Йорке в 1851 году - и проработала так почти 150 лет, пока L'Oréal не купил её в 2000-м.",
+      "imageSearchQuery": "Kiehl's",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_682",
+      "question": "Мастера какой страны построили Грановитую палату - старейшее гражданское здание Москвы?",
+      "answers": [
+        "Италии",
+        "Германии",
+        "Франции",
+        "Польши"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_682.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Грановитую палату в 1487-1491 годах возвели итальянские архитекторы Марко Фрязин и Пьетро Антонио Солари. Зал до сих пор используется для государственных церемоний в Кремле.",
+      "imageSearchQuery": "Грановитая палата",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_700",
+      "question": "Что дословно означает «Речь Посполита» - название государства, объединившего Польшу и Литву в 1569 году?",
+      "answers": [
+        "Общее дело",
+        "Союз народов",
+        "Великое королевство",
+        "Земли короны"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "novoe-vremya",
+        "gosudarstva"
+      ],
+      "image": "assets/images/q_700.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Речь Посполита» - калька с латинского res publica («общее дело», «республика»). Это была выборная монархия, где шляхта голосовала за короля, - фактически аристократическая республика, а не обычное королевство.",
+      "imageSearchQuery": "Великое княжество Литовское",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_709",
+      "question": "Из какого слова произошла «решка» - народное название оборотной стороны монеты?",
+      "answers": [
+        "Решётка",
+        "Рубашка",
+        "Резьба",
+        "Решение"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dengi-valyuty"
+      ],
+      "image": "assets/images/q_709.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На старых русских копейках оборотную сторону украшала декоративная решётка - отсюда и «решка». «Орёл» же - потому что на аверсе чеканился двуглавый орёл герба.",
+      "imageSearchQuery": "Реверс",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_723",
+      "question": "Потеря какой фигуры в шахматах считается «почти невосполнимой» и приравнивается к потере сразу 9 пешек?",
+      "answers": [
+        "Ферзя",
+        "Ладьи",
+        "Двух слонов",
+        "Двух ладей"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "shahmaty"
+      ],
+      "image": "assets/images/q_723.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По стандартной таблице материальной ценности ферзь стоит 9 пешек - больше, чем любые две другие фигуры вместе взятые (две ладьи = 10, но пара ладей компенсирует ферзя лишь при активной игре). Поэтому жертву ферзя называют «гамбитом высшей пробы».",
+      "imageSearchQuery": "9",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_728",
+      "question": "Клаузевиц умер в 1831 году, не завершив «О войне» - кто издал трактат посмертно?",
+      "answers": [
+        "Его жена Мари",
+        "Прусский генштаб",
+        "Его брат",
+        "Ученики-офицеры"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_728.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Трактат «О войне» издала жена Клаузевица - Мари фон Клаузевиц, в 1832 году. Она собрала рукописи, написала предисловие и выпустила все три тома - редкий случай, когда женщина стала редактором главного военного труда эпохи.",
+      "imageSearchQuery": "Туман войны",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_732",
+      "question": "Кому ФИДЕ передала титул чемпиона мира по шахматам, когда Бобби Фишер в 1975 году отказался защищать его?",
+      "answers": [
+        "Карпову",
+        "Корчному",
+        "Спасскому",
+        "Петросяну"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "shahmaty",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_732.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фишер выдвинул ФИДЕ условия, та отказала - и он просто не приехал на матч. Карпов стал чемпионом мира, не сыграв в финале ни одной партии.",
+      "imageSearchQuery": "По решению ФИДЕ без матча",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_743",
+      "question": "Акулы не могут просто «зависнуть» на глубине и должны постоянно плыть - чем они компенсируют отсутствие плавательного пузыря?",
+      "answers": [
+        "Жирная печень",
+        "Широкие плавники",
+        "Плотные кости",
+        "Особые жабры"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vodnye-obitateli"
+      ],
+      "image": "assets/images/q_743.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Печень акулы занимает до 25% массы тела и набита сквалeном - маслом легче воды. Это заменяет плавательный пузырь: жирная печень даёт плавучесть, а само движение не даёт тонуть.",
+      "imageSearchQuery": "Плавательный пузырь",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_764",
+      "question": "Какой толщины достигали стены романских соборов X-XII веков?",
+      "answers": [
+        "0,5 м",
+        "1 м",
+        "2 м",
+        "4 м"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "stili-arhitektury"
+      ],
+      "image": "assets/images/q_764.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Романские стены достигали 2 м в толщину - иначе тяжёлые каменные своды просто раздавили бы здание. Готика решила эту же задачу каркасом и аркбутанами, освободив стены для огромных витражей.",
+      "imageSearchQuery": "Романский",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_769",
+      "question": "Что Стив Джобс сделал прямо на сцене во время первой презентации iPhone в 2007 году?",
+      "answers": [
+        "Сделал звонок в Starbucks",
+        "Отправил твит",
+        "Купил кофе на сцене",
+        "Вызвал такси"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "lichnosti-predprinimateli",
+        "kompanii"
+      ],
+      "image": "assets/images/q_769.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джобс набрал номер ближайшего Starbucks и заказал «4000 латте навынос» - прямо со сцены, перед тысячной аудиторией. Бариста на другом конце провода так и не понял, что стал частью исторической презентации.",
+      "imageSearchQuery": "4000 латте",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_787",
+      "question": "От какого блюда, по основной версии, произошёл вьетнамский суп фо?",
+      "answers": [
+        "Французского пот-о-фё",
+        "Китайского лапшевника",
+        "Японского рамена",
+        "Монгольского хот-пота"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_787.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Суп фо, символ Вьетнама, вероятно обязан своим названием и говяжьим бульоном французскому pot-au-feu: французские колонизаторы принесли традицию варить говядину, а слово «фо» - адаптация слова «фё».",
+      "imageSearchQuery": "Фо Бо",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_789",
+      "question": "Для какого международного форума был построен Русский мост во Владивостоке в 2012 году?",
+      "answers": [
+        "Саммит АТЭС",
+        "Форум БРИКС",
+        "Встреча ШОС",
+        "Конференция СНГ"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "znamenitye-zdaniya",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_789.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Русский мост перекинули через пролив Босфор Восточный специально к саммиту АТЭС-2012 во Владивостоке. Центральный пролёт длиной 1104 м сделал его одним из рекордных вантовых мостов в мире.",
+      "imageSearchQuery": "Владивосток",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_799",
+      "question": "Сколько долларов накопится за 30 лет, если каждый день вкладывать $5 вместо траты на кофе (с реинвестированием)?",
+      "answers": [
+        "150 000 долларов",
+        "30 000 долларов",
+        "500 000 долларов",
+        "50 000 долларов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biznes-dengi"
+      ],
+      "image": "assets/images/q_799.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Финансист Дэвид Бах назвал это «Latte Factor»: $5 в день под среднерыночный процент превращаются в более $150 000 за 30 лет. Мелкие ежедневные траты незаметны, но их инвестиционный потенциал огромен.",
+      "imageSearchQuery": "Латте",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_800",
+      "question": "Как называется фотостенд с вырезом для лица, обычно с юмористическим рисунком?",
+      "answers": [
+        "Тантамареска",
+        "Ширма",
+        "Паспарту",
+        "Диорама"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "igry-razvlecheniya"
+      ],
+      "image": "assets/images/q_800.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тантамареска появилась в XIX веке как аттракцион на ярмарках: художник рисовал смешное тело, а зритель просовывал голову в вырез и фотографировался. Слово происходит от французского «tantamaresque» - шутовской.",
+      "imageSearchQuery": "Тантамареска",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_812",
+      "question": "«Корнет» в царской армии - младший офицер кавалерии. Что он был обязан хранить?",
+      "answers": [
+        "Полковой штандарт",
+        "Офицерская казна",
+        "Боевые реляции",
+        "Наградные грамоты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_812.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Само слово «корнет» восходит к французскому cornette - значок, вымпел. Хранение полкового штандарта было главной обязанностью этого чина - отсюда и название.",
+      "imageSearchQuery": "Кавалерия",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_814",
+      "question": "Как называется первый фильм, в котором снялся Чарли Чаплин?",
+      "answers": [
+        "«Зарабатывая на жизнь»",
+        "«Прерванный роман Тилли»",
+        "«Золотая лихорадка»",
+        "«Парижанка»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "aktyory",
+        "lichnosti-aktyory"
+      ],
+      "image": "assets/images/q_814.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый фильм Чарли Чаплина - короткометражка «Зарабатывая на жизнь», вышла 2 февраля 1914 года на студии Keystone. Знаменитый образ Бродяги появился чуть позже в том же году.",
+      "imageSearchQuery": "«Прерванный роман Тилли»",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_815",
+      "question": "Центробанк печатает рубли, а компания выпускает акции - оба совершают одно и то же действие. Как оно называется?",
+      "answers": [
+        "Эмиссия",
+        "Листинг",
+        "Клиринг",
+        "Секьюритизация"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dengi-valyuty",
+        "biznes-dengi"
+      ],
+      "image": "assets/images/q_815.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Эмиссия - единый термин для выпуска в обращение любых ценностей: государство эмитирует деньги, компания - акции. Поэтому Центробанк и стартап на бирже формально называются одним словом - эмитенты.",
+      "imageSearchQuery": "Эмиссия",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_816",
+      "question": "Кто открыл радиоактивность в 1896 году?",
+      "answers": [
+        "Анри Беккерель",
+        "Вильгельм Рентген",
+        "Эрнест Резерфорд",
+        "Джозеф Томсон"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "uchyonye",
+        "fizika",
+        "lichnosti-uchyonye"
+      ],
+      "image": "assets/images/q_816.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Радиоактивность открыл Анри Беккерель в 1896 году, заметив, что соли урана сами засвечивают фотопластинку. Мария и Пьер Кюри позже ввели термин «радиоактивность» и открыли полоний и радий - поэтому открытие часто ошибочно приписывают им.",
+      "imageSearchQuery": "Радиоактивность",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_818",
+      "question": "В каком городе Брюллов написал «Последний день Помпеи»?",
+      "answers": [
+        "Рим",
+        "Петербург",
+        "Помпеи",
+        "Неаполь"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "muzei",
+        "zhivopis"
+      ],
+      "image": "assets/images/q_818.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Брюллов писал «Последний день Помпеи» в Риме с 1830 по 1833 год - самая знаменитая «русская» картина создана в Италии. Гоголь назвал её «одним из великих явлений живописи».",
+      "imageSearchQuery": "Русский музей",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_823",
+      "question": "Какой из этих мультфильмов снят по произведению Аркадия Гайдара?",
+      "answers": [
+        "За час до свидания",
+        "Кто получит приз",
+        "Мальчиш-Кибальчиш",
+        "Похитители красок"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "multfilmy",
+        "sovetskoe-kino"
+      ],
+      "image": "assets/images/q_823.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Мальчиш-Кибальчиш» (1958) снят по повести Аркадия Гайдара «Военная тайна».",
+      "imageSearchQuery": "Мальчиш-Кибальчиш",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_825",
+      "question": "Какой титул носил отец Боромира Денэтор - глава Гондора во «Властелине Колец»?",
+      "answers": [
+        "Наместник",
+        "Король",
+        "Регент",
+        "Протектор"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vlastelin-kolec"
+      ],
+      "image": "assets/images/q_825.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гондором почти тысячу лет правили Наместники - не короли, потому что трон пустовал со времён последнего короля Эарнура. Денэтор и его предки лишь «хранили» престол - до возвращения законного наследника, которым стал Арагорн.",
+      "imageSearchQuery": "Гондор",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_826",
+      "question": "Какой народ основал последнюю императорскую династию Китая?",
+      "answers": [
+        "Маньчжуры",
+        "Монголы",
+        "Тибетцы",
+        "Хань"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "istoriya"
+      ],
+      "image": "assets/images/q_826.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Династию Цин (1644-1912) основали маньчжуры - народ с северо-востока, не китайцы-хань. Около 268 лет огромной страной правила этническая группа, составлявшая менее 2% её населения.",
+      "imageSearchQuery": "Цин",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_830",
+      "question": "Как называли правителей провинций в Древней Персии?",
+      "answers": [
+        "Сатрапы",
+        "Тираны",
+        "Эпархи",
+        "Номархи"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_830.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сатрап (от древнеперс. «хранитель царства») управлял сатрапией - крупной провинцией Персидской империи. Слово вошло в русский язык как синоним жёсткого наместника.",
+      "imageSearchQuery": "Сатрапы",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_832",
+      "question": "Что такое ирит?",
+      "answers": [
+        "Воспаление радужки глаза",
+        "Воспаление дёсен",
+        "Раздражение кожи",
+        "Сухость глаз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina",
+        "anatomiya"
+      ],
+      "image": "assets/images/q_832.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ирит - воспаление радужной оболочки (iris) глаза. Проявляется болью, светобоязнью и покраснением; требует срочного лечения, так как может привести к потере зрения.",
+      "imageSearchQuery": "Воспаление радужки глаза",
+      "reviewStatus": "approved",
+      "llmVerdict": "drop"
+    },
+    {
+      "id": "q_834",
+      "question": "Что делают длинные уши бассет-хаунда, когда пёс нюхает землю?",
+      "answers": [
+        "Подметают запахи к носу",
+        "Защищают нос от ветра",
+        "Охлаждают кровь в жару",
+        "Улавливают шорохи добычи"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye",
+        "mlekopitayushchie"
+      ],
+      "image": "assets/images/q_834.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Уши бассет-хаунда достигают 30 см и буквально «подметают» землю, поднимая молекулы запаха к носу. Это делает его один из самых чутких нюхачей среди собак.",
+      "imageSearchQuery": "Бассет-хаунд",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_837",
+      "question": "Какое вещество, которое «есть в любой газировке», в чистом виде при комнатной температуре так и не удалось выделить?",
+      "answers": [
+        "Угольная кислота",
+        "Углекислый газ",
+        "Лимонная кислота",
+        "Фосфорная кислота"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya"
+      ],
+      "image": "assets/images/q_837.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Угольная кислота (H₂CO₃) настолько нестабильна, что мгновенно распадается на CO₂ и воду - в чистом виде при комнатной температуре её никогда не получали. В газировке она существует лишь как растворённая форма, а пузырьки - это уже чистый CO₂, который из неё «убежал».",
+      "imageSearchQuery": "Угольная",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_842",
+      "question": "Как называется середина шахматной партии?",
+      "answers": [
+        "Миттельшпиль",
+        "Эндшпиль",
+        "Гамбит",
+        "Цугцванг"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "shahmaty"
+      ],
+      "image": "assets/images/q_842.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шахматная партия делится на три фазы: дебют, миттельшпиль и эндшпиль. В миттельшпиле ведётся основная борьба - атаки, комбинации, жертвы фигур.",
+      "imageSearchQuery": "Миттельшпиль",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_843",
+      "question": "Сколько предметов искусства похитили за одну ночь из музея Гарднер в Бостоне в 1990 году - крупнейшее ограбление музея в истории?",
+      "answers": [
+        "13 предметов",
+        "5 предметов",
+        "21 предмет",
+        "8 предметов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis",
+        "muzei"
+      ],
+      "image": "assets/images/q_843.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Двое грабителей, переодетых полицейскими, вынесли 13 предметов суммарной стоимостью около 500 млн долларов, включая «Концерт» Вермеера - самую дорогую ненайденную картину мира (200 млн). Ни одна вещь не найдена до сих пор.",
+      "imageSearchQuery": "Вермеер, «Концерт»",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_845",
+      "question": "На какой планете сутки длятся дольше, чем год?",
+      "answers": [
+        "Венера",
+        "Меркурий",
+        "Марс",
+        "Юпитер"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "planety"
+      ],
+      "image": "assets/images/q_845.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Венера вращается вокруг оси крайне медленно - один оборот занимает 243 земных дня, а вокруг Солнца она успевает обернуться за 225. Поэтому венерианские сутки длиннее венерианского года.",
+      "imageSearchQuery": "Venus planet",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_846",
+      "question": "Из какой части тела Зевса, по мифу, родилась Афина?",
+      "answers": [
+        "Из головы",
+        "Из бедра",
+        "Из груди",
+        "Из руки"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_846.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Зевс проглотил беременную Метиду, и вскоре у него страшно разболелась голова. Гефест расколол ему череп - и оттуда в полном вооружении вышла Афина. Из бедра Зевса, по другому мифу, родился Дионис.",
+      "imageSearchQuery": "Athena birth Zeus head",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_847",
+      "question": "Что в Венеции изначально означало слово «газета»?",
+      "answers": [
+        "Мелкую монету",
+        "Глашатая",
+        "Свиток",
+        "Почтальона"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_847.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Венеции XVI века рукописный листок новостей стоил мелкую монету - gazzetta. Со временем название монеты перешло на сам листок, а затем и на печатные издания.",
+      "imageSearchQuery": "Venetian gazzetta coin",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_848",
+      "question": "Сколько глаз у медоносной пчелы?",
+      "answers": [
+        "5",
+        "2",
+        "3",
+        "8"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nasekomye"
+      ],
+      "image": "assets/images/q_848.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "У пчелы пять глаз: два больших фасеточных по бокам головы и три простых глазка на темени. Простые глазки не дают изображения, но улавливают уровень освещённости.",
+      "imageSearchQuery": "honeybee five eyes macro",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_849",
+      "question": "Какой была шахматная королева в первоначальной версии игры?",
+      "answers": [
+        "Самой слабой",
+        "Самой сильной",
+        "Ходила как конь",
+        "Не двигалась вовсе"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "shahmaty"
+      ],
+      "image": "assets/images/q_849.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В средневековых шахматах ферзь (визирь) ходил всего на одну клетку по диагонали и считался одной из слабейших фигур. Современные дальнобойные ходы он получил лишь в XV веке - отсюда название той реформы, «бешеная королева».",
+      "imageSearchQuery": "medieval chess queen piece",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
     }
   ]
 }

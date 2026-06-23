@@ -59,11 +59,13 @@ export const loadProd = () => readJson(PROD)
 export const loadPool = () => (fs.existsSync(POOL) ? readJson(POOL) : { questions: [] })
 
 // Код-гейты прода (длина/тире/запрет + гейты уровня вопроса: «около»-спам, вложенные
-// диапазоны) — то же, что в тестах и merge-скриптах.
+// диапазоны) — то же, что в тестах и merge-скриптах. Тире/запрет проверяем И в explanation
+// (тест questions-answers.test.js его проверяет — иначе промоушн пропустит тире в пояснении).
 export function gatesOk(q) {
   return (
     typeof q.question === 'string' && q.question.length <= 240 &&
     validateNoDashes(q.question).ok && validateNoProhibited(q.question).ok &&
+    validateNoDashes(q.explanation || '').ok && validateNoProhibited(q.explanation || '').ok &&
     Array.isArray(q.answers) && q.answers.length === 4 &&
     q.answers.every((a) => validateAnswerText(a).ok && validateNoDashes(a).ok && validateNoProhibited(a).ok) &&
     validateOptionsHomogeneous(q.answers).ok && validateNumericRanges(q.answers).ok
