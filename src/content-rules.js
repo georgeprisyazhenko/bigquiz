@@ -100,3 +100,75 @@ export function validateNoProhibited(text) {
   const m = value.match(PROHIBITED_TOPIC_RE)
   return m ? { ok: false, reasons: [`запрещённая тема ЯИ (3.4): «${m[0]}»`] } : { ok: true, reasons: [] }
 }
+
+// ─── Гейты уровня ВОПРОСА (проверяют 4 варианта вместе, а не один) ────────────────
+// Их нельзя выразить через validateAnswerText (там один ответ) — нужен весь набор.
+//
+// ВАЖНО: границу слова `\b` НЕЛЬЗЯ использовать с кириллицей — в JS `\w` = [A-Za-z0-9_],
+// кириллица для него «не-буква», поэтому `/\bоколо\b/` не матчит русское слово вообще.
+// Поэтому сверяемся по НАБОРУ слов: режем на кириллические токены и проверяем членство.
+const cyrWords = (text) => new Set(((text ?? '').toLowerCase().match(/[а-яё]+/g)) || [])
+const hasAnyWord = (text, set) => { const ws = cyrWords(text); for (const w of set) if (ws.has(w)) return true; return false }
+
+// Смягчители оценки величины. Если такое слово стоит в ≥2 вариантах из 4 — это
+// «около-спам»: формулировка избыточна, слово не несёт значимости (на длину не влияет)
+// и читается как шум. Убирать из ВСЕХ вариантов. Жёсткий гейт (прод чист).
+export const HEDGE_WORDS = new Set(['около', 'примерно', 'приблизительно', 'порядка', 'почти'])
+
+export function validateOptionsHomogeneous(answers) {
+  const arr = Array.isArray(answers) ? answers : []
+  const n = arr.filter((a) => hasAnyWord(a, HEDGE_WORDS)).length
+  return n >= 2
+    ? { ok: false, reasons: [`смягчитель величины («около/примерно») в ${n} из 4 вариантов - убрать из всех`] }
+    : { ok: true, reasons: [] }
+}
+
+// Несколько открытых границ в ОДНУ сторону среди вариантов → диапазоны вложены и верных
+// становится больше одного. Баг: «Более 600 граммов» и «Более 1 кг» (всё, что >1кг, также
+// >600г). Норма — закрытая шкала «Менее X / X-Y / Более Z» (по одной границе с краёв).
+// Считаем ТОЛЬКО открытый порог «более/менее + ЧИСЛО», не сравнительное «вдвое больше»
+// (кратность — не диапазон). Жёсткий гейт.
+const RANGE_LOWER_RE = /(более|больше|свыше)\s+\d/i
+const RANGE_UPPER_RE = /(менее|меньше)\s+\d/i
+
+export function validateNumericRanges(answers) {
+  const arr = Array.isArray(answers) ? answers : []
+  const lower = arr.filter((a) => RANGE_LOWER_RE.test(a ?? '')).length
+  const upper = arr.filter((a) => RANGE_UPPER_RE.test(a ?? '')).length
+  const reasons = []
+  if (lower >= 2) reasons.push(`${lower} варианта с открытой нижней границей («более N…») - вложенные диапазоны`)
+  if (upper >= 2) reasons.push(`${upper} варианта с открытой верхней границей («менее N…») - вложенные диапазоны`)
+  return { ok: reasons.length === 0, reasons }
+}
+
+// Перечисление двух однородных слов через запятую → лучше через союз «и» («Реки, проливы»
+// → «Реки и проливы»). «и» — служебное, на лимит длины не влияет. НЕ трогаем: десятичную
+// запятую (1,5), запятую перед придаточным (как/что/чтобы…), цитаты в кавычках, варианты,
+// где союз уже есть. Мягкое предупреждение (не жёсткий гейт — возможны ложные срабатывания).
+// Верный ответ - единственное «не-круглое» число среди вариантов → он угадывается
+// (реальное значение обычно не кратно 10, а выдуманные дистракторы - кратны: 1500/900/750
+// против 1227). Ловим, ЗНАЯ correctAnswerIndex: если ровно один вариант не делится на 10 и
+// это верный - флаг. Мягкое предупреждение (зависит от индекса, бывают честные исключения).
+const leadingInt = (s) => { const m = String(s ?? '').replace(/\s/g, '').match(/^-?\d+/); return m ? parseInt(m[0], 10) : null }
+
+export function validateNumericTell(answers, correctIndex) {
+  const arr = Array.isArray(answers) ? answers : []
+  const nums = arr.map(leadingInt)
+  if (nums.length !== 4 || nums.some((n) => n === null)) return { ok: true, reasons: [] } // не все числовые
+  const nonRound = nums.map((n, i) => ({ n, i })).filter(({ n }) => n % 10 !== 0)
+  return nonRound.length === 1 && nonRound[0].i === correctIndex
+    ? { ok: false, reasons: ['верный - единственное «не-круглое» число (угадывается); сделай дистракторы тоже не кратными 10'] }
+    : { ok: true, reasons: [] }
+}
+
+const CONJ_WORDS = new Set(['и', 'или', 'да'])
+
+export function validateEnumeration(text) {
+  const v = (text ?? '').trim()
+  // кавычки-цитаты, десятичная запятая, запятая перед придаточным — не перечисление
+  if (/[«»"]/.test(v) || /\d,\d/.test(v) || /,\s*(как|что|чтобы|где|когда|потому)(?![а-яё])/i.test(v)) return { ok: true, reasons: [] }
+  if (hasAnyWord(v, CONJ_WORDS)) return { ok: true, reasons: [] } // союз уже есть
+  return /[А-Яа-яЁё]+\s*,\s*[А-Яа-яЁё]+/.test(v)
+    ? { ok: false, reasons: ['перечисление через запятую - соединить союзом «и»'] }
+    : { ok: true, reasons: [] }
+}

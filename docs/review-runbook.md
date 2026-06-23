@@ -62,6 +62,30 @@ node scripts/merge-analysis.mjs           # примеры → quality-examples.
 **Свод `docs/category-risks.md` правлю руками** по предложениям из `rubric-proposals/` —
 анализатор его не трогает (финальное слово за человеком).
 
+### 6. Пере-судейство пула (когда судья поумнел)
+
+Если в `judgePrompt`/своде появились новые критерии — старые `pending` судились прежним
+судьёй и могли пропустить проблему. Прогон обновлённым судьёй раскладывает их без ручного
+прохода по всем:
+```
+node scripts/prep-rejudge.mjs             # pending пула → scripts/rejudge-in/<subId>.json
+Workflow scripts/re-judge.workflow.js     # судья по подкатегориям → возврат: массив вердиктов
+# сохрани возврат воркфлоу в scripts/rejudge-out.json
+node scripts/merge-rejudge.mjs            # пишет llmVerdict/llmReason + код-гейты; статусы НЕ трогает
+```
+Дальше в `admin.html` фильтруй по `llmVerdict`: drop — подтверждай выброс, revise — на доводку.
+
+### 7. Смена угла (вау-факт из вопроса → в ответ)
+
+Для `revise`-вопросов с диагнозом «вау не в ответе» (экзамен/ярлык) — не механическая доводка,
+а смена угла. Генерим кандидатов, ревьюим в ЧАТЕ (вкусовое решение):
+```
+# положи массив id в scripts/angleflip-ids.json
+node scripts/prep-angle-flip.mjs          # → scripts/angleflip-in/questions.json
+Workflow scripts/angle-flip.workflow.js   # кандидаты «вау-в-ответ» → возврат
+# прогони кандидатов через гейты content-rules, покажи пачками, applied через editQuestion
+```
+
 ## Принципы
 
 - В прод едет только то, что я одобрил.

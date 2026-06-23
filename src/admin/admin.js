@@ -9,7 +9,7 @@
 // Сохранение в нужный файл через dev-плагин Vite (scripts/lib/review-store.mjs).
 
 import { orderAnswers, imageCandidatePaths } from '../card-rules.js'
-import { validateAnswerText } from '../content-rules.js'
+import { validateAnswerText, validateOptionsHomogeneous, validateNumericRanges, validateEnumeration, validateNumericTell } from '../content-rules.js'
 
 const ALL = '__all__'
 
@@ -536,6 +536,21 @@ function reviewPane(q) {
     const w = document.createElement('div')
     w.className = 'answer-warning'
     w.textContent = '⚠ Ответ длиннее лимита (≤3 значимых слов / ≤44 симв.) — переформулировать: ' + tooLong.map((a) => `«${a}»`).join(', ')
+    pane.appendChild(w)
+  }
+
+  // Гейты уровня вопроса: «около»-спам, вложенные диапазоны (жёсткие), перечисление
+  // через запятую → «и» (мягкое). См. src/content-rules.js / docs/rules-map.md.
+  const ruleWarnings = [
+    ...validateOptionsHomogeneous(q.answers || []).reasons,
+    ...validateNumericRanges(q.answers || []).reasons,
+    ...validateNumericTell(q.answers || [], q.correctAnswerIndex).reasons,
+    ...(q.answers || []).flatMap((a) => validateEnumeration(a).reasons.map((r) => `«${a}»: ${r}`))
+  ]
+  for (const text of ruleWarnings) {
+    const w = document.createElement('div')
+    w.className = 'answer-warning'
+    w.textContent = '⚠ ' + text
     pane.appendChild(w)
   }
 

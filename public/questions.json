@@ -277,10 +277,10 @@
       "id": "q_134",
       "question": "Сколько лет прошло от изобретения консервной банки до появления консервного ножа?",
       "answers": [
-        "Около 10 лет",
-        "Около 25 лет",
-        "Около 50 лет",
-        "Около 100 лет"
+        "10 лет",
+        "25 лет",
+        "50 лет",
+        "100 лет"
       ],
       "correctAnswerIndex": 2,
       "categories": [
@@ -513,12 +513,12 @@
     },
     {
       "id": "q_009",
-      "question": "Сколько лет бушует Большое красное пятно на Юпитере?",
+      "question": "Сколько примерно лет бушует Большое красное пятно на Юпитере?",
       "answers": [
-        "Более 350 лет",
-        "Около 50 лет",
-        "Около 100 лет",
-        "Более 500 лет"
+        "350 лет",
+        "50 лет",
+        "100 лет",
+        "200 лет"
       ],
       "correctAnswerIndex": 0,
       "categories": [
@@ -1004,10 +1004,10 @@
       "id": "q_081",
       "question": "Сколько цветков крокуса нужно, чтобы получить 1 кг шафрана?",
       "answers": [
-        "Около 150 000",
-        "Около 5 000",
-        "Около 30 000",
-        "Около 500 000"
+        "150 000",
+        "5 000",
+        "30 000",
+        "500 000"
       ],
       "correctAnswerIndex": 0,
       "categories": [
@@ -1172,10 +1172,10 @@
       "id": "q_107",
       "question": "Какую максимальную скорость развивал первый Bugatti Veyron?",
       "answers": [
-        "Около 350 км/ч",
-        "Около 300 км/ч",
-        "Около 400 км/ч",
-        "Около 500 км/ч"
+        "350 км/ч",
+        "300 км/ч",
+        "400 км/ч",
+        "500 км/ч"
       ],
       "correctAnswerIndex": 2,
       "categories": [
@@ -1334,6 +1334,2035 @@
       "requiresImage": false,
       "explanation": "Настоящий велоцираптор был около метра длиной и весил примерно 15 кг - размером с крупную индейку. В «Парке юрского периода» его роль сыграл дейноних, вдвое крупнее.",
       "imageSearchQuery": "velociraptor real size comparison turkey",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_012",
+      "question": "Сколько костей у новорождённого ребёнка?",
+      "answers": [
+        "270-300",
+        "206",
+        "150",
+        "350"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_012.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "У новорождённого около 270-300 костей. Со временем многие из них срастаются, и к взрослому возрасту их остаётся 206. Дистрактор 206 - это число костей взрослого человека.",
+      "imageSearchQuery": "human skeleton anatomy bones count illustration",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "неинтересно",
+      "reviewSuggestion": "Какое количество костей у новорожденного?",
+      "reviewTags": [
+        "distractors",
+        "boring"
+      ]
+    },
+    {
+      "id": "q_013",
+      "question": "Катаболизм какой ткани - прямой и первичный эффект хронически высокого кортизола?",
+      "answers": [
+        "Мышечной",
+        "Жировой",
+        "Нервной",
+        "Хрящевой"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "medicina"
+      ],
+      "image": "assets/images/q_013.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хронический избыток кортизола запускает прямой катаболизм мышечного белка: организм расщепляет мышцы ради глюкозы. Жировую ткань кортизол, напротив, накапливает (особенно в области живота и лица). Хрящ не является первичной мишенью кортизола.",
+      "imageSearchQuery": "cortisol stress hormone adrenal glands diagram",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "не тот угол",
+      "reviewSuggestion": "На какой тип ткани негативно влияет кортизол? ",
+      "reviewTags": [
+        "boring",
+        "banal"
+      ]
+    },
+    {
+      "id": "q_020",
+      "question": "Какое число приближённо равно золотому сечению?",
+      "answers": [
+        "1,618",
+        "3,14159",
+        "1,41421",
+        "2,71828"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "matematika"
+      ],
+      "image": "assets/images/q_020.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Золотое сечение φ ≈ 1,618: отношение целого к большей части равно отношению большей части к меньшей. Парфенон, спирали раковин и пропорции «Витрувианского человека» да Винчи следуют этому соотношению.",
+      "imageSearchQuery": "golden ratio spiral mathematics",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "тяжело воспринимается вопрос, я бы угол поменял",
+      "reviewSuggestion": "Какой коэффициент соотношения в золотом сечении?",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_029",
+      "question": "Какую долю своей массы хомяк может унести в защёчных мешках?",
+      "answers": [
+        "50%",
+        "10%",
+        "25%",
+        "20%"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_029.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Защёчные мешки хомяка - эластичные кожные складки, тянущиеся от щёк до плеч. В них помещается зерно весом до 50% от массы тела - рекорд среди грызунов.",
+      "imageSearchQuery": "hamster full cheek pouches",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "опять же, цифры / проценты / числа считываются проще, здесь лучше половину написать как 50%",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_030",
+      "question": "Что особенного в зубах морской свинки?",
+      "answers": [
+        "Растут всю жизнь",
+        "Не имеют дентина",
+        "Голубой оттенок",
+        "Все коренные"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "domashnie-zhivotnye"
+      ],
+      "image": "assets/images/q_030.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Все 20 зубов морской свинки (4 резца и 16 коренных) растют непрерывно всю жизнь. Если животное не стачивает их твёрдым кормом, зубы вырастают настолько, что мешают есть. Клыков нет совсем: между резцами и коренными - пустой промежуток, диастема.",
+      "imageSearchQuery": "guinea pig teeth close up",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "я уже писал это, бестолковые дистракторы. Светятся в темноте, серьезно? меняются с возрастом воспринимается как растут всю жизнь",
+      "reviewSuggestion": "растут всю жизнь / эмаль с одной стороны / голубой оттенок / все коренные",
+      "reviewTags": [
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_035",
+      "question": "Кем работал Чарльз Бойкотт, чьё имя в 1880 году стало нарицательным словом в европейских языках?",
+      "answers": [
+        "Управляющим имением",
+        "Сборщиком налогов",
+        "Судебным шерифом",
+        "Землевладельцем"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_035.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Чарльз Бойкотт был управляющим имением в Ирландии. В 1880 году арендаторы коллективно отказались с ним общаться, прогнали его работников и прекратили торговлю. Газеты описали этот метод его именем, и слово «бойкот» вошло в десятки языков.",
+      "imageSearchQuery": "Captain Boycott Ireland 1880 land league",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "зачем поменял хороший угол?",
+      "reviewSuggestion": "кем работал Чарльз Бойкотт, чье имя стало нарицательным?",
+      "reviewTags": [
+        "boring",
+        "banal"
+      ]
+    },
+    {
+      "id": "q_036",
+      "question": "Чем прославился французский министр финансов Силуэт, давший имя портретам без деталей?",
+      "answers": [
+        "Жёсткая экономия",
+        "Запрет живописи",
+        "Коллекция теней",
+        "Реформа налогов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_036.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Этьен де Силуэт - министр финансов Франции 1759 года - был известен жёсткой экономией. Его имя стало насмешливым синонимом всего дешёвого и упрощённого, в том числе дешёвых контурных портретов без деталей.",
+      "imageSearchQuery": "silhouette portrait 18th century France Étienne de Silhouette",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "переносы в ответах это неправильно. Если слово не влезает, то оно целиком переезжает на вторую строку и должно помещаться там. Вероятно, это требуется изменений в коде, подними этот вопрос, когда будешь анализировать",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_037",
+      "question": "Слово «панический» произошло от греческого бога Пана. Покровителем чего он был?",
+      "answers": [
+        "Лесов и пастбищ",
+        "Охоты и дичи",
+        "Ветра и бурь",
+        "Вина и веселья"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "etimologiya"
+      ],
+      "image": "assets/images/q_037.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пан был богом лесов и пастбищ. По мифам, он мог внезапным криком нагнать беспричинный иррациональный ужас на людей и стада. Такой безотчётный страх и назвали «паническим» - по имени этого бога природы, а не войны или смерти.",
+      "imageSearchQuery": "Pan Greek god ancient mythology forest",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_037",
+        "factVerdict": "true",
+        "explanation": "По данным Merriam-Webster и Wikipedia, слово «паника» восходит к греч. «panikos» — внезапный ужас, связанный с Паном, который, когда его будили с дневного сна, издавал оглушительный крик, повергавший людей и стада в безумное бегство. Именно этот крик считается мифологическим источником «панического страха»."
+      },
+      "llmVerdict": "keep",
+      "reviewProblem": "все дистракторы +/- похожи и не запоминаемы. Рельано интересный факт - что это бог лесов и пастбищ, а не ужаса",
+      "reviewSuggestion": "Слово \"панический\" произошло от греческого бога Пана. Покровителем чего он был? Бог страха / Бог лесов и пастбищ / Бог ветра /  Бог вина",
+      "reviewTags": [
+        "boring",
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_040",
+      "question": "Как советские солдаты называли любое тяжёлое немецкое самоходное орудие?",
+      "answers": [
+        "Фердинанд",
+        "Хетцер",
+        "Мардер",
+        "Насхорн"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "vov"
+      ],
+      "image": "assets/images/q_040.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Фердинанд» (позднее переименованный в «Элефант») участвовал лишь в одном крупном сражении - под Курском в 1943 году. Советские солдаты стали называть «Фердинандом» любое тяжёлое немецкое самоходное орудие - термин прижился в донесениях и мемуарах.",
+      "imageSearchQuery": "Elefant Ferdinand heavy tank destroyer WWII Kursk",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "имя - не очень корректно для названия самоходки ",
+      "reviewSuggestion": "Как советские солдаты называли любое тяжёлое немецкое самоходное орудие?",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_041",
+      "question": "Как называется церемония, во время которой монарх Великобритании в Страстной четверг вручает особые монеты пожилым людям?",
+      "answers": [
+        "Мауди-мани",
+        "Инвеститура",
+        "Благодарственный приём",
+        "Тайный совет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_041.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Maundy Money («Мауди-мани») - традиция, восходящая к XIV веку. Монарх вручает специально отчеканенные серебряные монеты пожилым людям, по числу своих лет. Монеты являются законным платёжным средством, но ценятся как реликвии.",
+      "imageSearchQuery": "Maundy Money ceremony British monarch silver coins",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "раздает в вопросе и только один вариант ответа с словом \"раздача\". Помазание вообще не в тему очевидно, как и тронная речь",
+      "reviewSuggestion": "Раздача мауди / Инвеститура / Благодарственный прием / Раздача Кронов",
+      "reviewTags": [
+        "distractors",
+        "leak"
+      ]
+    },
+    {
+      "id": "q_042",
+      "question": "Что японскому парламенту пришлось сделать специально, чтобы позволить императору Акихито отречься от престола?",
+      "answers": [
+        "Принять специальный закон",
+        "Провести референдум",
+        "Изменить конституцию",
+        "Созвать специальный суд"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_042.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Японское законодательство не предусматривало процедуры отречения. Парламент принял отдельный закон под этот единственный случай. Акихито стал первым отрёкшимся японским императором с 1817 года.",
+      "imageSearchQuery": "Emperor Akihito abdication Japan 2019",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_043",
+      "question": "Кто из европейских монархов получил прозвище «бабушка Европы», имея 9 детей и 42 внука, занявших троны по всей Европе?",
+      "answers": [
+        "Королева Виктория",
+        "Мария Терезия",
+        "Екатерина Великая",
+        "Елизавета I"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_043.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Королева Виктория получила прозвище «бабушка Европы» за огромное потомство: 9 детей и 42 внука, унаследовавших троны по всей Европе, включая кайзера Вильгельма II, Николая II и короля Испании Альфонса XIII.",
+      "imageSearchQuery": "Queen Victoria grandmother of Europe royal descendants",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "интереснее было бы спросить, какой европейский монарх получил прозвище \"бабаушка Европы\" за 9 детей и 42 внука, занявших троны по всей Европе? ответ - Королева Виктория",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_045",
+      "question": "Какая внештатная ситуация чуть не стоила Алексею Леонову жизни во время первого выхода в открытый космос?",
+      "answers": [
+        "Раздулся скафандр",
+        "Трос унесло в космос",
+        "Разгерметизация корабля",
+        "Заканчивался кислород"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_045.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В вакууме скафандр Леонова раздулся настолько, что он не мог согнуть руки и ноги и не пролезал в шлюз. Леонов стравил давление до опасного предела - и только так смог вернуться на борт.",
+      "imageSearchQuery": "Alexei Leonov spacewalk 1965",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "Кончился кислород в скафандре = Заканчивался кислород\nКорабль начал разгерметизацию = Разгерметизация корабля\n",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_047",
+      "question": "Что стало причиной гибели экипажа «Союза-11» при возвращении с первой орбитальной станции?",
+      "answers": [
+        "Разгерметизация капсулы",
+        "Отказ парашюта",
+        "Ошибка навигации",
+        "Взрыв двигателя"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_047.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Экипаж «Союза-11» провёл на «Салюте-1» 23 дня в 1971 году и погиб при возвращении: клапан разгерметизировал спускаемый аппарат, и все три космонавта погибли от декомпрессии - первая гибель экипажа в ходе космической миссии.",
+      "imageSearchQuery": "Salyut-1 space station Soviet",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "интереснее факт - из-за чего произошла катастрофа при возвращении экипажа - \"разгермитизация при спуске\"",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_049",
+      "question": "Сколько минут первый аппарат, севший на Венеру, успел передавать данные?",
+      "answers": [
+        "23 минуты",
+        "5 минут",
+        "45 минут",
+        "90 минут"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_049.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Советская «Венера-7» в декабре 1970 года мягко села на Венеру и 23 минуты передавала данные о температуре и давлении - первая успешная межпланетная посадка с телеметрией.",
+      "imageSearchQuery": "Venera 7 Venus lander Soviet spacecraft",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "гибель - плохое слово. И вообще не подходит к аппарату",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_057",
+      "question": "Чей гол болельщики ФИФА в 2002 году признали лучшим в истории футбола?",
+      "answers": [
+        "Диего Марадоны",
+        "Пеле",
+        "Роналдо",
+        "Зинедина Зидана"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_057.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гол Марадоны за Аргентину против Англии на ЧМ-1986 в Мехико, где он обвёл пятерых соперников после пробега в 60 метров, был признан лучшим голом в истории по итогам голосования болельщиков ФИФА в 2002 году.",
+      "imageSearchQuery": "Maradona goal of the century 1986 World Cup England",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "после ответа все забуду через минуту, сколько там игроков, совершенно неинтересный факт. Лучше спросить, кто автор гола века. ОПять интересный факт уже заложен в вопрос",
+      "reviewTags": [
+        "boring"
+      ]
+    },
+    {
+      "id": "q_059",
+      "question": "Кто единственный вратарь за всю историю, получивший «Золотой мяч»?",
+      "answers": [
+        "Лев Яшин",
+        "Дино Дзофф",
+        "Петер Шмейхель",
+        "Оливер Кан"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "futbol"
+      ],
+      "image": "assets/images/q_059.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Яшин получил «Золотой мяч» в 1963 году и остаётся единственным вратарём за всю историю этой премии. В его честь с 2010 года лучшему голкиперу каждого ЧМ ФИФА вручают «Премию Яшина».",
+      "imageSearchQuery": "FIFA World Cup Golden Glove award goalkeeper",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "интересный факт не в том, кто получил награду и в какому году - а то, что это единственный голкипер. Опять факт либо в вопросе, либо в объяснении",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_044",
+      "question": "Какая внешняя причина не позволила Папе удовлетворить просьбу Генриха VIII об аннулировании брака?",
+      "answers": [
+        "Власть Габсбурга над Папой",
+        "Протест парламента Англии",
+        "Отказ самой Екатерины",
+        "Интриги Томаса Кромвеля"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korolevskie-osoby"
+      ],
+      "image": "assets/images/q_044.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1527 году войска Карла V (Габсбурга) разграбили Рим, и Папа фактически оказался в его власти. Поскольку Екатерина Арагонская приходилась Карлу тёткой, оскорбить родственницу всесильного покровителя Папа не мог - это и стало главной внешней причиной, заблокировавшей аннулирование брака.",
+      "imageSearchQuery": "Catherine of Aragon Henry VIII Mary I portrait",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "очень сложно - в вопросе вопрос, два уточнения про обстоятельства. Это тяжело читать. и понимать, что от тебя хотят. И угол неинтересный. Лучше спросить, что заблокировало развод Генрих VIII ",
+      "reviewTags": [
+        "wording",
+        "boring"
+      ]
+    },
+    {
+      "id": "q_069",
+      "question": "Насколько вырос трафик Всемирной паутины в 1993 году - когда Mosaic стал первым массово популярным браузером?",
+      "answers": [
+        "В 341 раз",
+        "В 25 раз",
+        "В 100 раз",
+        "В 2000 раз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_069.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1993 году Марк Андриссен и Эрик Бина выпустили Mosaic - первый браузер с графическим интерфейсом, завоевавший массовую аудиторию. Именно он вызвал взрывной рост веба: трафик WWW за год вырос в 341 раз. Графические браузеры существовали и раньше (например ViolaWWW), но именно Mosaic сделал веб по-настоящему народным.",
+      "imageSearchQuery": "Mosaic web browser 1993 NCSA screenshot",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "Всемирной паутины - так никто не говорит из людей, трафик интернета. И я бы добавил Первый браузер",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_072",
+      "question": "Хакер незаметно вклинивается между пользователем и сервером и перехватывает их трафик, как называется эта атака?",
+      "answers": [
+        "Атака посредника",
+        "Фишинг",
+        "DDoS-атака",
+        "SQL-инъекция"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_072.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Man-in-the-Middle (атака посредника) - хакер встаёт между двумя узлами и читает или подменяет их трафик. HTTPS с проверкой сертификата защищает именно от этого: поддельный сертификат браузер не примет.",
+      "imageSearchQuery": "man in the middle attack network security interception diagram",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "лучше спросить, как называется такой тип атаки. Очень сложные ответы и неинтересный факты. Это не экзамен по ИБ",
+      "reviewTags": [
+        "distractors",
+        "boring",
+        "niche"
+      ]
+    },
+    {
+      "id": "q_073",
+      "question": "Из какого минерала в эпоху Возрождения получали дорогой синий пигмент ультрамарин?",
+      "answers": [
+        "Лазурит",
+        "Азурит",
+        "Малахит",
+        "Кобальт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_073.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ультрамарин получали из лазурита, который везли из Афганистана «из-за моря» (ultra mare). Пигмент стоил дороже золота, поэтому его берегли для самых почётных фигур, прежде всего одежды Мадонны.",
+      "imageSearchQuery": "lapis lazuli ultramarine pigment Renaissance painting",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "если он дороже золота, то автоматом и дороже серебра. дешевле охры бестолковый вариант. Тут проще угол поменять - из чего делали ультрамарин",
+      "reviewTags": [
+        "distractors",
+        "boring"
+      ]
+    },
+    {
+      "id": "q_074",
+      "question": "Почему пигменты фрески не осыпаются веками, как обычная краска?",
+      "answers": [
+        "Кристаллизация извести",
+        "Смолы и воск",
+        "Яичный желток",
+        "Минеральные соли"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_074.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "При высыхании влажной штукатурки гидроксид кальция реагирует с CO2 и превращается в кристаллический карбонат кальция - пигменты замуровываются внутри этой структуры, буквально в стене.",
+      "imageSearchQuery": "fresco technique wet plaster Renaissance wall painting",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_075",
+      "question": "Как называется техника, при которой густую краску наносят толстыми мазками и она застывает рельефом?",
+      "answers": [
+        "Импасто",
+        "Сфумато",
+        "Лессировка",
+        "Пуантилизм"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_075.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ван Гог использовал импасто - нанесение густой краски мастихином или щетинной кистью. Местами слой на его холстах достигает сантиметра, создавая осязаемый рельеф мазка.",
+      "imageSearchQuery": "impasto painting technique thick paint texture Van Gogh",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_079",
+      "question": "Почему испанцы звали художника Доменикоса Теотокопулоса просто «Греком»?",
+      "answers": [
+        "Критянин с греческим именем",
+        "Писал греческие сюжеты",
+        "Говорил лишь по-гречески",
+        "Привозил греческие пигменты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zhivopis"
+      ],
+      "image": "assets/images/q_079.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Теотокопулос родился на Крите, учился в Венеции и переехал в Толедо уже сложившимся мастером. Испанцы не утруждались труднопроизносимым именем и звали его El Greco - Грек.",
+      "imageSearchQuery": "El Greco Toledo painting elongated figures",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_084",
+      "question": "Какой из этих сыров разрешено производить в любой стране, а не только в своём регионе?",
+      "answers": [
+        "Бри де Мо",
+        "Камамбер",
+        "Рокфор",
+        "Пармиджано-Реджано"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_084.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Камамбер как общее название не защищён: статус PDO имеет лишь «Camembert de Normandie». Бри де Мо, Рокфор и Пармиджано-Реджано защищены и производятся только в своих регионах.",
+      "imageSearchQuery": "camembert cheese PDO EU label",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_088",
+      "question": "Какую функцию выполняли пластины на спине стегозавра?",
+      "answers": [
+        "Терморегуляция",
+        "Защита от хищников",
+        "Привлечение партнёра",
+        "Хранение жира"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_088.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пластины стегозавра пронизаны кровеносными сосудами и работали как радиатор: разворачиваясь к солнцу, динозавр нагревался, а на ветру - охлаждался. Версия о защите отвергнута: пластины стоят по центру спины, а не по бокам.",
+      "imageSearchQuery": "stegosaurus back plates closeup",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_090",
+      "question": "Сколько пальцев было на передних лапах у тираннозавра рекса?",
+      "answers": [
+        "Один",
+        "Два",
+        "Три",
+        "Четыре"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "dinozavry"
+      ],
+      "image": "assets/images/q_090.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "У T. rex на передних конечностях было два функциональных пальца с когтями. Предки тираннозавридов имели три пальца, но у T. rex третий редуцировался до рудимента.",
+      "imageSearchQuery": "tyrannosaurus rex forearm two fingers fossil",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_100",
+      "question": "Что происходило с душами умерших, когда они пили из реки Леты в царстве Аида?",
+      "answers": [
+        "Забывали прошлую жизнь",
+        "Обретали покой",
+        "Переходили в животных",
+        "Теряли человеческий облик"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_100.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Лета («забвение») - река в Аиде, из которой души пили перед перерождением, полностью забывая прошлую жизнь. Отсюда выражение «кануть в Лету».",
+      "imageSearchQuery": "River Lethe underworld Greek mythology Hades",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_101",
+      "question": "Кто был биологическим отцом Минотавра в греческом мифе?",
+      "answers": [
+        "Бык Посейдона",
+        "Сам Посейдон",
+        "Минос",
+        "Зевс"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_101.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Посейдон послал Миносу белоснежного быка для жертвоприношения, но тот пожалел его и оставил. В наказание бог заставил жену Миноса Пасифаю влюбиться в быка - так родился Минотавр.",
+      "imageSearchQuery": "Minotaur Minos Pasiphae Labyrinth Crete Greek myth",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_102",
+      "question": "Что означает эпитет «Анадиомена», который носила Афродита?",
+      "answers": [
+        "Восставшая из волн",
+        "Небесная, лучезарная",
+        "Дарящая любовь",
+        "Владычица Кипра"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "grecheskaya-mifologiya"
+      ],
+      "image": "assets/images/q_102.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Анадиомена» - от греческого «анадюомай», выныривать, всплывать. Эпитет отсылает к рождению Афродиты из морской пены у берегов Кипра: богиня буквально «восстала из волн».",
+      "imageSearchQuery": "Aphrodite Anadyomene rising from sea Greek mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "эпитетом вроде не называют, а награждают",
+      "reviewTags": [
+        "wording"
+      ]
+    },
+    {
+      "id": "q_109",
+      "question": "Первую модель советского «Запорожца» прозвали «горбатым», что именно дало машине это прозвище?",
+      "answers": [
+        "Выступ над задним двигателем",
+        "Выпуклая крыша салона",
+        "Форма заднего крыла",
+        "Округлый капот"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_109.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "ЗАЗ-965 (1960-1969) имел характерный покатый горб над задней частью кузова, где был спрятан двигатель с воздушным охлаждением. Именно этот выступ и дал машине прозвище «горбатый».",
+      "imageSearchQuery": "ЗАЗ Запорожец советский автомобиль",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep",
+      "reviewProblem": "причем тут колеса или дорожный просвет к горбатости?",
+      "reviewTags": [
+        "distractors"
+      ]
+    },
+    {
+      "id": "q_110",
+      "question": "Как в народе прозвали Ford Model T за его непритязательный вид и дешевизну?",
+      "answers": [
+        "«Жестянка Лиззи»",
+        "«Чёрная Бетти»",
+        "«Железный Конь»",
+        "«Серый Мул»"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "avtomobili"
+      ],
+      "image": "assets/images/q_110.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ford Model T получил прозвище Tin Lizzie («Жестянка Лиззи»), намекая на дешевизну и жестяной облик машины. Lizzie - это тогдашний сленг для «любой старой рухляди». С 1914 года авто красили только в чёрный: чёрная эмаль сохла быстрее цветных.",
+      "imageSearchQuery": "Ford Model T black tin lizzie 1920s",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_110",
+        "factVerdict": "true",
+        "explanation": "Ford Model T действительно получил прозвище «Tin Lizzie» (Жестянка Лиззи) — это хорошо задокументированный исторический факт. Прозвище связано с дешёвой металлической конструкцией автомобиля и его доступностью для широких масс. Источник: history.com, slashgear.com."
+      },
+      "llmVerdict": "keep",
+      "reviewProblem": "прозвище логично в кавычках давать",
+      "reviewTags": [
+        "language"
+      ]
+    },
+    {
+      "id": "q_119",
+      "question": "Какой внешний признак, который мы раньше считали уникальным для птиц, на самом деле появился ещё у динозавров?",
+      "answers": [
+        "Перья",
+        "Клюв",
+        "Крылья",
+        "Полые кости"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry",
+        "pticy",
+        "biologiya"
+      ],
+      "image": "assets/images/q_119.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Окаменелости из Китая показали перья у десятков видов нептичьих динозавров-теропод. Птицы не изобрели перья - они унаследовали их от своих предков.",
+      "imageSearchQuery": "feathered dinosaur fossils Anchiornis",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_120",
+      "question": "Как учёные выяснили, какого цвета на самом деле были пернатые динозавры?",
+      "answers": [
+        "Меланосомы в перьях",
+        "ДНК из янтаря",
+        "Отпечатки кожи",
+        "Изотопный анализ"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "dinozavry",
+        "biologiya"
+      ],
+      "image": "assets/images/q_120.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В окаменевших перьях сохранились меланосомы - крошечные пигментные структуры. По их форме и расположению учёные восстановили реальный цвет: например, анхиорнис был чёрно-белым с рыжей «шапочкой».",
+      "imageSearchQuery": "Anchiornis dinosaur color reconstruction melanosomes",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_122",
+      "question": "Первый в мире сайт появился в 1991 году. Что на нём было?",
+      "answers": [
+        "Описание веб-технологии",
+        "Новостная лента ЦЕРН",
+        "Фотографии учёных лаборатории",
+        "Расписание конференций"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_122.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тим Бернерс-Ли создал сайт info.cern.ch специально для того, чтобы объяснить коллегам, что такое Всемирная паутина и как ею пользоваться - страница была буквально инструкцией к самой себе.",
+      "imageSearchQuery": "first website CERN 1991 screenshot",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_123",
+      "question": "Знак @ использовали торговцы задолго до email, что он обозначал?",
+      "answers": [
+        "Цену за единицу товара",
+        "Адрес склада",
+        "Подпись купца",
+        "Дату отгрузки"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_123.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В торговых записях @ читался как «по цене»: «10 яблок @ 5 центов», то есть по пять центов штука. Рэй Томлинсон в 1971 году взял именно этот символ для email, чтобы разделить имя пользователя и адрес сервера.",
+      "imageSearchQuery": "at sign @ merchant ledger historical",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_124",
+      "question": "Какой была кликабельность первого баннера в истории интернета, вышедшего в 1994 году?",
+      "answers": [
+        "44%",
+        "10%",
+        "1%",
+        "Менее 0,1%"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_124.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый баннер AT&T на сайте HotWired собрал около 44% кликов, почти каждый второй посетитель нажимал. Сегодня средний баннер не дотягивает до 0,1%: люди выработали «баннерную слепоту».",
+      "imageSearchQuery": "first banner ad 1994 AT&T HotWired",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_124",
+        "factVerdict": "true",
+        "explanation": "Факт подтверждён несколькими независимыми источниками: первый баннер AT&T на HotWired (27 октября 1994 г.) действительно получил около 44% CTR — пользователи кликали из любопытства, никогда ранее не видев кликабельной рекламы. Источник: myitretrieval.com, alucidsolutions.com, Digiday."
+      },
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_125",
+      "question": "Netscape в 1994 году отдавали браузер бесплатно, хотя рассчитывали на нём зарабатывать, откуда шли деньги?",
+      "answers": [
+        "Продажа серверного ПО компаниям",
+        "Реклама внутри браузера",
+        "Платная техподдержка пользователей",
+        "Лицензии для провайдеров"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet",
+        "kompyutery"
+      ],
+      "image": "assets/images/q_125.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Модель была такая: браузер бесплатен для всех, чтобы захватить рынок, а корпоративные клиенты платили за серверы Netscape, на которых держали свои сайты. Это один из первых примеров бизнес-модели «платформа бесплатно, инфраструктура за деньги».",
+      "imageSearchQuery": "Netscape Navigator browser 1994 screenshot",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_126",
+      "question": "Почему адреса сайтов начинались с «www»?",
+      "answers": [
+        "Отличить веб от служб",
+        "Требование протокола HTTP",
+        "Требовал браузер Mosaic",
+        "Стандарт безопасности ЦЕРН"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "internet"
+      ],
+      "image": "assets/images/q_126.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В ранних сетях один компьютер держал сразу несколько служб: почту (mail.), файлы (ftp.), новости (news.). Приставка www просто говорила: «это именно веб-сервер». Сегодня большинство сайтов работают и без неё, это дань традиции.",
+      "imageSearchQuery": "www world wide web address bar browser",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_128",
+      "question": "Чем на самом деле является карри в индийской кухне?",
+      "answers": [
+        "Смесью специй",
+        "Соусом",
+        "Техникой приготовления",
+        "Видом перца"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_128.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Слово «карри» - британское обобщение: в Индии каждый регион смешивает свой набор специй (масала) по-своему; единого рецепта не существует, а порошок карри придумали в Англии для упрощения.",
+      "imageSearchQuery": "indian spice masala curry powder mix",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_131",
+      "question": "Зачем кимчи перед ферментацией засыпают большим количеством соли, а потом промывают?",
+      "answers": [
+        "Вытянуть воду из листьев",
+        "Добавить солёный вкус",
+        "Убрать горечь",
+        "Улучшить впитывание перца"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "kuhni-mira"
+      ],
+      "image": "assets/images/q_131.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Соль вытягивает влагу из клеток через осмос - листья становятся мягкими и эластичными, затем рассол смывают и набивают капусту пастой из перца, имбиря и чеснока для ферментации.",
+      "imageSearchQuery": "kimchi salted cabbage preparation korean",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_132",
+      "question": "Что расплавилось в кармане у Перси Спенсера рядом с магнетроном и натолкнуло его на идею микроволновки?",
+      "answers": [
+        "Шоколадный батончик",
+        "Кусок сыра",
+        "Карамельные конфеты",
+        "Жевательная резинка"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_132.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1945 году Перси Спенсер стоял рядом с магнетроном и заметил, что шоколадный батончик в его кармане расплавился. Он начал эксперименты, и уже через два года появилась первая коммерческая микроволновая печь.",
+      "imageSearchQuery": "Percy Spencer microwave oven invention chocolate bar",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_133",
+      "question": "Почему клейкие листочки Post-it так долго не появлялись, хотя клей для них изобрели ещё в 1968 году?",
+      "answers": [
+        "Клей сочли браком",
+        "Не нашли бумагу",
+        "Запрет патента",
+        "Нехватка финансирования"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_133.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Спенсер Сильвер в 3M случайно создал слабый клей, который не прилипал намертво - это сочли дефектом и положили на полку. Лишь через 6 лет коллега Артур Фрай вспомнил о нём, когда закладка выпала из его молитвенника.",
+      "imageSearchQuery": "Post-it note invention Spencer Silver 3M sticky note",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_135",
+      "question": "Почему первые шариковые ручки продавали главным образом военным лётчикам?",
+      "answers": [
+        "Пишут при любом давлении",
+        "Не замерзают на морозе",
+        "Не нуждаются в заправке",
+        "Дешевле перьевых"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_135.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шариковая ручка, в отличие от перьевой, работает при пониженном давлении на высоте и не вытекает чернилами - именно это свойство сделало её незаменимой в кабине самолёта: компания Биро с 1943 года поставляла ручки лётчикам RAF задолго до выхода на массовый рынок.",
+      "imageSearchQuery": "ballpoint pen invention aviation pressure writing",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_136",
+      "question": "Какое вещество Байер продавал как безопасный заменитель морфия, а оно само вызвало зависимость?",
+      "answers": [
+        "Героин",
+        "Аспирин",
+        "Кокаин",
+        "Хлороформ"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya",
+        "medicina"
+      ],
+      "image": "assets/images/q_136.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1898 году Байер выпустил диацетилморфин под торговым названием «Heroin» и рекламировал как безопасный заменитель морфия. Через несколько лет стало ясно, что он вызывает зависимость куда сильнее морфия.",
+      "imageSearchQuery": "Bayer heroin 1898 advertisement medicine history",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_139",
+      "question": "С каким пористым веществом Альфред Нобель смешал нитроглицерин, чтобы сделать его безопасным в обращении?",
+      "answers": [
+        "Кизельгур",
+        "Древесный уголь",
+        "Гашёная известь",
+        "Речной песок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_139.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Нитроглицерин взрывался от малейшего толчка, пока в 1867 году Нобель не смешал его с кизельгуром - пористой осадочной породой из панцирей диатомовых водорослей. Она впитывала жидкость и гасила случайные удары: так родился динамит.",
+      "imageSearchQuery": "dynamite Nobel invention nitroglycerin kieselguhr mining safety",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_140",
+      "question": "В какой области случайно открыли тефлон, позже ставший покрытием сковород?",
+      "answers": [
+        "Разработка хладагентов",
+        "Авиационное топливо",
+        "Производство стекла",
+        "Испытания резины"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_140.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1938 году химик Рой Планкетт в DuPont исследовал новые фреоны (хладагенты для холодильников), когда у него заморозился и полимеризовался баллон с тетрафторэтиленом. Полученный порошок оказался сверхскользким и химически инертным - это и был тефлон.",
+      "imageSearchQuery": "Teflon PTFE discovery Roy Plunkett DuPont 1938 accident",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_142",
+      "question": "Слово «вирус» на латыни означало нечто совсем не связанное с болезнями. Что именно?",
+      "answers": [
+        "Яд",
+        "Слизь",
+        "Крошечный",
+        "Невидимый"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_142.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Латинское virus означало прежде всего яд - именно в этом смысле слово употребляли Пастер и Ивановский ещё до понимания природы вирусов. В конце XIX века выяснилось, что существуют возбудители, проходящие через бактериальные фильтры.",
+      "imageSearchQuery": "вирус под микроскопом латынь",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_143",
+      "question": "Почему морской огурец при нападении хищника выбрасывает собственные внутренности наружу?",
+      "answers": [
+        "Отвлечь хищника",
+        "Избавиться от токсинов",
+        "Сбросить вес для побега",
+        "Ослепить хищника светом"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "vodnye-obitateli"
+      ],
+      "image": "assets/images/q_143.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Морской огурец выбрасывает кишечник и дыхательные деревья через анус - хищник занят добычей, пока сам огурец уползает. Внутренности полностью отрастают за несколько недель.",
+      "imageSearchQuery": "морской огурец эвисцерация защита",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_144",
+      "question": "Фламинго рождаются белыми. Почему взрослые птицы становятся розовыми?",
+      "answers": [
+        "Пигменты из корма",
+        "Реакция кожи на солнце",
+        "Гормоны в период размножения",
+        "Соль из воды"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "pticy"
+      ],
+      "image": "assets/images/q_144.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фламинго едят водоросли и рачков, богатых каротиноидами, которые откладываются в перьях и коже. В зоопарках без специальной добавки птицы постепенно бледнеют до белого.",
+      "imageSearchQuery": "фламинго розовый цвет каротиноиды",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_147",
+      "question": "Растения не могут убежать от гусениц, но могут предупредить соседей об атаке. Как?",
+      "answers": [
+        "Выделяют летучие вещества",
+        "Посылают сигналы через корни",
+        "Меняют цвет листьев",
+        "Выделяют сок в почву"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "rasteniya"
+      ],
+      "image": "assets/images/q_147.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Объеденное растение выбрасывает в воздух летучие соединения - жасмонаты и терпены. Соседние растения «чуют» их и начинают накапливать горькие вещества в листьях ещё до нападения. Это химическая сигнализация на уровне целого леса.",
+      "imageSearchQuery": "растения химические сигналы летучие вещества листья",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_148",
+      "question": "Хамелеон меняет окраску, но главная причина - не маскировка. Для чего он это делает чаще всего?",
+      "answers": [
+        "Общаться с другими хамелеонами",
+        "Предупреждать об опасности яркостью",
+        "Привлекать насекомых",
+        "Пугать хищников"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya"
+      ],
+      "image": "assets/images/q_148.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Смена цвета у хамелеонов - прежде всего социальный сигнал: ярко вспыхивают самцы при виде соперника или самки, темнеют при стрессе. Маскировка под фон - скорее побочный эффект, чем основная функция.",
+      "imageSearchQuery": "хамелеон смена цвета общение",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_149",
+      "question": "Какой охотничий приём независимо возник у летучих мышей и дельфинов, несмотря на их дальнее родство?",
+      "answers": [
+        "Эхолокация",
+        "Групповая охота",
+        "Ночная активность",
+        "Охота электрополями"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "mlekopitayushchie"
+      ],
+      "image": "assets/images/q_149.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Оба издают ультразвуковые сигналы и слышат их отражение от препятствий и добычи. Эхолокация возникла у этих животных независимо - классический пример конвергентной эволюции: одинаковое решение при разной родословной.",
+      "imageSearchQuery": "эхолокация летучая мышь дельфин конвергенция",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_150",
+      "question": "Зачем паук съедает свою порванную паутину после поимки добычи?",
+      "answers": [
+        "Переработать белок сети",
+        "Скрыть следы от врагов",
+        "Заглушить голод",
+        "Укрепить нижние нити"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "nasekomye"
+      ],
+      "image": "assets/images/q_150.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Паутина почти целиком состоит из белка, а его синтез очень затратен. Поедая повреждённую сеть, паук возвращает до 90% аминокислот обратно в организм и быстро строит новую - экономная биологическая переработка.",
+      "imageSearchQuery": "паук паутина белок переработка",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_151",
+      "question": "В какую стадию превращается «бессмертная» медуза Turritopsis dohrnii, чтобы начать жизнь заново?",
+      "answers": [
+        "В полип",
+        "В личинку",
+        "В яйцо",
+        "В кисту"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "biologiya",
+        "vodnye-obitateli"
+      ],
+      "image": "assets/images/q_151.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "При стрессе или старении Turritopsis dohrnii превращается обратно в полип и проходит весь цикл развития сначала. Теоретически этот процесс может повторяться бесконечно - единственное известное биологически потенциально бессмертное многоклеточное животное.",
+      "imageSearchQuery": "бессмертная медуза Turritopsis dohrnii ювенильная стадия",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_152",
+      "question": "Зачем египетские жрецы и аристократы брили голову наголо?",
+      "answers": [
+        "Защита от вшей",
+        "Охлаждение головы",
+        "Траур по фараону",
+        "Омоложение кожи"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_152.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В жарком климате волосы под плотным льном кишели паразитами. Бритая голова была самым практичным способом соблюдать гигиену, а парик надевался поверх - для статуса и защиты от солнца.",
+      "imageSearchQuery": "ancient Egypt shaved head priest wig",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_154",
+      "question": "Почему гладиолус так называется?",
+      "answers": [
+        "Листья похожи на меч",
+        "Стебель похож на копьё",
+        "Соцветие напоминает факел",
+        "Цветок посвящён гладиаторам"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_154.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По-латыни gladius - меч; листья гладиолуса узкие и заострённые, как клинок. То же слово дало имя гладиаторам - буквально «людям с мечом».",
+      "imageSearchQuery": "Roman gladius sword gladiator",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_155",
+      "question": "Зачем у египетских каменных статуй руки всегда плотно прижаты к бокам?",
+      "answers": [
+        "Прочность скульптуры",
+        "Поза смирения",
+        "Символ власти",
+        "Традиция деревянных идолов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_155.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Камень хрупок на излом: вытянутая рука легко ломалась бы под собственным весом или при транспортировке. Прижатые руки - инженерное решение, позволявшее сохранить скульптуру целой на века. Бронзовые статуи греков уже могли стоять с поднятыми руками.",
+      "imageSearchQuery": "Egyptian stone statue arms sides Khafre",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_156",
+      "question": "Что позволяло инкам хранить числовые записи без письменности?",
+      "answers": [
+        "Узелки на верёвках",
+        "Рисунки на камне",
+        "Устные гонцы",
+        "Счётные таблички"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "pismennost"
+      ],
+      "image": "assets/images/q_156.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кипу - система узелков из разноцветных шнуров - позволяла инкам записывать числа, налоги, переписи и, возможно, нарративы. Расшифровать все функции кипу учёные не могут до сих пор.",
+      "imageSearchQuery": "Inca quipu knotted cord record keeping",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_157",
+      "question": "Что символизировали два лица римского бога Януса?",
+      "answers": [
+        "Прошлое и будущее",
+        "День и ночь",
+        "Войну и мир",
+        "Небо и землю"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_157.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Янус смотрел одновременно назад и вперёд - его два лица олицетворяли переход между старым и новым. Именно поэтому бог всех начал и порогов дал имя январю - первому месяцу года.",
+      "imageSearchQuery": "Janus Roman god two faces temple",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_158",
+      "question": "Зачем в египетские гробницы клали сотни маленьких фигурок слуг, ушебти?",
+      "answers": [
+        "Выполнять работу за умершего",
+        "Защищать от злых духов",
+        "Охранять сокровища",
+        "Вести в загробный мир"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_158.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По верованиям египтян, в загробном мире умершего могли призвать выполнять общественные работы - возделывать поля, рыть каналы. Ушебти должны были откликнуться вместо хозяина и сделать эту работу. Богатых хоронили с сотнями таких «заместителей».",
+      "imageSearchQuery": "Egyptian ushabti funerary figurines shabti tomb",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_159",
+      "question": "Акведук Аппия длиной 16 км имел перепад высот всего 5 метров, как римские инженеры выдерживали такой уклон без насосов?",
+      "answers": [
+        "Деревянный уровень с водой",
+        "Шест с отвесом",
+        "Мерный канат",
+        "Метки на скале"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_159.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Римляне применяли хоробат - деревянный уровень с канавкой, заполненной водой: горизонталь определялась по поверхности воды в покое. Это позволяло выдерживать уклон около 0,3 м на километр по всей длине трассы без единого насоса.",
+      "imageSearchQuery": "Roman aqueduct slope gravity water flow Pont du Gard",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_160",
+      "question": "Майя специально деформировали черепа младенцев, прикладывая дощечки. Что именно это означало в их обществе?",
+      "answers": [
+        "Принадлежность к знати",
+        "Посвящение богу солнца",
+        "Защита от болезней",
+        "Инициация воина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii"
+      ],
+      "image": "assets/images/q_160.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "У майя вытянутый плоский череп считался красивым и являлся признаком высокого статуса. Деформация начиналась с рождения, пока кости черепа ещё мягкие. Такой облик, по ряду интерпретаций, напоминал форму початка кукурузы - священного для майя растения.",
+      "imageSearchQuery": "Maya skull deformation cranial noble aristocrat",
+      "reviewStatus": "approved",
+      "fact": {
+        "id": "q_160",
+        "factVerdict": "true",
+        "explanation": "Практика деформации черепа у майя хорошо задокументирована: младенцев-аристократов помещали между досками вскоре после рождения, придавая голове вытянутую форму, напоминающую голову бога маиса — это служило маркером принадлежности к знати. В классический период (250–900 н.э.) обычай применялся именно к детям жрецов и знати. Источник: ancientpedia.com, historicalmx.org."
+      },
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_161",
+      "question": "Где хранится копия древнейшего известного международного договора - египетско-хеттского мира?",
+      "answers": [
+        "В штаб-квартире ООН",
+        "В Британском музее",
+        "В Египетском музее Каира",
+        "В Лувре"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "voyny-srazheniya"
+      ],
+      "image": "assets/images/q_161.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Египетско-хеттский договор около 1259 г. до н.э. - древнейший известный международный договор. Его копии хранились у обоих царей на серебряных табличках. Современная копия висит в штаб-квартире ООН в Нью-Йорке как символ дипломатии.",
+      "imageSearchQuery": "Hittite Egyptian peace treaty Kadesh silver tablet",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_162",
+      "question": "Какая из этих письменностей появилась раньше всех остальных?",
+      "answers": [
+        "Шумерская клинопись",
+        "Финикийский алфавит",
+        "Греческий алфавит",
+        "Египетские иероглифы"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "drevnie-civilizacii",
+        "pismennost"
+      ],
+      "image": "assets/images/q_162.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шумерская клинопись возникла около 3200 года до нашей эры - примерно в то же время, что и египетские иероглифы (~3100 до н.э.), однако на 2000 лет раньше финикийского алфавита (около 1050 г. до н.э.) и почти на 2400 лет раньше греческого (около 800 г. до н.э.).",
+      "imageSearchQuery": "Sumerian cuneiform clay tablet writing 3200 BC",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_163",
+      "question": "Почему пламя свечи в невесомости принимает форму шара, а не вытянутого языка?",
+      "answers": [
+        "Нет конвекции воздуха",
+        "Нет кислорода",
+        "Воск горит слабее",
+        "Пламя прилипает к фитилю"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_163.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На Земле горячий газ поднимается вверх из-за разницы плотностей - это и вытягивает пламя. В невесомости конвекция не работает, газ расходится равномерно во все стороны, и пламя становится почти идеальным синеватым шариком.",
+      "imageSearchQuery": "candle flame zero gravity ISS experiment",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_164",
+      "question": "Что слышит человек в безэховой камере, где подавлены все внешние звуки?",
+      "answers": [
+        "Звуки своего тела",
+        "Полную тишину",
+        "Гудение электроприборов",
+        "Эхо голоса"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_164.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В безэховой камере люди начинают отчётливо слышать биение сердца, движение крови и работу суставов - шумы собственного тела, которые в обычной жизни заглушает фоновый шум.",
+      "imageSearchQuery": "anechoic chamber room",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_165",
+      "question": "Почему металл на ощупь холоднее дерева при одинаковой температуре?",
+      "answers": [
+        "Быстро отводит тепло",
+        "Хранит холод дольше",
+        "Нагревается медленнее",
+        "Отражает тепло тела"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_165.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Температура обеих поверхностей одинакова, но металл в сотни раз лучше проводит тепло: он быстро «вытягивает» тепло из пальцев, и рецепторы воспринимают это как холод. Дерево - плохой проводник и забирает тепло медленно.",
+      "imageSearchQuery": "metal spoon wooden spoon thermal conductivity",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_168",
+      "question": "Насколько больше давление воды на глубине 10 метров по сравнению с поверхностью?",
+      "answers": [
+        "В три раза больше",
+        "Вдвое больше",
+        "В 10 раз больше",
+        "В 100 раз больше"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_168.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На поверхности на тело давит атмосфера - примерно 1 бар. Каждые 10 метров воды добавляют ещё 1 бар. На глубине 10 м давление равно 2 барам: 1 атмосфера плюс столб воды. Именно поэтому дайверам нужна декомпрессия.",
+      "imageSearchQuery": "underwater pressure diving depth",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_171",
+      "question": "Почему рентгеновские лучи задерживаются костями, но легко проходят сквозь мягкие ткани?",
+      "answers": [
+        "Тяжёлые атомы кальция",
+        "Кости плотнее воды",
+        "Воздух в мягких тканях",
+        "Кристаллическая структура кости"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_171.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Рентгеновские фотоны выбивают электроны из атомов - и чем тяжелее атом, тем эффективнее он их поглощает. Кальций (атомный номер 20) в 3 раза тяжелее углерода и кислорода, составляющих мягкие ткани, поэтому кости буквально непрозрачны для рентгена.",
+      "imageSearchQuery": "electromagnetic spectrum visible light radio waves x-ray",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_172",
+      "question": "Какую форму на самом деле имеет радуга, если смотреть с самолёта?",
+      "answers": [
+        "Полный круг",
+        "Эллипс",
+        "Дугу, как с земли",
+        "Спираль"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_172.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Физически радуга - это полная окружность вокруг точки, противоположной солнцу. С земли виден лишь верхний полукруг - горизонт прячет нижнюю часть. С самолёта или высокой горы при правильных условиях её можно увидеть целиком.",
+      "imageSearchQuery": "circular rainbow from airplane full circle",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_173",
+      "question": "Почему бетонные дороги и мосты строят с небольшими зазорами между плитами, а не заливают единым слоем?",
+      "answers": [
+        "Бетон расширяется от жары",
+        "Бетон оседает под тяжестью",
+        "Для стока воды",
+        "Бетону нужно дышать"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fizika"
+      ],
+      "image": "assets/images/q_173.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бетон и сталь расширяются при нагреве и сжимаются на морозе. Без компенсационных швов летний жар или зимний холод вызвали бы огромные напряжения - покрытие бы вздыбилось или треснуло. Зазоры позволяют плитам свободно двигаться при изменении температуры.",
+      "imageSearchQuery": "expansion joint bridge concrete road",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_174",
+      "question": "Почему на вершинах высоких гор вода закипает при температуре ниже 100 °C?",
+      "answers": [
+        "Давление воздуха ниже",
+        "Воздух суше",
+        "Меньше кислорода",
+        "Сильный ветер охлаждает"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory",
+        "fizika"
+      ],
+      "image": "assets/images/q_174.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Точка кипения зависит от атмосферного давления: на высоте 5000 м давление вдвое ниже, и вода закипает уже при ~83 °C - поэтому сварить яйцо вкрутую в горах заметно сложнее.",
+      "imageSearchQuery": "mountain altitude boiling water cooking",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_175",
+      "question": "Зачем альпинисты при восхождении на Эверест берут с собой баллоны с кислородом, ведь кислород в воздухе там тоже есть?",
+      "answers": [
+        "Воздух слишком разрежён",
+        "Лёгкие хуже работают",
+        "Организм плохо усваивает",
+        "Воздух слишком холодный"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory"
+      ],
+      "image": "assets/images/q_175.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На высоте 8848 м атмосферное давление составляет около трети от нормального: доля кислорода та же, но молекул в каждом вдохе в три раза меньше - это называют «зоной смерти».",
+      "imageSearchQuery": "Everest climber oxygen mask high altitude",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_177",
+      "question": "Почему южные склоны гор в Северном полушарии, как правило, суше и теплее северных?",
+      "answers": [
+        "Больше солнечных часов",
+        "Ветер чаще с севера",
+        "Там тоньше атмосфера",
+        "Снег отражает тепло"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory",
+        "klimat-zony"
+      ],
+      "image": "assets/images/q_177.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Южный склон обращён к солнцу и получает прямые лучи под большим углом большую часть дня - поэтому на нём растут другие растения, а снег тает раньше, чем на северном склоне той же горы.",
+      "imageSearchQuery": "mountain south slope vegetation difference sunlight",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_178",
+      "question": "Какая точка на поверхности Земли дальше всего от центра планеты, и это не Эверест?",
+      "answers": [
+        "Вулкан Чимборасо",
+        "Пик Аконкагуа",
+        "Килиманджаро",
+        "Монблан"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory",
+        "strany-goroda"
+      ],
+      "image": "assets/images/q_178.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Земля сплюснута у полюсов и выпуклая на экваторе: Чимборасо в Эквадоре стоит почти на самом экваторе, поэтому его вершина на 6384 км от центра Земли - на 2 км дальше, чем вершина Эвереста.",
+      "imageSearchQuery": "Chimborazo volcano Ecuador highest point from Earth center",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_180",
+      "question": "Почему вершины старых гор (например, Уральских) округлые, а молодых (например, Альп), острые и зубчатые?",
+      "answers": [
+        "Эрозия за миллионы лет",
+        "Молодые горы выше",
+        "Разные породы оснований",
+        "Ледники только молодых"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory"
+      ],
+      "image": "assets/images/q_180.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Уральские горы старше 300 миллионов лет: ветер, вода и перепады температур постепенно стачивают вершины. Альпы моложе 30 миллионов лет - их пики не успели сгладиться, а активные ледники продолжают вырезать острые гребни.",
+      "imageSearchQuery": "old rounded Ural mountains vs sharp Alps peaks comparison",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_182",
+      "question": "Три из этих четырёх гор - вулканы. Какая лишняя?",
+      "answers": [
+        "Монблан",
+        "Килиманджаро",
+        "Фудзияма",
+        "Этна"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "gory"
+      ],
+      "image": "assets/images/q_182.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Монблан - складчатая гора из гранита и кристаллических сланцев, поднятых столкновением плит. Килиманджаро, Фудзияма и Этна - вулканы, сложенные из застывшей лавы и пепла.",
+      "imageSearchQuery": "Mont Blanc granite non-volcanic mountain Alps",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_184",
+      "question": "Зачем в тесто для бездрожжевой выпечки добавляют соду вместе с уксусом?",
+      "answers": [
+        "Выделяется углекислый газ",
+        "Гибнут бактерии",
+        "Тесто становится слаще",
+        "Разрушается клейковина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "eda"
+      ],
+      "image": "assets/images/q_184.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сода и кислота (уксус, кефир) реагируют прямо в тесте - образуются пузырьки CO₂, которые поднимают выпечку без дрожжей. Без кислоты сода не разлагается нужным образом и даёт мыльный привкус.",
+      "imageSearchQuery": "baking soda vinegar reaction dough",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_185",
+      "question": "Какой металл плавится прямо в ладони от тепла рук?",
+      "answers": [
+        "Галлий",
+        "Олово",
+        "Висмут",
+        "Индий"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "fizika"
+      ],
+      "image": "assets/images/q_185.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Температура плавления галлия - около 29,8 °C, что ниже температуры тела. Серебристый металл выглядит твёрдым, но буквально тает в пальцах, оставляя блестящую лужицу.",
+      "imageSearchQuery": "gallium melting in hand",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_186",
+      "question": "Почему сырая картошка темнеет на срезе за несколько минут?",
+      "answers": [
+        "Окисляются фенольные вещества",
+        "Выделяется крахмал",
+        "Испаряется вода",
+        "Образуется уксусная кислота"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "biologiya"
+      ],
+      "image": "assets/images/q_186.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В клетках картофеля есть фенолы и фермент полифенолоксидаза - при разрезании они контактируют с кислородом воздуха и образуют тёмные пигменты. Именно поэтому картошку кладут в воду - без доступа кислорода реакция не идёт.",
+      "imageSearchQuery": "potato oxidation browning cut",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_187",
+      "question": "В какую структуру молекулы мыла «упаковывают» каплю жира при мытье?",
+      "answers": [
+        "Мицелла",
+        "Эмульсия",
+        "Коллоид",
+        "Суспензия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya"
+      ],
+      "image": "assets/images/q_187.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Молекула мыла двуголова: один конец тянется к жиру, другой - к воде. Окружая каплю жира со всех сторон, молекулы образуют мицеллу - шарик, который вода легко смывает.",
+      "imageSearchQuery": "soap micelle fat molecule diagram",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_188",
+      "question": "Почему перекись водорода пенится на ране?",
+      "answers": [
+        "Выделяется кислород",
+        "Выделяется углекислый газ",
+        "Разрушаются белки крови",
+        "Выделяется водород"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "medicina"
+      ],
+      "image": "assets/images/q_188.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фермент каталаза, которого много в клетках крови и тканей, мгновенно разлагает перекись на воду и кислород. Пузырьки - это и есть выделяющийся O₂; на здоровой коже реакция почти не видна, а на ране - бурная.",
+      "imageSearchQuery": "hydrogen peroxide wound bubbling",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_190",
+      "question": "Что произойдёт, если налить воду в серную кислоту, а не кислоту в воду?",
+      "answers": [
+        "Вскипит и брызнет",
+        "Реакция не произойдёт",
+        "Кислота потеряет свойства",
+        "Выделится ядовитый газ"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya"
+      ],
+      "image": "assets/images/q_190.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Реакция растворения выделяет огромное количество тепла. Если лить воду в кислоту, небольшой объём воды моментально закипает и разбрызгивает горячую кислоту. В воде кислота разбавляется постепенно и безопасно. Ядовитый газ при этом не образуется.",
+      "imageSearchQuery": "sulfuric acid water mixing laboratory safety",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_191",
+      "question": "Какой защитный слой образуется на меди и придаёт ей зелёный цвет?",
+      "answers": [
+        "Патина",
+        "Ржавчина",
+        "Купорос",
+        "Накипь"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya"
+      ],
+      "image": "assets/images/q_191.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Патина - плотный слой карбонатов и сульфатов меди - в отличие от ржавчины не шелушится, а защищает металл. Именно поэтому Статуя Свободы зелёная: она медная, и патина надёжно хранит её уже больше века.",
+      "imageSearchQuery": "copper patina green Statue of Liberty",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_192",
+      "question": "Зачем в пищевые консервы добавляют лимонную кислоту?",
+      "answers": [
+        "Подавить рост бактерий",
+        "Усилить аромат",
+        "Разрыхлить продукт",
+        "Загустить текстуру"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "eda"
+      ],
+      "image": "assets/images/q_192.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Большинство бактерий плохо переносят кислую среду: при pH ниже 4,5 их ферменты не работают. Лимонная кислота снижает pH продукта и блокирует рост опасных микроорганизмов - это один из старейших приёмов консервации.",
+      "imageSearchQuery": "citric acid food preservation canning",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_193",
+      "question": "Почему гелий из шарика делает голос пискливым?",
+      "answers": [
+        "В газе ускоряется звук",
+        "Дрожание связок учащается",
+        "Давление давит на связки",
+        "Температура газа меняется"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "fizika"
+      ],
+      "image": "assets/images/q_193.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гелий в 7 раз легче воздуха - звук распространяется в нём быстрее, и резонансные частоты голосового тракта повышаются. Сами связки колеблются с той же частотой, но тембр меняется из-за ускорения звука в резонаторе - поэтому эффект временный.",
+      "imageSearchQuery": "helium balloon voice funny",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_194",
+      "question": "Как в Средние века делали круглое «кроновое» оконное стекло?",
+      "answers": [
+        "Раскручивали до диска",
+        "Отливали в плоские формы",
+        "Прокатывали горячим",
+        "Растягивали щипцами"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "himiya",
+        "fizika"
+      ],
+      "image": "assets/images/q_194.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Мастер выдувал стеклянный шар, затем раскручивал его у огня - центробежная сила расплющивала шар в круглый диск, тонкий в центре и толстый по краям. Это и есть кроновое стекло.",
+      "imageSearchQuery": "amorphous solid glass chocolate structure",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_195",
+      "question": "Почему тундра летом заболачивается, хотя осадков выпадает мало?",
+      "answers": [
+        "Вечная мерзлота",
+        "Тундра хорошо продувается",
+        "Растения поглощают влагу",
+        "Летние дожди редки"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "klimat-zony",
+        "prirodnye-yavleniya"
+      ],
+      "image": "assets/images/q_195.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Вечная мерзлота - промёрзший слой почвы, который не оттаивает даже летом - служит водоупором. Талая вода не уходит в землю и стоит лужами, превращая тундру в заболоченную равнину при скромных 150-250 мм осадков в год.",
+      "imageSearchQuery": "permafrost tundra waterlogged summer",
       "reviewStatus": "approved",
       "llmVerdict": "keep"
     }

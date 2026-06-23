@@ -1,6 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import {
   validateAnswerText,
+  validateOptionsHomogeneous,
+  validateNumericRanges,
+  validateNumericTell,
+  validateEnumeration,
   MAX_ANSWER_CHARS,
   MAX_ANSWER_WORDS,
   MAX_WORD_CHARS
@@ -45,5 +49,75 @@ describe('validateAnswerText', () => {
   it('возвращает причины при нарушении', () => {
     const result = validateAnswerText('я'.repeat(MAX_ANSWER_CHARS + 5))
     expect(result.reasons.length).toBeGreaterThan(0)
+  })
+})
+
+describe('validateOptionsHomogeneous («около»-спам)', () => {
+  it('пропускает, если смягчитель не более чем в одном варианте', () => {
+    expect(validateOptionsHomogeneous(['Треть', 'Половина', 'Около 80%', 'Пятая часть']).ok).toBe(true)
+  })
+
+  it('ловит «около» в нескольких вариантах', () => {
+    const r = validateOptionsHomogeneous(['Около 40%', 'Около 60%', 'Около 80%', 'Около 95%'])
+    expect(r.ok).toBe(false)
+    expect(r.reasons[0]).toContain('4')
+  })
+
+  it('считает разные смягчители (примерно/порядка)', () => {
+    expect(validateOptionsHomogeneous(['Примерно вдвое', 'Порядка втрое', 'Ровно столько', 'Одинаково']).ok).toBe(false)
+  })
+})
+
+describe('validateNumericRanges (вложенные диапазоны)', () => {
+  it('ловит несколько открытых нижних границ', () => {
+    const r = validateNumericRanges(['Около 100 граммов', 'Около 300 граммов', 'Более 600 граммов', 'Более 1 кг'])
+    expect(r.ok).toBe(false)
+  })
+
+  it('пропускает закрытую шкалу с одной границей с краёв', () => {
+    expect(validateNumericRanges(['Менее 1 кг', '1-5 кг', '5-10 кг', 'Более 10 кг']).ok).toBe(true)
+  })
+
+  it('пропускает варианты без открытых границ', () => {
+    expect(validateNumericRanges(['Треть', 'Половина', 'Десятая часть', 'Пятая часть']).ok).toBe(true)
+  })
+})
+
+describe('validateNumericTell (верный - единственное не-круглое число)', () => {
+  it('ловит верный не-круглый среди круглых дистракторов', () => {
+    const r = validateNumericTell(['1227 км/ч', '1500 км/ч', '900 км/ч', '750 км/ч'], 0)
+    expect(r.ok).toBe(false)
+  })
+
+  it('пропускает, если дистракторы тоже не кратны 10', () => {
+    expect(validateNumericTell(['1227 км/ч', '1452 км/ч', '903 км/ч', '1086 км/ч'], 0).ok).toBe(true)
+  })
+
+  it('не флагует, если не-круглый - это дистрактор, а не верный', () => {
+    expect(validateNumericTell(['100', '300', '600', '1'], 2).ok).toBe(true)
+  })
+
+  it('пропускает нечисловые наборы', () => {
+    expect(validateNumericTell(['Якутск', 'Мурманск', 'Осло', 'Анкоридж'], 0).ok).toBe(true)
+  })
+})
+
+describe('validateEnumeration (запятая → «и»)', () => {
+  it('ловит перечисление двух слов через запятую', () => {
+    expect(validateEnumeration('Разница солёности, температуры').ok).toBe(false)
+  })
+
+  it('не трогает десятичную запятую', () => {
+    expect(validateEnumeration('Менее 0,1%').ok).toBe(true)
+    expect(validateEnumeration('1,618').ok).toBe(true)
+  })
+
+  it('не трогает придаточное и цитаты', () => {
+    expect(validateEnumeration('Дугу, как с земли').ok).toBe(true)
+    expect(validateEnumeration('«Жизнь коротка, веселись»').ok).toBe(true)
+  })
+
+  it('пропускает вариант с уже имеющимся союзом', () => {
+    expect(validateEnumeration('Реки и проливы').ok).toBe(true)
   })
 })

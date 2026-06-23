@@ -20,7 +20,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { stripDashes, validateAnswerText } from '../src/content-rules.js'
+import { stripDashes, validateAnswerText, validateOptionsHomogeneous, validateNumericRanges } from '../src/content-rules.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const GENDIR = path.join(ROOT, 'scripts', 'gen-out')
@@ -78,10 +78,11 @@ for (const r of results) {
     const id = nextId()
     const answers = (q.answers || []).map(stripDashes)
 
-    // Код-гейт длины: судья её не считает (LLM ненадёжно). Длинный ответ — НЕ чистый
-    // keep: детерминированно понижаем до revise (всё равно попадёт в пул как pending,
-    // но помечен как требующий доработки, а не «годен»). См. docs/rules-map.md.
-    const overLimit = answers.some((a) => !validateAnswerText(a).ok)
+    // Код-гейты, которые судья считает ненадёжно: длина + «около»-спам + вложенные
+    // диапазоны. Нарушение — НЕ чистый keep: детерминированно понижаем до revise (всё
+    // равно попадёт в пул как pending, но помечен как требующий доработки). См. docs/rules-map.md.
+    const overLimit = answers.some((a) => !validateAnswerText(a).ok) ||
+      !validateOptionsHomogeneous(answers).ok || !validateNumericRanges(answers).ok
     let verdict = v.verdict
     if (overLimit && verdict === 'keep') { verdict = 'revise'; downgraded++ }
     if (verdict === 'keep') kept++; else revise++

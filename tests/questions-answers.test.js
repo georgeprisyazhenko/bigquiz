@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { validateAnswerText, validateNoDashes, validateNoProhibited } from '../src/content-rules.js'
+import { validateAnswerText, validateNoDashes, validateNoProhibited, validateOptionsHomogeneous, validateNumericRanges } from '../src/content-rules.js'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const questionsPath = join(here, '..', 'public', 'questions.json')
@@ -64,5 +64,27 @@ describe('public/questions.json — длина вариантов ответа',
     })
 
     expect(violations, `Запрещённый по 3.4 контент:\n${violations.join('\n')}`).toEqual([])
+  })
+
+  it('нет «около»-спама: смягчитель величины не более чем в 1 варианте', () => {
+    const violations = []
+
+    questions.forEach((question) => {
+      const { ok, reasons } = validateOptionsHomogeneous(question.answers)
+      if (!ok) violations.push(`${question.id}: ${reasons.join(', ')} — ${JSON.stringify(question.answers)}`)
+    })
+
+    expect(violations, `«Около»-спам по вариантам:\n${violations.join('\n')}`).toEqual([])
+  })
+
+  it('нет вложенных числовых диапазонов (несколько «более…»/«менее…»)', () => {
+    const violations = []
+
+    questions.forEach((question) => {
+      const { ok, reasons } = validateNumericRanges(question.answers)
+      if (!ok) violations.push(`${question.id}: ${reasons.join(', ')} — ${JSON.stringify(question.answers)}`)
+    })
+
+    expect(violations, `Вложенные диапазоны:\n${violations.join('\n')}`).toEqual([])
   })
 })

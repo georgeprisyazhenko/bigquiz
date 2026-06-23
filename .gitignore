@@ -18,6 +18,10 @@ scripts/rescue-in/
 scripts/rescue-out/
 scripts/analysis-in/
 scripts/analysis-out/
+scripts/rejudge-in/
+scripts/rejudge-out.json
+scripts/angleflip-in/
+scripts/angleflip-ids.json
 
 # Бэкапы данных
 public/questions.backup-*.json

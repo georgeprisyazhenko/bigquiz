@@ -12,7 +12,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { stripDashes, validateAnswerText, validateNoDashes, validateNoProhibited } from '../../src/content-rules.js'
+import { stripDashes, validateAnswerText, validateNoDashes, validateNoProhibited, validateOptionsHomogeneous, validateNumericRanges } from '../../src/content-rules.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 const PROD = path.join(ROOT, 'public', 'questions.json')
@@ -58,13 +58,15 @@ function backup(p) {
 export const loadProd = () => readJson(PROD)
 export const loadPool = () => (fs.existsSync(POOL) ? readJson(POOL) : { questions: [] })
 
-// Код-гейты прода (длина/тире/запрет) — то же, что в тестах и merge-скриптах.
+// Код-гейты прода (длина/тире/запрет + гейты уровня вопроса: «около»-спам, вложенные
+// диапазоны) — то же, что в тестах и merge-скриптах.
 export function gatesOk(q) {
   return (
     typeof q.question === 'string' && q.question.length <= 240 &&
     validateNoDashes(q.question).ok && validateNoProhibited(q.question).ok &&
     Array.isArray(q.answers) && q.answers.length === 4 &&
-    q.answers.every((a) => validateAnswerText(a).ok && validateNoDashes(a).ok && validateNoProhibited(a).ok)
+    q.answers.every((a) => validateAnswerText(a).ok && validateNoDashes(a).ok && validateNoProhibited(a).ok) &&
+    validateOptionsHomogeneous(q.answers).ok && validateNumericRanges(q.answers).ok
   )
 }
 
