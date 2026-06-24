@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import {
   validateAnswerText,
   validateOptionsHomogeneous,
+  validateHedgeTell,
   validateNumericRanges,
   validateNumericTell,
   validateEnumeration,
@@ -65,6 +66,22 @@ describe('validateOptionsHomogeneous («около»-спам)', () => {
 
   it('считает разные смягчители (примерно/порядка)', () => {
     expect(validateOptionsHomogeneous(['Примерно вдвое', 'Порядка втрое', 'Ровно столько', 'Одинаково']).ok).toBe(false)
+  })
+})
+
+describe('validateHedgeTell (хедж ровно в 1 варианте телеграфирует)', () => {
+  it('ловит «около» ровно в одном варианте среди голых (живой кейс q_252)', () => {
+    const r = validateHedgeTell(['Около 4 лет', '15 лет', '7 лет', '30 лет'])
+    expect(r.ok).toBe(false)
+    expect(r.reasons[0]).toContain('1 варианте')
+  })
+
+  it('молчит, если хеджа нет вовсе', () => {
+    expect(validateHedgeTell(['4 года', '15 лет', '7 лет', '30 лет']).ok).toBe(true)
+  })
+
+  it('молчит при ≥2 хеджах (это уже ловит validateOptionsHomogeneous)', () => {
+    expect(validateHedgeTell(['Около 40%', 'Около 60%', '80%', '95%']).ok).toBe(true)
   })
 })
 

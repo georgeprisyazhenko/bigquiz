@@ -9,7 +9,7 @@
 // Сохранение в нужный файл через dev-плагин Vite (scripts/lib/review-store.mjs).
 
 import { orderAnswers, imageCandidatePaths } from '../card-rules.js'
-import { validateAnswerText, validateOptionsHomogeneous, validateNumericRanges, validateEnumeration, validateNumericTell } from '../content-rules.js'
+import { validateAnswerText, validateOptionsHomogeneous, validateNumericRanges, validateEnumeration, validateNumericTell, validateHedgeTell } from '../content-rules.js'
 
 const ALL = '__all__'
 
@@ -545,6 +545,7 @@ function reviewPane(q) {
     ...validateOptionsHomogeneous(q.answers || []).reasons,
     ...validateNumericRanges(q.answers || []).reasons,
     ...validateNumericTell(q.answers || [], q.correctAnswerIndex).reasons,
+    ...validateHedgeTell(q.answers || []).reasons,
     ...(q.answers || []).flatMap((a) => validateEnumeration(a).reasons.map((r) => `«${a}»: ${r}`))
   ]
   for (const text of ruleWarnings) {

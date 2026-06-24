@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import './style.css'
 import { initYsdk, loadBestRecord, saveBestRecord } from './ysdk.js'
-import { validateAnswerText, validateNoProhibited, validateOptionsHomogeneous, validateNumericRanges, validateNumericTell } from './content-rules.js'
+import { validateAnswerText, validateNoProhibited, validateOptionsHomogeneous, validateNumericRanges, validateNumericTell, validateHedgeTell } from './content-rules.js'
 import { orderAnswers, isNumericAnswerSet, imageCandidatePaths } from './card-rules.js'
 
 const GAME_WIDTH = 1120
@@ -583,7 +583,7 @@ class GameScene extends Phaser.Scene {
       // Гейты уровня вопроса («около»-спам, вложенные диапазоны) — мягкое предупреждение
       // в игре, жёсткий гейт в тестах/промоушне (см. docs/rules-map.md).
       if (Array.isArray(question.answers)) {
-        for (const res of [validateOptionsHomogeneous(question.answers), validateNumericRanges(question.answers), validateNumericTell(question.answers, question.correctAnswerIndex)]) {
+        for (const res of [validateOptionsHomogeneous(question.answers), validateNumericRanges(question.answers), validateNumericTell(question.answers, question.correctAnswerIndex), validateHedgeTell(question.answers)]) {
           if (!res.ok) warnings.push(`Question ${question.id || questionIndex}: ${res.reasons.join(', ')}`)
         }
       }
