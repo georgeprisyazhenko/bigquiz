@@ -17,8 +17,12 @@ import { execSync } from 'node:child_process'
 const POOL_FILES = /questions\.json|review-pool\.json/
 // Сильные токены тулинга прод/пула — мутируют всегда (блокируем при любом упоминании).
 const TOOLING = /review-store|promoteToProd|editQuestion|saveReview|deleteDrops|promote-to-prod|delete-drops|merge-gen|merge-polish|merge-rejudge/
-// Индикаторы записи рядом с файлом прод/пула (чтобы не блокировать чистые чтения).
-const WRITE = /writeFileSync|>>?|\btee\b|\bcp\b|\bmv\b|sed\s+-i|git\s+(checkout|restore|reset)/
+// Жёсткие индикаторы записи рядом с файлом прод/пула (чтобы не блокировать чистые чтения).
+// БЕЗ голого «>» — он ловил стрелки «=>» и сравнения в node -e (ложные срабатывания).
+const HARD_WRITE = /writeFileSync|\btee\b|\bcp\b|\bmv\b|sed\s+-i|git\s+(checkout|restore|reset)/
+// Шелл-редирект ПРЯМО в файл прод/пула: «> public/questions.json». Имя файла должно идти
+// сразу за «>» (опц. пробел/кавычка) - стрелка «=>a.have» под это не подходит.
+const REDIRECT_TO_POOL = /(?:>>?)\s*['"]?[^'"\s>|]*(?:questions|review-pool)\.json/
 
 function viteRunning() {
   try { execSync('pgrep -f "node.*vite"', { stdio: 'ignore' }); return true } catch { return false }
@@ -31,7 +35,8 @@ function mutatesPoolOrProd(toolName, input) {
   if (toolName === 'Bash') {
     const cmd = String(input?.command || '')
     if (TOOLING.test(cmd)) return true
-    if (POOL_FILES.test(cmd) && WRITE.test(cmd)) return true
+    if (POOL_FILES.test(cmd) && HARD_WRITE.test(cmd)) return true
+    if (REDIRECT_TO_POOL.test(cmd)) return true
     return false
   }
   return false
