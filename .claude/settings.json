@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/hooks/guard-pool-edits.mjs\"",
+            "statusMessage": "Проверка: dev-сервер не затрёт правки прода/пула"
+          }
+        ]
+      }
+    ]
+  }
+}
