@@ -71,6 +71,23 @@ node scripts/merge-gen.mjs
 
 Скрипт делает бэкап пула (`data/review-pool.backup-<timestamp>.json`, игнорится git), дописывает `keep`+`revise` как `pending` с `llmVerdict`/`llmReason`, выдаёт сквозные id (max по проду и пулу) и печатает диапазон новых id. В прод ничего не попадает до моего «Хорошо» + `node scripts/promote-to-prod.mjs`.
 
+### Шаг 3.5. Авто-полиш `revise` ДО ревью (обязательно)
+
+**Договорённость: ревью человека идёт ВСЕГДА после полиша** — сырые `revise` ему не
+показываем (память `feedback-review-after-polish`). Судья только ставит диагноз
+(`llmVerdict=revise` + `llmReason`), фиксы применяет `polish`. Поэтому сразу после
+слияния прогоняем `revise` через полиш с диагнозом судьи как директивой:
+
+```
+node scripts/prep-polish-revise.mjs      # pending+revise из пула (без reworkedAt) → polish-in, директива = llmReason
+Workflow scripts/polish.workflow.js      # fix-first доводка
+node scripts/merge-polish.mjs && npm test # починенные → пул как pending («прошёл доработку»)
+```
+`keep` идут на ревью напрямую (чисты). `revise` после полиша возвращаются исправленными.
+Откаты по гейту длины (`reviewStatus=rework`) — добей вторым проходом полиша.
+⚠ `merge-polish` мутирует пул — страж `scripts/hooks/guard-pool-edits.mjs` заблокирует
+его при живом `vite`; останови dev-сервер на время слияния.
+
 ### Шаг 4. Ревью и очистка
 
 - Открой `/admin.html` (`npm run dev`, если сервер не поднят) и прокликай новые `pending`.
