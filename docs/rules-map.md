@@ -17,6 +17,9 @@
 - Зависимые точки (обновлять вместе):
   - `scripts/fill-questions.workflow.js` — genPrompt (лимит при генерации) + код-гейт длины при слиянии.
   - `scripts/merge-gen.mjs` — код-гейт: длинные генерации не пускать в пул чистым keep.
+  - `scripts/merge-polish.mjs` — гейт длины провален → применить текст полиша ЦЕЛИКОМ
+    (вопрос+ответы когерентны) + статус rework на укоротку. НЕ откат к оригиналу (рассинхрон).
+  - `scripts/prep-polish-revise.mjs` — для length-rework узкая директива «укороти ответы, вопрос не трогай».
   - `scripts/polish.workflow.js` — правило 9 (доводка укорачивает).
   - `scripts/lib/review-store.mjs` — `gatesOk` (промоушн в прод).
   - `src/main.js` — `validateQuestions` (мягкое предупреждение в игре).

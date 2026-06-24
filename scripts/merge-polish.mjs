@@ -5,8 +5,9 @@
 //     поля проблемы/предложения/тегов очищаем (отработаны, сохранены в preReworkVersion).
 //   - Дропнутые polish (drop / факт-миф / неверно): статус → discard, reworkNote с причиной
 //     (человек увидит и при желании воскресит).
-//   - Код-гейты (длина/тире/запрет): нарушены → откат к оригиналу, статус → pending,
-//     reworkNote='гейт провален' (перетриажишь вручную).
+//   - Гейт длины провален: текст полиша применяем ЦЕЛИКОМ (вопрос+ответы когерентны),
+//     статус → rework для укоротки (reworkedAt НЕ ставим). НЕ откатываем к оригиналу -
+//     иначе теряем улучшение и ловим рассинхрон вопрос↔ответы при ручной доводке.
 // Каждое действие пишется в журнал data/review-log.jsonl (корпус для анализатора).
 //
 // node scripts/merge-polish.mjs && npm test
@@ -69,13 +70,21 @@ for (const q of data.questions) {
   const newCI = r.correctAnswerIndex ?? q.correctAnswerIndex
 
   if (!gatesOk({ question: newQ, answers: newA })) {
-    // Правка не уложилась в гейт (обычно: укорочены не все ответы) — оставляем в
-    // ОЧЕРЕДИ (rework), чтобы добить следующим проходом, а не потерять. reworkedAt НЕ
-    // ставим: правка не применена, бейдж «прошёл доработку» был бы враньём.
+    // Гейт длины провален. НЕ откатываем к оригиналу (иначе теряем улучшение полиша И
+    // ловим рассинхрон вопрос↔ответы при ручной доводке). Применяем текст полиша ЦЕЛИКОМ
+    // (вопрос+ответы когерентны, авторства одной стадии), но статус rework — нужна укоротка.
+    // reworkedAt НЕ ставим: длина не уложена, на повторный проход (prep-polish-revise
+    // добирает rework и просит укоротить, не трогая вопрос).
+    q.preReworkVersion = before
+    q.question = newQ
+    q.answers = newA
+    q.correctAnswerIndex = newCI
+    if (r.explanation) q.explanation = stripDashes(r.explanation)
     q.reviewStatus = 'rework'
-    q.reworkNote = 'доработка не применена (гейт длины) — нужна повторная'
+    q.reworkNote = 'полиш применён, но длина ответов не уложена - укоротить ответы, вопрос НЕ менять'
+    delete q.reviewProblem; delete q.reviewSuggestion; delete q.reviewTags
     stat.reverted++
-    appendLog({ id: q.id, action: 'rework-revert', reason: 'code-gate', before, after: null })
+    appendLog({ id: q.id, action: 'rework-longfix', reason: 'code-gate-length', before, after: { question: newQ, answers: newA, correctAnswerIndex: newCI } })
     continue
   }
 
@@ -98,5 +107,5 @@ for (const q of data.questions) {
 }
 
 writeFileSync(POOL, JSON.stringify(data, null, 2) + '\n')
-console.log(`rework merge → пул: починено ${stat.fixed} · без изм. ${stat.unchanged} · дроп ${stat.dropped} · откат ${stat.reverted}`)
+console.log(`rework merge → пул: починено ${stat.fixed} · без изм. ${stat.unchanged} · дроп ${stat.dropped} · применён+на-укоротку ${stat.reverted}`)
 console.log('Доработанные вернулись в пул как pending (с бейджем «прошёл доработку») — пере-ревьюй в админке.')

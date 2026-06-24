@@ -44,13 +44,19 @@ const groups = new Map()
 for (const q of revise) {
   const catName = topNameById.get((q.categories || [])[0]) || 'прочее'
   if (!groups.has(catName)) groups.set(catName, [])
+  // Откаты по длине (merge-polish применил текст, но ответы длинные) — узкая директива:
+  // только укоротить ответы, вопрос НЕ трогать (иначе снова рассинхрон). Остальные — диагноз судьи.
+  const isLong = /укоротить|длин/i.test(q.reworkNote || '')
+  const reviewNote = isLong
+    ? 'УКОРОТИ каждый из 4 ответов до ≤3 значимых слов (≤44 символов), сохранив смысл. Вопрос и правильность НЕ меняй.'
+    : (q.llmReason || '').trim() // диагноз судьи как директива полиша
   groups.get(catName).push({
     id: q.id,
     question: q.question,
     answers: q.answers,
     correctAnswerIndex: q.correctAnswerIndex,
     explanation: q.explanation || '',
-    reviewNote: (q.llmReason || '').trim() // диагноз судьи как директива полиша
+    reviewNote
   })
 }
 
