@@ -29,9 +29,10 @@ for (const top of catsData.categories || []) {
   for (const sub of top.subcategories || []) topNameById.set(sub.id, top.name)
 }
 
-// pending + вердикт судьи revise + ещё не полировались (нет reworkedAt).
+// Кандидаты на (повторный) полиш: вердикт судьи revise, ещё не полированные (нет reworkedAt),
+// в статусе pending ИЛИ rework (откаты по гейту длины из merge-polish — на второй проход).
 const revise = (pool.questions || []).filter(
-  (q) => (q.reviewStatus || 'pending') === 'pending' && q.llmVerdict === 'revise' && !q.reworkedAt
+  (q) => q.llmVerdict === 'revise' && !q.reworkedAt && ['pending', 'rework'].includes(q.reviewStatus || 'pending')
 )
 
 if (!revise.length) { console.log('Нет непрополированных revise в пуле — нечего готовить.'); process.exit(0) }
