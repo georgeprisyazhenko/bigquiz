@@ -16,6 +16,7 @@ export const meta = {
   phases: [
     { title: 'Generate', detail: 'Sonnet: N вопросов на подкатегорию' },
     { title: 'Judge', detail: 'Opus effort low: вердикты пачкой' },
+    { title: 'Factcheck', detail: 'веб-проверка подозрительных фактов (needsFactcheck) до пула' },
     { title: 'Save', detail: 'Haiku: scripts/gen-out/<id>.json' }
   ]
 }
@@ -24,7 +25,7 @@ export const meta = {
 let A = args
 if (typeof A === 'string') { try { A = JSON.parse(A) } catch (e) { A = null } }
 const SUBCATS = (A && A.subcats) || []
-const N = (A && A.perSubcat) || 15
+const N = (A && A.perSubcat) || 7
 
 if (!SUBCATS.length) {
   log('args.subcats пуст — нечего генерировать. Передай массив { id, name, cat }.')
@@ -62,7 +63,7 @@ const JUDGE_SCHEMA = {
       type: 'array',
       items: {
         type: 'object',
-        required: ['index', 'verdict', 'reason', 'prohibitedYG', 'factuallyCorrect', 'inSweetSpot', 'factOverLabel', 'naturalLanguage', 'cleanDistractors'],
+        required: ['index', 'verdict', 'reason', 'prohibitedYG', 'factuallyCorrect', 'inSweetSpot', 'factOverLabel', 'naturalLanguage', 'cleanDistractors', 'needsFactcheck'],
         properties: {
           index: { type: 'integer' },
           verdict: { type: 'string', enum: ['keep', 'revise', 'drop'] },
@@ -72,7 +73,8 @@ const JUDGE_SCHEMA = {
           inSweetSpot: { type: 'boolean' },
           factOverLabel: { type: 'boolean' },
           naturalLanguage: { type: 'boolean' },
-          cleanDistractors: { type: 'boolean' }
+          cleanDistractors: { type: 'boolean' },
+          needsFactcheck: { type: 'boolean' }
         }
       }
     },
@@ -122,8 +124,26 @@ ${JSON.stringify(questions, null, 2)}
 - naturalLanguage: разговорный язык, без жаргона/англо-аббревиатур/канцелярита и БЕЗ знаков ударения. Сюда же: «около/примерно» НЕ должно повторяться в каждом варианте И не должно стоять в ОДНОМ варианте среди голых (выделяет его как верный); перечисление в ответе — через «и», не запятую; доли в ответах цифрами/процентами (50%, 1/4), не прописью («Половину»/«Четверть»); ВАРИАНТЫ ответа по-русски, без англо-фраз («Patch Tuesday») - бренды/имена можно.
 - cleanDistractors: 4 варианта из одной области, без очевидно-чужого, без протечки слова-ответа, не синонимы. Числовые диапазоны НЕ вложены (не два «более N»/«менее N» в одну сторону — иначе верных больше одного), и НЕ вложены логически («дороже золота» влечёт «дороже серебра» → верных несколько). Ни один вариант НЕ абсурден (отсекается без знания, сужает выбор до трёх: «Светятся в темноте», «×340»). Верный НЕ единственное «не-круглое» число среди круглых дистракторов (угадывается). Каждый дистрактор правдоподобен в КОНТЕКСТЕ (не «песчинки в еде»). Величины в одной единице. НЕ бинарный выбор «X или Y» (нет 4 однородных). Варианты НЕ содержат подсказку-дискриминатор (века/размеры в скобках → выбор логикой, не знанием). ТЕМА-ФИТ: ответ НЕ должен вычисляться из категории вопроса (в «Космонавтике» «что делают 3 страны» → «скафандры»); если вычисляется — false.
 
-verdict=keep ТОЛЬКО если все пять флагов true. drop — если factuallyCorrect=false ИЛИ явный «ярлык-задротство» (не спасти переформулировкой). revise — годная идея с правимым изъяном.
+- needsFactcheck: ОРТОГОНАЛЬНЫЙ флаг (НЕ влияет на keep/revise/drop). true, если факт-основа вопроса неочевидна/спорна/легко оказывается байкой и стоит сверить по интернету: этимологии, «первый кто», рекорды, исторические атрибуции, «по легенде», вирусные факты, точные числа из неacadémических источников. false для общеизвестного и проверяемого здравым смыслом. Помеченные (и keep, и revise) пройдут веб-фактчек ДО пула.
+
+verdict=keep ТОЛЬКО если все пять флагов true (needsFactcheck не в счёт). drop — если factuallyCorrect=false ИЛИ явный «ярлык-задротство» (не спасти переформулировкой). revise — годная идея с правимым изъяном.
 summary: 1–2 предложения по партии (разнообразие углов, типовые проблемы).`
+
+// Веб-фактчек для подозрительных (needsFactcheck) keep/revise ДО пула — закрывает дыру,
+// что keep-вопросы иначе вообще не проверяются по интернету. Таргетно (только помеченные).
+const FACTCHECK_SCHEMA = {
+  type: 'object', required: ['index', 'factVerdict', 'explanation'],
+  properties: {
+    index: { type: 'integer' },
+    factVerdict: { type: 'string', enum: ['true', 'myth', 'wrong', 'unverifiable'] },
+    explanation: { type: 'string' }
+  }
+}
+const factCheckPrompt = (q, index) => `Проверь ФАКТ по интернету (ToolSearch "select:WebSearch,WebFetch", 1-2 запроса). Проверяй ИМЕННО то, на чём держится вопрос. Соцсеть/блог ≠ подтверждение.
+index: ${index} (верни ровно его)
+Вопрос: ${q.question}
+Верный ответ: ${q.answers[q.correctAnswerIndex]}
+factVerdict: true (подтверждено) | myth (байка/развенчано) | wrong (ответ неверен) | unverifiable (нет надёжного источника). explanation: 1-2 фразы + источник.`
 
 phase('Generate')
 const results = await pipeline(
@@ -142,6 +162,28 @@ const results = await pipeline(
         verdicts: (j && j.verdicts) || [],
         summary: (j && j.summary) || ''
       }))
+  },
+
+  // 2b. Веб-фактчек подозрительных (needsFactcheck) keep/revise — ДО пула. myth/wrong → drop.
+  async (asg, sc) => {
+    if (!asg) return null
+    const suspects = (asg.verdicts || [])
+      .filter((v) => v.verdict !== 'drop' && v.needsFactcheck)
+      .map((v) => ({ v, q: asg.questions[v.index] }))
+      .filter((x) => x.q)
+    if (suspects.length) {
+      const facts = await parallel(suspects.map(({ q, v }) => () =>
+        agent(factCheckPrompt(q, v.index), { label: `fact:${sc.id}:${v.index}`, phase: 'Factcheck', model: 'sonnet', effort: 'medium', schema: FACTCHECK_SCHEMA })))
+      const byIdx = new Map(facts.filter(Boolean).map((f) => [f.index, f]))
+      for (const v of asg.verdicts) {
+        const f = byIdx.get(v.index)
+        if (f && (f.factVerdict === 'myth' || f.factVerdict === 'wrong')) {
+          v.verdict = 'drop'
+          v.reason = `[веб-фактчек: ${f.factVerdict}] ${(f.explanation || '').slice(0, 160)}`
+        }
+      }
+    }
+    return asg
   },
 
   // 3. Запись — Haiku пишет результат подкатегории на диск (дёшево, резюмируемо). Возвращаем только метрики.

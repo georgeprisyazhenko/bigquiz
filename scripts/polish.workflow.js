@@ -7,11 +7,10 @@
 // Дальше: scripts/merge-polish.mjs && npm test.
 //
 // Стадии (pipeline по категории):
-//   1. Repair  — Sonnet med: полный свод + reviewNote как директива; fix-first.
-//   2. Proof   — Sonnet med: грамматика; вставочное/парное тире → ЗАПЯТАЯ.
-//   3. Verify  — Sonnet med: fix-first; refix если есть проблема; drop только фундаментально.
-//   4. Fact    — Sonnet med + веб: factDoubt && угол>2 && не-дроп.
-//   5. Save    — Haiku: scripts/polish-out/<slug>.json.
+//   1. Repair  — Sonnet med: полный свод + reviewNote как директива; fix-first + грамматика/тире.
+//   2. Verify  — Sonnet med: fix-first; refix если есть проблема; drop только фундаментально.
+//   3. Fact    — Sonnet med + веб: factDoubt && угол>2 && не-дроп.
+//   4. Save    — Haiku: scripts/polish-out/<slug>.json.
 //
 // Запуск: Workflow({ scriptPath: "scripts/polish.workflow.js" })
 
@@ -19,8 +18,7 @@ export const meta = {
   name: 'polish',
   description: 'Доводка вопросов: fix-first, reviewNote как директива, дроп только по жёстким критериям',
   phases: [
-    { title: 'Repair', detail: 'Sonnet med: полный свод + твои комменты; fix-first' },
-    { title: 'Proof', detail: 'Sonnet med: грамматика, вставочное тире → запятая' },
+    { title: 'Repair', detail: 'Sonnet med: полный свод + твои комменты; fix-first + грамматика/тире' },
     { title: 'Verify', detail: 'Sonnet med: fix-first; refix если есть проблема' },
     { title: 'Fact', detail: 'Sonnet med + веб: factDoubt && угол>2' },
     { title: 'Save', detail: 'Haiku: scripts/polish-out/<slug>.json' }
@@ -38,8 +36,6 @@ const REPAIR_SCHEMA = arr(item({ req: ['explanation', 'angle', 'drop', 'dropReas
   factDoubt: { type: 'boolean' },
   changed: { type: 'string' }
 } }))
-
-const PROOF_SCHEMA = arr(item({ req: ['proofNote'], props: { proofNote: { type: 'string' } } }))
 
 const VERIFY_SCHEMA = arr({ type: 'object', required: ['id', 'verdict', 'issue'], properties: {
   id: { type: 'string' },
@@ -143,17 +139,14 @@ explanation может быть пуст, reviewNote — заметка реда
 
 ${RULES}
 
+ЯЗЫК (делаешь сам, отдельной корректуры дальше НЕТ): согласование/падежи/окончания/
+орфография/пунктуация безупречны; вставочное/парное тире («текст — вставка —») и тире
+внутри фразы → ЗАПЯТАЯ; дефис только там, где он реально дефис; без знаков ударения.
+
 Если вопрос уже идеален — changed="без изменений", верни КАК ЕСТЬ.
 Для каждого верни: question, answers[4], correctAnswerIndex, explanation, angle (1-5),
 drop, dropReason, factDoubt (цитата/«первый»/удивительный историко-фольклорный факт),
 changed (1 фраза что изменено). Верни строго по схеме ВСЕ вопросы.`
-
-const proofPrompt = (items) => `Строгий корректор русского. Проверь ТОЛЬКО язык:
-согласование/падежи/окончания/орфографию и пунктуацию. ВАЖНО: вставочное/парное тире
-(«текст — вставка —») и тире внутри фразы → ЗАПЯТАЯ. Дефис только где он реально дефис.
-Смысл/факт/угол НЕ меняй.
-${JSON.stringify(items.map(x => ({ id: x.id, question: x.question, answers: x.answers, correctAnswerIndex: x.correctAnswerIndex })), null, 2)}
-Верни id, исправленные question/answers/correctAnswerIndex, proofNote. Строго по схеме все.`
 
 const verifyPrompt = (items) => `Ты придирчивый ревьюер BigQuiz. Перечитай каждый вопрос
 по своду (9 классов + ЯИ-запреты). Стратегия: FIX-FIRST.
@@ -203,19 +196,8 @@ const results = await pipeline(
   (file) => agent(repairPrompt(file), { label: `repair:${file.split('/').pop()}`, phase: 'Repair', model: 'sonnet', effort: 'medium', schema: REPAIR_SCHEMA })
     .then(r => ({ slug: file.split('/').pop().replace(/\.json$/, ''), items: (r && r.items) || [] })),
 
-  // 2. Proof (только не-дроп)
-  async (rep) => {
-    if (!rep) return null
-    const keep = rep.items.filter(x => !x.drop)
-    if (keep.length) {
-      const proof = await agent(proofPrompt(keep), { label: `proof:${rep.slug}`, phase: 'Proof', model: 'sonnet', effort: 'medium', schema: PROOF_SCHEMA })
-      const p = new Map(((proof && proof.items) || []).map(x => [x.id, x]))
-      rep.items = rep.items.map(it => { const pi = p.get(it.id); return pi && !it.drop ? { ...it, question: pi.question, answers: pi.answers, correctAnswerIndex: pi.correctAnswerIndex } : it })
-    }
-    return rep
-  },
-
-  // 3. Verify (fix-first: refix если чинится, drop только фундаментально)
+  // 2. Verify (fix-first: refix если чинится, drop только фундаментально). Грамматику/тире
+  //    делает сам Repair (отдельная стадия Proof убрана — дубль; тире также чистит код при merge).
   async (rep) => {
     if (!rep) return null
     const keep = rep.items.filter(x => !x.drop)
