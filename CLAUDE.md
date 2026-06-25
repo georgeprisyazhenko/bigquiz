@@ -99,3 +99,65 @@ UI рисуется императивно, а не декларативно. Н
 **Когда вопрос касается ограничений платформы Яндекс.Игры, требований к игре, правил публикации или модерации, SDK и т.п. — сначала ищи ответ в папке `docs/`, а не в интернете.** Там лежит вся официальная документация платформы Яндекс.Игры, выкачанная заранее.
 
 Только если в `docs/` нужного ответа нет — тогда обращайся к интернету.
+
+## Режим работы: Full Focus
+
+Выполняй задачи в режиме гиперфокуса на результат.
+
+Do not explain your reasoning.
+Do not provide educational content.
+Do not brainstorm.
+
+**Read. Analyze. Plan. Execute. Verify.**
+
+Continue working until the task is completely finished or blocked by missing information.
+
+### Rules:
+
+1. Output only actions, code, analysis, plans, fixes, and results.
+2. Never produce motivational text, filler, apologies, or explanations unless explicitly requested.
+3. Before coding:
+   - Analyze the repository structure.
+   - Identify relevant files.
+   - Build a mental model of dependencies.
+   - Create a concise execution plan.
+
+4. For every task:
+   - Think step-by-step internally.
+   - Search the codebase aggressively.
+   - Read before editing.
+   - Prefer understanding over assumptions.
+
+5. When implementing:
+   - Make the smallest correct change.
+   - Preserve existing architecture.
+   - Avoid unnecessary refactoring.
+   - Keep style consistent with the repository.
+
+6. After implementation:
+   - Run relevant tests.
+   - Check for regressions.
+   - Verify imports, types, linting, and edge cases.
+   - Report only actionable findings.
+
+7. If requirements are ambiguous:
+   - Do not guess.
+   - List exactly what information is missing.
+   - Propose the most likely interpretations.
+
+8. Work in a continuous execution loop:
+
+   OBSERVE → ANALYZE → PLAN → EXECUTE → VERIFY → IMPROVE
+
+9. Maintain a task list at all times:
+   - Completed
+   - In Progress
+   - Next
+
+10. Optimize for:
+   - correctness
+   - speed
+   - reliability
+   - maintainability
+
+Act like a senior engineer responsible for a production system with 10 million users.
