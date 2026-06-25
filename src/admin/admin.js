@@ -9,7 +9,15 @@
 // Сохранение в нужный файл через dev-плагин Vite (scripts/lib/review-store.mjs).
 
 import { orderAnswers, imageCandidatePaths } from '../card-rules.js'
-import { validateAnswerText, validateOptionsHomogeneous, validateNumericRanges, validateEnumeration, validateNumericTell, validateHedgeTell } from '../content-rules.js'
+import {
+  validateAnswerText,
+  validateOptionsHomogeneous,
+  validateNumericRanges,
+  validateEnumeration,
+  validateNumericTell,
+  validateHedgeTell,
+  validateExamShape,
+} from '../content-rules.js'
 
 const ALL = '__all__'
 
@@ -24,10 +32,15 @@ const TAGS = [
   ['wording', 'Кривая формулировка'],
   ['boring', 'Скучно, не цепляет'],
   ['language', 'Язык / тире'],
-  ['prohibited', 'Запрещено ЯИ']
+  ['prohibited', 'Запрещено ЯИ'],
 ]
 
-const STATUS_LABEL = { approved: 'Хорошо', rework: 'На доработку', discard: 'На выброс', pending: 'не смотрел' }
+const STATUS_LABEL = {
+  approved: 'Хорошо',
+  rework: 'На доработку',
+  discard: 'На выброс',
+  pending: 'не смотрел',
+}
 
 const state = {
   categories: [],
@@ -40,25 +53,39 @@ const state = {
   currentId: null,
   editing: null,
   expanded: new Set(),
-  saveState: 'idle'
+  saveState: 'idle',
 }
 
 // ---------- localStorage-страховка отметок ----------
 const LS_KEY = 'bigquiz-admin-review'
-const lsLoad = () => { try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}') } catch { return {} } }
-const lsWrite = (all) => { try { localStorage.setItem(LS_KEY, JSON.stringify(all)) } catch {} }
+const lsLoad = () => {
+  try {
+    return JSON.parse(localStorage.getItem(LS_KEY) || '{}')
+  } catch {
+    return {}
+  }
+}
+const lsWrite = (all) => {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify(all))
+  } catch {}
+}
 function lsSaveMark(q) {
   const all = lsLoad()
   all.ours = all.ours || {}
-  const empty = (!q.reviewStatus || q.reviewStatus === 'pending') &&
-    !(q.reviewProblem || '').trim() && !(q.reviewSuggestion || '').trim() && !(q.reviewTags || []).length
+  const empty =
+    (!q.reviewStatus || q.reviewStatus === 'pending') &&
+    !(q.reviewProblem || '').trim() &&
+    !(q.reviewSuggestion || '').trim() &&
+    !(q.reviewTags || []).length
   if (empty) delete all.ours[q.id]
-  else all.ours[q.id] = {
-    reviewStatus: q.reviewStatus,
-    reviewProblem: q.reviewProblem || '',
-    reviewSuggestion: q.reviewSuggestion || '',
-    reviewTags: q.reviewTags || []
-  }
+  else
+    all.ours[q.id] = {
+      reviewStatus: q.reviewStatus,
+      reviewProblem: q.reviewProblem || '',
+      reviewSuggestion: q.reviewSuggestion || '',
+      reviewTags: q.reviewTags || [],
+    }
   lsWrite(all)
 }
 
@@ -70,12 +97,18 @@ async function boot() {
   const [cats, prod, pool] = await Promise.all([
     fetch('/categories.json').then((r) => r.json()),
     fetch('/questions.json').then((r) => r.json()),
-    fetch('/__admin/pool').then((r) => r.json()).catch(() => ({ questions: [] }))
+    fetch('/__admin/pool')
+      .then((r) => r.json())
+      .catch(() => ({ questions: [] })),
   ])
   state.categories = cats.categories || []
-  const tag = (arr, source) => (arr || []).map((q) => ({
-    ...q, _source: source, reviewStatus: q.reviewStatus || 'pending', reviewTags: q.reviewTags || []
-  }))
+  const tag = (arr, source) =>
+    (arr || []).map((q) => ({
+      ...q,
+      _source: source,
+      reviewStatus: q.reviewStatus || 'pending',
+      reviewTags: q.reviewTags || [],
+    }))
   state.questions = [...tag(prod.questions, 'prod'), ...tag(pool.questions, 'pool')]
   buildCatIndex()
   restoreFromLocal()
@@ -83,9 +116,15 @@ async function boot() {
 }
 
 async function reload() {
-  const keepNode = state.selectedNode, keepFilter = state.statusFilter, keepView = state.view, keepSrc = state.sourceFilter
+  const keepNode = state.selectedNode,
+    keepFilter = state.statusFilter,
+    keepView = state.view,
+    keepSrc = state.sourceFilter
   await boot()
-  state.selectedNode = keepNode; state.statusFilter = keepFilter; state.view = keepView; state.sourceFilter = keepSrc
+  state.selectedNode = keepNode
+  state.statusFilter = keepFilter
+  state.view = keepView
+  state.sourceFilter = keepSrc
   renderAll()
 }
 
@@ -98,7 +137,8 @@ function restoreFromLocal() {
   for (const [id, m] of Object.entries(marks)) {
     const q = byId.get(id)
     if (!q) continue
-    const changed = q.reviewStatus !== (m.reviewStatus || 'pending') ||
+    const changed =
+      q.reviewStatus !== (m.reviewStatus || 'pending') ||
       (q.reviewProblem || '') !== (m.reviewProblem || '') ||
       (q.reviewSuggestion || '') !== (m.reviewSuggestion || '') ||
       (q.reviewTags || []).join(',') !== (m.reviewTags || []).join(',')
@@ -118,7 +158,12 @@ function buildCatIndex() {
     const memberIds = new Set([top.id])
     for (const sub of top.subcategories || []) {
       memberIds.add(sub.id)
-      state.catIndex.set(sub.id, { type: 'sub', name: sub.name, topId: top.id, memberIds: new Set([sub.id]) })
+      state.catIndex.set(sub.id, {
+        type: 'sub',
+        name: sub.name,
+        topId: top.id,
+        memberIds: new Set([sub.id]),
+      })
     }
     state.catIndex.set(top.id, { type: 'top', name: top.name, topId: top.id, memberIds })
   }
@@ -132,13 +177,16 @@ function matchesNode(q, nodeId) {
   return (q.categories || []).some((c) => node.memberIds.has(c))
 }
 
-function statusOf(q) { return q.reviewStatus || 'pending' }
+function statusOf(q) {
+  return q.reviewStatus || 'pending'
+}
 
 function filteredQuestions() {
-  return state.questions.filter((q) =>
-    matchesNode(q, state.selectedNode) &&
-    (state.statusFilter === 'all' || statusOf(q) === state.statusFilter) &&
-    (state.sourceFilter === 'all' || q._source === state.sourceFilter)
+  return state.questions.filter(
+    (q) =>
+      matchesNode(q, state.selectedNode) &&
+      (state.statusFilter === 'all' || statusOf(q) === state.statusFilter) &&
+      (state.sourceFilter === 'all' || q._source === state.sourceFilter)
   )
 }
 
@@ -154,7 +202,10 @@ function counts(nodeId) {
 }
 
 // ---------- Рендер ----------
-function renderAll() { renderTree(); renderMain() }
+function renderAll() {
+  renderTree()
+  renderMain()
+}
 
 function renderTree() {
   const frag = document.createElement('div')
@@ -167,14 +218,21 @@ function renderTree() {
     const isOpen = state.expanded.has(top.id)
     frag.appendChild(
       treeNode({
-        id: top.id, label: top.name, level: 'top',
+        id: top.id,
+        label: top.name,
+        level: 'top',
         twisty: (top.subcategories || []).length ? (isOpen ? '−' : '+') : '',
-        onTwisty: () => { if (isOpen) state.expanded.delete(top.id); else state.expanded.add(top.id); renderTree() }
+        onTwisty: () => {
+          if (isOpen) state.expanded.delete(top.id)
+          else state.expanded.add(top.id)
+          renderTree()
+        },
       })
     )
     const children = document.createElement('div')
     children.className = 'tree-children' + (isOpen ? '' : ' collapsed')
-    for (const sub of top.subcategories || []) children.appendChild(treeNode({ id: sub.id, label: sub.name, level: 'sub' }))
+    for (const sub of top.subcategories || [])
+      children.appendChild(treeNode({ id: sub.id, label: sub.name, level: 'sub' }))
     frag.appendChild(children)
   }
   $tree.replaceChildren(frag)
@@ -183,11 +241,18 @@ function renderTree() {
 function treeNode({ id, label, level, twisty = '', onTwisty }) {
   const c = counts(id)
   const node = document.createElement('div')
-  node.className = 'tree-node ' + (level === 'sub' ? 'sub' : '') + (state.selectedNode === id ? ' active' : '')
+  node.className =
+    'tree-node ' + (level === 'sub' ? 'sub' : '') + (state.selectedNode === id ? ' active' : '')
   const tw = document.createElement('span')
   tw.className = 'twisty'
   tw.textContent = twisty
-  if (onTwisty) { tw.style.cursor = 'pointer'; tw.addEventListener('click', (e) => { e.stopPropagation(); onTwisty() }) }
+  if (onTwisty) {
+    tw.style.cursor = 'pointer'
+    tw.addEventListener('click', (e) => {
+      e.stopPropagation()
+      onTwisty()
+    })
+  }
   node.appendChild(tw)
   const lbl = document.createElement('span')
   lbl.className = 'label'
@@ -195,15 +260,22 @@ function treeNode({ id, label, level, twisty = '', onTwisty }) {
   node.appendChild(lbl)
   const badge = document.createElement('span')
   const unreviewed = c.pending
-  badge.className = 'count-badge' + (unreviewed === 0 && c.total > 0 ? ' all-ok' : unreviewed ? ' has-pending' : '')
+  badge.className =
+    'count-badge' + (unreviewed === 0 && c.total > 0 ? ' all-ok' : unreviewed ? ' has-pending' : '')
   badge.textContent = `${c.prod}/${c.total}`
   badge.title = `${c.prod} в проде · ${c.total} всего`
   node.appendChild(badge)
-  node.addEventListener('click', () => { state.selectedNode = id; state.currentId = null; renderAll() })
+  node.addEventListener('click', () => {
+    state.selectedNode = id
+    state.currentId = null
+    renderAll()
+  })
   return node
 }
 
-function renderMain() { $main.replaceChildren(renderTopbar(), renderContent()) }
+function renderMain() {
+  $main.replaceChildren(renderTopbar(), renderContent())
+}
 
 function renderTopbar() {
   const bar = document.createElement('div')
@@ -227,20 +299,48 @@ function renderTopbar() {
   bar.appendChild(batchBar())
   bar.appendChild(
     segmented(
-      [['all', 'Все'], ['pending', 'Не смотрел'], ['approved', 'Хорошо'], ['rework', 'Доработка'], ['discard', 'Выброс']],
+      [
+        ['all', 'Все'],
+        ['pending', 'Не смотрел'],
+        ['approved', 'Хорошо'],
+        ['rework', 'Доработка'],
+        ['discard', 'Выброс'],
+      ],
       state.statusFilter,
-      (v) => { state.statusFilter = v; state.currentId = null; renderMain() }
+      (v) => {
+        state.statusFilter = v
+        state.currentId = null
+        renderMain()
+      }
     )
   )
   bar.appendChild(
     segmented(
-      [['all', 'Прод+пул'], ['prod', 'Прод'], ['pool', 'Пул']],
+      [
+        ['all', 'Прод+пул'],
+        ['prod', 'Прод'],
+        ['pool', 'Пул'],
+      ],
       state.sourceFilter,
-      (v) => { state.sourceFilter = v; state.currentId = null; renderMain() }
+      (v) => {
+        state.sourceFilter = v
+        state.currentId = null
+        renderMain()
+      }
     )
   )
   bar.appendChild(
-    segmented([['list', 'Список'], ['review', 'Ревью']], state.view, (v) => { state.view = v; renderMain() })
+    segmented(
+      [
+        ['list', 'Список'],
+        ['review', 'Ревью'],
+      ],
+      state.view,
+      (v) => {
+        state.view = v
+        renderMain()
+      }
+    )
   )
   const save = document.createElement('div')
   save.className = 'save-state ' + state.saveState
@@ -254,15 +354,34 @@ function batchBar() {
   const wrap = document.createElement('div')
   wrap.className = 'batch'
   const g = counts(ALL)
-  wrap.appendChild(batchBtn(`В прод (${g.approved})`, 'promote',
-    `Перенести все «Хорошо» из пула в прод? Будет перенесено: ${g.approved}.`, '/__admin/promote',
-    (r) => `Перенесено в прод: ${r.moved}${r.blocked && r.blocked.length ? ` · заблокировано гейтом: ${r.blocked.length}` : ''}`))
-  wrap.appendChild(batchBtn(`На доработку (${g.rework})`, 'rework',
-    `Выгрузить ${g.rework} вопросов на доработку в scripts/polish-in? Дальше прогонишь воркфлоу polish.`, '/__admin/export-rework',
-    (r) => `Выгружено на доработку: ${r.count} (${r.files} файлов). Запусти воркфлоу polish.`))
-  wrap.appendChild(batchBtn(`Удалить дропы (${g.discard})`, 'drop',
-    `Удалить все «На выброс» из пула? Удалится: ${g.discard}. (Без возможности отмены, бэкап создаётся.)`, '/__admin/delete-drops',
-    (r) => `Удалено дропов: ${r.removed}`))
+  wrap.appendChild(
+    batchBtn(
+      `В прод (${g.approved})`,
+      'promote',
+      `Перенести все «Хорошо» из пула в прод? Будет перенесено: ${g.approved}.`,
+      '/__admin/promote',
+      (r) =>
+        `Перенесено в прод: ${r.moved}${r.blocked && r.blocked.length ? ` · заблокировано гейтом: ${r.blocked.length}` : ''}`
+    )
+  )
+  wrap.appendChild(
+    batchBtn(
+      `На доработку (${g.rework})`,
+      'rework',
+      `Выгрузить ${g.rework} вопросов на доработку в scripts/polish-in? Дальше прогонишь воркфлоу polish.`,
+      '/__admin/export-rework',
+      (r) => `Выгружено на доработку: ${r.count} (${r.files} файлов). Запусти воркфлоу polish.`
+    )
+  )
+  wrap.appendChild(
+    batchBtn(
+      `Удалить дропы (${g.discard})`,
+      'drop',
+      `Удалить все «На выброс» из пула? Удалится: ${g.discard}. (Без возможности отмены, бэкап создаётся.)`,
+      '/__admin/delete-drops',
+      (r) => `Удалено дропов: ${r.removed}`
+    )
+  )
   return wrap
 }
 
@@ -275,7 +394,11 @@ function batchBtn(label, kind, confirmMsg, endpoint, resultMsg) {
     b.disabled = true
     try {
       await flushSaves()
-      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{}',
+      })
       const r = await res.json()
       if (!r.ok) throw new Error(r.error || 'ошибка')
       toast(resultMsg(r))
@@ -290,14 +413,28 @@ function batchBtn(label, kind, confirmMsg, endpoint, resultMsg) {
 
 function toast(msg, isError) {
   let t = document.getElementById('toast')
-  if (!t) { t = document.createElement('div'); t.id = 'toast'; document.body.appendChild(t) }
+  if (!t) {
+    t = document.createElement('div')
+    t.id = 'toast'
+    document.body.appendChild(t)
+  }
   t.className = 'toast' + (isError ? ' error' : '') + ' show'
   t.textContent = msg
   clearTimeout(toast._timer)
-  toast._timer = setTimeout(() => { t.className = 'toast' + (isError ? ' error' : '') }, 4000)
+  toast._timer = setTimeout(() => {
+    t.className = 'toast' + (isError ? ' error' : '')
+  }, 4000)
 }
 
-function saveLabel(s) { return s === 'saving' ? 'Сохранение…' : s === 'saved' ? 'Сохранено' : s === 'error' ? 'Ошибка' : '' }
+function saveLabel(s) {
+  return s === 'saving'
+    ? 'Сохранение…'
+    : s === 'saved'
+      ? 'Сохранено'
+      : s === 'error'
+        ? 'Ошибка'
+        : ''
+}
 
 function segmented(options, current, onPick) {
   const seg = document.createElement('div')
@@ -367,7 +504,11 @@ function listRow(q) {
   const vp = verdictPill(q.llmVerdict)
   if (vp) row.appendChild(vp)
   row.appendChild(statusPill(statusOf(q)))
-  row.addEventListener('click', () => { state.currentId = q.id; state.view = 'review'; renderMain() })
+  row.addEventListener('click', () => {
+    state.currentId = q.id
+    state.view = 'review'
+    renderMain()
+  })
   return row
 }
 
@@ -466,7 +607,7 @@ function gamePreview(q) {
 }
 
 function imageCandidates(q) {
-  return imageCandidatePaths(q.image || ('assets/images/' + q.id))
+  return imageCandidatePaths(q.image || 'assets/images/' + q.id)
 }
 
 // Картинка с перебором расширений (как в игре: .webp первым). Плейсхолдеры —
@@ -483,14 +624,20 @@ function gameImage(q) {
     ph.textContent = msg
     wrap.appendChild(ph)
   }
-  if (!q.image) { placeholder('изображение не указано'); return wrap }
+  if (!q.image) {
+    placeholder('изображение не указано')
+    return wrap
+  }
   const cands = imageCandidates(q)
   let i = 0
   const img = document.createElement('img')
   img.alt = ''
   img.addEventListener('error', () => {
     i++
-    if (i < cands.length) { img.src = cands[i]; return }
+    if (i < cands.length) {
+      img.src = cands[i]
+      return
+    }
     placeholder('изображение не загрузилось')
   })
   img.src = cands[0]
@@ -535,7 +682,9 @@ function reviewPane(q) {
   if (tooLong.length) {
     const w = document.createElement('div')
     w.className = 'answer-warning'
-    w.textContent = '⚠ Ответ длиннее лимита (≤3 значимых слов / ≤44 симв.) — переформулировать: ' + tooLong.map((a) => `«${a}»`).join(', ')
+    w.textContent =
+      '⚠ Ответ длиннее лимита (≤3 значимых слов / ≤44 симв.) — переформулировать: ' +
+      tooLong.map((a) => `«${a}»`).join(', ')
     pane.appendChild(w)
   }
 
@@ -546,7 +695,8 @@ function reviewPane(q) {
     ...validateNumericRanges(q.answers || []).reasons,
     ...validateNumericTell(q.answers || [], q.correctAnswerIndex).reasons,
     ...validateHedgeTell(q.answers || []).reasons,
-    ...(q.answers || []).flatMap((a) => validateEnumeration(a).reasons.map((r) => `«${a}»: ${r}`))
+    ...validateExamShape(q.question || '', q.answers || []).reasons,
+    ...(q.answers || []).flatMap((a) => validateEnumeration(a).reasons.map((r) => `«${a}»: ${r}`)),
   ]
   for (const text of ruleWarnings) {
     const w = document.createElement('div')
@@ -612,7 +762,10 @@ function reviewPane(q) {
   const editBtn = document.createElement('button')
   editBtn.className = 'btn btn-edit'
   editBtn.textContent = state.editing === q.id ? '✕ Отмена' : '✎ Редактировать'
-  editBtn.addEventListener('click', () => { state.editing = state.editing === q.id ? null : q.id; renderContent.replaceInMain() })
+  editBtn.addEventListener('click', () => {
+    state.editing = state.editing === q.id ? null : q.id
+    renderContent.replaceInMain()
+  })
   actions.appendChild(editBtn)
   pane.appendChild(actions)
 
@@ -630,7 +783,8 @@ function reviewPane(q) {
     chip.textContent = label
     chip.addEventListener('click', () => {
       const set = new Set(q.reviewTags || [])
-      if (set.has(key)) set.delete(key); else set.add(key)
+      if (set.has(key)) set.delete(key)
+      else set.add(key)
       q.reviewTags = [...set]
       chip.classList.toggle('on')
       scheduleSave(q)
@@ -648,7 +802,10 @@ function reviewPane(q) {
   problem.className = 'note-field'
   problem.placeholder = 'Что именно не так (увижу при доработке).'
   problem.value = q.reviewProblem || ''
-  problem.addEventListener('input', () => { q.reviewProblem = problem.value; scheduleSave(q) })
+  problem.addEventListener('input', () => {
+    q.reviewProblem = problem.value
+    scheduleSave(q)
+  })
   problem.addEventListener('blur', () => flushSaves())
   pane.appendChild(problem)
 
@@ -661,13 +818,17 @@ function reviewPane(q) {
   suggestion.className = 'note-field'
   suggestion.placeholder = 'Как бы я это переделал.'
   suggestion.value = q.reviewSuggestion || ''
-  suggestion.addEventListener('input', () => { q.reviewSuggestion = suggestion.value; scheduleSave(q) })
+  suggestion.addEventListener('input', () => {
+    q.reviewSuggestion = suggestion.value
+    scheduleSave(q)
+  })
   suggestion.addEventListener('blur', () => flushSaves())
   pane.appendChild(suggestion)
 
   const hint = document.createElement('div')
   hint.className = 'hint'
-  hint.innerHTML = 'Клавиши: <kbd>←</kbd> <kbd>→</kbd> листать · <kbd>A</kbd> хорошо · <kbd>R</kbd> доработка · <kbd>D</kbd> выброс'
+  hint.innerHTML =
+    'Клавиши: <kbd>←</kbd> <kbd>→</kbd> листать · <kbd>A</kbd> хорошо · <kbd>R</kbd> доработка · <kbd>D</kbd> выброс'
   pane.appendChild(hint)
 
   return pane
@@ -726,13 +887,16 @@ function appendEditForm(card, q) {
       question: qa.value,
       answers: inputs.map((x) => x.inp.value),
       correctAnswerIndex: correctIdx < 0 ? q.correctAnswerIndex : correctIdx,
-      explanation: exa.value
+      explanation: exa.value,
     })
   })
   const cancel = document.createElement('button')
   cancel.className = 'btn btn-no inactive'
   cancel.textContent = 'Отмена'
-  cancel.addEventListener('click', () => { state.editing = null; renderContent.replaceInMain() })
+  cancel.addEventListener('click', () => {
+    state.editing = null
+    renderContent.replaceInMain()
+  })
   bar.append(save, cancel)
   form.appendChild(bar)
   card.appendChild(form)
@@ -742,15 +906,23 @@ async function saveEdit(q, fields) {
   try {
     await flushSaves()
     const res = await fetch('/__admin/edit-question', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: q.id, ...fields })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: q.id, ...fields }),
     })
     const r = await res.json()
     if (!r.ok) throw new Error(r.error || 'ошибка')
     state.editing = null
-    toast(r.gatesOk === false ? 'Сохранено, но не проходит код-гейт — в прод не пустит' : 'Правка сохранена', r.gatesOk === false)
+    toast(
+      r.gatesOk === false
+        ? 'Сохранено, но не проходит код-гейт — в прод не пустит'
+        : 'Правка сохранена',
+      r.gatesOk === false
+    )
     await reload()
-  } catch (err) { toast('Ошибка: ' + String(err.message || err), true) }
+  } catch (err) {
+    toast('Ошибка: ' + String(err.message || err), true)
+  }
 }
 
 function verdictBtn(q, value, label, cls, current) {
@@ -802,7 +974,7 @@ function payload(q) {
     reviewStatus: q.reviewStatus,
     reviewProblem: q.reviewProblem || '',
     reviewSuggestion: q.reviewSuggestion || '',
-    reviewTags: q.reviewTags || []
+    reviewTags: q.reviewTags || [],
   }
 }
 
@@ -826,7 +998,7 @@ async function flushSaves() {
       const res = await fetch('/__admin/save-question', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload(q))
+        body: JSON.stringify(payload(q)),
       })
       const data = await res.json()
       if (!data.ok) throw new Error(data.error)
@@ -841,11 +1013,17 @@ async function flushSaves() {
   }
 }
 
-function saveNow(q) { scheduleSave(q); return flushSaves() }
+function saveNow(q) {
+  scheduleSave(q)
+  return flushSaves()
+}
 
 function flushBeacon() {
   for (const [, q] of dirty) {
-    navigator.sendBeacon('/__admin/save-question', new Blob([JSON.stringify(payload(q))], { type: 'application/json' }))
+    navigator.sendBeacon(
+      '/__admin/save-question',
+      new Blob([JSON.stringify(payload(q))], { type: 'application/json' })
+    )
   }
   dirty.clear()
 }
@@ -854,7 +1032,10 @@ window.addEventListener('beforeunload', flushBeacon)
 function setSaveState(s) {
   state.saveState = s
   const el = document.getElementById('save-state')
-  if (el) { el.className = 'save-state ' + s; el.textContent = saveLabel(s) }
+  if (el) {
+    el.className = 'save-state ' + s
+    el.textContent = saveLabel(s)
+  }
 }
 
 // ---------- Горячие клавиши ----------

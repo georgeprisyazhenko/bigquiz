@@ -3,12 +3,13 @@ import {
   validateAnswerText,
   validateOptionsHomogeneous,
   validateHedgeTell,
+  validateExamShape,
   validateNumericRanges,
   validateNumericTell,
   validateEnumeration,
   MAX_ANSWER_CHARS,
   MAX_ANSWER_WORDS,
-  MAX_WORD_CHARS
+  MAX_WORD_CHARS,
 } from '../src/content-rules.js'
 
 describe('validateAnswerText', () => {
@@ -20,7 +21,7 @@ describe('validateAnswerText', () => {
   it('граница по символам: ровно MAX ок, MAX+1 нет', () => {
     // 3 слова (≤ MAX_ANSWER_WORDS) по ≤ MAX_WORD_CHARS букв, чтобы единственным
     // фактором была общая длина: 16+16+10 + 2 пробела = 44.
-    const ok = ['а'.repeat(16), 'а'.repeat(16), 'а'.repeat(10)].join(' ')   // 44 символа, 3 слова
+    const ok = ['а'.repeat(16), 'а'.repeat(16), 'а'.repeat(10)].join(' ') // 44 символа, 3 слова
     const tooLong = ['а'.repeat(16), 'а'.repeat(16), 'а'.repeat(11)].join(' ') // 45 символов, 3 слова
     expect(ok.length).toBe(MAX_ANSWER_CHARS)
     expect(tooLong.length).toBe(MAX_ANSWER_CHARS + 1)
@@ -55,7 +56,9 @@ describe('validateAnswerText', () => {
 
 describe('validateOptionsHomogeneous («около»-спам)', () => {
   it('пропускает, если смягчитель не более чем в одном варианте', () => {
-    expect(validateOptionsHomogeneous(['Треть', 'Половина', 'Около 80%', 'Пятая часть']).ok).toBe(true)
+    expect(validateOptionsHomogeneous(['Треть', 'Половина', 'Около 80%', 'Пятая часть']).ok).toBe(
+      true
+    )
   })
 
   it('ловит «около» в нескольких вариантах', () => {
@@ -65,7 +68,10 @@ describe('validateOptionsHomogeneous («около»-спам)', () => {
   })
 
   it('считает разные смягчители (примерно/порядка)', () => {
-    expect(validateOptionsHomogeneous(['Примерно вдвое', 'Порядка втрое', 'Ровно столько', 'Одинаково']).ok).toBe(false)
+    expect(
+      validateOptionsHomogeneous(['Примерно вдвое', 'Порядка втрое', 'Ровно столько', 'Одинаково'])
+        .ok
+    ).toBe(false)
   })
 })
 
@@ -85,9 +91,59 @@ describe('validateHedgeTell (хедж ровно в 1 варианте теле�
   })
 })
 
+describe('validateExamShape («Почему» + все 4 ответа длинные = эссе-экзамен)', () => {
+  it('ловит «Почему X?» с 4 ответами-объяснениями (>2 значимых слова каждый)', () => {
+    const r = validateExamShape('Почему солнечные панели дают меньше тока в жару?', [
+      'Жара снижает КПД кремния',
+      'Солнце стоит ниже летом',
+      'Воздух рассеивает ультрафиолет',
+      'Панели перегреваются и отключаются',
+    ])
+    expect(r.ok).toBe(false)
+  })
+
+  it('молчит, если ответы короткие (≤2 слова) даже при «Почему»', () => {
+    expect(
+      validateExamShape('Почему небо голубое?', [
+        'Рассеяние света',
+        'Отражение моря',
+        'Слой озона',
+        'Пыль в воздухе',
+      ]).ok
+    ).toBe(true)
+  })
+
+  it('молчит для не-«Почему» вопросов', () => {
+    expect(
+      validateExamShape('Какой газ окрашивает сияние в зелёный цвет?', [
+        'Кислород плотных слоёв',
+        'Азот верхних слоёв',
+        'Водород солнечный ветер',
+        'Гелий из короны',
+      ]).ok
+    ).toBe(true)
+  })
+
+  it('не триггерится на «почемучка» (граница слова)', () => {
+    expect(
+      validateExamShape('Почемучкин вопрос про длинные ответы тут', [
+        'Раз два три слова',
+        'Раз два три слова',
+        'Раз два три слова',
+        'Раз два три слова',
+      ]).ok
+    ).toBe(true)
+  })
+})
+
 describe('validateNumericRanges (вложенные диапазоны)', () => {
   it('ловит несколько открытых нижних границ', () => {
-    const r = validateNumericRanges(['Около 100 граммов', 'Около 300 граммов', 'Более 600 граммов', 'Более 1 кг'])
+    const r = validateNumericRanges([
+      'Около 100 граммов',
+      'Около 300 граммов',
+      'Более 600 граммов',
+      'Более 1 кг',
+    ])
     expect(r.ok).toBe(false)
   })
 
@@ -96,7 +152,9 @@ describe('validateNumericRanges (вложенные диапазоны)', () => 
   })
 
   it('пропускает варианты без открытых границ', () => {
-    expect(validateNumericRanges(['Треть', 'Половина', 'Десятая часть', 'Пятая часть']).ok).toBe(true)
+    expect(validateNumericRanges(['Треть', 'Половина', 'Десятая часть', 'Пятая часть']).ok).toBe(
+      true
+    )
   })
 })
 
@@ -107,7 +165,9 @@ describe('validateNumericTell (верный - единственное не-кр
   })
 
   it('пропускает, если дистракторы тоже не кратны 10', () => {
-    expect(validateNumericTell(['1227 км/ч', '1452 км/ч', '903 км/ч', '1086 км/ч'], 0).ok).toBe(true)
+    expect(validateNumericTell(['1227 км/ч', '1452 км/ч', '903 км/ч', '1086 км/ч'], 0).ok).toBe(
+      true
+    )
   })
 
   it('не флагует, если не-круглый - это дистрактор, а не верный', () => {
