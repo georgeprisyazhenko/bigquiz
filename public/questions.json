@@ -16641,6 +16641,4018 @@
       "imageSearchQuery": "Подняла цены выше конкурента",
       "reviewStatus": "approved",
       "llmVerdict": "keep"
+    },
+    {
+      "id": "q_850",
+      "question": "У персонажей каких мультфильмов Осаму Тэдзука, основатель аниме, позаимствовал приём с большими выразительными глазами?",
+      "answers": [
+        "Мультфильмы Диснея",
+        "Мультфильмы Уорнер",
+        "Советская анимация",
+        "Американские комиксы"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_850.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тэдзука был страстным поклонником Диснея - Бэмби, Микки Маус - у всех огромные глаза именно для передачи эмоций мимикой. Он перенял этот приём, и большие глаза стали стандартом аниме-жанра.",
+      "imageSearchQuery": "anime character big eyes closeup",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_851",
+      "question": "Что японцы называют словом «аниме», в отличие от западного понимания этого слова?",
+      "answers": [
+        "Любую анимацию",
+        "Только рисованные фильмы",
+        "Только взрослые мультфильмы",
+        "Японскую анимацию"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_851.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В японском языке «аниме» - просто сокращение от английского «animation» и означает любые мультфильмы, включая Микки Мауса и Шрека. На Западе слово сузилось до обозначения только японских мультфильмов.",
+      "imageSearchQuery": "anime vs western animation comparison",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_852",
+      "question": "Сколько примерно страниц манги нарисовал Осаму Тэдзука - «бог манги» - за свою жизнь?",
+      "answers": [
+        "150 000 страниц",
+        "5 000 страниц",
+        "30 000 страниц",
+        "400 000 страниц"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_852.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тэдзука работал по 18-20 часов в сутки и создал более 700 томов. Исследователи подсчитали около 150 000 нарисованных страниц - это почти 4 страницы в день каждый день на протяжении 40 лет творчества.",
+      "imageSearchQuery": "Osamu Tezuka manga artwork",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_853",
+      "question": "Какое японское аниме братья Вачовски показали продюсерам Warner Bros. как визуальный референс «Матрицы»?",
+      "answers": [
+        "Призрак в доспехах",
+        "Акира",
+        "Евангелион",
+        "Жемчуг дракона"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_853.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Режиссёры «Матрицы» принесли на встречу с Warner Bros. кассету с аниме «Ghost in the Shell» (1995) и сказали: «Мы хотим сделать это, но в реальном мире». Кибернетический город, хакеры и замедленные перестрелки - прямые цитаты из фильма.",
+      "imageSearchQuery": "Ghost in the Shell 1995 anime film",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_854",
+      "question": "Что случилось с сотнями японских детей после телеэфира эпизода «Покемон» в декабре 1997 года?",
+      "answers": [
+        "Эпилептические приступы",
+        "Массовая истерия",
+        "Острые аллергии",
+        "Потеря слуха"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_854.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Мигающий сине-красный свет из глаз Пикачу вызвал фотосенситивные приступы примерно у 685 зрителей. Случай попал на первые полосы газет и вынудил японские телеканалы ввести проверку всего детского контента на светочувствительность.",
+      "imageSearchQuery": "Pokemon Pikachu flash episode 1997",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_855",
+      "question": "Что в японском производстве аниме делают раньше озвучки - в отличие от метода Диснея?",
+      "answers": [
+        "Рисуют анимацию",
+        "Пишут сценарий",
+        "Записывают музыку",
+        "Монтируют видеоряд"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_855.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В японском производстве анимацию рисуют первой, а голоса накладывают потом. У Диснея - обратная схема: сначала записывают речь актёров и под неё двигают рты. Японская схема дешевле, но даёт характерное расхождение губ.",
+      "imageSearchQuery": "anime lip sync production process",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_856",
+      "question": "Что означает слово «Гибли» в названии знаменитой японской анимационной студии?",
+      "answers": [
+        "Горячий пустынный ветер",
+        "Японское слово «мечта»",
+        "Имя духа из мифологии",
+        "Инициалы основателей"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_856.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Ghibli» - итальянское название горячего ветра, дующего из Сахары. Хаяо Миядзаки - фанат итальянских самолётов Второй мировой - выбрал слово как символ «нового горячего ветра в японской анимации». Японцам произнести его сложно, но Миядзаки это только нравилось.",
+      "imageSearchQuery": "Studio Ghibli logo Totoro",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_857",
+      "question": "Чем японские голосовые актёры аниме заметно отличаются от западных коллег по профессии?",
+      "answers": [
+        "Выпускают музыкальные альбомы",
+        "Не появляются публично",
+        "Десятилетнее профессиональное обучение",
+        "Всегда работают в паре"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_857.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Японии голосовые актёры («сейю») - медийные звёзды: многие выпускают музыкальные альбомы, проводят сольные концерты и имеют тысячи преданных поклонников. На Западе голосовые актёры работают анонимно и редко становятся самостоятельными знаменитостями.",
+      "imageSearchQuery": "Japanese seiyuu voice actor concert",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_858",
+      "question": "Что означало слово «манга», которое художник Хокусай придумал для своих альбомов эскизов в 1814 году?",
+      "answers": [
+        "Случайные картинки",
+        "Смешные рисунки",
+        "Детские истории",
+        "Цветные страницы"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_858.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хокусай соединил иероглифы «ман» (безудержный, случайный) и «га» (картинки). Его «Хокусай Манга» были сборниками зарисовок на любые темы - своеобразными скетчбуками. Современное значение «комикс» у слова появилось только в XX веке.",
+      "imageSearchQuery": "Hokusai manga 1814 sketches",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_859",
+      "question": "Как Хаяо Миядзаки обычно начинает работу над новым аниме-фильмом, удивляя западных коллег?",
+      "answers": [
+        "Без готового сценария",
+        "Полная раскадровка сначала",
+        "От финала к началу",
+        "Музыка определяет сюжет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "anime",
+        "kino"
+      ],
+      "image": "assets/images/q_859.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Миядзаки рисует раскадровку прямо в ходе производства, не имея законченного сценария. Аниматоры начинают работать над первыми сценами, пока история ещё не придумана до конца. Этот метод уникален для индустрии - большинство студий не могут себе такого позволить из-за бюджетных рисков.",
+      "imageSearchQuery": "Hayao Miyazaki storyboard drawing",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_862",
+      "question": "Почему богатая американка Джозефин Кокрейн в 1886 году взялась изобретать посудомоечную машину?",
+      "answers": [
+        "Хотела сэкономить воду",
+        "Боялась заразы",
+        "Слуги разбивали фарфор",
+        "Муж-инженер убедил"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "bytovaya-tehnika",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_862.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кокрейн была светской дамой и не могла смириться с тем, что прислуга разбивает её дорогой фарфор при ручной мойке. Она придумала машину с металлическими проволочными отсеками под каждую тарелку - прямой предок современных посудомок.",
+      "imageSearchQuery": "Josephine Cochrane dishwasher invention 1886",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_864",
+      "question": "В каком году появился первый тостер с автоматическим переворотом хлеба?",
+      "answers": [
+        "1913",
+        "1893",
+        "1925",
+        "1901"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "bytovaya-tehnika",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_864.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первые электрические тостеры (1893) грели хлеб только с одной стороны - хозяйка переворачивала ломоть вручную. Механизм автоматического переворота изобрёл Ллойд Копеман, и в 1913 году появился первый тостер, не требующий ручного участия.",
+      "imageSearchQuery": "first electric toaster 1893 one side toast",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_865",
+      "question": "В начале XX века американцы хранили продукты в «айсбоксах», деревянных шкафах со льдом. Откуда в городах брали лёд для этих шкафов зимой?",
+      "answers": [
+        "Везли с горных ледников",
+        "Вырезали из водоёмов",
+        "Привозили из Норвегии",
+        "Получали при перегонке"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "bytovaya-tehnika",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_865.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Целая индустрия «жатвы льда» (ice harvesting) заготавливала зимой огромные блоки из замёрзших рек и озёр, хранила их в утеплённых ледниках и развозила по домам. К 1880-м годам в США это была индустрия с оборотом в десятки миллионов долларов.",
+      "imageSearchQuery": "ice harvesting frozen lake 1900s ice box",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_866",
+      "question": "Изобретатель пылесоса Хьюберт Бут в 1901 году проверил свою идею о всасывании пыли прямо на месте, как именно?",
+      "answers": [
+        "Поднёс ткань к вентилятору",
+        "Опустил мотор в воду",
+        "Вдохнул пыль через платок",
+        "Присоединил трубку к мехам"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "bytovaya-tehnika",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_866.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бут прижал носовой платок к полу, крепко прислонил к нему рот и сильно вдохнул. Платок покрылся пылью - принцип работал. До этого существовали только «выдувающие» машины, которые поднимали пыль в воздух, а не собирали её.",
+      "imageSearchQuery": "Hubert Cecil Booth vacuum cleaner invention 1901",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_868",
+      "question": "Что клали внутрь «духового» утюга XIX века, чтобы он оставался горячим во время глажки?",
+      "answers": [
+        "Горящий уголь",
+        "Раскалённый кирпич",
+        "Горячую воду",
+        "Горячий песок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "bytovaya-tehnika"
+      ],
+      "image": "assets/images/q_868.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В угольный (духовой) утюг через откидную крышку засыпали тлеющие угли. Чтобы они не гасли, в боковых стенках делали отверстия - хозяйка потряхивала утюгом, раздувая жар. Такие утюги использовались вплоть до 1920-х годов.",
+      "imageSearchQuery": "charcoal iron 19th century coal iron antique",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_869",
+      "question": "Какой примерно размер имеет топливная таблетка для ядерного реактора, хотя энергии в ней хватает человеку на несколько месяцев?",
+      "answers": [
+        "Кончик пальца",
+        "Кирпич",
+        "Теннисный мяч",
+        "Спичечный коробок"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika"
+      ],
+      "image": "assets/images/q_869.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Урановая таблетка диаметром около 1 см и высотой 1 см весит примерно 7 г, но выдаёт столько же энергии, сколько 800 кг угля или 560 л нефти.",
+      "imageSearchQuery": "uranium fuel pellet nuclear reactor size",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_870",
+      "question": "Чем прославилась Обнинская АЭС, запущенная в СССР в 1954 году?",
+      "answers": [
+        "Первая АЭС в энергосети",
+        "Первый термоядерный реактор",
+        "Самая мощная в СССР",
+        "Первый плутониевый реактор"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_870.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Обнинская АЭС мощностью 5 МВт впервые в мире подала электричество в общую энергосеть, дав начало термину «мирный атом». До этого реакторы работали на оборону, а не на энергоснабжение городов.",
+      "imageSearchQuery": "Obninsk nuclear power plant 1954 Soviet",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_871",
+      "question": "Какую максимальную долю энергии ветра теоретически может извлечь ветряная турбина (предел Бетца)?",
+      "answers": [
+        "59%",
+        "47%",
+        "73%",
+        "38%"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika",
+        "fizika"
+      ],
+      "image": "assets/images/q_871.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Предел Бетца (1919) гласит: ветротурбина не может извлечь более ~59,3% кинетической энергии ветра. Когда кончики лопастей движутся быстрее набегающего потока, нарастает турбулентность и КПД падает. Современные гиганты вплотную подошли к этому пределу.",
+      "imageSearchQuery": "wind turbine blades aerodynamics Betz limit",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_872",
+      "question": "Как гидроаккумулирующая электростанция (ГАЭС) запасает лишнюю электроэнергию?",
+      "answers": [
+        "Закачивает воду вверх",
+        "Сжимает пружины",
+        "Заряжает батареи",
+        "Нагревает соль"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika"
+      ],
+      "image": "assets/images/q_872.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "ГАЭС работает как огромный аккумулятор: ночью, когда электричества много, воду насосами закачивают в верхний резервуар; днём она стекает вниз через турбины и вырабатывает электричество. Нагрев расплавленной соли и сжатый воздух - реальные альтернативные методы хранения энергии.",
+      "imageSearchQuery": "pumped storage hydropower station mountain reservoir",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_873",
+      "question": "Откуда взялся термин «лошадиная сила» как мера мощности двигателей?",
+      "answers": [
+        "Реклама шахтёрам",
+        "Гонки на ипподроме",
+        "Указ Людовика XIV",
+        "Трактат Декарта"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika"
+      ],
+      "image": "assets/images/q_873.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1780-х Уатт хотел продать паровые машины угольным шахтам, где работали лошади. Он измерил, сколько лошадь поднимает воды за минуту, и стал рекламировать машины в «лошадиных силах» - покупатели сразу понимали выгоду.",
+      "imageSearchQuery": "James Watt steam engine horsepower measurement",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_874",
+      "question": "Почему солнечные панели дают меньше электричества в очень жаркий солнечный день, чем в прохладный?",
+      "answers": [
+        "Нагрев снижает КПД",
+        "Пыль на панелях",
+        "Панели расширяются",
+        "Облака рассеивают свет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika",
+        "fizika"
+      ],
+      "image": "assets/images/q_874.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фотоэлектрический эффект в кремниевых ячейках ослабевает при нагреве: каждые лишние 10 °C снижают мощность примерно на 4-5%. Поэтому в Германии солнечные панели по годовому КПД конкурируют с южноевропейскими.",
+      "imageSearchQuery": "solar panel efficiency temperature hot weather",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_875",
+      "question": "Насколько примерно энергоэффективнее светодиодная лампа по сравнению с обычной лампой накаливания?",
+      "answers": [
+        "В 10 раз",
+        "В 3 раза",
+        "В 50 раз",
+        "В 100 раз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika"
+      ],
+      "image": "assets/images/q_875.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Лампа накаливания превращает в свет около 5% энергии, остальное - тепло. Светодиод отдаёт в свет около 40-50%. Именно поэтому ЕС и Россия поэтапно запретили продажу ламп накаливания.",
+      "imageSearchQuery": "LED lamp vs incandescent light bulb efficiency",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_876",
+      "question": "До какой степени обогащения урана доходят реакторы атомных подводных лодок, позволяя им работать десятилетиями без дозаправки?",
+      "answers": [
+        "90% и выше",
+        "До 20%",
+        "До 5%",
+        "До 50%"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika"
+      ],
+      "image": "assets/images/q_876.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Военно-морские реакторы используют уран, обогащённый до 90%+ (оружейный уровень), поэтому топлива хватает на весь срок службы лодки. Гражданские АЭС работают на 3-5% обогащении по соображениям нераспространения и стоимости.",
+      "imageSearchQuery": "nuclear submarine reactor highly enriched uranium",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_877",
+      "question": "Какую долю мировой электроэнергии вырабатывают гидроэлектростанции?",
+      "answers": [
+        "16%",
+        "10%",
+        "25%",
+        "5%"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "energetika"
+      ],
+      "image": "assets/images/q_877.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гидроэнергетика даёт около 15-16% мировой электрогенерации, атомная - около 10%. Гидро лидирует благодаря Китаю, Бразилии и Канаде с их гигантскими ГЭС. Вместе они покрывают около четверти мирового электричества.",
+      "imageSearchQuery": "hydroelectric power plant dam world electricity generation",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_878",
+      "question": "Что именно в реплике «I'll be back» из «Терминатора» Шварценеггер хотел изменить, но Кэмерон не разрешил?",
+      "answers": [
+        "Убрать сокращение",
+        "Добавить паузу",
+        "Произнести по-немецки",
+        "Убрать фразу совсем"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika-film"
+      ],
+      "image": "assets/images/q_878.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шварценеггеру было трудно произносить сокращение «I'll» - он хотел сказать «I will be back». Кэмерон настоял на оригинале, и Шварценеггер сам нашёл холодную механическую интонацию, превратив фразу в культовую.",
+      "imageSearchQuery": "Terminator 1984 Arnold Schwarzenegger",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_880",
+      "question": "Какой реальный объект Ридли Скотт взял за образец при разработке внешнего вида корабля «Ностромо» в «Чужом» (1979)?",
+      "answers": [
+        "Нефтяная платформа",
+        "Атомная подлодка",
+        "Химический завод",
+        "Угольная шахта"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika-film"
+      ],
+      "image": "assets/images/q_880.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Скотт и художник-постановщик Майкл Сеймур изучали нефтяные платформы Северного моря: трубы, клапаны, ржавчина, теснота. Цель - показать «рабочий» космос, а не стерильный, чтобы экипаж воспринимался как дальнобойщики, а не герои.",
+      "imageSearchQuery": "Alien 1979 Nostromo spaceship set",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_881",
+      "question": "В «Матрице» (1999) код, стекающий по экрану, составлен из реальных символов - откуда взяли исходный материал?",
+      "answers": [
+        "Из японской кулинарной книги",
+        "Из двоичного кода ASCII",
+        "Из программы на BASIC",
+        "Из китайских иероглифов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika-film"
+      ],
+      "image": "assets/images/q_881.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дизайнер Саймон Уайтли сканировал страницы японской кулинарной книги жены - иероглифы и символы перевернул зеркально и смешал с латиницей и цифрами. Авторы называют этот поток «суши-кодом».",
+      "imageSearchQuery": "Matrix 1999 green code falling",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_882",
+      "question": "Как снимали велоцираптора в сцене погони на кухне в «Парке Юрского периода» (1993)?",
+      "answers": [
+        "Актёр в костюме на роликах",
+        "Компьютерная графика",
+        "Аниматронная кукла на рельсах",
+        "Марионетка на тросах"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika-film"
+      ],
+      "image": "assets/images/q_882.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Для сцен в кухне использовали актёра в резиновом костюме велоцираптора на роликовых коньках - он маневрировал между полками. КГИ добавляли только для крупных планов головы и точных движений укуса.",
+      "imageSearchQuery": "Jurassic Park 1993 raptor kitchen scene",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_883",
+      "question": "Что команда физика Кипа Торна опубликовала по итогам работы над визуализацией чёрной дыры Гаргантюа в «Интерстелларе»?",
+      "answers": [
+        "Научную статью",
+        "Открытый код рендера",
+        "Образовательный курс",
+        "Патент на алгоритм"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika-film"
+      ],
+      "image": "assets/images/q_883.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Физик Кип Торн обнаружил, что существующее ПО для рендеринга не учитывало гравитационное линзирование правильно. Написанный под фильм код дал верную «яркую дугу» над диском, а результаты команда оформила в научную статью, опубликованную в рецензируемом журнале.",
+      "imageSearchQuery": "Interstellar Gargantua black hole visualization",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_884",
+      "question": "Какой реальный азиатский город вдохновил неоновые вывески и ночные рынки под дождём в «Бегущем по лезвию» (1982)?",
+      "answers": [
+        "Гонконг",
+        "Токио",
+        "Сеул",
+        "Осака"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fantastika-film"
+      ],
+      "image": "assets/images/q_884.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Художник-постановщик Лоренс Дж. Поль и Скотт изучали ночной Гонконг: неоновые вывески поверх ветхих фасадов, уличные рынки под дождём, смешение языков. Этот образ «азиатизированного» мегаполиса создал эталон киберпанка на десятилетия.",
+      "imageSearchQuery": "Blade Runner 1982 city night rain neon",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_885",
+      "question": "Сколько примерно длилась выдержка при съёмке портрета в 1840-е годы, когда появился дагеротип?",
+      "answers": [
+        "15-30 минут",
+        "2-3 секунды",
+        "5-10 секунд",
+        "1-2 минуты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_885.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Чувствительность йодированного серебра была настолько низкой, что человек должен был сидеть неподвижно 15-30 минут. Специальные металлические подголовники удерживали голову - именно поэтому на ранних портретах люди выглядят такими напряжёнными.",
+      "imageSearchQuery": "Victorian daguerreotype portrait headrest posing chair",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_886",
+      "question": "Профессиональные фотографы узнают по этому звуку момент съёмки и называют его «голосом» камеры. Какой механизм зеркальной камеры создаёт этот характерный щелчок?",
+      "answers": [
+        "Шторки затвора",
+        "Фокусируется объектив",
+        "Заряжается вспышка",
+        "Блокируется стабилизатор"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya"
+      ],
+      "image": "assets/images/q_886.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Характерный щелчок зеркальной камеры создают шторки затвора: в момент съёмки первая шторка открывает матрицу, вторая закрывает - этот быстрый двойной удар и есть тот самый звук. Зеркало тоже откидывается, но его глухой шлепок ниже и вторичен. Беззеркальные камеры с электронным затвором этого звука лишены полностью.",
+      "imageSearchQuery": "DSLR mirror reflex mechanism diagram camera",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_887",
+      "question": "Термин «фотография» ввёл в 1839 году астроном Джон Гершель, тот самый, кто открыл способность тиосульфата фиксировать изображение. Что буквально означает это слово по-гречески?",
+      "answers": [
+        "Запись светом",
+        "Застывший миг",
+        "Образ на серебре",
+        "Тень и время"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_887.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Фотография» - от греч. photos (свет) + graphein (писать), буквально «запись светом». Гершель предложил этот термин в 1839 году и ввёл понятия «негатив» и «позитив», ставшие основой фотографического языка.",
+      "imageSearchQuery": "photography etymology Greek light writing history",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_888",
+      "question": "Ортохроматические плёнки XIX века имели неравномерную чувствительность к свету. К какому цвету они были чрезмерно чувствительны?",
+      "answers": [
+        "К синему",
+        "К красному",
+        "К зелёному",
+        "К жёлтому"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya"
+      ],
+      "image": "assets/images/q_888.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ортохроматические плёнки реагировали главным образом на синий и фиолетовый свет. Синее небо засвечивалось до белизны, а жёлтые и красные объекты выходили неожиданно тёмными. Пейзажные фотографы компенсировали это жёлтыми светофильтрами.",
+      "imageSearchQuery": "orthochromatic film black white overexposed sky historical photograph",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_890",
+      "question": "Зачем фотограф в студии направляет белый зонтик не на модель, а в обратную сторону?",
+      "answers": [
+        "Рассеивает свет",
+        "Поглощает лишний свет",
+        "Блокирует засветку",
+        "Создаёт контровой свет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya"
+      ],
+      "image": "assets/images/q_890.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Вспышка бьёт в вогнутую белую поверхность зонтика, которая отражает свет обратно широким мягким пятном. Чем больше источник света относительно объекта, тем мягче тени - поэтому зонтик даёт портрет без жёстких теней, как в облачный день.",
+      "imageSearchQuery": "studio photography umbrella reflector soft light portrait setup",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_891",
+      "question": "Какой приём позволяет превратить огни ночного города в длинные светящиеся полосы на фото?",
+      "answers": [
+        "Длинная выдержка",
+        "Боке",
+        "Брекетинг",
+        "Многократная экспозиция"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya"
+      ],
+      "image": "assets/images/q_891.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "При длинной выдержке (slow shutter speed) матрица накапливает свет всё время пока открыт затвор. Движущиеся источники света - фары и стоп-сигналы машин - рисуют цветные полосы, пока неподвижный город остаётся резким. Для этого нужен штатив.",
+      "imageSearchQuery": "long exposure night light trails city traffic photography",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_892",
+      "question": "На самом раннем снимке с узнаваемым человеком - дагеротипе Дагера 1838 года - случайный прохожий попал в кадр. Что он делал, оставшись неподвижным на несколько минут?",
+      "answers": [
+        "Чистил обувь",
+        "Стоял за столбом",
+        "Нёс тяжёлый груз",
+        "Читал газету"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya",
+        "istoriya"
+      ],
+      "image": "assets/images/q_892.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Снимок «Бульвар дю Тампль» требовал нескольких минут выдержки - весь оживлённый поток прохожих и экипажей растворился. Но один человек стоял неподвижно, пока чистильщик начищал ему ботинки, и оба попали на первое в истории фото с людьми.",
+      "imageSearchQuery": "Daguerre 1838 Boulevard du Temple first photograph person shoeshine",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_893",
+      "question": "Что происходит с прямыми линиями у краёв кадра при съёмке сверхширокоугольным объективом типа «рыбий глаз»?",
+      "answers": [
+        "Прямые кажутся кривыми",
+        "Края темнее центра",
+        "Размывает периферию",
+        "Искажает цвета"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya"
+      ],
+      "image": "assets/images/q_893.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Объектив «рыбий глаз» охватывает угол до 180 градусов и больше, проецируя полусферу на плоскую матрицу. Прямые линии у краёв кадра изгибаются - это неизбежное геометрическое искажение называется «бочкообразной дисторсией». Именно оно делает снимки узнаваемо «рыбьеглазными».",
+      "imageSearchQuery": "fisheye lens barrel distortion photography curved lines effect",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_894",
+      "question": "В XIX веке фотографы снимали умерших близких в позе живых - этот жанр называли memento mori. Зачем семьи заказывали такой портрет?",
+      "answers": [
+        "Единственная память об умершем",
+        "Дань уважения предкам",
+        "Традиция прощального обряда",
+        "Наследники требовали доказательства"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "fotografiya"
+      ],
+      "image": "assets/images/q_894.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "До эпохи массовой фотографии большинство людей никогда не позировали при жизни - портрет был роскошью. Смерть давала последний шанс сохранить изображение близкого. Особенно часто снимали детей: детская смертность была высокой, а прижизненных фото почти не делали.",
+      "imageSearchQuery": "Victorian memento mori post mortem photography portrait",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_895",
+      "question": "Число возможных положений кубика Рубика 3х3 поражает своим масштабом - сколько их примерно?",
+      "answers": [
+        "43 квинтиллиона",
+        "1 миллиард",
+        "800 триллионов",
+        "16 квадриллионов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki",
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_895.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "43 252 003 274 489 856 000 - это около 43 квинтиллионов. Если каждую секунду делать один ход, перебрать их все заняло бы в тысячи раз больше возраста Вселенной.",
+      "imageSearchQuery": "Rubik's cube scrambled positions",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_896",
+      "question": "Судоку - популярная головоломка с цифрами, но в какой стране она была придумана?",
+      "answers": [
+        "США",
+        "Япония",
+        "Великобритания",
+        "Германия"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_896.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1979 году американец Говард Гарнс опубликовал головоломку «Number Place» в журнале Dell Puzzles. Японцы открыли её лишь в 1984 году и дали ей имя «судоку».",
+      "imageSearchQuery": "sudoku puzzle newspaper 1979 Howard Garns",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_897",
+      "question": "Первые разрезные картинки-паззлы в 1760-е годы придумал лондонский картограф - что именно он разрезал на части для учебных занятий?",
+      "answers": [
+        "Географические карты",
+        "Портреты монархов",
+        "Библейские сцены",
+        "Игральные карты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_897.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джон Спилсбери приклеивал карту Европы на дерево и разрезал по границам стран - ученики собирали её обратно, запоминая географию. Так родился жанр паззла.",
+      "imageSearchQuery": "John Spilsbury 1760s dissected map puzzle geography",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_898",
+      "question": "Математики в 2010 году доказали: кубик Рубика из любого положения можно собрать максимум за сколько ходов?",
+      "answers": [
+        "20 ходов",
+        "7 ходов",
+        "40 ходов",
+        "100 ходов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_898.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Число 20 называют «числом Бога» - это верхняя граница для любого из 43 квинтиллионов положений. Доказательство потребовало 35 лет процессорного времени на компьютерах Google.",
+      "imageSearchQuery": "Rubik's cube God's number 20 moves solution",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_899",
+      "question": "Математики доказали, что у классических пятнашек (15 фишек в квадрате 4х4) далеко не каждая стартовая расстановка решаема - какая именно доля?",
+      "answers": [
+        "50%",
+        "75%",
+        "25%",
+        "90%"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_899.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джонсон и Стори доказали в 1879 году: ровно половина всех перестановок фишек недостижима из начальной позиции - пространство делится на два несвязных мира.",
+      "imageSearchQuery": "15 puzzle sliding puzzle solvable positions mathematics",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_900",
+      "question": "Первый кроссворд, напечатанный в газете New York World в 1913 году, имел форму не привычного прямоугольника, а какой фигуры?",
+      "answers": [
+        "Ромб",
+        "Крест",
+        "Круг",
+        "Восьмиугольник"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_900.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Артур Уинн скомпоновал кроссворд в форме ромба с отверстием в центре, без чёрных клеток. Прямоугольная сетка с чёрными клетками стала стандартом позже.",
+      "imageSearchQuery": "Arthur Wynne first crossword 1913 New York World diamond shape",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_902",
+      "question": "Танграм - китайская головоломка, где из плоских фигур складываются силуэты - из скольких частей состоит классический набор?",
+      "answers": [
+        "7 частей",
+        "5 частей",
+        "9 частей",
+        "12 частей"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_902.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Семь фигур (5 треугольников, 1 квадрат и 1 параллелограмм) дают более 6500 задокументированных силуэтов. Из них же можно сложить квадрат-оригинал.",
+      "imageSearchQuery": "tangram classic 7 pieces tans silhouette",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_903",
+      "question": "По легенде, буддийские монахи решают Ханойскую башню из 64 дисков. Что произойдёт, когда они закончат?",
+      "answers": [
+        "Конец света",
+        "Наступит нирвана",
+        "Родится новый Будда",
+        "Явится Майтрейя"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki"
+      ],
+      "image": "assets/images/q_903.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По легенде, когда монахи храма Бенарес перекладывают все 64 диска по правилам Ханойской башни, наступит конец света. Математически это 2⁶⁴ − 1 ≈ 18,4 квинтиллиона ходов, то есть около 585 миллиардов лет.",
+      "imageSearchQuery": "Tower of Hanoi 64 discs mathematical puzzle legend",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_904",
+      "question": "Каждая костяшка домино разделена чертой на две половины - что именно обозначают два числа на одной костяшке?",
+      "answers": [
+        "Два броска кубика",
+        "Номера игроков",
+        "Счёт раунда",
+        "Очки за ход"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "golovolomki",
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_904.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Домино произошло от игральных кубиков: каждая костяшка изображает один из возможных результатов броска двух кубиков. Первые наборы появились в Китае в XII веке.",
+      "imageSearchQuery": "domino tiles dice origin China history",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_905",
+      "question": "Что означало слово «рэп» в американском сленге ещё до появления хип-хопа как жанра?",
+      "answers": [
+        "Болтовня",
+        "Боль",
+        "Ритм",
+        "Бунт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_905.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В городском сленге 1960-70-х «to rap» значило «разговаривать, болтать» - MC просто подхватили слово для речитатива. Само слово в английском фиксируется ещё в XVII веке как «удар, стук», затем «болтовня».",
+      "imageSearchQuery": "hip-hop MC microphone 1970s",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_906",
+      "question": "Зачем DJ Kool Herc на своих вечеринках в Бронксе ставил две одинаковые пластинки одновременно?",
+      "answers": [
+        "Зациклить брейк",
+        "Удвоить громкость",
+        "Заглушить шумы",
+        "Сыграть дуэтом"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_906.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Kool Herc брал 2 копии одного диска и переключался между ними в момент, когда заканчивался ударный проигрыш (брейк), - так бит шёл непрерывно. Техника получила название «Merry-Go-Round» и стала основой хип-хопа.",
+      "imageSearchQuery": "DJ two turntables breakbeat technique",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_907",
+      "question": "Что из перечисленного НЕ входит в четыре классических элемента хип-хоп культуры по версии Afrika Bambaataa?",
+      "answers": [
+        "Битбокс",
+        "Граффити",
+        "Рэп",
+        "Брейкданс"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_907.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Afrika Bambaataa выделил четыре элемента: MC (рэп), диджеинг, брейкданс и граффити. Битбокс появился позже и иногда называется пятым элементом, но в оригинальную четвёрку не входит.",
+      "imageSearchQuery": "four elements hip-hop culture graffiti breakdance DJ MC",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_908",
+      "question": "Дебютный сингл Sugarhill Gang «Rapper's Delight» (1979) разошёлся каким тиражом, сделав хип-хоп коммерческим явлением?",
+      "answers": [
+        "8 миллионов",
+        "1 миллион",
+        "15 миллионов",
+        "3 миллиона"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_908.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Rapper's Delight» стал первым хип-хоп синглом в коммерческих чартах и разошёлся тиражом около 8 миллионов копий - жанр мгновенно перестал быть только районным явлением.",
+      "imageSearchQuery": "Sugarhill Gang Rapper's Delight 1979",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_909",
+      "question": "Что Эминем делал с детства, чтобы расширить словарный запас для рифм?",
+      "answers": [
+        "Учил слова из словаря",
+        "Читал книги вслух",
+        "Слушал джаз",
+        "Смотрел кино"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "lichnosti-muzykanty"
+      ],
+      "image": "assets/images/q_909.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Эминем рассказывал в интервью, что с подросткового возраста штудировал словарь - запоминал определения новых слов, чтобы потом вставлять их в рифмы. Это помогло выработать плотный, многосложный слог.",
+      "imageSearchQuery": "Eminem studio recording",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_910",
+      "question": "Чью музыку хип-хоп исполнители сэмплировали чаще, чем музыку любого другого артиста в истории жанра?",
+      "answers": [
+        "Джеймс Браун",
+        "Элвис Пресли",
+        "Майкл Джексон",
+        "Рэй Чарльз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "ispolniteli"
+      ],
+      "image": "assets/images/q_910.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По данным базы WhoSampled, Джеймс Браун - самый сэмплируемый музыкант в хип-хопе. Его трек «Funky Drummer» (1969) использовали в своих записях более 1 400 артистов.",
+      "imageSearchQuery": "James Brown funk music",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_911",
+      "question": "Что послужило поводом для вечеринки DJ Kool Herc 11 августа 1973 года, которую теперь называют днём рождения хип-хопа?",
+      "answers": [
+        "Школьная вечеринка",
+        "Концерт в парке",
+        "День города",
+        "Уличный баттл"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_911.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сестра Kool Herc - Синди Кэмпбелл - устроила «back to school» party, чтобы заработать на школьные покупки. Вечеринка прошла в подвале дома по адресу 1520 Sedgwick Avenue в Бронксе и считается точкой отсчёта хип-хопа.",
+      "imageSearchQuery": "1520 Sedgwick Avenue Bronx New York hip-hop birthplace",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_912",
+      "question": "Зачем Afrika Bambaataa в 1973 году основал организацию Universal Zulu Nation в Бронксе?",
+      "answers": [
+        "Увести молодёжь из банд",
+        "Основать музыкальный лейбл",
+        "Собрать деньги",
+        "Записать альбом"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_912.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Bambaataa сам был членом уличной банды Black Spades, но после поездки в Африку переосмыслил цели и создал Zulu Nation, чтобы направить энергию молодёжи Бронкса в музыку, танец и граффити вместо уличного насилия.",
+      "imageSearchQuery": "Afrika Bambaataa Universal Zulu Nation",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_913",
+      "question": "Как диджей Grand Wizzard Theodore случайно открыл технику скрэтча?",
+      "answers": [
+        "Притормозил пластинку",
+        "Уронил иглу",
+        "Перепутал диски",
+        "Включил не ту скорость"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_913.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Theodore рассказывал, что мать закричала ему из комнаты - он придержал вращающуюся пластинку рукой, и характерное «царапающее» звучание ему понравилось. Сознательно развив приём, он превратил его в технику скрэтча.",
+      "imageSearchQuery": "DJ scratching turntable technique",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_914",
+      "question": "Что изучал Тупак Шакур в Baltimore School for the Arts до начала карьеры в хип-хопе?",
+      "answers": [
+        "Балет и театр",
+        "Джаз и блюз",
+        "Бокс и танцы",
+        "Рисование и скульптура"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hip-hop",
+        "lichnosti-muzykanty"
+      ],
+      "image": "assets/images/q_914.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Baltimore School for the Arts Тупак серьёзно занимался балетом, джазом и театральным искусством - и сам называл это время важнейшим в своём творческом развитии. Позднее он параллельно снимался в кино.",
+      "imageSearchQuery": "Tupac Shakur young Baltimore",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_915",
+      "question": "Что использовали на съёмках «Психо» вместо крови в сцене в душе, зная, что фильм выйдет чёрно-белым?",
+      "answers": [
+        "Шоколадный сироп",
+        "Томатный сок",
+        "Красная краска",
+        "Машинное масло"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_915.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хичкок снял «Психо» в ч/б, в том числе чтобы шоколадный сироп выглядел убедительно как кровь. В ч/б он давал нужную текстуру и плотность - и не вызывал протестов цензуры как цветная кровь.",
+      "imageSearchQuery": "Psycho 1960 shower scene Hitchcock filming",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_916",
+      "question": "Сколько примерно стоил «Ведьма из Блэр» (1999), ставший одним из самых окупаемых фильмов в истории?",
+      "answers": [
+        "60 000 долларов",
+        "500 000 долларов",
+        "150 000 долларов",
+        "3 миллиона долларов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_916.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бюджет «Ведьмы из Блэр» составил около 60 000 долларов, а мировые сборы превысили 248 миллионов - это примерно в 4 000 раз больше затрат.",
+      "imageSearchQuery": "Blair Witch Project 1999 film poster",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_917",
+      "question": "Маска Майкла Майерса в «Хэллоуине» (1978) была сделана из готовой театральной маски - чьё лицо там изначально?",
+      "answers": [
+        "Уильяма Шатнера",
+        "Клинта Иствуда",
+        "Аль Пачино",
+        "Чарлтона Хестона"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_917.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Реквизиторы купили в магазине маску Капитана Кирка (Уильям Шатнер из Star Trek) за 1,98 доллара, выкрасили её белым и растянули. Шатнер узнал об этом спустя годы.",
+      "imageSearchQuery": "Halloween 1978 Michael Myers mask William Shatner",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_918",
+      "question": "Сколько примерно минут Ганнибал Лектер появляется на экране в «Молчании ягнят», за что Хопкинс получил «Оскар»?",
+      "answers": [
+        "16 минут",
+        "45 минут",
+        "32 минуты",
+        "8 минут"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_918.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По словам самого Хопкинса, его персонаж появляется около 16 минут за весь фильм. Это один из самых коротких «оскаровских» выходов в категории лучшей мужской роли.",
+      "imageSearchQuery": "Hannibal Lecter Silence of the Lambs Anthony Hopkins",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_919",
+      "question": "Как зовут персонажа из «Крика» (1996), который прямо перечислял правила выживания в хоррорах - во время просмотра хоррора?",
+      "answers": [
+        "Ренди",
+        "Сидни",
+        "Гейл",
+        "Билли"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_919.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Персонаж Ренди (Рэнди Микс, его играл Джейми Кеннеди) прямо перечислял «правила хоррора» во время просмотра хоррора на вечеринке - это стало визитной карточкой метажанра и фильма Уэса Крэйвена.",
+      "imageSearchQuery": "Scream 1996 Randy movie rules scene",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_920",
+      "question": "Слово «зомби» попало в западные языки из верований какого народа?",
+      "answers": [
+        "Гаитян",
+        "Ацтеков",
+        "Зулусов",
+        "Египтян"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_920.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Слово «zombi» пришло из гаитянского креольского языка и связано с культом вуду. Первые упоминания в английских текстах - описания Гаити XIX века.",
+      "imageSearchQuery": "Haiti voodoo zombie folklore",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_922",
+      "question": "Как звали реального американца 1950-х, частично послужившего прообразом Кожаного лица из «Техасской резни бензопилой»?",
+      "answers": [
+        "Эд Гин",
+        "Тед Банди",
+        "Джон Уэйн Гейси",
+        "Генри Лукас"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_922.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Прообразом послужил Эд Гин - серийный убийца из Висконсина, который делал предметы из кожи жертв. Его же история вдохновила «Психо» и «Молчание ягнят».",
+      "imageSearchQuery": "Ed Gein mugshot 1957 Wisconsin serial killer",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_923",
+      "question": "Сколько онлайн-запросов собрала Paramount через сайт «Demand it!», прежде чем выпустила «Паранормальное явление» (2009) в широкий прокат?",
+      "answers": [
+        "1 000 000",
+        "100 000",
+        "500 000",
+        "5 000 000"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "horror",
+        "kino"
+      ],
+      "image": "assets/images/q_923.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Paramount запустила сайт «Demand it!», где зрители голосовали за показ в своём городе. Когда число запросов достигло 1 000 000, студия выпустила фильм в широкий прокат - это стало маркетинговым прорывом вирусного продвижения.",
+      "imageSearchQuery": "Paranormal Activity 2009 demand it marketing campaign",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_924",
+      "question": "Почему купола православных храмов чаще всего золотят, а не красят в белый или серый цвет?",
+      "answers": [
+        "Не ржавеет и не темнеет",
+        "Дешевле других металлов",
+        "Привезли из Византии",
+        "Белый цвет траура"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hramy",
+        "arhitektura"
+      ],
+      "image": "assets/images/q_924.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Позолота из сусального золота или нитрид-титанового покрытия практически не корродирует и десятилетиями держит блеск без перекраски - окрашенный металл пришлось бы обновлять каждые 5-10 лет.",
+      "imageSearchQuery": "золотой купол православный храм",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_925",
+      "question": "В готических соборах стены почти целиком стеклянные. За счёт какого конструктивного элемента стало возможным убрать несущую стену?",
+      "answers": [
+        "Аркбутаны",
+        "Нервюрные своды",
+        "Арки",
+        "Монолитный фундамент"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hramy",
+        "arhitektura",
+        "stili-arhitektury"
+      ],
+      "image": "assets/images/q_925.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Аркбутаны - наружные арочные упоры - передавали распор свода от стены наружу на контрфорсы. Стена освободилась от нагрузки и стала почти полностью стеклянной.",
+      "imageSearchQuery": "готический собор аркбутаны контрфорсы витражи",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_926",
+      "question": "Молились греки у наружного алтаря храма, а само здание стояло закрытым. Зачем тогда строили всё это здание?",
+      "answers": [
+        "Казна и сокровищница",
+        "Зал для молитв",
+        "Жилище жрецов",
+        "Сцена для обрядов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hramy",
+        "arhitektura"
+      ],
+      "image": "assets/images/q_926.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Целла греческого храма была буквально хранилищем: там стояла статуя бога, хранилось золото, серебро и ценные дары - богослужение шло снаружи, под открытым небом.",
+      "imageSearchQuery": "греческий храм Парфенон целла сокровищница",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_927",
+      "question": "Сколько примерно лет строили Кёльнский собор с закладки первого камня до завершения?",
+      "answers": [
+        "632 года",
+        "430 лет",
+        "215 лет",
+        "95 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hramy",
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_927.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Строительство началось в 1248 году, завершилось в 1880-м - 632 года с большими перерывами. На момент завершения собор ненадолго стал самым высоким зданием мира.",
+      "imageSearchQuery": "Кёльнский собор строительство исторический",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_929",
+      "question": "Башни Саграда Фамилии Гауди в Барселоне намеренно наклонены внутрь к центру - как называется принцип, делающий это устойчивым без внешних опор?",
+      "answers": [
+        "Параболический свод",
+        "Аркбутан",
+        "Центровой замок",
+        "Контрфорс"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hramy",
+        "znamenitye-zdaniya",
+        "stili-arhitektury"
+      ],
+      "image": "assets/images/q_929.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гауди применял параболические и гиперболические формы, у которых геометрия сама направляет силы сжатия вниз по оси - вес распределяется без горизонтального распора, которого боятся арки.",
+      "imageSearchQuery": "Саграда Фамилия башни параболические формы Гауди",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_930",
+      "question": "Купол Пантеона в Риме простоял почти 2000 лет без трещин. Какая хитрость строителей позволила облегчить верхнюю часть свода?",
+      "answers": [
+        "Кессоны в своде",
+        "Стальные кольца",
+        "Пустотелые амфоры",
+        "Лёгкий мрамор"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "hramy",
+        "znamenitye-zdaniya"
+      ],
+      "image": "assets/images/q_930.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кессоны - прямоугольные ниши в поверхности купола - убирают около 40% массы бетона, сохраняя форму. Чем ближе к отверстию окулуса, тем легче бетонная смесь: внизу - тяжёлый туф, вверху - лёгкая пемза.",
+      "imageSearchQuery": "Пантеон Рим купол кессоны окулус",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_933",
+      "question": "Что означает слово «проруха» в пословице «и на старуху бывает проруха»?",
+      "answers": [
+        "Просчёт, оплошность",
+        "Прорубь во льду",
+        "Болезнь, хворь",
+        "Недостача в хозяйстве"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "idiomy",
+        "yazyki-slova"
+      ],
+      "image": "assets/images/q_933.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Проруха» образована от глагола «прорушиться» - оступиться, провалиться. В переносном смысле - просчёт, промах. Слово вышло из живого языка, но сохранилось только в этой пословице.",
+      "imageSearchQuery": "старинный русский словарь",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_935",
+      "question": "Каким значением обладала пятница на Руси, породив пословицу «семь пятниц на неделе»?",
+      "answers": [
+        "День торгов и расплат",
+        "День отдыха от пашни",
+        "Выходной от работы",
+        "День запрета на мясо"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "idiomy",
+        "yazyki-slova"
+      ],
+      "image": "assets/images/q_935.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пятница была базарным днём: именно тогда заключали сделки и давали обещания вернуть долг. Тот, у кого «семь пятниц», каждый день меняет обещания, будто каждый день торговый.",
+      "imageSearchQuery": "русская ярмарка базарный день",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_936",
+      "question": "Из чего сделаны молоточки, которые бьют по струнам в пианино?",
+      "answers": [
+        "Войлок",
+        "Дерево",
+        "Кожа",
+        "Резина"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "instrumenty"
+      ],
+      "image": "assets/images/q_936.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Молоточки обтянуты прессованным войлоком. Плотность войлока определяет тембр: изношенный молоточек звучит жёстче, а настройщик прокалывает войлок иглой, чтобы сделать тон мягче.",
+      "imageSearchQuery": "piano hammer felt mechanism",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_937",
+      "question": "Почему у скрипки дека имеет форму «талии» - вогнута по бокам?",
+      "answers": [
+        "Смычок не задевает деку",
+        "Улучшает резонанс корпуса",
+        "Легче держать плечом",
+        "Уменьшает вес инструмента"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "instrumenty"
+      ],
+      "image": "assets/images/q_937.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Вырезы по бокам дают смычку угол движения при игре на крайних струнах: без «талии» смычок упирался бы в ребро корпуса и не доставал до первой и четвёртой струн.",
+      "imageSearchQuery": "violin waist body shape bouts",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_938",
+      "question": "Сколько струн у современной концертной педальной арфы?",
+      "answers": [
+        "47",
+        "36",
+        "54",
+        "29"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "instrumenty",
+        "klassika-muz"
+      ],
+      "image": "assets/images/q_938.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Концертная педальная арфа имеет 47 струн и 7 педалей. Каждая педаль меняет строй целой группы струн, позволяя играть во всех тональностях без перестройки каждой струны вручную.",
+      "imageSearchQuery": "concert harp 47 strings pedal",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_939",
+      "question": "Нижнюю часть смычка музыканты называют «лягушкой», а каково её официальное название?",
+      "answers": [
+        "Колодка",
+        "Трость",
+        "Волос",
+        "Подбородник"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "instrumenty"
+      ],
+      "image": "assets/images/q_939.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Официальное название - колодка (нем. Frosch, «лягушка»): в неё вставлен металлический винт, которым натягивают волос. Прозвище «лягушка» прижилось из-за квадратной формы детали.",
+      "imageSearchQuery": "violin bow frog heel nut",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_940",
+      "question": "Откуда группа Pink Floyd взяла своё название?",
+      "answers": [
+        "Имена двух блюзменов",
+        "Район Лондона",
+        "Цвет и фигура",
+        "Физическое явление"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "rok"
+      ],
+      "image": "assets/images/q_940.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сид Барретт придумал название, объединив имена двух малоизвестных блюзменов: Pink Anderson и Floyd Council - так группа с первых дней заявила о своих блюзовых корнях.",
+      "imageSearchQuery": "Pink Floyd 1960s band early photo",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_941",
+      "question": "Чем Брайан Мэй из Queen заменяет медиатор при игре на гитаре?",
+      "answers": [
+        "Монетой",
+        "Пуговицей",
+        "Ногтем",
+        "Зубочисткой"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "rok"
+      ],
+      "image": "assets/images/q_941.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Брайан Мэй играет старой британской монетой в шесть пенсов - по его словам, она даёт более жёсткий и плотный звук, чем пластиковый медиатор, и он не изменяет этой привычке с 1960-х.",
+      "imageSearchQuery": "Brian May guitar sixpence coin pick",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_942",
+      "question": "Сколько студийных альбомов записали The Beatles за всё время существования группы?",
+      "answers": [
+        "13",
+        "20",
+        "8",
+        "17"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "rok"
+      ],
+      "image": "assets/images/q_942.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "За 8 лет совместной работы (1963-1970) Beatles выпустили ровно 13 студийных альбомов - от Please Please Me до Let It Be. Многие удивляются, насколько этот путь был коротким по времени.",
+      "imageSearchQuery": "Beatles discography album covers",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_943",
+      "question": "Сколько стоила запись дебютного альбома Ramones в 1976 году?",
+      "answers": [
+        "$6 400",
+        "$43 000",
+        "$95 000",
+        "$380 000"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "rok"
+      ],
+      "image": "assets/images/q_943.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Первый альбом Ramones обошёлся в $6 400 и был записан менее чем за 3 недели - при том что типичный рок-альбом тогда стоил в 10-15 раз дороже. Именно дешевизна и стала манифестом панка.",
+      "imageSearchQuery": "Ramones debut album 1976",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_944",
+      "question": "Зачем ABBA надевала вычурные сценические костюмы, которые казались нелепыми даже участникам?",
+      "answers": [
+        "Налоговый вычет",
+        "Требование телеканала",
+        "Режиссёрский каприз",
+        "Контракт со спонсором"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "pop"
+      ],
+      "image": "assets/images/q_944.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шведский закон позволяет вычитать из налогов одежду, непригодную для ношения на улице. Чем нелепее костюм, тем выгоднее для налоговой - участники ABBA сами признавались в этом в интервью.",
+      "imageSearchQuery": "ABBA stage costumes 1970s",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_945",
+      "question": "В честь чего Брайан Джонс назвал группу The Rolling Stones в 1962 году?",
+      "answers": [
+        "Блюзовая песня",
+        "Лондонская улица",
+        "Рекламный слоган",
+        "Строчка Шекспира"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "rok"
+      ],
+      "image": "assets/images/q_945.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Брайан Джонс назвал группу в честь блюзовой песни Muddy Waters «Rollin' Stone» (1950), тем самым сразу обозначив ориентиры: американский блюз, а не модный тогда британский бит.",
+      "imageSearchQuery": "Rolling Stones 1962 early photo Brian Jones",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_946",
+      "question": "Что делало глаза Дэвида Боуи непохожими друг на друга, хотя оба они были одного цвета?",
+      "answers": [
+        "Расширенный зрачок",
+        "Разный цвет",
+        "Катаракта",
+        "Косоглазие"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "lichnosti-muzykanty"
+      ],
+      "image": "assets/images/q_946.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Оба глаза Боуи были синими, но в детской драке его ударили по лицу - один зрачок навсегда расширился. Это аниcокория, а не разный цвет радужки - хотя именно такой миф живёт в массовом сознании.",
+      "imageSearchQuery": "David Bowie eyes close up",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_947",
+      "question": "Что Майкл Джексон купил в 1985 году, обойдя Пола Маккартни на торгах?",
+      "answers": [
+        "Права на песни Beatles",
+        "Студию Abbey Road",
+        "Гитару Джона Леннона",
+        "Имение в Ливерпуле"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "pop"
+      ],
+      "image": "assets/images/q_947.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джексон заплатил $47,5 млн за каталог ATV Music с 251 песней Beatles. Маккартни, который сам советовал Джексону вкладываться в музыкальные права, был потрясён - Джексон переиграл его его же советом.",
+      "imageSearchQuery": "Michael Jackson Beatles catalog ATV music",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_948",
+      "question": "Сколько получила семья младенца с обложки альбома Nevermind за эту знаменитую съёмку?",
+      "answers": [
+        "$200",
+        "$5 000",
+        "$50 000",
+        "$1 000 000"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "ispolniteli",
+        "rok"
+      ],
+      "image": "assets/images/q_948.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Семья Спенсера Элдена получила $200 за фотосессию в бассейне. Снимок стал одной из самых тиражируемых обложек в истории рока; повзрослевший Элден в 2021 году подал судебный иск к Nirvana.",
+      "imageSearchQuery": "Nirvana Nevermind album cover",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_950",
+      "question": "Как моряки XVI века измеряли скорость корабля?",
+      "answers": [
+        "Считали узлы на верёвке",
+        "Следили за пеной у борта",
+        "Замечали вспышки маяков",
+        "Мерили время по компасу"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korabli",
+        "etimologiya"
+      ],
+      "image": "assets/images/q_950.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Матросы бросали за корму доску-«лаг» на верёвке с узлами через равные промежутки и считали, сколько узлов уходит за 30 секунд. Отсюда и единица: 1 узел = 1 морская миля в час.",
+      "imageSearchQuery": "chip log ship speed measurement historical",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_952",
+      "question": "Что означают буквы SOS в сигнале бедствия?",
+      "answers": [
+        "Ничего, выбрали за удобство",
+        "Спасите наши души",
+        "Помогите нам срочно",
+        "Особый сигнал судна"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korabli",
+        "istoriya"
+      ],
+      "image": "assets/images/q_952.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На конференции 1906 года выбрали именно ... --- ... потому что это удобнее всего передавать азбукой Морзе: три точки, три тире, три точки без пауз. Никакой расшифровки у символа нет - «Спасите наши души» придумали позже как легенду.",
+      "imageSearchQuery": "SOS morse code ship distress signal",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_953",
+      "question": "Во сколько раз упала стоимость погрузки одной тонны груза в порту после введения стандартного контейнера в 1960-х?",
+      "answers": [
+        "В 2 раза",
+        "В 10 раз",
+        "В 36 раз",
+        "В 100 раз"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "korabli",
+        "istoriya"
+      ],
+      "image": "assets/images/q_953.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "До контейнеризации погрузка тонны обходилась около $5,83; со стандартным контейнером - около $0,16. Это падение примерно в 36 раз. Портовая погрузка, прежде дороже самого морского рейса, стала копеечной.",
+      "imageSearchQuery": "container ship cargo port revolution 1960s",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_955",
+      "question": "Зачем на корпусе каждого грузового судна нарисована марка Плимсоля (круг с горизонтальной чертой)?",
+      "answers": [
+        "Показывает предел загрузки",
+        "Отмечает центр тяжести",
+        "Указывает осадку порожняком",
+        "Означает класс судна"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korabli"
+      ],
+      "image": "assets/images/q_955.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "До закона Плимсоля 1876 года судовладельцы перегружали суда сверх меры - и сотни моряков тонули ежегодно. Теперь если линия уходит под воду, судно по закону не выйдет из порта.",
+      "imageSearchQuery": "Plimsoll line ship hull load line mark",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_958",
+      "question": "При каком ветре парусный корабль идёт быстрее всего?",
+      "answers": [
+        "Боковой ветер",
+        "Попутный ветер",
+        "Встречный ветер",
+        "Переменный ветер"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "korabli"
+      ],
+      "image": "assets/images/q_958.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "При попутном ветре парусник движется за потоком воздуха, и его давление ограничено скоростью самого судна. При боковом ветре (галфвинде и бакштаге) парус работает как крыло самолёта: аэродинамическая подъёмная сила тянет судно вперёд сильнее, чем прямое давление, - отсюда и рекорды скорости.",
+      "imageSearchQuery": "sailing yacht broad reach fastest point of sail",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_960",
+      "question": "Из чего примерно на 80% состоит ядро обычной кометы?",
+      "answers": [
+        "Водяной лёд",
+        "Железо и никель",
+        "Углекислый газ",
+        "Кремниевая пыль"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela"
+      ],
+      "image": "assets/images/q_960.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ядра комет называют «грязными снежками»: около 80% - водяной лёд с примесью замёрзших газов (CO, CO2) и тёмной пыли из органики и силикатов.",
+      "imageSearchQuery": "comet nucleus ice composition dirty snowball",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_961",
+      "question": "До скольких метеоров в час можно увидеть в пике метеорного дождя Персеиды?",
+      "answers": [
+        "До 100",
+        "До 20",
+        "До 500",
+        "До 10"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela"
+      ],
+      "image": "assets/images/q_961.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В пике Персеид, когда Земля пересекает плотную часть пылевого следа кометы Свифта-Таттля, наблюдатель в тёмном месте видит до 100 метеоров в час. Частицы размером с песчинку сгорают на высоте 70-100 км.",
+      "imageSearchQuery": "Perseid meteor shower comet Swift-Tuttle",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_962",
+      "question": "Чем астероиды из пояса между Марсом и Юпитером отличаются от тел в поясе Койпера за Нептуном?",
+      "answers": [
+        "Состоят из камня, а не льда",
+        "Намного крупнее по размеру",
+        "Вращаются в обратную сторону",
+        "Не имеют собственных лун"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela",
+        "planety"
+      ],
+      "image": "assets/images/q_962.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пояс астероидов - каменные и металлические обломки, сформировавшиеся близко к Солнцу, где лёд не мог существовать. Пояс Койпера - ледяные тела из внешней холодной части Солнечной системы, именно оттуда прилетает большинство комет.",
+      "imageSearchQuery": "asteroid belt vs Kuiper belt composition rocky icy",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_963",
+      "question": "Астероид диаметром 10 км убил лишь тех динозавров, кто был рядом с кратером. Что погубило остальных?",
+      "answers": [
+        "Ядерная зима",
+        "Гигантское цунами",
+        "Кислотные дожди",
+        "Глобальные пожары"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela"
+      ],
+      "image": "assets/images/q_963.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Удар выбросил миллиарды тонн пыли и сажи в стратосферу: солнечный свет был заблокирован на месяцы или годы. Растения погибли, пищевая цепочка рухнула. Цунами, пожары и кислотные дожди тоже были - но именно многолетний холод и темнота уничтожили большинство видов.",
+      "imageSearchQuery": "Chicxulub impact nuclear winter dinosaurs extinction",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_964",
+      "question": "Зонд «Розетта» первым в истории вышел на орбиту вокруг кометы в 2014 году. Сколько лет он летел до неё?",
+      "answers": [
+        "10 лет",
+        "3 года",
+        "20 лет",
+        "6 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela",
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_964.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Розетта» стартовала в 2004 году и прилетела к комете Чурюмова-Герасименко в 2014-м, совершив три гравитационных манёвра у Земли и один у Марса. Затем зонд высадил посадочный модуль «Филы» прямо на ядро кометы.",
+      "imageSearchQuery": "Rosetta spacecraft comet Churyumov-Gerasimenko 2014",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_966",
+      "question": "Что такое «планетарная защита» применительно к астероидам? Это не фантастика, а реальная миссия NASA.",
+      "answers": [
+        "Таран космическим зондом",
+        "Ядерный взрыв у поверхности",
+        "Покраска половины астероида",
+        "Буксировка тросом к Луне"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela",
+        "kosmonavtika"
+      ],
+      "image": "assets/images/q_966.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 2022 году зонд DART намеренно врезался в астероид Диморф со скоростью 6,1 км/с. Орбита Диморфа вокруг большего астероида Дидим сократилась на 33 минуты - доказав, что кинетический удар может изменить курс потенциально опасного тела.",
+      "imageSearchQuery": "DART spacecraft asteroid Dimorphos impact NASA 2022",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_967",
+      "question": "Комета Галлея появляется раз в 75-76 лет. Сколько раз её видел Марк Твен за свою жизнь?",
+      "answers": [
+        "2 раза",
+        "1 раз",
+        "3 раза",
+        "0 раз"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "malye-tela"
+      ],
+      "image": "assets/images/q_967.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Твен родился в 1835 году, когда комета была видна, и умер в 1910-м - в год её следующего появления. Он сам предсказал это: «Я пришёл с кометой и уйду с ней». Писатель дожил ровно до следующего перигелия кометы Галлея.",
+      "imageSearchQuery": "Mark Twain Halley comet 1835 1910",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_968",
+      "question": "Как изобретатель «Эрудита» (Scrabble) Альфред Баттс решил, сколько очков давать за каждую букву?",
+      "answers": [
+        "Подсчитал буквы в газетах",
+        "Спросил у лингвистов",
+        "Придумал случайно",
+        "Взял из азбуки Морзе"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_968.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Баттс вручную подсчитал частоту букв на первых страницах New York Times и двух других газет. Редкие буквы Q и Z получили по 10 очков, самые частые E и A - по 1.",
+      "imageSearchQuery": "Scrabble board game letter tiles",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_969",
+      "question": "Какие карты в игральной колоде рисуют с двумя лицами - перевёрнутыми зеркально - чтобы не выдавать поворот руки?",
+      "answers": [
+        "Валет, дама, король",
+        "Туз и фигуры",
+        "Туз",
+        "Джокер"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_969.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Фигурные карты (валет, дама, король) специально рисуют с двойной симметрией: если бы верх и низ различались, поворот руки при перекладывании выдавал бы наличие фигуры у игрока.",
+      "imageSearchQuery": "playing cards face cards king queen jack symmetric",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_970",
+      "question": "Где впервые появилась психологическая ролевая игра «Мафия»?",
+      "answers": [
+        "В МГУ на практикуме",
+        "На психологическом конгрессе",
+        "В пионерском лагере",
+        "В Ленинградском университете"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_970.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Дмитрий Давыдов придумал «Мафию» в 1986 году на факультете психологии МГУ как эксперимент о том, как группа выявляет «чужаков». Игра быстро вышла за пределы университета.",
+      "imageSearchQuery": "Mafia party game cards detective",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_971",
+      "question": "Альбер Ламорис, придумавший настольную игру «Риск» в 1957 году, прославился совсем в другой сфере. Кем он был?",
+      "answers": [
+        "Кинорежиссёром",
+        "Математиком",
+        "Военным стратегом",
+        "Профессиональным игроком"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_971.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Альбер Ламорис - французский кинорежиссёр, автор знаменитой короткометражки «Красный шар» (1956). Он придумал игру под названием La Conquête du Monde; Parker Brothers переработали и издали её как Risk.",
+      "imageSearchQuery": "Risk board game world conquest",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_972",
+      "question": "Сколько костей в стандартном наборе домино «двойная шестёрка», если каждая кость - уникальная пара значений от 0 до 6?",
+      "answers": [
+        "28",
+        "36",
+        "21",
+        "32"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_972.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Стандартный набор «двойная шестёрка» содержит 28 костей: все уникальные пары (0;0), (0;1)...(6;6), включая 7 «двойников» и 21 пару разных значений.",
+      "imageSearchQuery": "dominoes tiles game zero blank",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_973",
+      "question": "Слово «блеф» пришло из нидерландского языка. Что первоначально означало нидерландское bluffen, от которого оно образовалось?",
+      "answers": [
+        "Хвастаться",
+        "Обманывать",
+        "Скрывать",
+        "Угрожать"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_973.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Нидерландское «bluffen» означало «хвастать, запугивать» - не обман, а демонстрацию уверенности. Слово попало в английский через голландских моряков в XVII веке, а покер распространил его в современном значении.",
+      "imageSearchQuery": "poker bluff chips cards table",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_974",
+      "question": "Элизабет Мэги запатентовала в 1903 году прообраз «Монополии» - для чего она его создала?",
+      "answers": [
+        "Показать вред монополий",
+        "Учить арифметике детей",
+        "Развлекать гостей дома",
+        "Зарабатывать на продаже"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_974.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Мэги была последовательницей экономиста Генри Джорджа, выступавшего против земельных монополий. Её «Игра землевладельца» наглядно показывала, как монополист обогащается за чужой счёт.",
+      "imageSearchQuery": "Monopoly board game Landlord's Game Elizabeth Magie",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_975",
+      "question": "Символ какого растения лежит в основе рисунка масти треф (♣)?",
+      "answers": [
+        "Клевер",
+        "Лилия",
+        "Желудь",
+        "Плющ"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "nastolnye-kartochnye"
+      ],
+      "image": "assets/images/q_975.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Символ треф - стилизованный трилистник клевера (по-французски «trèfle»). Для сравнения: пики - пика или алебарда, бубны - ромб-плитка, червы - сердце.",
+      "imageSearchQuery": "playing cards clubs suit clover trefoil",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_976",
+      "question": "Сколько стран обязаны исполнять «красное уведомление» ИНТЕРПОЛА об аресте человека?",
+      "answers": [
+        "Ни одна",
+        "Все страны-члены",
+        "Только инициатор",
+        "Большинство стран"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "organizacii",
+        "politika-obshchestvo"
+      ],
+      "image": "assets/images/q_976.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "ИНТЕРПОЛ не имеет права производить аресты - «красные уведомления» лишь просят полицию страны задержать человека; обязательной юридической силы у них нет.",
+      "imageSearchQuery": "INTERPOL red notice international arrest request",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_977",
+      "question": "Какая страна предложила создать Лигу Наций, но сама так и не вступила в неё?",
+      "answers": [
+        "Германия",
+        "США",
+        "Великобритания",
+        "Швейцария"
+      ],
+      "correctAnswerIndex": 1,
+      "categories": [
+        "organizacii",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_977.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Вильсон сам разработал идею Лиги Наций как часть Версальского договора и получил Нобелевскую премию мира, но Сенат дважды отклонил ратификацию - и США так и остались за бортом.",
+      "imageSearchQuery": "Woodrow Wilson League of Nations Paris Peace Conference 1919",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_978",
+      "question": "После каких событий страны НАТО впервые в истории применили Статью 5 о коллективной обороне?",
+      "answers": [
+        "Берлинского кризиса",
+        "Войны в Корее",
+        "Терактов 11 сентября",
+        "Советского вторжения в Афганистан"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "organizacii",
+        "gosudarstva"
+      ],
+      "image": "assets/images/q_978.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "12 сентября 2001 года НАТО впервые за 52 года своего существования активировало Статью 5 - теракты 9/11 были признаны нападением на весь альянс, и началась операция в Афганистане.",
+      "imageSearchQuery": "NATO Article 5 September 11 2001 collective defense",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_979",
+      "question": "В каком городе прошла конференция 1944 года, на которой одновременно были основаны МВФ и Всемирный банк?",
+      "answers": [
+        "Бреттон-Вудс",
+        "Ялта",
+        "Потсдам",
+        "Сан-Франциско"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "organizacii",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_979.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Бреттон-Вудская конференция (Нью-Гэмпшир, июль 1944) за одно заседание создала два финансовых столпа послевоенного мира - МВФ и Международный банк реконструкции и развития (Всемирный банк).",
+      "imageSearchQuery": "Bretton Woods conference 1944 IMF World Bank founding",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_980",
+      "question": "Какая страна в 1991 году заняла постоянное место СССР в Совете Безопасности ООН без нового голосования - просто отправив письмо?",
+      "answers": [
+        "Украина",
+        "Германия",
+        "Беларусь",
+        "Россия"
+      ],
+      "correctAnswerIndex": 3,
+      "categories": [
+        "organizacii",
+        "gosudarstva"
+      ],
+      "image": "assets/images/q_980.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В декабре 1991 года Россия направила письмо генсеку ООН, которое поддержали другие бывшие республики, - и получила постоянное место без формального голосования Генассамблеи.",
+      "imageSearchQuery": "UN Security Council permanent members Russia USSR seat 1991",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_981",
+      "question": "Сколько объектов вошло в первый список Всемирного наследия ЮНЕСКО, составленный в 1978 году?",
+      "answers": [
+        "12",
+        "47",
+        "6",
+        "28"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "organizacii"
+      ],
+      "image": "assets/images/q_981.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На второй сессии Комитета всемирного наследия (1978) в список вошли 8 культурных и 4 природных объекта - в том числе Галапагосские острова и собор в Аахене. Сегодня их более 1 200.",
+      "imageSearchQuery": "UNESCO World Heritage List 1978 first sites Galapagos Aachen",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_982",
+      "question": "Сколько лабораторий в мире официально хранят живой вирус оспы под надзором ВОЗ?",
+      "answers": [
+        "12",
+        "1",
+        "2",
+        "5"
+      ],
+      "correctAnswerIndex": 2,
+      "categories": [
+        "organizacii"
+      ],
+      "image": "assets/images/q_982.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По решению ВОЗ 1979 года все штаммы вируса оспы должны храниться лишь в двух авторизованных лабораториях: CDC в Атланте (США) и ВЕКТОР в Новосибирске (Россия).",
+      "imageSearchQuery": "smallpox virus WHO authorized laboratory CDC Vector",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_983",
+      "question": "Что стало прообразом символа Красного Креста - красного креста на белом фоне?",
+      "answers": [
+        "Цвета крови и бинта",
+        "Крест из Библии",
+        "Случайный выбор основателей",
+        "Перевёрнутый флаг Швейцарии"
+      ],
+      "correctAnswerIndex": 3,
+      "categories": [
+        "organizacii",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_983.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На Женевской конференции 1864 года символ выбрали как инверсию швейцарского флага (белый крест на красном) - в честь страны основателя Анри Дюнана. Это закреплено в тексте конвенции.",
+      "imageSearchQuery": "Red Cross symbol Swiss flag inverse Geneva Convention 1864",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_984",
+      "question": "Кто в 1946 году пожертвовал деньги на покупку участка в Нью-Йорке под штаб-квартиру ООН?",
+      "answers": [
+        "Джон Рокфеллер",
+        "Гарри Трумэн",
+        "Уинстон Черчилль",
+        "Генри Форд"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "organizacii",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_984.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Джон Рокфеллер-младший купил участок в манхэттенском квартале Тёртл-Бэй за 8,5 миллиона долларов и подарил его ООН - без этого жеста штаб-квартира могла оказаться в Европе.",
+      "imageSearchQuery": "John D Rockefeller Jr UN headquarters New York donation 1946",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_985",
+      "question": "Каким мирным договором была учреждена Международная организация труда (МОТ) в 1919 году?",
+      "answers": [
+        "Версальским",
+        "Сен-Жерменским",
+        "Парижским",
+        "Вашингтонским"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "organizacii",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_985.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "МОТ создана как часть Версальского договора 1919 года - ещё до ООН. В 1946-м она первой из специализированных организаций официально вошла в систему ООН.",
+      "imageSearchQuery": "International Labour Organization ILO 1919 founding Versailles",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_986",
+      "question": "За сколько дней Достоевский продиктовал роман «Игрок», чтобы не нарушить кабальный договор со Стелловским?",
+      "answers": [
+        "За 26 дней",
+        "За 14 дней",
+        "За 21 день",
+        "За 30 дней"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pisateli",
+        "russkaya-lit"
+      ],
+      "image": "assets/images/q_986.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Стелловский включил в договор условие: если Достоевский не сдаст роман к 1 ноября 1866 года, издатель на 9 лет получает право бесплатно печатать все его произведения. Писатель нанял стенографистку Анну Сниткину и продиктовал роман всего за 26 дней.",
+      "imageSearchQuery": "Dostoyevsky portrait writer",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_987",
+      "question": "Что Кафка в завещании велел сделать со своими рукописями?",
+      "answers": [
+        "Сжечь все",
+        "Издать посмертно",
+        "Передать университету",
+        "Раздать друзьям"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pisateli",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_987.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кафка завещал другу Максу Броду сжечь все неопубликованные рукописи. Брод нарушил волю и издал три романа - «Процесс», «Замок», «Америка» - после смерти автора в 1924 году.",
+      "imageSearchQuery": "Franz Kafka portrait writer Prague",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_988",
+      "question": "Агата Кристи - второй автор в истории по суммарному тиражу после Шекспира. Сколько экземпляров её книг продано в мире?",
+      "answers": [
+        "2 млрд",
+        "500 млн",
+        "800 млн",
+        "1,2 млрд"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pisateli",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_988.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Книги Кристи переведены более чем на 100 языков - больше, чем у любого другого автора детективного жанра. Суммарный тираж превышает 2 миллиарда экземпляров, и всё это достигнуто только в XX веке и только на английском оригинале.",
+      "imageSearchQuery": "Agatha Christie portrait mystery writer",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_990",
+      "question": "Булгаков сжёг первую рукопись «Мастера и Маргариты» в 1930 году, но продолжил писать. Сколько лет после смерти писателя роман пролежал неизданным?",
+      "answers": [
+        "26 лет",
+        "5 лет",
+        "40 лет",
+        "12 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pisateli",
+        "russkaya-lit"
+      ],
+      "image": "assets/images/q_990.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Булгаков умер в 1940 году. Роман впервые вышел в СССР в журнале «Москва» в 1966-1967 годах - в сильно купированном виде. Полный текст был опубликован за рубежом ещё позже. Вдова писателя Елена Булгакова сохранила рукопись.",
+      "imageSearchQuery": "Bulgakov Master Margarita manuscript writer",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_992",
+      "question": "Хемингуэй специально вычёркивал из текста все объяснения мотивов и чувств героев, читатель должен был догадываться сам по действиям и репликам. Как он назвал этот принцип?",
+      "answers": [
+        "Теория айсберга",
+        "Метод умолчания",
+        "Эффект паузы",
+        "Правило пустоты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pisateli",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_992.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хемингуэй называл свой метод «теорией айсберга»: всё, что знает автор, но намеренно не пишет, держит текст на плаву - как подводная часть айсберга. Прямых формулировок чувств в его прозе почти нет.",
+      "imageSearchQuery": "Hemingway writing iceberg theory portrait",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_994",
+      "question": "Что буквально означает итальянское слово «sonnetto», давшее название стихотворной форме?",
+      "answers": [
+        "Маленький напев",
+        "Звуковая речь",
+        "Любовная песнь",
+        "Двойной куплет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_994.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Sonnetto - уменьшительное от «suono» (звук, напев). Форма возникла в XIII веке на Сицилии и поначалу звучала как лирическая песенка под музыку.",
+      "imageSearchQuery": "medieval manuscript sonnet poem Italy",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_995",
+      "question": "Сколько лет Пушкин писал «Евгения Онегина», прежде чем роман в стихах вышел полностью?",
+      "answers": [
+        "8 лет",
+        "3 года",
+        "15 лет",
+        "5 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "russkaya-lit"
+      ],
+      "image": "assets/images/q_995.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пушкин начал роман в 1823 году и закончил в 1831-м - работа шла 8 лет. За это время у него менялась эпоха, взгляды и сам тон повествования, что заметно в разных главах.",
+      "imageSearchQuery": "Pushkin Eugene Onegin manuscript portrait",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_996",
+      "question": "Зачем в японском хайку традиционно есть «слово-разрез» - кирэдзи?",
+      "answers": [
+        "Разделяет два образа",
+        "Указывает сезон года",
+        "Задаёт ритм строфы",
+        "Называет автора"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_996.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Кирэдзи создаёт смысловой зазор между двумя образами, сталкивая их без пояснений. Читатель сам достраивает связь - в этом и состоит главный источник поэтической силы хайку.",
+      "imageSearchQuery": "haiku Japanese calligraphy poetry",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_997",
+      "question": "Поэтический размер «дактиль» назван в честь части тела - его ритм совпадает со строением этой части. Что это?",
+      "answers": [
+        "Палец",
+        "Позвоночник",
+        "Ребро",
+        "Плечо"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya"
+      ],
+      "image": "assets/images/q_997.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "По-гречески «daktylos» - палец. Один ударный слог и два безударных в дактиле ассоциировались с пальцем как характерной трёхсложной единицей. Пример дактиля: «МУ-зы-ка».",
+      "imageSearchQuery": "dactylic meter poetry ancient Greek",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_998",
+      "question": "Слова «строфа» и «катастрофа» - у них общий греческий корень. Что этот корень означает?",
+      "answers": [
+        "Поворот",
+        "Падение",
+        "Крик",
+        "Узел"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "klassika-lit"
+      ],
+      "image": "assets/images/q_998.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Strophe» - поворот: в греческом театре хор делал шаг вправо, пел строфу, разворачивался и пел антистрофу. «Катастрофа» - «полный поворот», то есть переломный момент, разворачивающий ход событий.",
+      "imageSearchQuery": "ancient greek theater chorus strophe",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_999",
+      "question": "В классическом сонете на стыке двух катренов и двух терцетов происходит нечто важное, без чего сонет превращается просто в красивые строки. Что это?",
+      "answers": [
+        "Вольта",
+        "Анафора",
+        "Катарсис",
+        "Строфа"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_999.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "«Volta» (итал. - поворот) - резкая смена угла или чувства, часто через «но», «однако», «и всё же». Без вольты сонет теряет внутреннюю драматургию и становится простым набором рифмованных строк.",
+      "imageSearchQuery": "Shakespeare sonnet page old book",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1000",
+      "question": "В рубаи Омара Хайяма рифмуются три строки из четырёх - схема ААBA. Какая строка остаётся свободной?",
+      "answers": [
+        "Третья",
+        "Вторая",
+        "Первая",
+        "Четвёртая"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_1000.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Нерифмованная третья строка создаёт напряжение, а четвёртая замыкает его рифмой и обычно несёт главную мысль или парадокс. Именно эта асимметрия делает рубаи запоминающимся.",
+      "imageSearchQuery": "Omar Khayyam rubaiyat Persian manuscript",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1001",
+      "question": "Барды у кельтских народов были не только поэтами, но и живыми архивами. Что именно они хранили в памяти?",
+      "answers": [
+        "Родословные и законы",
+        "Расчёты урожая и запасов",
+        "Подати и торговые долги",
+        "Имена богов и заклинания"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_1001.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Барды помнили генеалогии знати, законы и историю побед. Потерять расположение барда означало оказаться высмеянным в стихах по всей стране, что реально рушило репутацию правителя.",
+      "imageSearchQuery": "Celtic bard harp ancient Ireland",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1002",
+      "question": "Жанр элегии у древних греков изначально не был о любви и грусти. Для каких случаев его использовали?",
+      "answers": [
+        "Ободрения воинов и похорон",
+        "Свадебных застолий",
+        "Гимнов богам",
+        "Насмешек над врагами"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "poeziya",
+        "klassika-lit"
+      ],
+      "image": "assets/images/q_1002.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Древнегреческая элегия звучала под флейту и предназначалась для двух поводов - бодрить солдат перед боем и провожать погибших. Грустной любовной лирикой она стала позже - через римских поэтов Овидия и Тибулла.",
+      "imageSearchQuery": "ancient greek funeral elegy mourning vase",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1003",
+      "question": "От какого слова произошло название «поп-музыка»?",
+      "answers": [
+        "Popular",
+        "Programme",
+        "Proportion",
+        "Популярный"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop",
+        "ispolniteli"
+      ],
+      "image": "assets/images/q_1003.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Pop - сокращение от «popular music», термин появился в Великобритании в 1950-х. Жанр назван не по звуку, а по массовому спросу.",
+      "imageSearchQuery": "pop music 1950s record store",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1004",
+      "question": "Зачем звукорежиссёры вешают поп-фильтр перед микрофоном певца в студии?",
+      "answers": [
+        "Гасит воздушные хлопки",
+        "Убирает эхо",
+        "Повышает высокие частоты",
+        "Защищает от пыли"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop"
+      ],
+      "image": "assets/images/q_1004.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Согласные «п», «б», «т» дают резкий выброс воздуха - на записи он звучит как низкочастотный хлопок. Поп-фильтр рассеивает струю воздуха и убирает эти хлопки.",
+      "imageSearchQuery": "pop filter studio microphone recording",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1005",
+      "question": "Альбом «Thriller» Майкла Джексона - самый продаваемый в истории. Сколько копий продано по всему миру по официальным оценкам лейбла Sony?",
+      "answers": [
+        "66 миллионов",
+        "23 миллиона",
+        "47 миллионов",
+        "91 миллион"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop",
+        "ispolniteli"
+      ],
+      "image": "assets/images/q_1005.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Официальная оценка Sony - около 66 миллионов копий. Второй по продажам альбом в истории продан вдвое меньше.",
+      "imageSearchQuery": "Michael Jackson Thriller album cover",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1006",
+      "question": "Зачем поп-певцы на больших концертах надевают крошечные наушники в одно или оба уха?",
+      "answers": [
+        "Слышат себя без зала",
+        "Получают подсказки текста",
+        "Блокируют толпу",
+        "Контролируют темп"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop"
+      ],
+      "image": "assets/images/q_1006.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Ушные мониторы (in-ear monitors) транслируют персональный микс - свой голос и инструменты. Без них на сцене певец не слышит себя из-за гула зала и поёт мимо интонации.",
+      "imageSearchQuery": "singer in-ear monitor concert stage earpiece",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1007",
+      "question": "Сколько недель подряд «Old Town Road» Лила Нэса Икса в 2019 году возглавляла Billboard Hot 100, побив рекорд, державшийся с 1995 года?",
+      "answers": [
+        "19 недель",
+        "13 недель",
+        "23 недели",
+        "22 недели"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop",
+        "ispolniteli"
+      ],
+      "image": "assets/images/q_1007.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "19 недель - абсолютный рекорд Billboard Hot 100 на тот момент. Прошлый рекорд (16 недель) держался с 1995 года и был побит с большим запасом.",
+      "imageSearchQuery": "Lil Nas X Old Town Road Billboard Hot 100",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1008",
+      "question": "Чем прославился альбом «Sgt. Pepper's Lonely Hearts Club Band» Beatles в 1967 году - кроме музыки?",
+      "answers": [
+        "Первый с текстами на обложке",
+        "Первый двойной альбом",
+        "Первый стереозаписанный",
+        "Первый с видеоклипами"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop",
+        "ispolniteli"
+      ],
+      "image": "assets/images/q_1008.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На конверт впервые напечатали все тексты песен целиком - до этого ни один массовый альбом так не делал. Это стало стандартом для рок- и поп-индустрии на десятилетия.",
+      "imageSearchQuery": "Beatles Sgt Pepper album cover lyrics",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1009",
+      "question": "Мадонна вышла на сцену MTV VMA-1984 в свадебном платье и исполнила «Like a Virgin», что произошло с песней после этого?",
+      "answers": [
+        "Взлетела на первое место",
+        "Её отстранили от эфира",
+        "Продажи платья утроились",
+        "MTV запретила клип"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop",
+        "ispolniteli"
+      ],
+      "image": "assets/images/q_1009.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "До выступления «Like a Virgin» не входил в топ-40. После скандального перформанса сингл поднялся на первое место Billboard Hot 100 и провёл там 6 недель подряд.",
+      "imageSearchQuery": "Madonna Like a Virgin VMA 1984 wedding dress performance",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1010",
+      "question": "У виниловых синглов 45 об/мин была намеренно увеличена центральная дырка, зачем это сделала компания RCA Victor?",
+      "answers": [
+        "Защита от чужих проигрывателей",
+        "Для лучшего центрирования диска",
+        "Чтобы снизить стоимость прессовки",
+        "Для удобства хранения на штыре"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "pop",
+        "muzyka"
+      ],
+      "image": "assets/images/q_1010.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В «войне скоростей» 1948-1950-х RCA Victor продвигала формат 45 об/мин, Columbia - 33 об/мин (LP). Большая дырка у синглов RCA была сделана намеренно: их пластинки не играли на проигрывателях конкурентов. Победил компромисс: поп-синглы остались на 45, альбомы - на 33.",
+      "imageSearchQuery": "vinyl record 45 rpm single 1950s jukebox",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1011",
+      "question": "Сколько лет Эсте Лаудер продавала кремы своего дяди-химика, прежде чем основать собственную компанию?",
+      "answers": [
+        "13 лет",
+        "3 года",
+        "25 лет",
+        "7 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli",
+        "kompanii"
+      ],
+      "image": "assets/images/q_1011.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "С 1933 года Эсте продавала кремы дяди Джона Шотца по нью-йоркским салонам красоты. Estée Lauder Companies была основана в 1946 году - через 13 лет. За этот период она изучила розничную торговлю изнутри.",
+      "imageSearchQuery": "Estee Lauder young portrait 1940s",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1012",
+      "question": "Какую сеть складских клубов основал Сол Прайс в 1976 году - она стала прямым прообразом Costco?",
+      "answers": [
+        "Price Club",
+        "Sam's Club",
+        "BJ's Wholesale",
+        "Makro"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "kompanii"
+      ],
+      "image": "assets/images/q_1012.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Сол Прайс открыл Price Club в Сан-Диего в 1976 году: минимум декора, склад вместо витрин, членские взносы. В 1993 году Price Club объединился с Costco, а сам Прайс считается отцом клубного ретейла.",
+      "imageSearchQuery": "Price Club warehouse store 1970s interior",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1013",
+      "question": "Говард Шульц побывал в Милане и принёс оттуда идею, перевернувшую американский кофейный рынок. Что именно он там увидел?",
+      "answers": [
+        "Эспрессо-бары как место",
+        "Зерновой кофе в мешках",
+        "Кофе в стеклянных стаканах",
+        "Открытые кухни с обжаркой"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli",
+        "kompanii"
+      ],
+      "image": "assets/images/q_1013.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1983 году Шульц увидел, что итальянские бары - это место для встреч и общения, а не просто кофе. Он вернулся и убедил Starbucks перейти от продажи зерна к продаже напитков - так родился формат, завоевавший мир.",
+      "imageSearchQuery": "Milan espresso bar 1980s Italy coffee",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1014",
+      "question": "Ингвар Кампрад основал IKEA в 17 лет. Что именно он продавал в самом начале - до того, как появилась мебель?",
+      "answers": [
+        "Карандаши и спички",
+        "Рыболовные снасти",
+        "Подержанные велосипеды",
+        "Молочные продукты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli",
+        "kompanii"
+      ],
+      "image": "assets/images/q_1014.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1943 году Кампрад зарегистрировал компанию IKEA и торговал карандашами, зажигалками и спичками - мелочами, которые покупали по почте. Мебель появилась лишь спустя несколько лет.",
+      "imageSearchQuery": "Ingvar Kamprad young IKEA founder Sweden",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1015",
+      "question": "Авиакомпания отменила рейс и оставила Ричарда Брэнсона на Виргинских островах. Что он немедленно сделал, чтобы улететь?",
+      "answers": [
+        "Арендовал борт в складчину",
+        "Договорился с военными",
+        "Купил билеты через перекупщика",
+        "Нанял частный вертолёт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli"
+      ],
+      "image": "assets/images/q_1015.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1984 году Брэнсон за 2 000 долларов арендовал небольшой самолёт, написал на доске «Virgin Airlines» и продал места другим застрявшим пассажирам - выручка покрыла аренду. Этот случай убедил его войти в авиабизнес.",
+      "imageSearchQuery": "Richard Branson Virgin Atlantic early 1984",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1016",
+      "question": "Опра Уинфри - первая темнокожая женщина-миллиардер в истории США. В каком возрасте она достигла этого?",
+      "answers": [
+        "49 лет",
+        "35 лет",
+        "60 лет",
+        "42 года"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli"
+      ],
+      "image": "assets/images/q_1016.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 2003 году, в возрасте 49 лет, Опра вошла в список Forbes с состоянием свыше 1 млрд долларов - первая темнокожая женщина в этом ранге. Состояние было построено на медиа, а не на наследстве.",
+      "imageSearchQuery": "Oprah Winfrey portrait 2003",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1017",
+      "question": "Какую ткань, прежде считавшуюся мужской и бельевой, Коко Шанель пустила на женские платья?",
+      "answers": [
+        "Трикотаж",
+        "Хлопковый батист",
+        "Шёлк-сырец",
+        "Лён"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli"
+      ],
+      "image": "assets/images/q_1017.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "До 1910-х трикотаж считался нижним бельём и мужской тканью. Шанель пустила его на платья и костюмы, дав женщинам удобную одежду вместо корсетов.",
+      "imageSearchQuery": "Coco Chanel jersey dress 1920s fashion",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1018",
+      "question": "Основатель McDonald's Рэй Крок работал коммивояжёром до 52 лет. Что он продавал, когда впервые услышал о ресторане братьев Макдональд?",
+      "answers": [
+        "Молочные миксеры",
+        "Кофейные автоматы",
+        "Бумажные стаканы",
+        "Кассовые аппараты"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "predprinimateli",
+        "lichnosti-predprinimateli",
+        "kompanii"
+      ],
+      "image": "assets/images/q_1018.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Крок продавал многошпиндельные миксеры для молочных коктейлей и заметил, что McDonald's заказал сразу восемь аппаратов. Это насторожило его - он поехал посмотреть и был поражён системой работы. В 1954 году он стал их франчайзинговым агентом.",
+      "imageSearchQuery": "Ray Kroc McDonald's 1950s milkshake mixer",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1019",
+      "question": "Как Чарльз Гудиер открыл вулканизацию резины в 1839 году?",
+      "answers": [
+        "Уронил на горячую плиту",
+        "Перегрел в котле",
+        "Растворил в кислоте",
+        "Заморозил и нагрел снова"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_1019.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гудиер смешивал каучук с серой - смесь случайно попала на раскалённую плиту и не расплавилась, а затвердела и осталась эластичной. Этот принцип нагрева каучука с серой лежит в основе производства всей резины по сей день.",
+      "imageSearchQuery": "Charles Goodyear vulcanization rubber discovery",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1020",
+      "question": "Зачем у жестяных консервных банок делают рифлёные бока?",
+      "answers": [
+        "Жёсткость без лишнего металла",
+        "Удобнее держать рукой",
+        "Лучше прилипает этикетка",
+        "Проще открывать ключом"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost"
+      ],
+      "image": "assets/images/q_1020.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гофрирование повышает жёсткость тонкого листа без увеличения его толщины - рёбра увеличивают момент инерции сечения. Тот же принцип используется в гофрокартоне и металлочерепице.",
+      "imageSearchQuery": "tin can ribbed corrugated sides manufacturing",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1021",
+      "question": "Изобретение летучего челнока для ткацких станков в 1733 году неожиданно создало острый дефицит - чего именно?",
+      "answers": [
+        "Пряжи для ткачей",
+        "Красителей для тканей",
+        "Дерева для станков",
+        "Рабочих на фабриках"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost",
+        "novoe-vremya"
+      ],
+      "image": "assets/images/q_1021.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Летучий челнок Джона Кэя утроил скорость ткачества, и прядильщики просто не успевали давать ткачам пряжу. Нехватка пряжи стала прямым толчком к изобретению прядильной машины Дженни Харгривса (1764).",
+      "imageSearchQuery": "flying shuttle John Kay weaving loom 1733",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1022",
+      "question": "Что венчает верхушку монумента Вашингтона (1884) - в знак того, что этот материал был тогда одним из самых дорогих в мире?",
+      "answers": [
+        "Алюминиевый наконечник",
+        "Золотой шар",
+        "Платиновая плита",
+        "Серебряная звезда"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_1022.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 1884 году алюминий ценился наравне с серебром - не было дешёвого способа его получить. В 1886 году Холл и Эру независимо изобрели электролиз - и цена алюминия упала в сотни раз.",
+      "imageSearchQuery": "Washington Monument aluminum apex cap 1884",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1023",
+      "question": "Какова была текучесть кадров на конвейере завода Форда в 1913 году?",
+      "answers": [
+        "370% в год",
+        "80% в год",
+        "150% в год",
+        "500% в год"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost"
+      ],
+      "image": "assets/images/q_1023.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Конвейерный труд оказался настолько изматывающим, что рабочие уходили тысячами - текучка составила 370% в год. Чтобы удержать штат в 14 000 человек, пришлось нанять за год 52 000. Именно это заставило Форда в 1914 году ввести ставку $5 в день - вдвое выше среднего по отрасли.",
+      "imageSearchQuery": "Ford Highland Park assembly line workers 1913",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1024",
+      "question": "Почему бетонные опоры мостов можно заливать прямо в воду, не дожидаясь осушения?",
+      "answers": [
+        "Твердеет именно с водой",
+        "Водонепроницаемый состав",
+        "Добавляют уплотнители",
+        "Реакция без кислорода"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost"
+      ],
+      "image": "assets/images/q_1024.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Гидратация цемента - химическая реакция именно с водой: кальциевые силикаты реагируют с молекулами воды и образуют кристаллический каркас. Без воды цемент просто не схватится.",
+      "imageSearchQuery": "concrete underwater construction bridge foundation",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1025",
+      "question": "Что Генри Форд позаимствовал у чикагских боен при создании первого сборочного конвейера?",
+      "answers": [
+        "Движущаяся лента с тушами",
+        "Система нумерации деталей",
+        "График смен рабочих",
+        "Тарифный расчёт труда"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_1025.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "На чикагских бойнях туши двигались по рельсам мимо рабочих - каждый делал один разрез. Форд перевернул принцип: детали движутся мимо рабочих, а не рабочие ходят к деталям. Форд описал это в автобиографии 1922 года.",
+      "imageSearchQuery": "Ford assembly line Model T Highland Park conveyor 1913",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1026",
+      "question": "Сколько лет доменная печь работает без остановки - прежде чем её наконец гасят на капитальный ремонт?",
+      "answers": [
+        "10-15 лет",
+        "1-2 года",
+        "3-5 лет",
+        "20-30 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost"
+      ],
+      "image": "assets/images/q_1026.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Остановить домну значит дать ей остыть - футеровка трескается от перепада температур. Поэтому их ведут непрерывно годами; остановка означает капремонт на несколько месяцев и огромные потери.",
+      "imageSearchQuery": "blast furnace steel plant continuous operation",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1027",
+      "question": "Что случится с закалённой стальной деталью, если после закалки не сделать отпуск - не нагреть снова до 200-600 градусов?",
+      "answers": [
+        "Треснет от удара",
+        "Покроется ржавчиной быстрее",
+        "Потеряет блеск и цвет",
+        "Станет мягче на жаре"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost"
+      ],
+      "image": "assets/images/q_1027.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "После закалки в стали огромные внутренние напряжения - она твёрдая, но хрупкая как стекло. Отпуск снимает напряжения: сталь чуть теряет твёрдость, но перестаёт колоться от единственного удара.",
+      "imageSearchQuery": "steel quenching tempering hardening process metallurgy",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1028",
+      "question": "Что разрабатывал инженер Гарри Брирли в 1913 году, когда случайно открыл нержавеющую сталь?",
+      "answers": [
+        "Сплав для оружейных стволов",
+        "Покрытие для морских кораблей",
+        "Трос для горных мостов",
+        "Сталь для железных дорог"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "promyshlennost",
+        "izobreteniya"
+      ],
+      "image": "assets/images/q_1028.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Брирли изучал износостойкость стали в стволах - образцы лежали в кучах металлолома, и он заметил, что хромистые не ржавеют. Добавление хрома защищает поверхность тонкой окисной плёнкой, которая не даёт ржавчине проникнуть внутрь.",
+      "imageSearchQuery": "Harry Brearley stainless steel discovery Sheffield 1913",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1029",
+      "question": "Чем занимались эйнхерии - павшие воины в Вальгалле, по «Старшей Эдде»?",
+      "answers": [
+        "Бились и оживали к пиру",
+        "Охраняли ворота Асгарда",
+        "Ковали оружие богам",
+        "Обучали молодых воинов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1029.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Каждый день эйнхерии рубились насмерть, а вечером воскресали и пировали - Один копил войско к Рагнарёку, чтобы встретить гибель мира.",
+      "imageSearchQuery": "Valhalla Norse mythology warriors feast",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1030",
+      "question": "Белка Рататоскр снует по стволу мирового дерева Иггдрасиль - какую роль она играет, по «Эдде»?",
+      "answers": [
+        "Разносит оскорбления",
+        "Сторожит корни",
+        "Несёт вести богам",
+        "Грызёт кору"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1030.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Рататоскр передаёт злобные слова между орлом на вершине и змеем Нидхёггром у корней - специальный «разжигатель» вражды, сеющий раздор в мироздании.",
+      "imageSearchQuery": "Ratatoskr squirrel Yggdrasil Norse mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1031",
+      "question": "Сколько дверей, по «Старшей Эдде», было у Вальгаллы - дворца Одина?",
+      "answers": [
+        "540",
+        "360",
+        "720",
+        "480"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1031.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В Гримнисмале сказано: у Вальгаллы 540 дверей. Через каждую выйдут 800 воинов - итого 432 000 эйнхериев для битвы в Рагнарёк.",
+      "imageSearchQuery": "Valhalla hall Odin Norse mythology warriors",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1032",
+      "question": "Как сын Одина Видар убивает волка Фенрира в Рагнарёк, по «Эдде»?",
+      "answers": [
+        "Разрывает пасть руками",
+        "Пронзает мечом в горло",
+        "Топит в мировом океане",
+        "Сжигает небесным огнём"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1032.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Видар наступает на нижнюю челюсть Фенрира и разрывает ему пасть - так мстит за отца Одина, которого волк проглотил. Его сапог, по некоторым толкованиям, сшит из кожаных обрезков людских башмаков.",
+      "imageSearchQuery": "Vidar Fenrir Ragnarok Norse mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1033",
+      "question": "Что из перечисленного является одним из ингредиентов ленты Глейпнир, удержавшей волка Фенрира?",
+      "answers": [
+        "Шум кошачьих шагов",
+        "Кровь дракона",
+        "Зола горного великана",
+        "Прах морского змея"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1033.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Карлики-двергары соткали Глейпнир из вещей, которых не существует: шума кошачьих шагов, бороды женщины, корней гор, сухожилий медведя, дыхания рыбы и слюны птицы. Именно поэтому её силу нельзя одолеть.",
+      "imageSearchQuery": "Fenrir bound Gleipnir Norse mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1034",
+      "question": "Почему молот Тора Мьёльнир вышел с коротким рукоятием - по «Эдде», кто помешал гномам его доделать?",
+      "answers": [
+        "Локи в облике мухи",
+        "Великан напал на кузню",
+        "Один отозвал гномов",
+        "Боги поторопили мастеров"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1034.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Локи заключил пари с гномами Броккром и Синдри и, желая проиграть как можно меньше, укусил кузнеца в облике мухи прямо во время ковки - из-за этого рукоять и вышла короткой.",
+      "imageSearchQuery": "Mjolnir hammer Thor Norse mythology dwarves",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1036",
+      "question": "Тор в Рагнарёк убивает Мидгардского змея Ёрмунганда - что с ним самим происходит после победы, по «Эдде»?",
+      "answers": [
+        "Умирает от яда змея",
+        "Продолжает биться с врагами",
+        "Взлетает на небеса",
+        "Засыпает на 9 лет"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1036.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Тор отходит 9 шагов от мёртвого змея и падает замертво - яд Ёрмунганда пропитывает его насквозь. Число 9 - священное в скандинавской мифологии.",
+      "imageSearchQuery": "Thor Jormungandr Ragnarok Norse mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1038",
+      "question": "Один признавался, что потеря какого из его воронов пугает его сильнее всего?",
+      "answers": [
+        "Мунин",
+        "Хугин",
+        "Обоих одинаково",
+        "Ни одного из них"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1038.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В «Речах Высокого» Один говорит, что Хугин (Мысль) может не вернуться, но потеря Мунина (Памяти) страшит его больше - ведь без памяти теряется сам разум бога.",
+      "imageSearchQuery": "Huginn Muninn Odin ravens Norse mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1039",
+      "question": "Сколько балов посетила Золушка у Шарля Перро, прежде чем принц нашёл её по туфельке?",
+      "answers": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_1039.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В оригинале Перро (1697) бал проходит две ночи подряд. На второй вечер Золушка убегает и теряет туфельку. Диснеевский фильм сжал историю до одной ночи.",
+      "imageSearchQuery": "Cinderella Perrault ball illustration two nights",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1040",
+      "question": "В первом издании сказок братьев Гримм 1812 года злодеем в «Белоснежке» был другой персонаж, не мачеха. Кто хотел убить Белоснежку?",
+      "answers": [
+        "Родная мать",
+        "Родная сестра",
+        "Крёстная мать",
+        "Злая тётка"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_1040.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В рукописи 1812 года Белоснежку преследует её собственная мать. С 1819 года братья Гримм заменили мать на мачеху - так история стала менее пугающей. Факт подтверждён архивными материалами.",
+      "imageSearchQuery": "Snow White Brothers Grimm 1812 first edition illustration",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1041",
+      "question": "По записям фольклористов, Баба-яга в русских сказках охраняет границу между двумя мирами. Какими именно?",
+      "answers": [
+        "Живых и мёртвых",
+        "Людей и богов",
+        "Дня и ночи",
+        "Леса и деревни"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "russkaya-lit"
+      ],
+      "image": "assets/images/q_1041.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Владимир Пропп в «Исторических корнях волшебной сказки» показал: Баба-яга - пограничный страж мира мёртвых. Её избушка без окон, повёрнутая задом, - черты жилища мертвецов. Герой, переступая порог, символически умирает и возрождается.",
+      "imageSearchQuery": "Баба-яга избушка граница лес иллюстрация Билибин",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1042",
+      "question": "В сказке Андерсена 'Снежная королева' Кай должен сложить из льдинок одно слово, чтобы получить свободу. Какое?",
+      "answers": [
+        "Вечность",
+        "Свободу",
+        "Любовь",
+        "Красоту"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_1042.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Снежная королева обещала: сложи слово 'Вечность' (дат. Evighed) - и ты хозяин себе и получишь лучший конёк в мире. Но колдовство осколка делало задачу невозможной - до тех пор, пока Герда не растопила лёд слезами.",
+      "imageSearchQuery": "Кай Снежная Королева льдинки слово Вечность иллюстрация",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1043",
+      "question": "Смерть Кощея Бессмертного спрятана в игле - а в чём хранится сама игла?",
+      "answers": [
+        "В яйце",
+        "В сундуке",
+        "В дубе",
+        "В утке"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "russkaya-lit"
+      ],
+      "image": "assets/images/q_1043.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Цепочка в сказке: дуб - сундук - заяц - утка - яйцо - игла. Разбить нужно именно яйцо, тогда игла окажется в руках. Принцип 'внешней души' (спрятанной жизни злодея) встречается в фольклоре десятков народов.",
+      "imageSearchQuery": "Кощей Бессмертный яйцо игла русская сказка иллюстрация",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1044",
+      "question": "Что Пиноккио сделал с Говорящим Сверчком в оригинальной книге Карло Коллоди, когда тот читал ему мораль?",
+      "answers": [
+        "Убил его молотком",
+        "Прогнал из дома",
+        "Запер в клетке",
+        "Бросил в костёр"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "zarubezhnaya-lit",
+        "knizhnye-geroi"
+      ],
+      "image": "assets/images/q_1044.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В главе IV романа Коллоди (1883) Пиноккио в ярости швыряет деревянный молоток в Сверчка и убивает его. Сверчок возвращается позже в виде призрака. Диснеевский Джимини Крикет - добросердечный переосмысленный образ.",
+      "imageSearchQuery": "Pinocchio Collodi cricket talking chapter illustration original",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1045",
+      "question": "В итальянском первоисточнике «Спящей красавицы», «Пентамероне» Базиле 1634 года, что будит заколдованную девушку вместо поцелуя?",
+      "answers": [
+        "Ребёнок сосёт палец",
+        "Поцелуй принца",
+        "Пение птицы",
+        "Запах цветов"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skazki",
+        "zarubezhnaya-lit"
+      ],
+      "image": "assets/images/q_1045.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В «Пентамероне» Базиле (1634) девушка просыпается, когда один из рождённых ею близнецов принимает её палец за грудь и высасывает занозу льна - причину сна. Перро и Гримм смягчили историю до невинного поцелуя.",
+      "imageSearchQuery": "Sleeping Beauty Basile Pentamerone 1634 illustration Sole Luna Talia",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1046",
+      "question": "Мухаммед Али трижды лишался чемпионского титула по боксу, но за что именно в 1967 году его лишили пояса впервые?",
+      "answers": [
+        "Отказался от призыва",
+        "Дебоширил вне ринга",
+        "Попался на допинге",
+        "Нарушил контракт"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "sportsmeny",
+        "xx-vek"
+      ],
+      "image": "assets/images/q_1046.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Али отказался от призыва в армию по религиозным убеждениям - он принял ислам и стал членом «Нации ислама». За это его лишили лицензии боксёра и осудили, но Верховный суд в 1971 году оправдал его единогласно.",
+      "imageSearchQuery": "Muhammad Ali boxing champion 1967 draft refusal",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1048",
+      "question": "Роджер Федерер выиграл свой восьмой Уимблдон в 2017 году, став старейшим чемпионом турнира в Открытой эре. Сколько ему было лет?",
+      "answers": [
+        "35 лет",
+        "28 лет",
+        "31 год",
+        "33 года"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "sportsmeny",
+        "tennis"
+      ],
+      "image": "assets/images/q_1048.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "В 2017 году Федереру было 35 лет - и он победил без единого проигранного сета. Это сделало его старейшим чемпионом Уимблдона в Открытой эре (с 1968 г.).",
+      "imageSearchQuery": "Roger Federer Wimbledon 2017 champion trophy",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1049",
+      "question": "Биомеханический анализ показал, что Усэйн Болт достигал пиковой скорости на дистанции 100 м не у финиша, а на каком именно метре?",
+      "answers": [
+        "На 65-м метре",
+        "На 50-м метре",
+        "На 80-м метре",
+        "На 90-м метре"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "sportsmeny"
+      ],
+      "image": "assets/images/q_1049.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Пик скорости Болта приходился примерно на 65-67 м (около 12,4 м/с). После этого он слегка снижал темп, но обгонял всех за счёт длины шага почти 2,5 м.",
+      "imageSearchQuery": "Usain Bolt 100m sprint speed analysis biomechanics",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1050",
+      "question": "Уэйн Гретцки забил в НХЛ 894 гола - но чего у него больше, чем у любого другого игрока в истории НХЛ?",
+      "answers": [
+        "Голевых передач",
+        "Победных голов за карьеру",
+        "Хет-триков за карьеру",
+        "Очков за один сезон"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "sportsmeny",
+        "hokkey"
+      ],
+      "image": "assets/images/q_1050.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Только по голевым передачам Гретцки набрал 1963 очка - больше, чем полный счёт любого другого хоккеиста НХЛ (голы плюс передачи вместе). Он обогнал следующего в списке ещё в 1989 году и продолжал играть ещё десять лет.",
+      "imageSearchQuery": "Wayne Gretzky NHL assists record hockey Great One",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1051",
+      "question": "Гимнастка Надя Команечи в 1976 году получила первую в истории оценку 10,0 на Олимпиаде, но табло в Монреале показало совсем другую цифру. Что увидели зрители?",
+      "answers": [
+        "1,00",
+        "10,10",
+        "9,99",
+        "9,10"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "sportsmeny"
+      ],
+      "image": "assets/images/q_1051.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Табло в Монреале рассчитывалось на максимум 9.99 - три разряда для «9,ХХ». При вводе десятки система вывела «1,00», что поставило зрителей в тупик, пока диктор не объяснил: это перфект, 10 баллов.",
+      "imageSearchQuery": "Nadia Comaneci 1976 Montreal Olympics perfect 10 scoreboard",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1052",
+      "question": "Певицу Мадонну назвали в честь кого из близких?",
+      "answers": [
+        "В честь матери",
+        "В честь Богородицы",
+        "В честь бабушки",
+        "В честь итальянской актрисы"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zvyozdy",
+        "lichnosti-muzykanty"
+      ],
+      "image": "assets/images/q_1052.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Мать певицы тоже звали Мадонна - Мадонна Фортин, французско-канадского происхождения. В итало-американских семьях такое имя ассоциировалось с Богородицей, но конкретно певицу назвали именно в честь матери, умершей от рака груди, когда Мадонне было 5 лет.",
+      "imageSearchQuery": "Madonna singer young 1980s",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1053",
+      "question": "Сколько лет Мэрилин Монро была замужем за бейсболистом Джо Ди Маджио?",
+      "answers": [
+        "9 месяцев",
+        "3 года",
+        "7 лет",
+        "2 года"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zvyozdy"
+      ],
+      "image": "assets/images/q_1053.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Брак Монро и Ди Маджио продержался всего 9 месяцев в 1954 году - один из самых коротких громких браков эпохи. Ди Маджио при этом оставался преданным ей до конца её жизни и организовал похороны.",
+      "imageSearchQuery": "Marilyn Monroe Joe DiMaggio wedding 1954",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1054",
+      "question": "Элвис Пресли ни разу не выступил за пределами США и Канады. Что помешало ему гастролировать по Европе?",
+      "answers": [
+        "Нелегальный статус менеджера",
+        "Армейская служба",
+        "Боязнь самолётов",
+        "Запрет лейбла"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zvyozdy",
+        "lichnosti-muzykanty"
+      ],
+      "image": "assets/images/q_1054.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Полковник Том Паркер, менеджер Элвиса, нелегально въехал в США из Нидерландов и не мог получить загранпаспорт - поездка за рубеж грозила депортацией и раскрытием его прошлого. Поэтому все зарубежные туры были заблокированы.",
+      "imageSearchQuery": "Elvis Presley Colonel Tom Parker manager",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1055",
+      "question": "До того как стать звездой, Арнольд Шварценеггер уже был миллионером. На чём он заработал первый миллион?",
+      "answers": [
+        "Строительный бизнес",
+        "Рестораны",
+        "Инвестиции в акции",
+        "Продажа спортпитания"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zvyozdy",
+        "lichnosti-aktyory"
+      ],
+      "image": "assets/images/q_1055.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Шварценеггер основал строительную компанию вместе с другом-культуристом ещё в начале 1970-х. Используя призовые с соревнований и сэкономленные деньги, они занимались кирпичной кладкой и ремонтом - и к 1974 году он был миллионером ещё до «Конана».",
+      "imageSearchQuery": "Arnold Schwarzenegger young 1970s bodybuilder",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1056",
+      "question": "Одри Хепберн в детстве жила в оккупированных нацистами Нидерландах и страдала от голода. Как это отразилось на её внешности?",
+      "answers": [
+        "Анемия и тонкая фигура",
+        "Потеря слуха",
+        "Проблемы со зрением",
+        "Хронические боли в ногах"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zvyozdy",
+        "lichnosti-aktyory"
+      ],
+      "image": "assets/images/q_1056.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Хепберн перенесла анемию и отёки от голода зимой 1944-45 - «голодной зимой» в Нидерландах. Именно хроническое недоедание сформировало её худощавое телосложение, которое впоследствии стало символом элегантности в кино.",
+      "imageSearchQuery": "Audrey Hepburn Breakfast at Tiffanys portrait",
+      "reviewStatus": "approved",
+      "llmVerdict": "keep"
+    },
+    {
+      "id": "q_1057",
+      "question": "Сколько октав охватывал голос Мэрайи Кэри в расцвете карьеры?",
+      "answers": [
+        "Около 5 октав",
+        "3 октавы",
+        "2 октавы",
+        "6 октав"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "zvyozdy",
+        "lichnosti-muzykanty",
+        "premii"
+      ],
+      "image": "assets/images/q_1057.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Голос Кэри в 1990-х охватывал около 5 октав - от баса до сопрано с флажолетными обертонами. Этот диапазон исключительно редок и сделал её одной из самых технически сложных певиц поп-музыки.",
+      "imageSearchQuery": "Mariah Carey concert singing microphone",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1035",
+      "question": "Как выглядела Хель - дочь Локи и правительница царства мёртвых, по «Младшей Эдде»?",
+      "answers": [
+        "Наполовину мёртвая",
+        "Вся покрыта инеем",
+        "Похожа на молодую женщину",
+        "Невидима для живых"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1035.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Снорри описывает Хель так: одна половина тела живая и розовая, другая - синяя и гниющая, как у трупа. Её зал называется Элидниром - «Сырость и холод».",
+      "imageSearchQuery": "Hel Norse mythology goddess of dead",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
+    },
+    {
+      "id": "q_1037",
+      "question": "Из-за чего Тор был вынужден переодеться невестой и явиться к великану Трюму, по «Эдде»?",
+      "answers": [
+        "Похитил Мьёльнир",
+        "Взял в заложники Фрейю",
+        "Закрыл границы Ётунхейма",
+        "Угрожал разрушить Мидгард"
+      ],
+      "correctAnswerIndex": 0,
+      "categories": [
+        "skandinavskaya-mifologiya"
+      ],
+      "image": "assets/images/q_1037.jpg",
+      "imageRole": "illustrative",
+      "requiresImage": false,
+      "explanation": "Великан Трюм спрятал молот в земле на 12 миль и потребовал за него богиню Фрейю в жёны - тогда боги решили отправить переодетого «невестой» Тора с Локи в роли служанки.",
+      "imageSearchQuery": "Thor disguised bride Thrym Norse mythology",
+      "reviewStatus": "approved",
+      "llmVerdict": "revise"
     }
   ]
 }
