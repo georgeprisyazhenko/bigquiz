@@ -9,10 +9,20 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "lint": "eslint src/ scripts/",
+    "lint:fix": "eslint --fix src/ scripts/",
+    "format": "prettier --write src/ scripts/ public/ tests/",
     "optimize:images": "node scripts/optimize-images.js",
-    "images": "node scripts/fetch-images.js && node scripts/optimize-images.js"
+    "images": "node scripts/fetch-images.js && node scripts/optimize-images.js",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.8.4",
     "sharp": "^0.35.2",
     "vite": "^8.0.12",
     "vitest": "^2.1.9"
