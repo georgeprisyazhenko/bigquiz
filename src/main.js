@@ -1,7 +1,15 @@
 import Phaser from 'phaser'
 import './style.css'
 import { initYsdk, loadBestRecord, saveBestRecord } from './ysdk.js'
-import { validateAnswerText, validateNoProhibited, validateOptionsHomogeneous, validateNumericRanges, validateNumericTell, validateHedgeTell } from './content-rules.js'
+import {
+  validateAnswerText,
+  validateNoProhibited,
+  validateOptionsHomogeneous,
+  validateNumericRanges,
+  validateNumericTell,
+  validateHedgeTell,
+  validateExamShape,
+} from './content-rules.js'
 import { orderAnswers, isNumericAnswerSet, imageCandidatePaths } from './card-rules.js'
 
 const GAME_WIDTH = 1120
@@ -10,9 +18,9 @@ const NEXT_QUESTION_DELAY_MS = 1500
 const ANSWERS_BEFORE_AD = 5
 
 // --- Блиц: забег на время ---
-const BLITZ_DURATION_MS = 60000          // длительность одного забега
-const BLITZ_COUNTDOWN_S = 3              // отсчёт 3-2-1 перед стартом
-const BLITZ_TICK_MS = 100               // шаг обновления таймера/шкалы
+const BLITZ_DURATION_MS = 60000 // длительность одного забега
+const BLITZ_COUNTDOWN_S = 3 // отсчёт 3-2-1 перед стартом
+const BLITZ_TICK_MS = 100 // шаг обновления таймера/шкалы
 const NEXT_QUESTION_DELAY_BLITZ_MS = 500 // короткая пауза показа ответа в Блице
 const BLITZ_STATE_KEY = 'bigquiz_blitz_state' // localStorage: незавершённый забег
 
@@ -43,7 +51,7 @@ const COLORS = {
   soundHover: 0xcfeeff,
   adBackground: 0xcfeeff,
   adCard: 0xf8fcff,
-  adImage: 0xe1f3ff
+  adImage: 0xe1f3ff,
 }
 
 // Единый радиус скругления для всех форм экрана (карточка, вкладки, кнопки
@@ -58,7 +66,7 @@ const RADIUS = {
   // Оставляем как было — компактное скругление.
   chip: 10,
   ad: UNIFORM_RADIUS,
-  image: UNIFORM_RADIUS
+  image: UNIFORM_RADIUS,
 }
 
 const FONT_SIZE_SM = '12px'
@@ -71,12 +79,12 @@ const CARD_PADDING_V = 10
 
 // --- Центрируем блок «меню + карточка вопроса»; очки уходят правее ---
 const CARD_WIDTH = 580
-const CARD_HEIGHT = 552
-const SCORE_COL_WIDTH = 200          // правая «очковая» колонка
-const GAP_CARD_SCORE = 30            // зазор между карточкой и колонкой очков
+const CARD_HEIGHT = 350
+const SCORE_COL_WIDTH = 200 // правая «очковая» колонка
+const GAP_CARD_SCORE = 30 // зазор между карточкой и колонкой очков
 
 const CARD_X = Math.round((GAME_WIDTH - CARD_WIDTH) / 2)
-const CARD_Y = 72
+const CARD_Y = 160
 
 const CONTENT_X = CARD_X + 20
 const CONTENT_WIDTH = 540
@@ -84,9 +92,9 @@ const CONTENT_WIDTH = 540
 // Правая «очковая» колонка — рисуется прямо на фоне, без рамки/подложки
 const SCORE_X = CARD_X + CARD_WIDTH + GAP_CARD_SCORE
 const SCORE_RIGHT = SCORE_X + SCORE_COL_WIDTH
-const SCORE_PANEL_Y = CARD_Y          // колонка стартует на уровне верха карточки
-const SCORE_VALUE_FONT = '34px'       // единый размер значений (очки/серия/рекорд)
-const SCORE_ITEM_STRIDE = 76          // вертикальный шаг между блоками колонки
+const SCORE_PANEL_Y = CARD_Y // колонка стартует на уровне верха карточки
+const SCORE_VALUE_FONT = '34px' // единый размер значений (очки/серия/рекорд)
+const SCORE_ITEM_STRIDE = 76 // вертикальный шаг между блоками колонки
 const SOUND_BTN_W = 120
 const SOUND_BTN_H = 38
 
@@ -95,23 +103,23 @@ const TOPBAR_X = CARD_X
 const TOPBAR_Y = 16
 const TOPBAR_HEIGHT = 48
 const TOPBAR_WIDTH = CARD_WIDTH
-const TAB_PAD_H = 14        // горизонтальный отступ текста внутри вкладки
-const TAB_GAP = 8           // зазор между вкладками
-const TAB_HEIGHT = 34       // высота пилюли
-const TAB_RADIUS = 12      // вкладки низкие: радиус меньше общего (16), иначе
-                           // скругление смыкается в «таблетку»
-const PANEL_PAD = 7         // отступ рамки панели вокруг вкладок
+const TAB_PAD_H = 14 // горизонтальный отступ текста внутри вкладки
+const TAB_GAP = 8 // зазор между вкладками
+const TAB_HEIGHT = 34 // высота пилюли
+const TAB_RADIUS = 12 // вкладки низкие: радиус меньше общего (16), иначе
+// скругление смыкается в «таблетку»
+const PANEL_PAD = 7 // отступ рамки панели вокруг вкладок
 
-const CATEGORIES_Y = 82
+const CATEGORIES_Y = 180
 const CHIP_HEIGHT = 26
-const QUESTION_Y = 120
-const QUESTION_HEIGHT = 90
+const QUESTION_Y = 218
+const QUESTION_HEIGHT = 110
 const IMAGE_Y = 222
 const IMAGE_HEIGHT = 250
 const IMAGE_WIDTH = 333
 const IMAGE_X = CONTENT_X + Math.round((CONTENT_WIDTH - IMAGE_WIDTH) / 2)
 const ANSWERS_START_Y = 484
-const ANSWER_BUTTON_WIDTH = 261   // 261·2 + 18 = 540 = CONTENT_WIDTH
+const ANSWER_BUTTON_WIDTH = 261 // 261·2 + 18 = 540 = CONTENT_WIDTH
 const ANSWER_BUTTON_HEIGHT = 56
 const ANSWER_GAP_X = 18
 const ANSWER_GAP_Y = 12
@@ -119,14 +127,14 @@ const ANSWER_GAP_Y = 12
 // --- HUD Блица: полоса вверху карточки (таймер слева, счёт справа) ---
 // В режиме running категории/вопрос сдвигаются вниз на BLITZ_CONTENT_OFFSET,
 // а изображение ужимается на ту же величину — чтобы сетка 2×2 осталась в карточке.
-const BLITZ_HUD_Y = 80                    // верх полосы HUD внутри карточки
-const BLITZ_HUD_HEIGHT = 28               // высота полосы HUD
-const BLITZ_CONTENT_OFFSET = 34           // сдвиг контента вниз под HUD
-const BLITZ_BAR_X = CONTENT_X + 64        // шкала таймера: левый край (после «0:60»)
-const BLITZ_BAR_WIDTH = 300               // полная ширина шкалы таймера
-const BLITZ_BAR_HEIGHT = 10               // высота шкалы таймера
-const BLITZ_IMAGE_HEIGHT = 210            // ужатая картинка в забеге (4:3)
-const BLITZ_IMAGE_WIDTH = 280             // 210 × 4/3 — без искажения пропорций
+const BLITZ_HUD_Y = CARD_Y + 8 // верх полосы HUD внутри карточки
+const BLITZ_HUD_HEIGHT = 28 // высота полосы HUD
+const BLITZ_CONTENT_OFFSET = 34 // сдвиг контента вниз под HUD
+const BLITZ_BAR_X = CONTENT_X + 64 // шкала таймера: левый край (после «0:60»)
+const BLITZ_BAR_WIDTH = 300 // полная ширина шкалы таймера
+const BLITZ_BAR_HEIGHT = 10 // высота шкалы таймера
+const BLITZ_IMAGE_HEIGHT = 210 // ужатая картинка в забеге (4:3)
+const BLITZ_IMAGE_WIDTH = 280 // 210 × 4/3 — без искажения пропорций
 
 // Параметры градиента фона — управляются через MODE_THEMES
 let BG_GRADIENT_LEFT = 0xdff3ff
@@ -134,32 +142,32 @@ let BG_GRADIENT_RIGHT = 0xedebff
 
 const MODES = [
   { key: 'random', label: 'Случайный вопрос' },
-  { key: 'blitz',  label: 'Блиц' },
-  { key: 'stakes', label: 'Уверен?' }
+  { key: 'blitz', label: 'Блиц' },
+  { key: 'stakes', label: 'Уверен?', disabled: true },
 ]
 
 const MODE_THEMES = {
   random: {
-    answer:      0x8bcafc,
+    answer: 0x8bcafc,
     answerHover: 0x6dbaf8,
-    border:      0x8bcafc,
-    borderSoft:  0xb9e1ff,
+    border: 0x8bcafc,
+    borderSoft: 0xb9e1ff,
     surfaceBlue: 0xeaf7ff,
   },
   blitz: {
-    answer:      0xa08cf0,
+    answer: 0xa08cf0,
     answerHover: 0x8b73e8,
-    border:      0xa08cf0,
-    borderSoft:  0xc9bef8,
+    border: 0xa08cf0,
+    borderSoft: 0xc9bef8,
     surfaceBlue: 0xf2eeff,
   },
   stakes: {
-    answer:      0xf0905a,
+    answer: 0xf0905a,
     answerHover: 0xe07844,
-    border:      0xf0905a,
-    borderSoft:  0xf5c4a8,
+    border: 0xf0905a,
+    borderSoft: 0xf5c4a8,
     surfaceBlue: 0xfef3ed,
-  }
+  },
 }
 
 class GameScene extends Phaser.Scene {
@@ -255,7 +263,7 @@ class GameScene extends Phaser.Scene {
 
     if (!data || !Array.isArray(data.questions) || data.questions.length === 0) {
       this.logEvent('questions_json_load_error', {
-        reason: 'questions.json is missing, empty, or has invalid structure'
+        reason: 'questions.json is missing, empty, or has invalid structure',
       })
 
       this.showError('Не удалось загрузить questions.json')
@@ -268,7 +276,7 @@ class GameScene extends Phaser.Scene {
 
     if (!validationResult.isValid) {
       this.logEvent('questions_validation_error', {
-        errors: validationResult.errors
+        errors: validationResult.errors,
       })
 
       this.showError('Ошибка в структуре questions.json')
@@ -277,7 +285,7 @@ class GameScene extends Phaser.Scene {
 
     if (validationResult.warnings.length > 0) {
       this.logEvent('questions_validation_warning', {
-        warnings: validationResult.warnings
+        warnings: validationResult.warnings,
       })
     }
 
@@ -291,7 +299,7 @@ class GameScene extends Phaser.Scene {
 
     this.logEvent('game_loaded', {
       questionsCount: this.questions.length,
-      restoredBlitz: restored
+      restoredBlitz: restored,
     })
 
     // При восстановлении не перемешиваем ответы — порядок берём из сохранения.
@@ -357,7 +365,7 @@ class GameScene extends Phaser.Scene {
     const record = {
       bestScore: this.bestScore,
       maxStreak: this.maxStreak,
-      blitzBest: this.blitzBest
+      blitzBest: this.blitzBest,
     }
 
     saveBestRecord(this.ysdk, this.player, record).catch(() => {})
@@ -386,14 +394,14 @@ class GameScene extends Phaser.Scene {
         eventName,
         timestamp: new Date().toISOString(),
         sessionId: this.sessionId,
-        ...payload
+        ...payload,
       }
 
       console.log('[BigQuiz event]', event)
     } catch (error) {
       console.error('[BigQuiz logger error]', {
         eventName,
-        error
+        error,
       })
     }
   }
@@ -414,7 +422,7 @@ class GameScene extends Phaser.Scene {
         currentQuestionId: this.currentQuestion?.id ?? null,
         score: this.score,
         currentStreak: this.currentStreak,
-        maxStreak: this.maxStreak
+        maxStreak: this.maxStreak,
       })
     })
   }
@@ -467,12 +475,7 @@ class GameScene extends Phaser.Scene {
   }
 
   drawRoundedBox(graphics, width, height, fillColor, options = {}) {
-    const {
-      radius = RADIUS.panel,
-      alpha = 1,
-      strokeColor = null,
-      strokeWidth = 0
-    } = options
+    const { radius = RADIUS.panel, alpha = 1, strokeColor = null, strokeWidth = 0 } = options
 
     graphics.clear()
     graphics.fillStyle(fillColor, alpha)
@@ -500,8 +503,12 @@ class GameScene extends Phaser.Scene {
   }
 
   setCursorPointer(gameObject) {
-    gameObject.on('pointerover', () => { this.game.canvas.style.cursor = 'pointer' })
-    gameObject.on('pointerout', () => { this.game.canvas.style.cursor = 'default' })
+    gameObject.on('pointerover', () => {
+      this.game.canvas.style.cursor = 'pointer'
+    })
+    gameObject.on('pointerout', () => {
+      this.game.canvas.style.cursor = 'default'
+    })
   }
 
   colorToHex(color) {
@@ -523,7 +530,7 @@ class GameScene extends Phaser.Scene {
 
     if (!categoriesData || !Array.isArray(categoriesData.categories)) {
       this.logEvent('categories_json_load_error', {
-        reason: 'categories.json is missing, empty, or has invalid structure'
+        reason: 'categories.json is missing, empty, or has invalid structure',
       })
       return
     }
@@ -583,8 +590,15 @@ class GameScene extends Phaser.Scene {
       // Гейты уровня вопроса («около»-спам, вложенные диапазоны) — мягкое предупреждение
       // в игре, жёсткий гейт в тестах/промоушне (см. docs/rules-map.md).
       if (Array.isArray(question.answers)) {
-        for (const res of [validateOptionsHomogeneous(question.answers), validateNumericRanges(question.answers), validateNumericTell(question.answers, question.correctAnswerIndex), validateHedgeTell(question.answers)]) {
-          if (!res.ok) warnings.push(`Question ${question.id || questionIndex}: ${res.reasons.join(', ')}`)
+        for (const res of [
+          validateOptionsHomogeneous(question.answers),
+          validateNumericRanges(question.answers),
+          validateNumericTell(question.answers, question.correctAnswerIndex),
+          validateHedgeTell(question.answers),
+          validateExamShape(question.question, question.answers),
+        ]) {
+          if (!res.ok)
+            warnings.push(`Question ${question.id || questionIndex}: ${res.reasons.join(', ')}`)
         }
       }
 
@@ -592,7 +606,8 @@ class GameScene extends Phaser.Scene {
       // жёсткий гейт в тестах. Политику/религию здесь не ловим (нужен LLM-судья, A.0).
       for (const text of [question.question, question.explanation]) {
         const res = validateNoProhibited(text)
-        if (!res.ok) warnings.push(`Question ${question.id || questionIndex}: ${res.reasons.join(', ')}`)
+        if (!res.ok)
+          warnings.push(`Question ${question.id || questionIndex}: ${res.reasons.join(', ')}`)
       }
 
       if (
@@ -632,10 +647,7 @@ class GameScene extends Phaser.Scene {
       // невалидный тип — ошибка.
       if (question.explanation === undefined || question.explanation === null) {
         warnings.push(`Question ${question.id || questionIndex} has no explanation`)
-      } else if (
-        typeof question.explanation !== 'string' ||
-        question.explanation.trim() === ''
-      ) {
+      } else if (typeof question.explanation !== 'string' || question.explanation.trim() === '') {
         errors.push(`Question ${question.id || questionIndex} has invalid explanation`)
       }
 
@@ -671,7 +683,7 @@ class GameScene extends Phaser.Scene {
     return {
       isValid: errors.length === 0,
       errors,
-      warnings
+      warnings,
     }
   }
 
@@ -726,7 +738,7 @@ class GameScene extends Phaser.Scene {
     const answerItems = question.answers.map((answer, index) => ({
       text: answer,
       originalIndex: index,
-      isCorrect: index === question.correctAnswerIndex
+      isCorrect: index === question.correctAnswerIndex,
     }))
 
     Phaser.Utils.Array.Shuffle(answerItems)
@@ -743,10 +755,10 @@ class GameScene extends Phaser.Scene {
   applyModeTheme() {
     const theme = MODE_THEMES[this.currentMode] || MODE_THEMES.random
     Object.assign(COLORS, {
-      answer:      theme.answer,
+      answer: theme.answer,
       answerHover: theme.answerHover,
-      border:      theme.border,
-      borderSoft:  theme.borderSoft,
+      border: theme.border,
+      borderSoft: theme.borderSoft,
       surfaceBlue: theme.surfaceBlue,
     })
   }
@@ -769,7 +781,13 @@ class GameScene extends Phaser.Scene {
     this.adOverlay = null
 
     const bg = this.add.graphics()
-    bg.fillGradientStyle(BG_GRADIENT_LEFT, BG_GRADIENT_RIGHT, BG_GRADIENT_LEFT, BG_GRADIENT_RIGHT, 1)
+    bg.fillGradientStyle(
+      BG_GRADIENT_LEFT,
+      BG_GRADIENT_RIGHT,
+      BG_GRADIENT_LEFT,
+      BG_GRADIENT_RIGHT,
+      1
+    )
     bg.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
 
     this.renderModeTabs()
@@ -777,7 +795,7 @@ class GameScene extends Phaser.Scene {
     this.createRoundedBox(CARD_X, CARD_Y, CARD_WIDTH, CARD_HEIGHT, COLORS.surface, {
       radius: RADIUS.panel,
       strokeColor: COLORS.borderSoft,
-      strokeWidth: 2
+      strokeWidth: 2,
     })
 
     this.renderScorePanel()
@@ -809,9 +827,8 @@ class GameScene extends Phaser.Scene {
 
     this.renderCategories(q.categories, contentOffset)
     const questionHeight = this.renderQuestion(q.question, contentOffset)
-    this._imageY = QUESTION_Y + contentOffset + questionHeight + GAP
-    this._answersY = this._imageY + this._imageH + GAP
-    this.renderQuestionImage(q)
+    this._answersY = QUESTION_Y + contentOffset + questionHeight + GAP
+    // renderQuestionImage убран: картинки отключены в V1
     this.renderAnswers(this.currentAnswers)
 
     this.logEvent('question_shown', {
@@ -821,7 +838,7 @@ class GameScene extends Phaser.Scene {
       image: q.image,
       imageRole: q.imageRole,
       requiresImage: q.requiresImage,
-      shuffledCorrectAnswerIndex: this.currentCorrectAnswerIndex
+      shuffledCorrectAnswerIndex: this.currentCorrectAnswerIndex,
     })
 
     // В забеге сохраняем точку восстановления (вопрос + порядок ответов + счётчики).
@@ -842,7 +859,7 @@ class GameScene extends Phaser.Scene {
     const labelFont = {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_SM,
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     }
 
     // Ширина по самой широкой вкладке («Случайный вопрос»)
@@ -853,32 +870,46 @@ class GameScene extends Phaser.Scene {
       probe.destroy()
     })
 
-    this.createRoundedBox(TOPBAR_X, TOPBAR_Y, TOPBAR_WIDTH, TOPBAR_HEIGHT, COLORS.surface, {
-      radius: RADIUS.panel,
-      strokeColor: COLORS.borderSoft,
-      strokeWidth: 2
-    })
-
     const tabY = TOPBAR_Y + (TOPBAR_HEIGHT - TAB_HEIGHT) / 2
     let x = TOPBAR_X + PANEL_PAD
 
     MODES.forEach((mode) => {
       const isActive = mode.key === this.currentMode
-      const tabX = x  // захватываем позицию по значению, не по ссылке
+      const tabX = x // захватываем позицию по значению, не по ссылке
       const t = MODE_THEMES[mode.key] || MODE_THEMES.random
 
       const tabLabel = mode.label
 
-      const pill = this.createRoundedBox(tabX, tabY, tabWidth, TAB_HEIGHT,
-        isActive ? t.answer : t.surfaceBlue, {
+      if (mode.disabled) {
+        this.createRoundedBox(tabX, tabY, tabWidth, TAB_HEIGHT, COLORS.answerDisabled, {
+          radius: TAB_RADIUS,
+          strokeColor: COLORS.borderSoft,
+          strokeWidth: 2,
+        })
+        this.makeText(tabX + tabWidth / 2, tabY + TAB_HEIGHT / 2, tabLabel, {
+          ...labelFont,
+          color: this.colorToHex(COLORS.textSoft),
+        }).setOrigin(0.5)
+        x += tabWidth + TAB_GAP
+        return
+      }
+
+      const pill = this.createRoundedBox(
+        tabX,
+        tabY,
+        tabWidth,
+        TAB_HEIGHT,
+        isActive ? t.answer : t.surfaceBlue,
+        {
           radius: TAB_RADIUS,
           strokeColor: isActive ? t.border : t.borderSoft,
-          strokeWidth: 2
-        })
+          strokeWidth: 2,
+        }
+      )
 
       this.makeText(tabX + tabWidth / 2, tabY + TAB_HEIGHT / 2, tabLabel, {
         ...labelFont,
-        color: this.colorToHex(COLORS.text)
+        color: this.colorToHex(COLORS.text),
       }).setOrigin(0.5)
 
       this.makeInteractiveBox(pill, tabWidth, TAB_HEIGHT)
@@ -889,7 +920,7 @@ class GameScene extends Phaser.Scene {
           this.drawRoundedBox(pill, tabWidth, TAB_HEIGHT, t.answer, {
             radius: TAB_RADIUS,
             strokeColor: t.border,
-            strokeWidth: 2
+            strokeWidth: 2,
           })
         }
       })
@@ -898,7 +929,7 @@ class GameScene extends Phaser.Scene {
           this.drawRoundedBox(pill, tabWidth, TAB_HEIGHT, t.surfaceBlue, {
             radius: TAB_RADIUS,
             strokeColor: t.borderSoft,
-            strokeWidth: 2
+            strokeWidth: 2,
           })
         }
       })
@@ -934,41 +965,61 @@ class GameScene extends Phaser.Scene {
     const cx = CARD_X + CARD_WIDTH / 2
 
     this.makeText(cx, CARD_Y + 140, 'Блиц', {
-      fontFamily: FONT_FAMILY, fontSize: '40px',
-      color: this.colorToHex(COLORS.text), fontStyle: 'bold'
+      fontFamily: FONT_FAMILY,
+      fontSize: '40px',
+      color: this.colorToHex(COLORS.text),
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
     this.makeText(cx, CARD_Y + 210, 'Ответь на как можно больше вопросов\nза 60 секунд', {
-      fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_MD,
-      color: this.colorToHex(COLORS.textMuted), fontStyle: 'bold',
-      align: 'center'
+      fontFamily: FONT_FAMILY,
+      fontSize: FONT_SIZE_MD,
+      color: this.colorToHex(COLORS.textMuted),
+      fontStyle: 'bold',
+      align: 'center',
     }).setOrigin(0.5)
 
     if (this.blitzBest > 0) {
       this.makeText(cx, CARD_Y + 268, `Твой рекорд: ${this.blitzBest}`, {
-        fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_SM,
-        color: this.colorToHex(COLORS.textSoft), fontStyle: 'bold'
+        fontFamily: FONT_FAMILY,
+        fontSize: FONT_SIZE_SM,
+        color: this.colorToHex(COLORS.textSoft),
+        fontStyle: 'bold',
       }).setOrigin(0.5)
     }
 
-    const w = 220, h = 60
-    const x = cx - w / 2, y = CARD_Y + 330
+    const w = 220,
+      h = 60
+    const x = cx - w / 2,
+      y = CARD_Y + 330
     const btn = this.createRoundedBox(x, y, w, h, COLORS.answer, {
-      radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
+      radius: RADIUS.button,
+      strokeColor: COLORS.border,
+      strokeWidth: 2,
     })
     this.makeInteractiveBox(btn, w, h)
     this.setCursorPointer(btn)
     this.makeText(cx, y + h / 2, 'Старт', {
-      fontFamily: FONT_FAMILY, fontSize: '24px',
-      color: this.colorToHex(COLORS.text), fontStyle: 'bold'
+      fontFamily: FONT_FAMILY,
+      fontSize: '24px',
+      color: this.colorToHex(COLORS.text),
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
-    btn.on('pointerover', () => this.drawRoundedBox(btn, w, h, COLORS.answerHover, {
-      radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
-    }))
-    btn.on('pointerout', () => this.drawRoundedBox(btn, w, h, COLORS.answer, {
-      radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
-    }))
+    btn.on('pointerover', () =>
+      this.drawRoundedBox(btn, w, h, COLORS.answerHover, {
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
+      })
+    )
+    btn.on('pointerout', () =>
+      this.drawRoundedBox(btn, w, h, COLORS.answer, {
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
+      })
+    )
     btn.on('pointerdown', () => this.startBlitzCountdown())
   }
 
@@ -983,13 +1034,17 @@ class GameScene extends Phaser.Scene {
     const cy = CARD_Y + CARD_HEIGHT / 2
 
     this.makeText(cx, cy - 60, 'Приготовься', {
-      fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_LG,
-      color: this.colorToHex(COLORS.textMuted), fontStyle: 'bold'
+      fontFamily: FONT_FAMILY,
+      fontSize: FONT_SIZE_LG,
+      color: this.colorToHex(COLORS.textMuted),
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
     this.blitzCountdownText = this.makeText(cx, cy + 20, `${BLITZ_COUNTDOWN_S}`, {
-      fontFamily: FONT_FAMILY, fontSize: '96px',
-      color: this.colorToHex(COLORS.answer), fontStyle: 'bold'
+      fontFamily: FONT_FAMILY,
+      fontSize: '96px',
+      color: this.colorToHex(COLORS.answer),
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
     // Отсчёт по реальному времени (не по Phaser-дельте): иначе сразу после загрузки,
@@ -1000,7 +1055,7 @@ class GameScene extends Phaser.Scene {
     this.blitzCountdownEvent = this.time.addEvent({
       delay: 50,
       loop: true,
-      callback: () => this.tickCountdown()
+      callback: () => this.tickCountdown(),
     })
   }
 
@@ -1043,7 +1098,7 @@ class GameScene extends Phaser.Scene {
     this.blitzTimerEvent = this.time.addEvent({
       delay: BLITZ_TICK_MS,
       loop: true,
-      callback: () => this.tickBlitz()
+      callback: () => this.tickBlitz(),
     })
   }
 
@@ -1085,14 +1140,20 @@ class GameScene extends Phaser.Scene {
     const midY = BLITZ_HUD_Y + BLITZ_HUD_HEIGHT / 2
 
     this.blitzTimerText = this.makeText(CONTENT_X, midY, this.formatBlitzTime(), {
-      fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_MD,
-      color: this.colorToHex(COLORS.text), fontStyle: 'bold'
+      fontFamily: FONT_FAMILY,
+      fontSize: FONT_SIZE_MD,
+      color: this.colorToHex(COLORS.text),
+      fontStyle: 'bold',
     }).setOrigin(0, 0.5)
 
     // Подложка шкалы
     this.createRoundedBox(
-      BLITZ_BAR_X, midY - BLITZ_BAR_HEIGHT / 2, BLITZ_BAR_WIDTH, BLITZ_BAR_HEIGHT,
-      COLORS.surfaceBlue, { radius: BLITZ_BAR_HEIGHT / 2 }
+      BLITZ_BAR_X,
+      midY - BLITZ_BAR_HEIGHT / 2,
+      BLITZ_BAR_WIDTH,
+      BLITZ_BAR_HEIGHT,
+      COLORS.surfaceBlue,
+      { radius: BLITZ_BAR_HEIGHT / 2 }
     )
 
     // Заполнение шкалы — обновляется на месте по тику таймера
@@ -1100,9 +1161,14 @@ class GameScene extends Phaser.Scene {
     this.drawBlitzBar()
 
     this.blitzCounterText = this.makeText(
-      CONTENT_X + CONTENT_WIDTH, midY, `✓ ${this.blitzCorrect}`, {
-        fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(COLORS.correct), fontStyle: 'bold'
+      CONTENT_X + CONTENT_WIDTH,
+      midY,
+      `✓ ${this.blitzCorrect}`,
+      {
+        fontFamily: FONT_FAMILY,
+        fontSize: FONT_SIZE_MD,
+        color: this.colorToHex(COLORS.correct),
+        fontStyle: 'bold',
       }
     ).setOrigin(1, 0.5)
   }
@@ -1144,16 +1210,15 @@ class GameScene extends Phaser.Scene {
       this.persistRecord()
     }
 
-    const accuracy = this.blitzAnswered > 0
-      ? Math.round((this.blitzCorrect / this.blitzAnswered) * 100)
-      : 0
+    const accuracy =
+      this.blitzAnswered > 0 ? Math.round((this.blitzCorrect / this.blitzAnswered) * 100) : 0
 
     this.logEvent('blitz_finished', {
       correct: this.blitzCorrect,
       answered: this.blitzAnswered,
       accuracy,
       blitzBest: this.blitzBest,
-      isRecord: improved
+      isRecord: improved,
     })
 
     this.showBlitzAd(() => this.showBlitzResult(accuracy, improved))
@@ -1185,8 +1250,8 @@ class GameScene extends Phaser.Scene {
           this.logEvent('ad_closed', { wasShown: !!wasShown, reason: 'blitz_end' })
           finish()
         },
-        onError: () => finish()
-      }
+        onError: () => finish(),
+      },
     })
   }
 
@@ -1199,33 +1264,50 @@ class GameScene extends Phaser.Scene {
     const items = []
 
     items.push(
-      this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x0f172a, 0.54)
-        .setOrigin(0).setDepth(100).setInteractive()
+      this.add
+        .rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x0f172a, 0.54)
+        .setOrigin(0)
+        .setDepth(100)
+        .setInteractive()
     )
     items.push(
       this.createRoundedBox(cx - 280, cy - 200, 560, 400, COLORS.surface, {
-        radius: RADIUS.panel, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.panel,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
       }).setDepth(101)
     )
 
     const title = this.blitzTimeLeftMs <= 0 ? 'Время вышло!' : 'Блиц завершён'
     items.push(
       this.makeText(cx, cy - 150, title, {
-        fontFamily: FONT_FAMILY, fontSize: '34px',
-        color: this.colorToHex(COLORS.text), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(102)
+        fontFamily: FONT_FAMILY,
+        fontSize: '34px',
+        color: this.colorToHex(COLORS.text),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(102)
     )
     items.push(
       this.makeText(cx, cy - 72, `${this.blitzCorrect}`, {
-        fontFamily: FONT_FAMILY, fontSize: '72px',
-        color: this.colorToHex(COLORS.correct), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(102)
+        fontFamily: FONT_FAMILY,
+        fontSize: '72px',
+        color: this.colorToHex(COLORS.correct),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(102)
     )
     items.push(
       this.makeText(cx, cy - 14, 'правильных ответов', {
-        fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(COLORS.textMuted), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(102)
+        fontFamily: FONT_FAMILY,
+        fontSize: FONT_SIZE_MD,
+        color: this.colorToHex(COLORS.textMuted),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(102)
     )
 
     const sub = isRecord
@@ -1233,22 +1315,34 @@ class GameScene extends Phaser.Scene {
       : `Точность ${accuracy}%  ·  Рекорд ${this.blitzBest}`
     items.push(
       this.makeText(cx, cy + 30, sub, {
-        fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(isRecord ? COLORS.correct : COLORS.textSoft), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(102)
+        fontFamily: FONT_FAMILY,
+        fontSize: FONT_SIZE_MD,
+        color: this.colorToHex(isRecord ? COLORS.correct : COLORS.textSoft),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(102)
     )
 
     const mkBtn = (label, bx, fill, onClick) => {
-      const w = 250, h = 56, by = cy + 90
+      const w = 250,
+        h = 56,
+        by = cy + 90
       const btn = this.createRoundedBox(bx, by, w, h, fill, {
-        radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
       }).setDepth(102)
       this.makeInteractiveBox(btn, w, h)
       this.setCursorPointer(btn)
       const txt = this.makeText(bx + w / 2, by + h / 2, label, {
-        fontFamily: FONT_FAMILY, fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(COLORS.text), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(103)
+        fontFamily: FONT_FAMILY,
+        fontSize: FONT_SIZE_MD,
+        color: this.colorToHex(COLORS.text),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(103)
       btn.on('pointerdown', onClick)
       items.push(btn, txt)
     }
@@ -1287,7 +1381,7 @@ class GameScene extends Phaser.Scene {
         questionId: this.currentQuestion?.id ?? null,
         answers: this.currentAnswers,
         correctIndex: this.currentCorrectAnswerIndex,
-        shownIds: Array.from(this.shownQuestionIds)
+        shownIds: Array.from(this.shownQuestionIds),
       }
       window.localStorage.setItem(BLITZ_STATE_KEY, JSON.stringify(state))
     } catch (error) {
@@ -1351,7 +1445,7 @@ class GameScene extends Phaser.Scene {
       this.logEvent('blitz_resumed', {
         timeLeftMs: state.timeLeftMs,
         correct: this.blitzCorrect,
-        answered: this.blitzAnswered
+        answered: this.blitzAnswered,
       })
       return true
     }
@@ -1368,24 +1462,21 @@ class GameScene extends Phaser.Scene {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_SM,
       color: this.colorToHex(COLORS.textMuted),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     })
 
     return this.makeText(x, y + 18, value, {
       fontFamily: FONT_FAMILY,
       fontSize: SCORE_VALUE_FONT,
       color: this.colorToHex(valueColor),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     })
   }
 
   renderScorePanel() {
     const x = SCORE_X
 
-    this.recordText = this.renderStat(
-      x, SCORE_PANEL_Y, 'РЕКОРД',
-      `${this.maxStreak}`, COLORS.text
-    )
+    this.recordText = this.renderStat(x, SCORE_PANEL_Y, 'РЕКОРД', `${this.maxStreak}`, COLORS.text)
   }
 
   renderSoundToggle() {
@@ -1398,7 +1489,7 @@ class GameScene extends Phaser.Scene {
     const button = this.createRoundedBox(x, y, width, height, COLORS.soundBackground, {
       radius: RADIUS.button,
       strokeColor: COLORS.border,
-      strokeWidth: 2
+      strokeWidth: 2,
     })
 
     this.makeInteractiveBox(button, width, height)
@@ -1408,14 +1499,14 @@ class GameScene extends Phaser.Scene {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_SM,
       color: this.colorToHex(COLORS.text),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
     button.on('pointerover', () => {
       this.drawRoundedBox(button, width, height, COLORS.soundHover, {
         radius: RADIUS.button,
         strokeColor: COLORS.border,
-        strokeWidth: 2
+        strokeWidth: 2,
       })
     })
 
@@ -1423,7 +1514,7 @@ class GameScene extends Phaser.Scene {
       this.drawRoundedBox(button, width, height, COLORS.soundBackground, {
         radius: RADIUS.button,
         strokeColor: COLORS.border,
-        strokeWidth: 2
+        strokeWidth: 2,
       })
     })
 
@@ -1446,7 +1537,7 @@ class GameScene extends Phaser.Scene {
     const button = this.createRoundedBox(x, y, width, height, COLORS.soundBackground, {
       radius: RADIUS.button,
       strokeColor: COLORS.border,
-      strokeWidth: 2
+      strokeWidth: 2,
     })
 
     this.makeInteractiveBox(button, width, height)
@@ -1456,17 +1547,21 @@ class GameScene extends Phaser.Scene {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_SM,
       color: this.colorToHex(COLORS.text),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
     button.on('pointerover', () => {
       this.drawRoundedBox(button, width, height, COLORS.soundHover, {
-        radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
       })
     })
     button.on('pointerout', () => {
       this.drawRoundedBox(button, width, height, COLORS.soundBackground, {
-        radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
       })
     })
     button.on('pointerdown', () => this.openLeaderboard())
@@ -1483,32 +1578,55 @@ class GameScene extends Phaser.Scene {
     // Фон интерактивен — перехватывает клики, чтобы кнопки ответов под оверлеем
     // не срабатывали (answerState при этом остаётся 'idle').
     items.push(
-      this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x0f172a, 0.54)
-        .setOrigin(0).setDepth(100).setInteractive()
+      this.add
+        .rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x0f172a, 0.54)
+        .setOrigin(0)
+        .setDepth(100)
+        .setInteractive()
     )
     items.push(
       this.createRoundedBox(GAME_WIDTH / 2 - 300, GAME_HEIGHT / 2 - 230, 600, 460, COLORS.surface, {
-        radius: RADIUS.panel, strokeColor: COLORS.border, strokeWidth: 2
+        radius: RADIUS.panel,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
       }).setDepth(101)
     )
     items.push(
       this.makeText(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 188, 'Рейтинг — лучшая серия', {
-        fontFamily: FONT_FAMILY, fontSize: '30px',
-        color: this.colorToHex(COLORS.text), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(102)
+        fontFamily: FONT_FAMILY,
+        fontSize: '30px',
+        color: this.colorToHex(COLORS.text),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(102)
     )
 
     // Кнопка закрытия
-    const closeBtn = this.createRoundedBox(GAME_WIDTH / 2 + 250, GAME_HEIGHT / 2 - 210, 36, 36, COLORS.soundBackground, {
-      radius: RADIUS.button, strokeColor: COLORS.border, strokeWidth: 2
-    }).setDepth(103)
+    const closeBtn = this.createRoundedBox(
+      GAME_WIDTH / 2 + 250,
+      GAME_HEIGHT / 2 - 210,
+      36,
+      36,
+      COLORS.soundBackground,
+      {
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
+      }
+    ).setDepth(103)
     this.makeInteractiveBox(closeBtn, 36, 36)
     this.setCursorPointer(closeBtn)
     items.push(closeBtn)
     items.push(
       this.makeText(GAME_WIDTH / 2 + 268, GAME_HEIGHT / 2 - 192, 'X', {
-        fontFamily: FONT_FAMILY, fontSize: '20px', color: this.colorToHex(COLORS.text), fontStyle: 'bold'
-      }).setOrigin(0.5).setDepth(104)
+        fontFamily: FONT_FAMILY,
+        fontSize: '20px',
+        color: this.colorToHex(COLORS.text),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
     )
     closeBtn.on('pointerdown', () => this.closeLeaderboard())
 
@@ -1529,7 +1647,9 @@ class GameScene extends Phaser.Scene {
     let entries = []
     try {
       const result = await this.ysdk.leaderboards.getEntries(LEADERBOARD_ID, {
-        quantityTop: 10, includeUser: true, quantityAround: 3
+        quantityTop: 10,
+        includeUser: true,
+        quantityAround: 3,
       })
       entries = result?.entries || []
     } catch (error) {
@@ -1538,7 +1658,12 @@ class GameScene extends Phaser.Scene {
     }
 
     if (entries.length === 0) {
-      this.addLeaderboardText(centerX, GAME_HEIGHT / 2, 'Пока нет результатов — будь первым!', COLORS.textMuted)
+      this.addLeaderboardText(
+        centerX,
+        GAME_HEIGHT / 2,
+        'Пока нет результатов — будь первым!',
+        COLORS.textMuted
+      )
       return
     }
 
@@ -1554,8 +1679,12 @@ class GameScene extends Phaser.Scene {
 
   renderLeaderboardLogin() {
     const centerX = GAME_WIDTH / 2
-    this.addLeaderboardText(centerX, GAME_HEIGHT / 2 - 40,
-      'Войдите через Яндекс ID, чтобы попасть\nв рейтинг и сохранять рекорд между устройствами', COLORS.textMuted)
+    this.addLeaderboardText(
+      centerX,
+      GAME_HEIGHT / 2 - 40,
+      'Войдите через Яндекс ID, чтобы попасть\nв рейтинг и сохранять рекорд между устройствами',
+      COLORS.textMuted
+    )
 
     const w = 280
     const h = 56
@@ -1563,15 +1692,22 @@ class GameScene extends Phaser.Scene {
     const y = GAME_HEIGHT / 2 + 50
 
     const loginBtn = this.createRoundedBox(x, y, w, h, COLORS.answer, {
-      radius: RADIUS.button, strokeColor: 0x5eb8f5, strokeWidth: 1
+      radius: RADIUS.button,
+      strokeColor: 0x5eb8f5,
+      strokeWidth: 1,
     }).setDepth(103)
     this.makeInteractiveBox(loginBtn, w, h)
     this.setCursorPointer(loginBtn)
     this.leaderboardOverlay.push(loginBtn)
 
     const loginText = this.makeText(centerX, y + h / 2, 'Войти', {
-      fontFamily: FONT_FAMILY, fontSize: '22px', color: this.colorToHex(COLORS.text), fontStyle: 'bold'
-    }).setOrigin(0.5).setDepth(104)
+      fontFamily: FONT_FAMILY,
+      fontSize: '22px',
+      color: this.colorToHex(COLORS.text),
+      fontStyle: 'bold',
+    })
+      .setOrigin(0.5)
+      .setDepth(104)
     this.leaderboardOverlay.push(loginText)
 
     loginBtn.on('pointerdown', async () => {
@@ -1600,8 +1736,10 @@ class GameScene extends Phaser.Scene {
       fontSize: FONT_SIZE_MD,
       color: this.colorToHex(color),
       fontStyle: 'bold',
-      align: 'center'
-    }).setOrigin(alignOrigin, 0.5).setDepth(103)
+      align: 'center',
+    })
+      .setOrigin(alignOrigin, 0.5)
+      .setDepth(103)
     this.leaderboardOverlay?.push(text)
     return text
   }
@@ -1623,14 +1761,14 @@ class GameScene extends Phaser.Scene {
         fontFamily: FONT_FAMILY,
         fontSize: FONT_SIZE_SM,
         color: '#ffffff',
-        fontStyle: 'bold'
+        fontStyle: 'bold',
       })
 
       const chipWidth = text.width + 24
       const chipHeight = CHIP_HEIGHT
 
-      const chip = this.createRoundedBox(currentX, y, chipWidth, chipHeight, COLORS.graphite, {
-        radius: RADIUS.chip
+      const chip = this.createRoundedBox(currentX, y, chipWidth, chipHeight, COLORS.textSoft, {
+        radius: RADIUS.chip,
       })
 
       chip.setDepth(0)
@@ -1667,7 +1805,7 @@ class GameScene extends Phaser.Scene {
 
     if (!question.image) {
       this.logEvent('image_missing_in_question', {
-        questionId: question.id
+        questionId: question.id,
       })
 
       this.replacePlaceholderWithFallback(placeholderItems, 'изображение не указано')
@@ -1685,7 +1823,7 @@ class GameScene extends Phaser.Scene {
 
     this.logEvent('image_load_started', {
       questionId: question.id,
-      candidatePaths
+      candidatePaths,
     })
 
     this.loadImageFromCandidates({
@@ -1693,7 +1831,7 @@ class GameScene extends Phaser.Scene {
       textureKey,
       candidatePaths,
       placeholderItems,
-      candidateIndex: 0
+      candidateIndex: 0,
     })
   }
 
@@ -1702,7 +1840,7 @@ class GameScene extends Phaser.Scene {
     textureKey,
     candidatePaths,
     placeholderItems,
-    candidateIndex
+    candidateIndex,
   }) {
     const imagePath = candidatePaths[candidateIndex]
 
@@ -1724,14 +1862,14 @@ class GameScene extends Phaser.Scene {
 
       this.logEvent('image_loaded', {
         questionId: question.id,
-        imagePath
+        imagePath,
       })
     }
 
     image.onerror = () => {
       this.logEvent('image_candidate_load_error', {
         questionId: question.id,
-        imagePath
+        imagePath,
       })
 
       this.loadImageFromCandidates({
@@ -1739,7 +1877,7 @@ class GameScene extends Phaser.Scene {
         textureKey,
         candidatePaths,
         placeholderItems,
-        candidateIndex: candidateIndex + 1
+        candidateIndex: candidateIndex + 1,
       })
     }
 
@@ -1754,12 +1892,12 @@ class GameScene extends Phaser.Scene {
     this.logEvent('image_load_error', {
       questionId: question.id,
       candidatePaths,
-      requiresImage: question.requiresImage
+      requiresImage: question.requiresImage,
     })
 
     if (question.requiresImage) {
       this.logEvent('question_replaced_due_to_missing_image', {
-        questionId: question.id
+        questionId: question.id,
       })
 
       this.goToNextQuestion()
@@ -1769,7 +1907,7 @@ class GameScene extends Phaser.Scene {
     this.replacePlaceholderWithFallback(placeholderItems, 'изображение не загрузилось')
 
     this.logEvent('image_placeholder_shown', {
-      questionId: question.id
+      questionId: question.id,
     })
   }
 
@@ -1863,14 +2001,14 @@ class GameScene extends Phaser.Scene {
     const ih = this._imageH ?? IMAGE_HEIGHT
 
     const background = this.createRoundedBox(ix, iy, iw, ih, COLORS.surfaceBlue, {
-      radius: RADIUS.image
+      radius: RADIUS.image,
     })
 
     const subtitle = this.makeText(ix + iw / 2, iy + ih / 2, message, {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_SM,
       color: this.colorToHex(COLORS.textSoft),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     }).setOrigin(0.5)
 
     items.push(background, subtitle)
@@ -1890,7 +2028,7 @@ class GameScene extends Phaser.Scene {
       color: this.colorToHex(COLORS.text),
       fontStyle: 'bold',
       wordWrap: { width: maxWidth },
-      align: 'center'
+      align: 'center',
     }).setOrigin(0.5)
 
     // Перенос по дефису, если не влезает в ширину. Шрифт НЕ ужимаем: валидный ответ
@@ -1921,14 +2059,17 @@ class GameScene extends Phaser.Scene {
       const button = this.createRoundedBox(x, y, buttonWidth, buttonHeight, COLORS.surface, {
         radius: RADIUS.answerButton,
         strokeColor: COLORS.border,
-        strokeWidth: 2
+        strokeWidth: 2,
       })
 
       this.makeInteractiveBox(button, buttonWidth, buttonHeight)
       this.setCursorPointer(button)
 
       const label = this.makeAnswerLabel(
-        x + buttonWidth / 2, y + buttonHeight / 2, answer, buttonWidth - 24
+        x + buttonWidth / 2,
+        y + buttonHeight / 2,
+        answer,
+        buttonWidth - 24
       )
 
       button.on('pointerover', () => {
@@ -1936,7 +2077,7 @@ class GameScene extends Phaser.Scene {
           this.drawRoundedBox(button, buttonWidth, buttonHeight, COLORS.surfaceBlue, {
             radius: RADIUS.answerButton,
             strokeColor: COLORS.border,
-            strokeWidth: 2
+            strokeWidth: 2,
           })
         }
       })
@@ -1946,7 +2087,7 @@ class GameScene extends Phaser.Scene {
           this.drawRoundedBox(button, buttonWidth, buttonHeight, COLORS.surface, {
             radius: RADIUS.answerButton,
             strokeColor: COLORS.border,
-            strokeWidth: 2
+            strokeWidth: 2,
           })
         }
       })
@@ -1960,7 +2101,7 @@ class GameScene extends Phaser.Scene {
         button,
         label,
         width: buttonWidth,
-        height: buttonHeight
+        height: buttonHeight,
       })
     })
   }
@@ -2002,7 +2143,7 @@ class GameScene extends Phaser.Scene {
       currentStreak: this.currentStreak,
       maxStreak: this.maxStreak,
       questionsSinceAd: this.questionsSinceAd,
-      mode: this.currentMode
+      mode: this.currentMode,
     })
 
     // В Блице: короткая пауза, без рекламы внутри забега; следующий вопрос только
@@ -2071,7 +2212,7 @@ class GameScene extends Phaser.Scene {
       fontFamily: FONT_FAMILY,
       fontSize: '22px',
       color: this.colorToHex(COLORS.correct),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     }).setDepth(50)
 
     this.tweens.add({
@@ -2080,7 +2221,7 @@ class GameScene extends Phaser.Scene {
       alpha: { from: 1, to: 0 },
       duration: 900,
       ease: 'Quad.out',
-      onComplete: () => popup.destroy()
+      onComplete: () => popup.destroy(),
     })
   }
 
@@ -2115,8 +2256,8 @@ class GameScene extends Phaser.Scene {
     this.ysdk.adv.showFullscreenAdv({
       callbacks: {
         onClose: (wasShown) => resume(wasShown),
-        onError: () => resume(false)
-      }
+        onError: () => resume(false),
+      },
     })
   }
 
@@ -2135,7 +2276,7 @@ class GameScene extends Phaser.Scene {
         this.drawRoundedBox(button, width, height, COLORS.correct, {
           radius: RADIUS.answerButton,
           strokeColor: 0x038d63,
-          strokeWidth: 2
+          strokeWidth: 2,
         })
         button.setAlpha(1)
         label.setColor('#ffffff')
@@ -2146,7 +2287,7 @@ class GameScene extends Phaser.Scene {
         this.drawRoundedBox(button, width, height, COLORS.wrong, {
           radius: RADIUS.answerButton,
           strokeColor: 0xe85f64,
-          strokeWidth: 2
+          strokeWidth: 2,
         })
         button.setAlpha(1)
         label.setColor('#ffffff')
@@ -2156,7 +2297,7 @@ class GameScene extends Phaser.Scene {
       this.drawRoundedBox(button, width, height, COLORS.surface, {
         radius: RADIUS.answerButton,
         strokeColor: COLORS.borderSoft,
-        strokeWidth: 1
+        strokeWidth: 1,
       })
 
       button.setAlpha(0.5)
@@ -2169,7 +2310,7 @@ class GameScene extends Phaser.Scene {
       fontFamily: FONT_FAMILY,
       fontSize: '24px',
       color: this.colorToHex(COLORS.wrong),
-      fontStyle: 'bold'
+      fontStyle: 'bold',
     }).setOrigin(0.5)
   }
 }
@@ -2192,20 +2333,19 @@ const config = {
   scene: GameScene,
   render: {
     antialias: true,
-    roundPixels: true
+    roundPixels: true,
   },
   scale: {
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
-  }
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+  },
 }
 
 // Фон страницы (пилларбокс по краям центрированного канваса) — тем же градиентом,
 // что и в игре. Иначе на широком окне справа видна полоса: голубой фон body
 // упирается в сиреневый край канваса (заметно в Chrome, в Safari окно у́же).
 const toCssHex = (color) => `#${color.toString(16).padStart(6, '0')}`
-document.body.style.background =
-  `linear-gradient(to right, ${toCssHex(BG_GRADIENT_LEFT)}, ${toCssHex(BG_GRADIENT_RIGHT)})`
+document.body.style.background = `linear-gradient(to right, ${toCssHex(BG_GRADIENT_LEFT)}, ${toCssHex(BG_GRADIENT_RIGHT)})`
 
 // Явно грузим веса Roboto до старта Phaser. document.fonts.ready недостаточно:
 // Chrome не инициирует загрузку @font-face, пока шрифт никто не «использует»
@@ -2216,7 +2356,7 @@ document.body.style.background =
 Promise.all([
   document.fonts.load('400 1em "Roboto"'),
   document.fonts.load('500 1em "Roboto"'),
-  document.fonts.load('700 1em "Roboto"')
+  document.fonts.load('700 1em "Roboto"'),
 ])
   .catch(() => {})
   .then(() => initYsdk())
