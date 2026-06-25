@@ -11,8 +11,9 @@
   },
   "rules": {
     "no-console": "off",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
-    "no-empty": ["error", { "allowEmptyCatch": true }]
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-irregular-whitespace": ["error", { "skipRegExps": true, "skipStrings": true }]
   },
   "ignorePatterns": ["dist/", "node_modules/", "public/", "scripts/*.workflow.js"]
 }

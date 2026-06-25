@@ -15,7 +15,7 @@ const adminJs = readFileSync(join(ROOT, 'src', 'admin', 'admin.js'), 'utf8')
 const gameJs = readFileSync(join(ROOT, 'src', 'main.js'), 'utf8')
 
 // тело CSS-правила по имени класса
-const cssBlock = (name) => (css.match(new RegExp(`\\.${name}\\s*\\{([^}]*)\\}`)) || [, ''])[1]
+const cssBlock = (name) => (css.match(new RegExp(`\\.${name}\\s*\\{([^}]*)\\}`)) || ['', ''])[1]
 
 describe('превью админки = отображение игры (регресс-гард)', () => {
   it('перенос текста ТОЛЬКО по словам — без авто-дефиса (игра так не делает)', () => {
