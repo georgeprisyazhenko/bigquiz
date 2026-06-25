@@ -56,7 +56,10 @@ for (const q of revise) {
     answers: q.answers,
     correctAnswerIndex: q.correctAnswerIndex,
     explanation: q.explanation || '',
-    reviewNote
+    reviewNote,
+    // Эти revise пришли из генерации, где факты уже проверены стадией Factcheck (судья-флаг
+    // needsFactcheck → веб). Флаг велит полишу ПРОПУСТИТЬ свою веб-стадию Fact (без дубля).
+    factChecked: true
   })
 }
 

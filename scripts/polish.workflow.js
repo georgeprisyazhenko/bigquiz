@@ -28,13 +28,14 @@ export const meta = {
 const item = (extra) => ({ type: 'object', required: ['id', 'question', 'answers', 'correctAnswerIndex', ...extra.req], properties: { id: { type: 'string' }, question: { type: 'string' }, answers: { type: 'array', minItems: 4, maxItems: 4, items: { type: 'string' } }, correctAnswerIndex: { type: 'integer', minimum: 0, maximum: 3 }, ...extra.props } })
 const arr = (it) => ({ type: 'object', required: ['items'], properties: { items: { type: 'array', items: it } } })
 
-const REPAIR_SCHEMA = arr(item({ req: ['explanation', 'angle', 'drop', 'dropReason', 'factDoubt', 'changed'], props: {
+const REPAIR_SCHEMA = arr(item({ req: ['explanation', 'angle', 'drop', 'dropReason', 'factDoubt', 'changed', 'factChecked'], props: {
   explanation: { type: 'string' },
   angle: { type: 'integer', minimum: 1, maximum: 5 },
   drop: { type: 'boolean' },
   dropReason: { type: 'string', enum: ['', 'prohibited', 'distractors', 'myth', 'banal', 'ultra-niche'] },
   factDoubt: { type: 'boolean' },
-  changed: { type: 'string' }
+  changed: { type: 'string' },
+  factChecked: { type: 'boolean' } // эхо из входа: true → факты уже проверены на генерации, веб-Fact пропустить
 } }))
 
 const VERIFY_SCHEMA = arr({ type: 'object', required: ['id', 'verdict', 'issue'], properties: {
@@ -151,7 +152,8 @@ ${RULES}
 Если вопрос уже идеален — changed="без изменений", верни КАК ЕСТЬ.
 Для каждого верни: question, answers[4], correctAnswerIndex, explanation, angle (1-5),
 drop, dropReason, factDoubt (цитата/«первый»/удивительный историко-фольклорный факт),
-changed (1 фраза что изменено). Верни строго по схеме ВСЕ вопросы.`
+changed (1 фраза что изменено), factChecked (верни КАК ВО ВХОДЕ: true если поле было,
+иначе false - НЕ выдумывай). Верни строго по схеме ВСЕ вопросы.`
 
 const verifyPrompt = (items) => `Ты придирчивый ревьюер BigQuiz. Перечитай каждый вопрос
 по своду (9 классов + ЯИ-запреты). Стратегия: FIX-FIRST.
@@ -235,7 +237,10 @@ const results = await pipeline(
   // 4. Fact (веб) — только сомнительные выжившие с высоким углом. args.noWeb → пропустить.
   async (rep) => {
     if (!rep) return null
-    const doubtful = NO_WEB ? [] : rep.items.filter(it => !it.drop && it.factDoubt && it.angle > 2)
+    // factChecked (из gen-фактчека) → веб-Fact пропускаем: факты уже проверены на генерации
+    // (без дубля). args.noWeb форсит пропуск для всех. Веб остаётся для НЕ-factChecked
+    // (ручной rework старых прод-вопросов, где gen-фактчека не было).
+    const doubtful = NO_WEB ? [] : rep.items.filter(it => !it.drop && it.factDoubt && it.angle > 2 && !it.factChecked)
     if (doubtful.length) {
       const facts = await parallel(doubtful.map(q => () => agent(factPrompt(q), { label: `fact:${q.id}`, phase: 'Fact', model: 'sonnet', effort: 'medium', schema: FACT_SCHEMA })))
       const fById = new Map(facts.filter(Boolean).map(f => [f.id, f]))
