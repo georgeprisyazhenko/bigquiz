@@ -81,9 +81,13 @@ node scripts/merge-gen.mjs
 
 ```
 node scripts/prep-polish-revise.mjs      # pending+revise из пула (без reworkedAt) → polish-in, директива = llmReason
-Workflow scripts/polish.workflow.js      # fix-first доводка
+Workflow scripts/polish.workflow.js  args:{noWeb:true}   # fix-first доводка; noWeb=ОБЯЗАТЕЛЬНО
 node scripts/merge-polish.mjs && npm test # починенные → пул как pending («прошёл доработку»)
 ```
+⚠ **`noWeb: true` обязателен** для авто-полиша revise сразу после генерации: факты уже
+проверены стадией `Factcheck` на генерации (судья-флаг `needsFactcheck` → веб). Без `noWeb`
+полиш-стадия `Fact` перечекивает их повторно — дубль и лишние токены. Веб-фактчек в полише
+НУЖЕН только когда gen-фактчека НЕ было (ручной rework старых прод-вопросов).
 `keep` идут на ревью напрямую (чисты). `revise` после полиша возвращаются исправленными.
 Откаты по гейту длины (`reviewStatus=rework`) — добей вторым проходом полиша.
 ⚠ `merge-polish` мутирует пул — страж `scripts/hooks/guard-pool-edits.mjs` заблокирует
