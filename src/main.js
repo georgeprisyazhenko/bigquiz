@@ -649,23 +649,19 @@ class GameScene extends Phaser.Scene {
       .setOrigin(0)
       .setDepth(100)
       .setInteractive()
-    const shadow = this.createRoundedBox(x + 10, y + 14, width, height, ARCADE.primary, {
-      radius,
-      alpha: 0.42,
-    }).setDepth(101)
     const panel = this.createRoundedBox(x, y, width, height, ARCADE.surface, {
       radius,
-      strokeColor: ARCADE.primary2,
+      strokeColor: ARCADE.outline,
       strokeWidth: 3,
-    }).setDepth(102)
-    const shine = this.add.graphics({ x, y }).setDepth(103)
+    }).setDepth(101)
+    const shine = this.add.graphics({ x, y }).setDepth(102)
     shine.fillStyle(0xffffff, 0.34)
     shine.fillRoundedRect(18, 14, width - 36, 58, radius - 10)
     shine.lineStyle(2, 0xffffff, 0.42)
     shine.strokeRoundedRect(12, 12, width - 24, height - 24, radius - 8)
 
-    items.push(shade, shadow, panel, shine)
-    return { shade, shadow, panel, shine }
+    items.push(shade, panel, shine)
+    return { shade, panel, shine }
   }
 
   drawArcadeBoard(height = ARCADE_CARD.height) {
@@ -2438,7 +2434,7 @@ class GameScene extends Phaser.Scene {
     const y = GAME_HEIGHT / 2 + 78
 
     const loginBtn = this.add.graphics({ x, y }).setDepth(104)
-    this.drawArcadeButtonSurface(loginBtn, w, h, 'selected')
+    this.drawArcadeButtonSurface(loginBtn, w, h, 'cta')
     this.makeInteractiveBox(loginBtn, w, h)
     this.setCursorPointer(loginBtn)
     this.leaderboardOverlay.push(loginBtn)
@@ -2453,8 +2449,8 @@ class GameScene extends Phaser.Scene {
       .setDepth(105)
     this.leaderboardOverlay.push(loginText)
 
-    loginBtn.on('pointerover', () => this.drawArcadeButtonSurface(loginBtn, w, h, 'hover'))
-    loginBtn.on('pointerout', () => this.drawArcadeButtonSurface(loginBtn, w, h, 'selected'))
+    loginBtn.on('pointerover', () => this.drawArcadeButtonSurface(loginBtn, w, h, 'ctaHover'))
+    loginBtn.on('pointerout', () => this.drawArcadeButtonSurface(loginBtn, w, h, 'cta'))
     loginBtn.on('pointerdown', async () => {
       this.tweens.add({ targets: [loginBtn, loginText], y: '+=3', duration: 90, yoyo: true })
       try {

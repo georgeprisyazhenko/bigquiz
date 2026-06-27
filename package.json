@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:ui": "playwright test",
     "test:watch": "vitest",
     "lint": "eslint src/ scripts/",
     "lint:fix": "eslint --fix src/ scripts/",
@@ -17,6 +18,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.32.0",
