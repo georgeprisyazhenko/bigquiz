@@ -1077,10 +1077,10 @@ class GameScene extends Phaser.Scene {
     const q = this.currentQuestion
     if (reshuffleAnswers || !this.hasPreparedAnswers(q)) this.prepareShuffledAnswers(q)
 
-    // В забеге сверху появляется HUD-полоса: контент сдвигается вниз, а изображение
-    // ужимается (с сохранением 4:3), чтобы сетка ответов 2×2 осталась внутри карточки.
+    // В забеге сверху появляется HUD-полоса: контент сдвигается вниз под неё, а
+    // изображение ужимается (с сохранением 4:3), чтобы сетка 2×2 осталась внутри карточки.
     const isBlitzRun = this.currentMode === 'blitz' && this.blitzPhase === 'running'
-    const contentOffset = isBlitzRun && !this.isArcadeUi() ? BLITZ_CONTENT_OFFSET : 0
+    const contentOffset = isBlitzRun ? BLITZ_CONTENT_OFFSET : 0
     this._imageW = isBlitzRun ? BLITZ_IMAGE_WIDTH : IMAGE_WIDTH
     this._imageH = isBlitzRun ? BLITZ_IMAGE_HEIGHT : IMAGE_HEIGHT
     this._imageX = CONTENT_X + Math.round((CONTENT_WIDTH - this._imageW) / 2)
@@ -1579,11 +1579,19 @@ class GameScene extends Phaser.Scene {
 
   renderArcadeBlitzHud() {
     const x = ARCADE_CARD.contentX
-    const y = ARCADE_CARD.y + 48
+    const y = ARCADE_CATEGORIES_Y
     const barX = x + 78
     const barY = y - 6
     this._blitzBarWidth = 352
     this._blitzBarHeight = 14
+
+    const inset = this.add.graphics({ x: x - 12, y: y - 20 })
+    inset.fillStyle(ARCADE.surfaceTint, 0.72)
+    inset.fillRoundedRect(0, 0, ARCADE_CARD.contentWidth + 24, 40, 18)
+    inset.lineStyle(2, 0xdce7f7, 0.82)
+    inset.strokeRoundedRect(1, 1, ARCADE_CARD.contentWidth + 22, 38, 17)
+    inset.lineStyle(2, 0xffffff, 0.7)
+    inset.lineBetween(16, 4, ARCADE_CARD.contentWidth + 8, 4)
 
     this.blitzTimerText = this.makeText(x, y, this.formatBlitzTime(), {
       fontFamily: FONT_FAMILY,

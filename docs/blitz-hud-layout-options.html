@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BigQuiz - варианты HUD Блица</title>
+    <style>
+      @font-face {
+        font-family: Roboto;
+        src: url("../public/fonts/Roboto-Regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        src: url("../public/fonts/Roboto-Bold.ttf") format("truetype");
+        font-weight: 700;
+      }
+
+      :root {
+        --bg-1: #10172a;
+        --bg-2: #1e1b4b;
+        --bg-3: #172554;
+        --surface: #f8fbff;
+        --surface-strong: #ffffff;
+        --surface-tint: #eaf3ff;
+        --ink: #101426;
+        --muted: #69758c;
+        --chip: #64748b;
+        --primary: #7c5cff;
+        --primary-2: #25d3ff;
+        --success: #10b981;
+        --outline: #b8a9ff;
+        --track: #dce7f7;
+        --shadow: #070b1b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 1180px;
+        background: #080d1f;
+        color: var(--surface-strong);
+        font-family: Roboto, Arial, sans-serif;
+      }
+
+      .page {
+        max-width: 2520px;
+        margin: 0 auto;
+        padding: 28px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+        line-height: 1.15;
+      }
+
+      .subtitle {
+        margin: 0;
+        max-width: 860px;
+        color: #b8c4df;
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .legend {
+        display: grid;
+        gap: 7px;
+        min-width: 350px;
+        padding: 14px 16px;
+        border: 1px solid rgba(184, 169, 255, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #dbe5f2;
+        font-size: 13px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+
+      .option {
+        overflow: hidden;
+        border: 1px solid rgba(184, 169, 255, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+      }
+
+      .option-head {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: start;
+        min-height: 122px;
+        padding: 18px 20px;
+        background: rgba(7, 11, 27, 0.64);
+      }
+
+      .option-title {
+        margin: 0 0 8px;
+        color: #fff;
+        font-size: 19px;
+        line-height: 1.2;
+      }
+
+      .option-note {
+        margin: 0;
+        color: #c7d2ee;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .verdict {
+        min-width: 118px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(37, 211, 255, 0.12);
+        color: #9eeeff;
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .verdict.warn {
+        background: rgba(255, 209, 102, 0.14);
+        color: #ffe29d;
+      }
+
+      .stage-wrap {
+        padding: 20px;
+      }
+
+      .stage {
+        position: relative;
+        width: 1120px;
+        height: 640px;
+        overflow: hidden;
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 42% 16%, rgba(255, 255, 255, 0.08) 0 160px, transparent 161px),
+          radial-gradient(circle at 0% 22%, rgba(37, 211, 255, 0.16) 0 260px, transparent 261px),
+          radial-gradient(circle at 95% 90%, rgba(124, 92, 255, 0.22) 0 300px, transparent 301px),
+          linear-gradient(135deg, var(--bg-1), var(--bg-2) 58%, var(--bg-3));
+      }
+
+      .stage::before {
+        content: "";
+        position: absolute;
+        right: 58px;
+        top: 92px;
+        width: 124px;
+        height: 88px;
+        background: rgba(255, 255, 255, 0.06);
+        clip-path: polygon(36% 0, 100% 70%, 0 100%);
+      }
+
+      .topbar {
+        position: absolute;
+        left: 332px;
+        top: 26px;
+        width: 456px;
+        height: 58px;
+        padding: 7px;
+        border: 2px solid var(--outline);
+        border-radius: 32px;
+        background: rgba(248, 251, 255, 0.96);
+        box-shadow: 12px 14px 0 rgba(7, 11, 27, 0.28);
+      }
+
+      .tab {
+        position: absolute;
+        top: 12px;
+        height: 34px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .tab.random {
+        left: 16px;
+        width: 216px;
+        background: #36436e;
+      }
+
+      .tab.blitz {
+        left: 242px;
+        width: 198px;
+        border: 2px solid var(--primary-2);
+        background: #8b5cf6;
+      }
+
+      .board {
+        position: absolute;
+        left: 248px;
+        top: 132px;
+        width: 624px;
+        min-height: 360px;
+        border: 2px solid var(--outline);
+        border-radius: 32px;
+        background: var(--surface);
+        box-shadow:
+          0 0 0 8px rgba(37, 211, 255, 0.18),
+          10px 12px 0 rgba(7, 11, 27, 0.34),
+          inset 0 18px 0 rgba(255, 255, 255, 0.58);
+      }
+
+      .scoreboard,
+      .rating {
+        position: absolute;
+        left: 895px;
+        width: 166px;
+        border: 2px solid var(--outline);
+        border-radius: 28px;
+        background: var(--surface);
+        box-shadow: 10px 12px 0 rgba(7, 11, 27, 0.3), inset 0 16px 0 rgba(255, 255, 255, 0.6);
+        color: var(--ink);
+        text-align: center;
+      }
+
+      .scoreboard {
+        top: 150px;
+        height: 140px;
+        padding-top: 26px;
+      }
+
+      .scoreboard .label {
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .scoreboard .value {
+        margin-top: 16px;
+        font-size: 52px;
+        line-height: 0.82;
+        font-weight: 700;
+      }
+
+      .scoreboard .sub {
+        margin-top: 18px;
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .rating {
+        top: 325px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 8px 0 #d9d1ff, 8px 10px 0 rgba(7, 11, 27, 0.26);
+      }
+
+      .chips {
+        position: absolute;
+        left: 284px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .chip {
+        min-width: 116px;
+        height: 25px;
+        display: grid;
+        place-items: center;
+        padding: 0 15px;
+        border-radius: 10px;
+        background: var(--chip);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .question {
+        position: absolute;
+        left: 284px;
+        width: 552px;
+        color: var(--ink);
+        font-size: 24px;
+        line-height: 1.32;
+        font-weight: 700;
+      }
+
+      .answers {
+        position: absolute;
+        left: 284px;
+        display: grid;
+        grid-template-columns: repeat(2, 266px);
+        gap: 14px 20px;
+      }
+
+      .answer {
+        position: relative;
+        height: 62px;
+        border: 2px solid var(--outline);
+        border-radius: 18px;
+        background: var(--surface-strong);
+        box-shadow: 0 4px 0 var(--primary);
+        color: var(--ink);
+      }
+
+      .badge {
+        position: absolute;
+        left: 14px;
+        top: 13px;
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-radius: 12px;
+        background: var(--primary);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .answer span:last-child {
+        position: absolute;
+        left: 62px;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .hud {
+        position: absolute;
+        color: var(--ink);
+      }
+
+      .hud-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .time {
+        min-width: 50px;
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .track {
+        width: 352px;
+        height: 14px;
+        padding: 2px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 999px;
+        background: var(--track);
+      }
+
+      .fill {
+        width: 78%;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--primary-2);
+        box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.32);
+      }
+
+      .count {
+        min-width: 58px;
+        color: var(--success);
+        font-size: 17px;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .variant-a .hud {
+        left: 284px;
+        top: 174px;
+      }
+
+      .variant-a .chips {
+        top: 164px;
+      }
+
+      .variant-a .question {
+        top: 203px;
+      }
+
+      .variant-a .answers {
+        top: 350px;
+      }
+
+      .variant-a .collision {
+        position: absolute;
+        left: 274px;
+        top: 156px;
+        width: 318px;
+        height: 46px;
+        border: 3px solid rgba(255, 92, 122, 0.88);
+        border-radius: 14px;
+        pointer-events: none;
+      }
+
+      .variant-b .board {
+        min-height: 408px;
+      }
+
+      .variant-b .hud {
+        left: 284px;
+        top: 151px;
+      }
+
+      .variant-b .chips {
+        top: 190px;
+      }
+
+      .variant-b .question {
+        top: 230px;
+      }
+
+      .variant-b .answers {
+        top: 384px;
+      }
+
+      .variant-c .hud-panel {
+        position: absolute;
+        left: 248px;
+        top: 100px;
+        width: 624px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 36px;
+        border: 2px solid var(--outline);
+        border-radius: 24px;
+        background: rgba(248, 251, 255, 0.97);
+        box-shadow: 8px 9px 0 rgba(7, 11, 27, 0.28);
+      }
+
+      .variant-c .board {
+        top: 158px;
+      }
+
+      .variant-c .chips {
+        top: 190px;
+      }
+
+      .variant-c .question {
+        top: 229px;
+      }
+
+      .variant-c .answers {
+        top: 376px;
+      }
+
+      .variant-c .scoreboard {
+        top: 176px;
+      }
+
+      .variant-c .rating {
+        top: 351px;
+      }
+
+      .variant-d .hud-strip {
+        position: absolute;
+        left: 272px;
+        top: 148px;
+        width: 576px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        border-radius: 20px;
+        background: var(--surface-tint);
+        box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      .variant-d .hud-strip .track {
+        width: 318px;
+      }
+
+      .variant-d .chips {
+        top: 203px;
+      }
+
+      .variant-d .question {
+        top: 242px;
+      }
+
+      .variant-d .answers {
+        top: 394px;
+      }
+
+      .pros {
+        display: grid;
+        gap: 8px;
+        padding: 16px 20px 20px;
+        color: #dbe5f2;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .pros b {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div>
+          <h1>Варианты размещения таймера Блица</h1>
+          <p class="subtitle">
+            Макеты собраны в координатах текущего arcade-экрана 1120x640. Цель:
+            убрать конфликт таймлайна с category chips и выбрать направление до
+            правки Phaser-отрисовки.
+          </p>
+        </div>
+        <div class="legend">
+          <div><b>Рекомендация:</b> вариант C, если хотим самый чистый и читаемый HUD.</div>
+          <div><b>Самый дешёвый фикс:</b> вариант B, но он делает карточку выше.</div>
+          <div><b>Компромисс:</b> вариант D, если HUD должен остаться внутри карточки.</div>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="option">
+          <div class="option-head">
+            <div>
+              <h2 class="option-title">A. Текущее состояние: конфликт слоёв</h2>
+              <p class="option-note">
+                Таймлайн и чипы живут в одной верхней зоне карточки, поэтому
+                визуально спорят за главный стартовый ряд.
+              </p>
+            </div>
+            <div class="verdict warn">Не чинить так</div>
+          </div>
+          <div class="stage-wrap">
+            <div class="stage variant-a">
+              <div class="topbar"><div class="tab random">Случайный вопрос</div><div class="tab blitz">Блиц</div></div>
+              <div class="board"></div>
+              <div class="scoreboard"><div class="label">РЕКОРД</div><div class="value">8</div><div class="sub">Серия x1</div></div>
+              <div class="rating">Рейтинг</div>
+              <div class="chips"><div class="chip">Музеи</div><div class="chip">Живопись</div></div>
+              <div class="hud"><div class="hud-row"><div class="time">0:47</div><div class="track"><div class="fill"></div></div><div class="count">✓ 0</div></div></div>
+              <div class="collision"></div>
+              <div class="question">В каком городе Брюллов написал «Последний день Помпеи»?</div>
+              <div class="answers">
+                <div class="answer"><span class="badge">A</span><span>Рим</span></div>
+                <div class="answer"><span class="badge">B</span><span>Неаполь</span></div>
+                <div class="answer"><span class="badge">C</span><span>Помпеи</span></div>
+                <div class="answer"><span class="badge">D</span><span>Петербург</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pros"><div><b>Вывод:</b> нужна отдельная вертикальная зона для HUD или для категорий.</div></div>
+        </article>
+
+        <article class="option">
+          <div class="option-head">
+            <div>
+              <h2 class="option-title">B. Просто сдвинуть контент ниже</h2>
+              <p class="option-note">
+                HUD остаётся внутри карточки сверху, категории, вопрос и ответы
+                уезжают вниз. Минимально рискованно для логики.
+              </p>
+            </div>
+            <div class="verdict">Дешёвый фикс</div>
+          </div>
+          <div class="stage-wrap">
+            <div class="stage variant-b">
+              <div class="topbar"><div class="tab random">Случайный вопрос</div><div class="tab blitz">Блиц</div></div>
+              <div class="board"></div>
+              <div class="scoreboard"><div class="label">РЕКОРД</div><div class="value">8</div><div class="sub">Серия x1</div></div>
+              <div class="rating">Рейтинг</div>
+              <div class="hud"><div class="hud-row"><div class="time">0:47</div><div class="track"><div class="fill"></div></div><div class="count">✓ 0</div></div></div>
+              <div class="chips"><div class="chip">Музеи</div><div class="chip">Живопись</div></div>
+              <div class="question">В каком городе Брюллов написал «Последний день Помпеи»?</div>
+              <div class="answers">
+                <div class="answer"><span class="badge">A</span><span>Рим</span></div>
+                <div class="answer"><span class="badge">B</span><span>Неаполь</span></div>
+                <div class="answer"><span class="badge">C</span><span>Помпеи</span></div>
+                <div class="answer"><span class="badge">D</span><span>Петербург</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pros">
+            <div><b>Плюс:</b> почти не меняет композицию и Phaser-логику.</div>
+            <div><b>Минус:</b> карточка становится тяжелее по высоте, на длинных вопросах запас хуже.</div>
+          </div>
+        </article>
+
+        <article class="option">
+          <div class="option-head">
+            <div>
+              <h2 class="option-title">C. Отдельная HUD-плашка над карточкой</h2>
+              <p class="option-note">
+                Таймер становится режимной панелью Блица между вкладками и
+                карточкой. Карточка снова начинается с категорий.
+              </p>
+            </div>
+            <div class="verdict">Рекомендую</div>
+          </div>
+          <div class="stage-wrap">
+            <div class="stage variant-c">
+              <div class="topbar"><div class="tab random">Случайный вопрос</div><div class="tab blitz">Блиц</div></div>
+              <div class="hud-panel">
+                <div class="hud-row"><div class="time">0:47</div><div class="track"><div class="fill"></div></div></div>
+                <div class="count">✓ 0</div>
+              </div>
+              <div class="board"></div>
+              <div class="scoreboard"><div class="label">РЕКОРД</div><div class="value">8</div><div class="sub">Серия x1</div></div>
+              <div class="rating">Рейтинг</div>
+              <div class="chips"><div class="chip">Музеи</div><div class="chip">Живопись</div></div>
+              <div class="question">В каком городе Брюллов написал «Последний день Помпеи»?</div>
+              <div class="answers">
+                <div class="answer"><span class="badge">A</span><span>Рим</span></div>
+                <div class="answer"><span class="badge">B</span><span>Неаполь</span></div>
+                <div class="answer"><span class="badge">C</span><span>Помпеи</span></div>
+                <div class="answer"><span class="badge">D</span><span>Петербург</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pros">
+            <div><b>Плюс:</b> самый понятный визуальный приоритет: режим → время → вопрос.</div>
+            <div><b>Минус:</b> надо немного опустить карточку и правую колонку в режиме running.</div>
+          </div>
+        </article>
+
+        <article class="option">
+          <div class="option-head">
+            <div>
+              <h2 class="option-title">D. HUD-строка внутри карточки</h2>
+              <p class="option-note">
+                Внутри board появляется светлая служебная строка, а категории
+                начинаются ниже неё. Хорошо, если HUD должен быть частью карточки.
+              </p>
+            </div>
+            <div class="verdict">Компромисс</div>
+          </div>
+          <div class="stage-wrap">
+            <div class="stage variant-d">
+              <div class="topbar"><div class="tab random">Случайный вопрос</div><div class="tab blitz">Блиц</div></div>
+              <div class="board"></div>
+              <div class="scoreboard"><div class="label">РЕКОРД</div><div class="value">8</div><div class="sub">Серия x1</div></div>
+              <div class="rating">Рейтинг</div>
+              <div class="hud-strip">
+                <div class="hud-row"><div class="time">0:47</div><div class="track"><div class="fill"></div></div></div>
+                <div class="count">✓ 0</div>
+              </div>
+              <div class="chips"><div class="chip">Музеи</div><div class="chip">Живопись</div></div>
+              <div class="question">В каком городе Брюллов написал «Последний день Помпеи»?</div>
+              <div class="answers">
+                <div class="answer"><span class="badge">A</span><span>Рим</span></div>
+                <div class="answer"><span class="badge">B</span><span>Неаполь</span></div>
+                <div class="answer"><span class="badge">C</span><span>Помпеи</span></div>
+                <div class="answer"><span class="badge">D</span><span>Петербург</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pros">
+            <div><b>Плюс:</b> аккуратно отделяет служебный HUD от категорий без внешней новой сущности.</div>
+            <div><b>Минус:</b> верх карточки становится плотнее, вопрос стартует ниже.</div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
