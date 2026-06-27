@@ -251,6 +251,7 @@ class GameScene extends Phaser.Scene {
 
     this.currentAnswers = []
     this.currentCorrectAnswerIndex = null
+    this.currentAnswersQuestionId = null
 
     this.answerState = 'idle'
     this.answerButtons = []
@@ -714,6 +715,18 @@ class GameScene extends Phaser.Scene {
         bottom: ARCADE.primary2,
         alpha: 1,
       },
+      rating: {
+        fill: ARCADE.surfaceStrong,
+        stroke: ARCADE.outline,
+        bottom: 0xd9d1ff,
+        alpha: 1,
+      },
+      ratingHover: {
+        fill: ARCADE.surfaceTint,
+        stroke: ARCADE.primary,
+        bottom: ARCADE.outline,
+        alpha: 1,
+      },
       correct: {
         fill: ARCADE.success,
         stroke: 0x6ee7b7,
@@ -961,6 +974,7 @@ class GameScene extends Phaser.Scene {
       const ordered = orderAnswers(question)
       this.currentAnswers = ordered.answers
       this.currentCorrectAnswerIndex = ordered.correctAnswerIndex
+      this.currentAnswersQuestionId = question.id
       return
     }
 
@@ -975,6 +989,18 @@ class GameScene extends Phaser.Scene {
 
     this.currentAnswers = answerItems.map((item) => item.text)
     this.currentCorrectAnswerIndex = answerItems.findIndex((item) => item.isCorrect)
+    this.currentAnswersQuestionId = question.id
+  }
+
+  hasPreparedAnswers(question) {
+    return (
+      this.currentAnswersQuestionId === question.id &&
+      Array.isArray(this.currentAnswers) &&
+      this.currentAnswers.length === 4 &&
+      Number.isInteger(this.currentCorrectAnswerIndex) &&
+      this.currentCorrectAnswerIndex >= 0 &&
+      this.currentCorrectAnswerIndex < 4
+    )
   }
 
   goToNextQuestion() {
@@ -1053,7 +1079,7 @@ class GameScene extends Phaser.Scene {
     }
 
     const q = this.currentQuestion
-    if (reshuffleAnswers) this.prepareShuffledAnswers(q)
+    if (reshuffleAnswers || !this.hasPreparedAnswers(q)) this.prepareShuffledAnswers(q)
 
     // В забеге сверху появляется HUD-полоса: контент сдвигается вниз, а изображение
     // ужимается (с сохранением 4:3), чтобы сетка ответов 2×2 осталась внутри карточки.
@@ -1967,6 +1993,7 @@ class GameScene extends Phaser.Scene {
       if (Array.isArray(state.answers) && state.answers.length === 4) {
         this.currentAnswers = state.answers
         this.currentCorrectAnswerIndex = state.correctIndex
+        this.currentAnswersQuestionId = q.id
       } else {
         this.prepareShuffledAnswers(q)
       }
@@ -2145,19 +2172,21 @@ class GameScene extends Phaser.Scene {
     const y = ARCADE_SCOREBOARD.y + ARCADE_SCOREBOARD.height + 16
 
     const button = this.add.graphics({ x, y })
-    this.drawArcadeButtonSurface(button, width, height, 'cta')
+    this.drawArcadeButtonSurface(button, width, height, 'rating')
     this.makeInteractiveBox(button, width, height)
     this.setCursorPointer(button)
 
     const label = this.makeText(x + width / 2, y + height / 2 - 2, 'Рейтинг', {
       fontFamily: FONT_FAMILY,
       fontSize: '15px',
-      color: '#ffffff',
+      color: this.colorToHex(ARCADE.muted),
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
-    button.on('pointerover', () => this.drawArcadeButtonSurface(button, width, height, 'ctaHover'))
-    button.on('pointerout', () => this.drawArcadeButtonSurface(button, width, height, 'cta'))
+    button.on('pointerover', () =>
+      this.drawArcadeButtonSurface(button, width, height, 'ratingHover')
+    )
+    button.on('pointerout', () => this.drawArcadeButtonSurface(button, width, height, 'rating'))
     button.on('pointerdown', () => {
       this.tweens.add({ targets: [button, label], y: '+=2', duration: 80, yoyo: true })
       this.openLeaderboard()
