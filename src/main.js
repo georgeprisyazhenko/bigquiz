@@ -240,6 +240,11 @@ const ARCADE_ANSWER_GAP_X = 20
 const ARCADE_ANSWER_GAP_Y = 14
 const ARCADE_ANSWERS_BLOCK_H = ARCADE_ANSWER_H * 2 + ARCADE_ANSWER_GAP_Y
 const ARCADE_QUESTION_MAX_HEIGHT = 168
+const ARCADE_BLITZ_INTRO_SHIFT_Y = -28
+const ARCADE_BLITZ_COUNTDOWN_SHIFT_Y = -42
+const ARCADE_WRONG_SHAKE_X = 3
+const ARCADE_WRONG_SHAKE_DURATION_MS = 48
+const ARCADE_WRONG_SHAKE_REPEAT = 2
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -1376,7 +1381,7 @@ class GameScene extends Phaser.Scene {
 
   renderArcadeBlitzIntro() {
     const cx = ARCADE_CARD.x + ARCADE_CARD.width / 2
-    const y = ARCADE_CARD.y
+    const y = ARCADE_CARD.y + ARCADE_BLITZ_INTRO_SHIFT_Y
 
     this.makeText(cx, y + 146, 'Ответь на как можно больше вопросов\nза 60 секунд', {
       fontFamily: FONT_FAMILY,
@@ -1429,20 +1434,25 @@ class GameScene extends Phaser.Scene {
   }
 
   renderBlitzCountdown() {
-    const cx = CARD_X + CARD_WIDTH / 2
-    const cy = CARD_Y + CARD_HEIGHT / 2
+    const cx = this.isArcadeUi() ? ARCADE_CARD.x + ARCADE_CARD.width / 2 : CARD_X + CARD_WIDTH / 2
+    const baseCy = this.isArcadeUi()
+      ? ARCADE_CARD.y + ARCADE_CARD.height / 2
+      : CARD_Y + CARD_HEIGHT / 2
+    const cy = baseCy + (this.isArcadeUi() ? ARCADE_BLITZ_COUNTDOWN_SHIFT_Y : 0)
+    const accentColor = this.isArcadeUi() ? ARCADE.primary : COLORS.answer
+    const mutedColor = this.isArcadeUi() ? ARCADE.muted : COLORS.textMuted
 
     this.makeText(cx, cy - 60, 'Приготовься', {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_LG,
-      color: this.colorToHex(COLORS.textMuted),
+      color: this.colorToHex(mutedColor),
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
     this.blitzCountdownText = this.makeText(cx, cy + 20, `${BLITZ_COUNTDOWN_S}`, {
       fontFamily: FONT_FAMILY,
       fontSize: '96px',
-      color: this.colorToHex(COLORS.answer),
+      color: this.colorToHex(accentColor),
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
@@ -1886,7 +1896,7 @@ class GameScene extends Phaser.Scene {
         .setDepth(104)
     )
 
-    const mkBtn = (label, bx, state, textColor, onClick) => {
+    const mkBtn = (label, bx, state, hoverState, textColor, onClick) => {
       const w = 292
       const h = 62
       const by = panelY + 330
@@ -1902,7 +1912,7 @@ class GameScene extends Phaser.Scene {
       })
         .setOrigin(0.5)
         .setDepth(105)
-      btn.on('pointerover', () => this.drawArcadeButtonSurface(btn, w, h, 'hover'))
+      btn.on('pointerover', () => this.drawArcadeButtonSurface(btn, w, h, hoverState))
       btn.on('pointerout', () => this.drawArcadeButtonSurface(btn, w, h, state))
       btn.on('pointerdown', () => {
         this.tweens.add({ targets: [btn, txt], y: '+=3', duration: 90, yoyo: true })
@@ -1911,14 +1921,21 @@ class GameScene extends Phaser.Scene {
       items.push(btn, txt)
     }
 
-    mkBtn('Ещё раз', panelX + 48, 'selected', '#ffffff', () => {
+    mkBtn('Ещё раз', panelX + 48, 'cta', 'ctaHover', '#ffffff', () => {
       this.closeBlitzResult()
       this.startBlitzCountdown()
     })
-    mkBtn('В случайный режим', panelX + 350, 'default', this.colorToHex(ARCADE.ink), () => {
-      this.closeBlitzResult()
-      this.switchMode('random')
-    })
+    mkBtn(
+      'В случайный режим',
+      panelX + 350,
+      'rating',
+      'ratingHover',
+      this.colorToHex(ARCADE.muted),
+      () => {
+        this.closeBlitzResult()
+        this.switchMode('random')
+      }
+    )
 
     this.blitzResultOverlay = items
   }
@@ -3250,14 +3267,16 @@ class GameScene extends Phaser.Scene {
         badge?.fillStyle(0x047857, 1)
         badge?.fillRoundedRect(0, 0, 36, 36, 12)
         badgeText?.setColor('#ffffff')
-        this.tweens.add({
-          targets: visualTargets,
-          scaleX: { from: 1, to: 1.035 },
-          scaleY: { from: 1, to: 1.035 },
-          duration: 130,
-          yoyo: true,
-          ease: 'Sine.out',
-        })
+        if (isCorrect) {
+          this.tweens.add({
+            targets: visualTargets,
+            scaleX: { from: 1, to: 1.035 },
+            scaleY: { from: 1, to: 1.035 },
+            duration: 130,
+            yoyo: true,
+            ease: 'Sine.out',
+          })
+        }
         return
       }
 
@@ -3270,10 +3289,10 @@ class GameScene extends Phaser.Scene {
         badgeText?.setColor('#ffffff')
         this.tweens.add({
           targets: visualTargets,
-          x: '+=6',
-          duration: 55,
+          x: `+=${ARCADE_WRONG_SHAKE_X}`,
+          duration: ARCADE_WRONG_SHAKE_DURATION_MS,
           yoyo: true,
-          repeat: 3,
+          repeat: ARCADE_WRONG_SHAKE_REPEAT,
           ease: 'Sine.inOut',
         })
         return
