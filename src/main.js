@@ -170,6 +170,84 @@ const MODE_THEMES = {
   },
 }
 
+const UI_VARIANTS = {
+  classic: 'classic',
+  arcade: 'arcade',
+}
+
+const DEFAULT_UI_VARIANT = UI_VARIANTS.arcade
+
+function resolveUiVariant() {
+  try {
+    const params = new URLSearchParams(window.location.search)
+    const fromUrl = params.get('ui')
+    if (Object.values(UI_VARIANTS).includes(fromUrl)) return fromUrl
+  } catch (error) {
+    // ignore: URL can be unavailable in unusual embedded contexts
+  }
+
+  return DEFAULT_UI_VARIANT
+}
+
+const UI_VARIANT = resolveUiVariant()
+
+const ARCADE = {
+  bg1: 0x10172a,
+  bg2: 0x1e1b4b,
+  bg3: 0x172554,
+  surface: 0xf8fbff,
+  surfaceStrong: 0xffffff,
+  surfaceTint: 0xeaf3ff,
+  ink: 0x101426,
+  muted: 0x69758c,
+  primary: 0x7c5cff,
+  primary2: 0x25d3ff,
+  success: 0x10b981,
+  danger: 0xff5c7a,
+  warning: 0xffd166,
+  outline: 0xb8a9ff,
+  shadow: 0x070b1b,
+  disabled: 0xdbe5f2,
+  disabledText: 0x7a8699,
+  boardRadius: 32,
+  tileRadius: 18,
+  stickerRadius: 10,
+}
+
+const ARCADE_CARD = {
+  x: 248,
+  y: 132,
+  width: 624,
+  height: 360,
+  contentX: 284,
+  contentWidth: 552,
+}
+
+const ARCADE_TOPBAR = {
+  x: 236,
+  y: 26,
+  width: 648,
+  height: 58,
+}
+
+const ARCADE_SCOREBOARD = {
+  x: 895,
+  y: 150,
+  width: 166,
+  height: 140,
+}
+
+const ARCADE_QUESTION_Y = 206
+const ARCADE_CATEGORIES_Y = 164
+const ARCADE_QUESTION_ANSWER_GAP = 32
+const ARCADE_CARD_BOTTOM_PAD = 32
+const ARCADE_ANSWER_W = 266
+const ARCADE_ANSWER_H = 62
+const ARCADE_ANSWER_GAP_X = 20
+const ARCADE_ANSWER_GAP_Y = 14
+const ARCADE_ANSWERS_BLOCK_H = ARCADE_ANSWER_H * 2 + ARCADE_ANSWER_GAP_Y
+const ARCADE_QUESTION_MAX_HEIGHT = 168
+
 class GameScene extends Phaser.Scene {
   constructor() {
     super('GameScene')
@@ -217,6 +295,9 @@ class GameScene extends Phaser.Scene {
     this.blitzCounterText = null
     this.blitzCountdownText = null
     this.blitzResultOverlay = null
+    this._blitzBarWidth = null
+    this._blitzBarHeight = null
+    this.interactiveObjects = new Set()
 
     // Ссылки на тексты правой панели — обновляем на месте после ответа
     this.scoreText = null
@@ -498,8 +579,19 @@ class GameScene extends Phaser.Scene {
       new Phaser.Geom.Rectangle(0, 0, width, height),
       Phaser.Geom.Rectangle.Contains
     )
+    this.interactiveObjects.add(graphics)
 
     return graphics
+  }
+
+  clearInteractiveObjects() {
+    this.interactiveObjects.forEach((gameObject) => {
+      if (!gameObject?.input) return
+      gameObject.disableInteractive(true)
+      gameObject.removeInteractive(true)
+    })
+    this.interactiveObjects.clear()
+    this.game.canvas.style.cursor = 'default'
   }
 
   setCursorPointer(gameObject) {
@@ -513,6 +605,149 @@ class GameScene extends Phaser.Scene {
 
   colorToHex(color) {
     return `#${color.toString(16).padStart(6, '0')}`
+  }
+
+  isArcadeUi() {
+    return UI_VARIANT === UI_VARIANTS.arcade
+  }
+
+  drawArcadeBackground() {
+    const bg = this.add.graphics()
+    bg.fillGradientStyle(ARCADE.bg1, ARCADE.bg2, ARCADE.bg1, ARCADE.bg3, 1)
+    bg.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+
+    const glow = this.add.graphics()
+    glow.fillStyle(ARCADE.primary2, 0.14)
+    glow.fillCircle(210, 130, 170)
+    glow.fillStyle(ARCADE.primary, 0.16)
+    glow.fillCircle(940, 500, 210)
+    glow.fillStyle(ARCADE.warning, 0.08)
+    glow.fillCircle(590, 90, 130)
+
+    const marks = this.add.graphics()
+    marks.lineStyle(3, 0xffffff, 0.08)
+    for (let i = 0; i < 11; i += 1) {
+      const x = 70 + i * 104
+      const y = i % 2 === 0 ? 92 : 548
+      marks.strokeCircle(x, y, 15)
+      marks.lineBetween(x + 30, y - 16, x + 52, y + 16)
+      marks.lineBetween(x + 52, y - 16, x + 30, y + 16)
+    }
+
+    const shards = this.add.graphics()
+    shards.fillStyle(0xffffff, 0.06)
+    shards.fillTriangle(94, 350, 145, 312, 160, 390)
+    shards.fillTriangle(1010, 80, 1064, 124, 984, 148)
+    shards.fillTriangle(875, 594, 930, 552, 952, 626)
+  }
+
+  drawArcadePanel(x, y, width, height, radius = ARCADE.boardRadius) {
+    const shadow = this.createRoundedBox(x + 8, y + 12, width, height, ARCADE.shadow, {
+      radius,
+      alpha: 0.26,
+    })
+    const base = this.createRoundedBox(x, y, width, height, ARCADE.surface, {
+      radius,
+      strokeColor: ARCADE.outline,
+      strokeWidth: 2,
+    })
+    const shine = this.add.graphics({ x, y })
+    shine.fillStyle(0xffffff, 0.38)
+    shine.fillRoundedRect(14, 10, width - 28, Math.max(24, height * 0.14), radius - 10)
+    shine.lineStyle(2, 0xffffff, 0.36)
+    shine.strokeRoundedRect(10, 10, width - 20, height - 20, radius - 8)
+    return { shadow, base, shine }
+  }
+
+  drawArcadeOverlayPanel(items, x, y, width, height, radius = 30) {
+    const shade = this.add
+      .rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, ARCADE.shadow, 0.68)
+      .setOrigin(0)
+      .setDepth(100)
+      .setInteractive()
+    const shadow = this.createRoundedBox(x + 10, y + 14, width, height, ARCADE.primary, {
+      radius,
+      alpha: 0.42,
+    }).setDepth(101)
+    const panel = this.createRoundedBox(x, y, width, height, ARCADE.surface, {
+      radius,
+      strokeColor: ARCADE.primary2,
+      strokeWidth: 3,
+    }).setDepth(102)
+    const shine = this.add.graphics({ x, y }).setDepth(103)
+    shine.fillStyle(0xffffff, 0.34)
+    shine.fillRoundedRect(18, 14, width - 36, 58, radius - 10)
+    shine.lineStyle(2, 0xffffff, 0.42)
+    shine.strokeRoundedRect(12, 12, width - 24, height - 24, radius - 8)
+
+    items.push(shade, shadow, panel, shine)
+    return { shade, shadow, panel, shine }
+  }
+
+  drawArcadeBoard(height = ARCADE_CARD.height) {
+    this.drawArcadePanel(ARCADE_CARD.x, ARCADE_CARD.y, ARCADE_CARD.width, height)
+
+    const rim = this.add.graphics()
+    rim.lineStyle(4, ARCADE.primary2, 0.18)
+    rim.strokeRoundedRect(
+      ARCADE_CARD.x - 8,
+      ARCADE_CARD.y - 8,
+      ARCADE_CARD.width + 16,
+      height + 16,
+      ARCADE.boardRadius + 8
+    )
+  }
+
+  drawArcadeButtonSurface(graphics, width, height, state = 'default') {
+    const bottomOffset = 4
+    const palette = {
+      default: {
+        fill: ARCADE.surfaceStrong,
+        stroke: ARCADE.outline,
+        bottom: ARCADE.primary,
+        alpha: 1,
+      },
+      hover: {
+        fill: 0xf1f7ff,
+        stroke: ARCADE.primary2,
+        bottom: ARCADE.primary,
+        alpha: 1,
+      },
+      selected: {
+        fill: 0xeee9ff,
+        stroke: ARCADE.primary,
+        bottom: ARCADE.primary2,
+        alpha: 1,
+      },
+      correct: {
+        fill: ARCADE.success,
+        stroke: 0x6ee7b7,
+        bottom: 0x047857,
+        alpha: 1,
+      },
+      wrong: {
+        fill: ARCADE.danger,
+        stroke: 0xffb0bd,
+        bottom: 0xbe123c,
+        alpha: 1,
+      },
+      disabled: {
+        fill: ARCADE.disabled,
+        stroke: 0xc3cfdf,
+        bottom: 0x98a7bb,
+        alpha: 0.76,
+      },
+    }[state]
+
+    graphics.clear()
+    graphics.fillStyle(palette.bottom, palette.alpha)
+    graphics.fillRoundedRect(0, bottomOffset, width, height, ARCADE.tileRadius)
+    graphics.fillStyle(palette.fill, palette.alpha)
+    graphics.fillRoundedRect(0, 0, width, height - bottomOffset, ARCADE.tileRadius)
+    graphics.lineStyle(2, palette.stroke, 0.95)
+    graphics.strokeRoundedRect(1, 1, width - 2, height - (bottomOffset + 2), ARCADE.tileRadius - 2)
+    graphics.lineStyle(2, 0xffffff, state === 'disabled' ? 0.24 : 0.5)
+    graphics.lineBetween(18, 8, width - 18, 8)
   }
 
   // Текст всегда генерируется в высоком разрешении (resolution = RESOLUTION),
@@ -764,6 +999,7 @@ class GameScene extends Phaser.Scene {
   }
 
   renderScreen(reshuffleAnswers = true) {
+    this.clearInteractiveObjects()
     this.children.removeAll(true)
     this.game.canvas.style.cursor = 'default'
 
@@ -780,34 +1016,43 @@ class GameScene extends Phaser.Scene {
     this.answerButtons = []
     this.adOverlay = null
 
-    const bg = this.add.graphics()
-    bg.fillGradientStyle(
-      BG_GRADIENT_LEFT,
-      BG_GRADIENT_RIGHT,
-      BG_GRADIENT_LEFT,
-      BG_GRADIENT_RIGHT,
-      1
-    )
-    bg.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+    if (this.isArcadeUi()) {
+      this.drawArcadeBackground()
+    } else {
+      const bg = this.add.graphics()
+      bg.fillGradientStyle(
+        BG_GRADIENT_LEFT,
+        BG_GRADIENT_RIGHT,
+        BG_GRADIENT_LEFT,
+        BG_GRADIENT_RIGHT,
+        1
+      )
+      bg.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT)
+    }
 
     this.renderModeTabs()
 
-    this.createRoundedBox(CARD_X, CARD_Y, CARD_WIDTH, CARD_HEIGHT, COLORS.surface, {
-      radius: RADIUS.panel,
-      strokeColor: COLORS.borderSoft,
-      strokeWidth: 2,
-    })
-
-    this.renderScorePanel()
-    this.renderLeaderboardButton()
+    if (!this.isArcadeUi()) {
+      this.createRoundedBox(CARD_X, CARD_Y, CARD_WIDTH, CARD_HEIGHT, COLORS.surface, {
+        radius: RADIUS.panel,
+        strokeColor: COLORS.borderSoft,
+        strokeWidth: 2,
+      })
+    }
 
     // Блиц вне забега не показывает вопрос: приглашение или отсчёт занимают карточку.
     if (this.currentMode === 'blitz' && this.blitzPhase === 'intro') {
+      if (this.isArcadeUi()) this.drawArcadeBoard()
+      this.renderScorePanel()
+      this.renderLeaderboardButton()
       this.renderBlitzIntro()
       this.saveBlitzState()
       return
     }
     if (this.currentMode === 'blitz' && this.blitzPhase === 'countdown') {
+      if (this.isArcadeUi()) this.drawArcadeBoard()
+      this.renderScorePanel()
+      this.renderLeaderboardButton()
       this.renderBlitzCountdown()
       return
     }
@@ -818,16 +1063,34 @@ class GameScene extends Phaser.Scene {
     // В забеге сверху появляется HUD-полоса: контент сдвигается вниз, а изображение
     // ужимается (с сохранением 4:3), чтобы сетка ответов 2×2 осталась внутри карточки.
     const isBlitzRun = this.currentMode === 'blitz' && this.blitzPhase === 'running'
-    const contentOffset = isBlitzRun ? BLITZ_CONTENT_OFFSET : 0
+    const contentOffset = isBlitzRun && !this.isArcadeUi() ? BLITZ_CONTENT_OFFSET : 0
     this._imageW = isBlitzRun ? BLITZ_IMAGE_WIDTH : IMAGE_WIDTH
     this._imageH = isBlitzRun ? BLITZ_IMAGE_HEIGHT : IMAGE_HEIGHT
     this._imageX = CONTENT_X + Math.round((CONTENT_WIDTH - this._imageW) / 2)
 
-    if (isBlitzRun) this.renderBlitzHud()
+    if (isBlitzRun && !this.isArcadeUi()) this.renderBlitzHud()
 
+    let measuredQuestionHeight = null
+    if (this.isArcadeUi()) {
+      measuredQuestionHeight = this.measureArcadeQuestionHeight(q.question, contentOffset)
+      this._answersY =
+        ARCADE_QUESTION_Y + contentOffset + measuredQuestionHeight + ARCADE_QUESTION_ANSWER_GAP
+      const arcadeBoardHeight =
+        this._answersY + ARCADE_ANSWERS_BLOCK_H + ARCADE_CARD_BOTTOM_PAD - ARCADE_CARD.y
+      this.drawArcadeBoard(arcadeBoardHeight)
+    }
+
+    this.renderScorePanel()
+    this.renderLeaderboardButton()
+    if (isBlitzRun && this.isArcadeUi()) this.renderBlitzHud()
     this.renderCategories(q.categories, contentOffset)
     const questionHeight = this.renderQuestion(q.question, contentOffset)
-    this._answersY = QUESTION_Y + contentOffset + questionHeight + GAP
+    if (!this.isArcadeUi()) {
+      this._answersY = QUESTION_Y + contentOffset + questionHeight + GAP
+    } else if (measuredQuestionHeight === null) {
+      this._answersY =
+        ARCADE_QUESTION_Y + contentOffset + questionHeight + ARCADE_QUESTION_ANSWER_GAP
+    }
     // renderQuestionImage убран: картинки отключены в V1
     this.renderAnswers(this.currentAnswers)
 
@@ -856,6 +1119,11 @@ class GameScene extends Phaser.Scene {
   }
 
   renderModeTabs() {
+    if (this.isArcadeUi()) {
+      this.renderArcadeModeTabs()
+      return
+    }
+
     const labelFont = {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_SM,
@@ -943,6 +1211,72 @@ class GameScene extends Phaser.Scene {
     })
   }
 
+  renderArcadeModeTabs() {
+    this.drawArcadePanel(
+      ARCADE_TOPBAR.x,
+      ARCADE_TOPBAR.y,
+      ARCADE_TOPBAR.width,
+      ARCADE_TOPBAR.height,
+      24
+    )
+
+    const tabW = Math.floor((ARCADE_TOPBAR.width - 24 - TAB_GAP * 2) / 3)
+    const tabH = 40
+    const tabY = ARCADE_TOPBAR.y + 9
+    let x = ARCADE_TOPBAR.x + 12
+
+    MODES.forEach((mode) => {
+      const isActive = mode.key === this.currentMode
+      const tab = this.add.graphics({ x, y: tabY })
+      const fill = mode.disabled ? 0x2a3150 : isActive ? ARCADE.primary : 0x27335f
+      const stroke = isActive ? ARCADE.primary2 : 0x56628f
+      tab.fillStyle(fill, mode.disabled ? 0.62 : 0.96)
+      tab.fillRoundedRect(0, 0, tabW, tabH, 16)
+      tab.lineStyle(2, stroke, mode.disabled ? 0.28 : 0.8)
+      tab.strokeRoundedRect(1, 1, tabW - 2, tabH - 2, 15)
+      if (isActive) {
+        tab.lineStyle(2, 0xffffff, 0.36)
+        tab.lineBetween(16, 7, tabW - 16, 7)
+      }
+
+      const text = this.makeText(x + tabW / 2, tabY + tabH / 2, mode.label, {
+        fontFamily: FONT_FAMILY,
+        fontSize: mode.label.length > 12 ? '13px' : '14px',
+        color: mode.disabled ? '#9aa4bd' : '#ffffff',
+        fontStyle: 'bold',
+      }).setOrigin(0.5)
+
+      if (!mode.disabled) {
+        this.makeInteractiveBox(tab, tabW, tabH)
+        this.setCursorPointer(tab)
+        tab.on('pointerover', () => {
+          if (!isActive) {
+            tab.clear()
+            tab.fillStyle(0x34437a, 1)
+            tab.fillRoundedRect(0, 0, tabW, tabH, 16)
+            tab.lineStyle(2, ARCADE.primary2, 0.72)
+            tab.strokeRoundedRect(1, 1, tabW - 2, tabH - 2, 15)
+          }
+        })
+        tab.on('pointerout', () => {
+          if (!isActive) {
+            tab.clear()
+            tab.fillStyle(0x27335f, 0.96)
+            tab.fillRoundedRect(0, 0, tabW, tabH, 16)
+            tab.lineStyle(2, 0x56628f, 0.8)
+            tab.strokeRoundedRect(1, 1, tabW - 2, tabH - 2, 15)
+          }
+        })
+        tab.on('pointerdown', () => {
+          this.tweens.add({ targets: [tab, text], y: '+=2', duration: 70, yoyo: true })
+          if (!isActive) this.switchMode(mode.key)
+        })
+      }
+
+      x += tabW + TAB_GAP
+    })
+  }
+
   // Переключение режима по вкладке. Уход из Блица гасит таймер и оверлей результата;
   // вход в Блиц всегда начинается с экрана-приглашения (фаза intro).
   switchMode(key) {
@@ -962,6 +1296,11 @@ class GameScene extends Phaser.Scene {
 
   // Экран-приглашение внутри карточки: правила забега + кнопка «Старт».
   renderBlitzIntro() {
+    if (this.isArcadeUi()) {
+      this.renderArcadeBlitzIntro()
+      return
+    }
+
     const cx = CARD_X + CARD_WIDTH / 2
 
     this.makeText(cx, CARD_Y + 140, 'Блиц', {
@@ -1023,8 +1362,63 @@ class GameScene extends Phaser.Scene {
     btn.on('pointerdown', () => this.startBlitzCountdown())
   }
 
+  renderArcadeBlitzIntro() {
+    const cx = ARCADE_CARD.x + ARCADE_CARD.width / 2
+    const y = ARCADE_CARD.y
+
+    this.makeText(cx, y + 116, 'Блиц', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '46px',
+      color: this.colorToHex(ARCADE.ink),
+      fontStyle: 'bold',
+    }).setOrigin(0.5)
+
+    this.makeText(cx, y + 184, 'Ответь на как можно больше вопросов\nза 60 секунд', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '18px',
+      color: this.colorToHex(ARCADE.muted),
+      fontStyle: 'bold',
+      align: 'center',
+    }).setOrigin(0.5)
+
+    if (this.blitzBest > 0) {
+      this.makeText(cx, y + 238, `Твой рекорд: ${this.blitzBest}`, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '14px',
+        color: this.colorToHex(ARCADE.primary),
+        fontStyle: 'bold',
+      }).setOrigin(0.5)
+    }
+
+    const w = 232
+    const h = 62
+    const x = cx - w / 2
+    const buttonY = y + 292
+    const btn = this.add.graphics({ x, y: buttonY })
+    this.drawArcadeButtonSurface(btn, w, h, 'selected')
+    this.makeInteractiveBox(btn, w, h)
+    this.setCursorPointer(btn)
+    const label = this.makeText(cx, buttonY + h / 2 - 3, 'Старт', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '24px',
+      color: '#ffffff',
+      fontStyle: 'bold',
+    }).setOrigin(0.5)
+
+    btn.on('pointerover', () => this.drawArcadeButtonSurface(btn, w, h, 'hover'))
+    btn.on('pointerout', () => this.drawArcadeButtonSurface(btn, w, h, 'selected'))
+    btn.on('pointerdown', () => {
+      this.tweens.add({ targets: [btn, label], y: '+=3', duration: 90, yoyo: true })
+      this.startBlitzCountdown()
+    })
+  }
+
   // Отсчёт 3-2-1 в центре карточки, по завершении — старт забега.
   startBlitzCountdown() {
+    if (this.currentMode !== 'blitz') return
+    if (!['intro', 'result'].includes(this.blitzPhase)) return
+
+    this.stopBlitzTimer()
     this.blitzPhase = 'countdown'
     this.renderScreen(false)
   }
@@ -1137,6 +1531,11 @@ class GameScene extends Phaser.Scene {
 
   // Полоса HUD вверху карточки: слева время + убывающая шкала, справа счётчик ✓.
   renderBlitzHud() {
+    if (this.isArcadeUi()) {
+      this.renderArcadeBlitzHud()
+      return
+    }
+
     const midY = BLITZ_HUD_Y + BLITZ_HUD_HEIGHT / 2
 
     this.blitzTimerText = this.makeText(CONTENT_X, midY, this.formatBlitzTime(), {
@@ -1173,17 +1572,66 @@ class GameScene extends Phaser.Scene {
     ).setOrigin(1, 0.5)
   }
 
+  renderArcadeBlitzHud() {
+    const x = ARCADE_CARD.contentX
+    const y = ARCADE_CARD.y + 48
+    const barX = x + 78
+    const barY = y - 6
+    this._blitzBarWidth = 352
+    this._blitzBarHeight = 14
+
+    this.blitzTimerText = this.makeText(x, y, this.formatBlitzTime(), {
+      fontFamily: FONT_FAMILY,
+      fontSize: '17px',
+      color: this.colorToHex(ARCADE.ink),
+      fontStyle: 'bold',
+    }).setOrigin(0, 0.5)
+
+    const track = this.add.graphics({ x: barX, y: barY })
+    track.fillStyle(0xdce7f7, 1)
+    track.fillRoundedRect(0, 0, this._blitzBarWidth, this._blitzBarHeight, 7)
+    track.lineStyle(2, 0xffffff, 0.7)
+    track.strokeRoundedRect(1, 1, this._blitzBarWidth - 2, this._blitzBarHeight - 2, 6)
+
+    this.blitzTimerBar = this.add.graphics({ x: barX, y: barY })
+    this.drawBlitzBar()
+
+    this.blitzCounterText = this.makeText(
+      ARCADE_CARD.contentX + ARCADE_CARD.contentWidth,
+      y,
+      `✓ ${this.blitzCorrect}`,
+      {
+        fontFamily: FONT_FAMILY,
+        fontSize: '17px',
+        color: this.colorToHex(ARCADE.success),
+        fontStyle: 'bold',
+      }
+    ).setOrigin(1, 0.5)
+  }
+
   drawBlitzBar() {
     if (!this.blitzTimerBar) return
     const frac = Math.max(0, this.blitzTimeLeftMs / BLITZ_DURATION_MS)
-    const w = Math.max(0, Math.round(BLITZ_BAR_WIDTH * frac))
-    const color = frac > 0.33 ? COLORS.answer : COLORS.wrong
+    const barWidth = this._blitzBarWidth || BLITZ_BAR_WIDTH
+    const barHeight = this._blitzBarHeight || BLITZ_BAR_HEIGHT
+    const w = Math.max(0, Math.round(barWidth * frac))
+    const color = this.isArcadeUi()
+      ? frac > 0.33
+        ? ARCADE.primary2
+        : ARCADE.danger
+      : frac > 0.33
+        ? COLORS.answer
+        : COLORS.wrong
 
     this.blitzTimerBar.clear()
     if (w > 0) {
-      const r = Math.min(BLITZ_BAR_HEIGHT / 2, w / 2)
+      const r = Math.min(barHeight / 2, w / 2)
       this.blitzTimerBar.fillStyle(color, 1)
-      this.blitzTimerBar.fillRoundedRect(0, 0, w, BLITZ_BAR_HEIGHT, r)
+      this.blitzTimerBar.fillRoundedRect(0, 0, w, barHeight, r)
+      if (this.isArcadeUi()) {
+        this.blitzTimerBar.lineStyle(2, 0xffffff, 0.26)
+        this.blitzTimerBar.lineBetween(6, 3, Math.max(6, w - 6), 3)
+      }
     }
   }
 
@@ -1257,6 +1705,11 @@ class GameScene extends Phaser.Scene {
 
   // Оверлей результата (паттерн openLeaderboard): итог забега + «Ещё раз» / выход.
   showBlitzResult(accuracy, isRecord) {
+    if (this.isArcadeUi()) {
+      this.showArcadeBlitzResult(accuracy, isRecord)
+      return
+    }
+
     this.closeBlitzResult()
 
     const cx = GAME_WIDTH / 2
@@ -1352,6 +1805,104 @@ class GameScene extends Phaser.Scene {
       this.startBlitzCountdown()
     })
     mkBtn('В случайный режим', cx + 10, COLORS.surfaceBlue, () => {
+      this.closeBlitzResult()
+      this.switchMode('random')
+    })
+
+    this.blitzResultOverlay = items
+  }
+
+  showArcadeBlitzResult(accuracy, isRecord) {
+    this.closeBlitzResult()
+
+    const cx = GAME_WIDTH / 2
+    const cy = GAME_HEIGHT / 2
+    const items = []
+    const panelW = 690
+    const panelH = 420
+    const panelX = cx - panelW / 2
+    const panelY = cy - panelH / 2
+
+    this.drawArcadeOverlayPanel(items, panelX, panelY, panelW, panelH, 32)
+
+    const title = this.blitzTimeLeftMs <= 0 ? 'Время вышло!' : 'Блиц завершён'
+    items.push(
+      this.makeText(cx, panelY + 80, title, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '38px',
+        color: this.colorToHex(ARCADE.ink),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
+    )
+
+    items.push(
+      this.makeText(cx, panelY + 176, `${this.blitzCorrect}`, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '82px',
+        color: this.colorToHex(isRecord ? ARCADE.warning : ARCADE.success),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
+    )
+
+    items.push(
+      this.makeText(cx, panelY + 240, 'правильных ответов', {
+        fontFamily: FONT_FAMILY,
+        fontSize: '18px',
+        color: this.colorToHex(ARCADE.muted),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
+    )
+
+    const sub = isRecord
+      ? `Новый рекорд!  ·  Точность ${accuracy}%`
+      : `Точность ${accuracy}%  ·  Рекорд ${this.blitzBest}`
+    items.push(
+      this.makeText(cx, panelY + 284, sub, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '18px',
+        color: this.colorToHex(isRecord ? ARCADE.success : ARCADE.muted),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
+    )
+
+    const mkBtn = (label, bx, state, textColor, onClick) => {
+      const w = 292
+      const h = 62
+      const by = panelY + 330
+      const btn = this.add.graphics({ x: bx, y: by }).setDepth(104)
+      this.drawArcadeButtonSurface(btn, w, h, state)
+      this.makeInteractiveBox(btn, w, h)
+      this.setCursorPointer(btn)
+      const txt = this.makeText(bx + w / 2, by + h / 2 - 3, label, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '19px',
+        color: textColor,
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(105)
+      btn.on('pointerover', () => this.drawArcadeButtonSurface(btn, w, h, 'hover'))
+      btn.on('pointerout', () => this.drawArcadeButtonSurface(btn, w, h, state))
+      btn.on('pointerdown', () => {
+        this.tweens.add({ targets: [btn, txt], y: '+=3', duration: 90, yoyo: true })
+        onClick()
+      })
+      items.push(btn, txt)
+    }
+
+    mkBtn('Ещё раз', panelX + 48, 'selected', '#ffffff', () => {
+      this.closeBlitzResult()
+      this.startBlitzCountdown()
+    })
+    mkBtn('В случайный режим', panelX + 350, 'default', this.colorToHex(ARCADE.ink), () => {
       this.closeBlitzResult()
       this.switchMode('random')
     })
@@ -1474,9 +2025,41 @@ class GameScene extends Phaser.Scene {
   }
 
   renderScorePanel() {
+    if (this.isArcadeUi()) {
+      this.renderArcadeScorePanel()
+      return
+    }
+
     const x = SCORE_X
 
     this.recordText = this.renderStat(x, SCORE_PANEL_Y, 'РЕКОРД', `${this.maxStreak}`, COLORS.text)
+  }
+
+  renderArcadeScorePanel() {
+    const { x, y, width, height } = ARCADE_SCOREBOARD
+    this.drawArcadePanel(x, y, width, height, 24)
+
+    this.makeText(x + width / 2, y + 28, 'РЕКОРД', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '13px',
+      color: this.colorToHex(ARCADE.muted),
+      fontStyle: 'bold',
+      letterSpacing: 1,
+    }).setOrigin(0.5)
+
+    this.recordText = this.makeText(x + width / 2, y + 72, `${this.maxStreak}`, {
+      fontFamily: FONT_FAMILY,
+      fontSize: '42px',
+      color: this.colorToHex(ARCADE.ink),
+      fontStyle: 'bold',
+    }).setOrigin(0.5)
+
+    this.makeText(x + width / 2, y + 112, `Серия x${this.getMultiplier(this.currentStreak)}`, {
+      fontFamily: FONT_FAMILY,
+      fontSize: '13px',
+      color: this.colorToHex(ARCADE.primary),
+      fontStyle: 'bold',
+    }).setOrigin(0.5)
   }
 
   renderSoundToggle() {
@@ -1529,6 +2112,11 @@ class GameScene extends Phaser.Scene {
 
   // Кнопка-вход в рейтинг под блоком рекорда в правой колонке.
   renderLeaderboardButton() {
+    if (this.isArcadeUi()) {
+      this.renderArcadeLeaderboardButton()
+      return
+    }
+
     const width = SOUND_BTN_W
     const height = SOUND_BTN_H
     const x = SCORE_X
@@ -1567,9 +2155,40 @@ class GameScene extends Phaser.Scene {
     button.on('pointerdown', () => this.openLeaderboard())
   }
 
+  renderArcadeLeaderboardButton() {
+    const width = ARCADE_SCOREBOARD.width
+    const height = 48
+    const x = ARCADE_SCOREBOARD.x
+    const y = ARCADE_SCOREBOARD.y + ARCADE_SCOREBOARD.height + 16
+
+    const button = this.add.graphics({ x, y })
+    this.drawArcadeButtonSurface(button, width, height, 'selected')
+    this.makeInteractiveBox(button, width, height)
+    this.setCursorPointer(button)
+
+    const label = this.makeText(x + width / 2, y + height / 2 - 2, 'Рейтинг', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '15px',
+      color: '#ffffff',
+      fontStyle: 'bold',
+    }).setOrigin(0.5)
+
+    button.on('pointerover', () => this.drawArcadeButtonSurface(button, width, height, 'hover'))
+    button.on('pointerout', () => this.drawArcadeButtonSurface(button, width, height, 'selected'))
+    button.on('pointerdown', () => {
+      this.tweens.add({ targets: [button, label], y: '+=2', duration: 80, yoyo: true })
+      this.openLeaderboard()
+    })
+  }
+
   // Оверлей рейтинга. Гостю (не авторизован) показываем кнопку входа с объяснением
   // выгоды — логин только по осознанному действию (требование 1.2.1).
   async openLeaderboard() {
+    if (this.isArcadeUi()) {
+      await this.openArcadeLeaderboard()
+      return
+    }
+
     if (this.leaderboardOverlay) return
     this.logEvent('leaderboard_opened')
     this.ysdk?.features?.GameplayAPI?.stop?.()
@@ -1641,6 +2260,64 @@ class GameScene extends Phaser.Scene {
     await this.renderLeaderboardEntries()
   }
 
+  async openArcadeLeaderboard() {
+    if (this.leaderboardOverlay) return
+    this.logEvent('leaderboard_opened')
+    this.ysdk?.features?.GameplayAPI?.stop?.()
+
+    const items = []
+    const panelW = 700
+    const panelH = 470
+    const panelX = GAME_WIDTH / 2 - panelW / 2
+    const panelY = GAME_HEIGHT / 2 - panelH / 2
+
+    this.drawArcadeOverlayPanel(items, panelX, panelY, panelW, panelH, 32)
+
+    items.push(
+      this.makeText(GAME_WIDTH / 2, panelY + 70, 'Рейтинг — лучшая серия', {
+        fontFamily: FONT_FAMILY,
+        fontSize: '34px',
+        color: this.colorToHex(ARCADE.ink),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
+    )
+
+    const closeSize = 46
+    const closeX = panelX + panelW - 74
+    const closeY = panelY + 36
+    const closeBtn = this.add.graphics({ x: closeX, y: closeY }).setDepth(104)
+    closeBtn.fillStyle(0xeaf7ff, 1)
+    closeBtn.fillRoundedRect(0, 0, closeSize, closeSize, 17)
+    closeBtn.lineStyle(3, ARCADE.primary2, 0.9)
+    closeBtn.strokeRoundedRect(1, 1, closeSize - 2, closeSize - 2, 16)
+    this.makeInteractiveBox(closeBtn, closeSize, closeSize)
+    this.setCursorPointer(closeBtn)
+    items.push(closeBtn)
+    items.push(
+      this.makeText(closeX + closeSize / 2, closeY + closeSize / 2 - 1, 'X', {
+        fontFamily: FONT_FAMILY,
+        fontSize: '22px',
+        color: this.colorToHex(ARCADE.ink),
+        fontStyle: 'bold',
+      })
+        .setOrigin(0.5)
+        .setDepth(105)
+    )
+    closeBtn.on('pointerdown', () => this.closeLeaderboard())
+
+    this.leaderboardOverlay = items
+
+    const isAuthorized = this.player?.isAuthorized?.()
+    if (!isAuthorized) {
+      this.renderLeaderboardLogin()
+      return
+    }
+
+    await this.renderLeaderboardEntries()
+  }
+
   // Записи рейтинга через SDK. Гость авторизацию здесь не требует (getEntries без логина).
   async renderLeaderboardEntries() {
     const centerX = GAME_WIDTH / 2
@@ -1678,6 +2355,11 @@ class GameScene extends Phaser.Scene {
   }
 
   renderLeaderboardLogin() {
+    if (this.isArcadeUi()) {
+      this.renderArcadeLeaderboardLogin()
+      return
+    }
+
     const centerX = GAME_WIDTH / 2
     this.addLeaderboardText(
       centerX,
@@ -1729,6 +2411,57 @@ class GameScene extends Phaser.Scene {
     })
   }
 
+  renderArcadeLeaderboardLogin() {
+    const centerX = GAME_WIDTH / 2
+    this.addLeaderboardText(
+      centerX,
+      GAME_HEIGHT / 2 - 24,
+      'Войдите через Яндекс ID, чтобы попасть\nв рейтинг и сохранять рекорд между устройствами',
+      ARCADE.muted
+    )
+
+    const w = 300
+    const h = 62
+    const x = centerX - w / 2
+    const y = GAME_HEIGHT / 2 + 78
+
+    const loginBtn = this.add.graphics({ x, y }).setDepth(104)
+    this.drawArcadeButtonSurface(loginBtn, w, h, 'selected')
+    this.makeInteractiveBox(loginBtn, w, h)
+    this.setCursorPointer(loginBtn)
+    this.leaderboardOverlay.push(loginBtn)
+
+    const loginText = this.makeText(centerX, y + h / 2 - 3, 'Войти', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '22px',
+      color: '#ffffff',
+      fontStyle: 'bold',
+    })
+      .setOrigin(0.5)
+      .setDepth(105)
+    this.leaderboardOverlay.push(loginText)
+
+    loginBtn.on('pointerover', () => this.drawArcadeButtonSurface(loginBtn, w, h, 'hover'))
+    loginBtn.on('pointerout', () => this.drawArcadeButtonSurface(loginBtn, w, h, 'selected'))
+    loginBtn.on('pointerdown', async () => {
+      this.tweens.add({ targets: [loginBtn, loginText], y: '+=3', duration: 90, yoyo: true })
+      try {
+        await this.ysdk.auth.openAuthDialog()
+        this.player = await this.ysdk.getPlayer()
+        if (this.player?.isAuthorized?.()) {
+          const record = await loadBestRecord(this.ysdk, this.player)
+          this.maxStreak = Math.max(this.maxStreak, record.maxStreak)
+          this.bestScore = Math.max(this.bestScore, record.bestScore)
+          this.persistRecord()
+          this.closeLeaderboard()
+          this.openLeaderboard()
+        }
+      } catch (error) {
+        this.logEvent('auth_dialog_dismissed')
+      }
+    })
+  }
+
   // Вспомогательное: текст внутри оверлея рейтинга (origin 0 — слева, 0.5 — центр, 1 — справа).
   addLeaderboardText(x, y, value, color, alignOrigin = 0.5) {
     const text = this.makeText(x, y, value, {
@@ -1752,6 +2485,11 @@ class GameScene extends Phaser.Scene {
   }
 
   renderCategories(categories, yOffset = 0) {
+    if (this.isArcadeUi()) {
+      this.renderArcadeCategories(categories, yOffset)
+      return
+    }
+
     const startX = CONTENT_X
     const y = CATEGORIES_Y + yOffset
     let currentX = startX
@@ -1778,7 +2516,56 @@ class GameScene extends Phaser.Scene {
     })
   }
 
+  renderArcadeCategories(categories, yOffset = 0) {
+    const y = ARCADE_CATEGORIES_Y + yOffset
+    let currentX = ARCADE_CARD.contentX
+    const gap = 10
+    const minWidth = 116
+    const rightEdge = ARCADE_CARD.contentX + ARCADE_CARD.contentWidth
+
+    categories.forEach((category, index) => {
+      const label = this.getCategoryLabel(category)
+      const remaining = categories.length - index
+      const remainingWidth = rightEdge - currentX - gap * (remaining - 1)
+      const maxWidth = Math.max(minWidth, Math.floor(remainingWidth / remaining))
+      const probe = this.makeText(0, 0, label, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '12px',
+        fontStyle: 'bold',
+      })
+      const width = Math.max(minWidth, Math.min(Math.ceil(probe.width) + 30, maxWidth))
+      probe.destroy()
+
+      const sticker = this.add.graphics({ x: currentX, y })
+      sticker.fillStyle(COLORS.textSoft, 1)
+      sticker.fillRoundedRect(0, 0, width, 28, ARCADE.stickerRadius)
+
+      const text = this.makeText(currentX + width / 2, y + 14, label, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '12px',
+        color: '#ffffff',
+        fontStyle: 'bold',
+      }).setOrigin(0.5)
+
+      if (text.width > width - 20) {
+        let trimmed = label
+        while (trimmed.length > 1) {
+          trimmed = trimmed.slice(0, -1).trimEnd()
+          text.setText(`${trimmed}…`)
+          if (text.width <= width - 20) break
+        }
+      }
+
+      text.setDepth(sticker.depth + 1)
+      currentX += width + gap
+    })
+  }
+
   renderQuestion(questionText, yOffset = 0) {
+    if (this.isArcadeUi()) {
+      return this.renderArcadeQuestion(questionText, yOffset)
+    }
+
     const x = CONTENT_X
     const y = QUESTION_Y + yOffset
     const width = CONTENT_WIDTH
@@ -1796,6 +2583,44 @@ class GameScene extends Phaser.Scene {
     const actualHeight = Math.min(textObj.height, QUESTION_HEIGHT)
     if (textObj.height > QUESTION_HEIGHT) {
       textObj.setFixedSize(width, QUESTION_HEIGHT)
+    }
+    return actualHeight
+  }
+
+  measureArcadeQuestionHeight(questionText, yOffset = 0) {
+    const textObj = this.makeText(ARCADE_CARD.contentX, ARCADE_QUESTION_Y + yOffset, questionText, {
+      fontFamily: FONT_FAMILY,
+      fontSize: '24px',
+      color: this.colorToHex(ARCADE.ink),
+      fontStyle: 'bold',
+      wordWrap: { width: ARCADE_CARD.contentWidth },
+      lineSpacing: 4,
+      fixedWidth: ARCADE_CARD.contentWidth,
+    })
+
+    const actualHeight = Math.min(textObj.height, ARCADE_QUESTION_MAX_HEIGHT)
+    textObj.destroy()
+    return actualHeight
+  }
+
+  renderArcadeQuestion(questionText, yOffset = 0) {
+    const x = ARCADE_CARD.contentX
+    const y = ARCADE_QUESTION_Y + yOffset
+    const width = ARCADE_CARD.contentWidth
+
+    const textObj = this.makeText(x, y, questionText, {
+      fontFamily: FONT_FAMILY,
+      fontSize: '24px',
+      color: this.colorToHex(ARCADE.ink),
+      fontStyle: 'bold',
+      wordWrap: { width },
+      lineSpacing: 4,
+      fixedWidth: width,
+    })
+
+    const actualHeight = Math.min(textObj.height, ARCADE_QUESTION_MAX_HEIGHT)
+    if (textObj.height > ARCADE_QUESTION_MAX_HEIGHT) {
+      textObj.setFixedSize(width, ARCADE_QUESTION_MAX_HEIGHT)
     }
     return actualHeight
   }
@@ -2042,6 +2867,11 @@ class GameScene extends Phaser.Scene {
   }
 
   renderAnswers(answers) {
+    if (this.isArcadeUi()) {
+      this.renderArcadeAnswers(answers)
+      return
+    }
+
     const startX = CONTENT_X
     const startY = this._answersY
     const buttonWidth = ANSWER_BUTTON_WIDTH
@@ -2102,6 +2932,88 @@ class GameScene extends Phaser.Scene {
         label,
         width: buttonWidth,
         height: buttonHeight,
+      })
+    })
+  }
+
+  renderArcadeAnswers(answers) {
+    const startX = ARCADE_CARD.contentX
+    const startY = this._answersY
+    const letters = ['A', 'B', 'C', 'D']
+
+    answers.forEach((answer, index) => {
+      const col = index % 2
+      const row = Math.floor(index / 2)
+      const x = startX + col * (ARCADE_ANSWER_W + ARCADE_ANSWER_GAP_X)
+      const y = startY + row * (ARCADE_ANSWER_H + ARCADE_ANSWER_GAP_Y)
+
+      const button = this.add.graphics({ x, y })
+      this.drawArcadeButtonSurface(button, ARCADE_ANSWER_W, ARCADE_ANSWER_H, 'default')
+      this.makeInteractiveBox(button, ARCADE_ANSWER_W, ARCADE_ANSWER_H)
+      this.setCursorPointer(button)
+
+      const badgeSize = 36
+      const badgeX = x + 14
+      const badgeY = y + Math.round((ARCADE_ANSWER_H - badgeSize) / 2)
+      const badge = this.add.graphics({ x: badgeX, y: badgeY })
+      badge.fillStyle(ARCADE.primary, 1)
+      badge.fillRoundedRect(0, 0, badgeSize, badgeSize, 12)
+      badge.lineStyle(2, 0xffffff, 0.35)
+      badge.strokeRoundedRect(1, 1, badgeSize - 2, badgeSize - 2, 11)
+
+      const badgeText = this.makeText(
+        badgeX + badgeSize / 2,
+        y + ARCADE_ANSWER_H / 2,
+        letters[index],
+        {
+          fontFamily: FONT_FAMILY,
+          fontSize: '17px',
+          color: '#ffffff',
+          fontStyle: 'bold',
+        }
+      ).setOrigin(0.5)
+
+      const answerFontSize = answer.length > 34 ? '14px' : '16px'
+      const label = this.makeText(x + 62, y + ARCADE_ANSWER_H / 2 - 3, answer, {
+        fontFamily: FONT_FAMILY,
+        fontSize: answerFontSize,
+        color: this.colorToHex(ARCADE.ink),
+        fontStyle: 'bold',
+        wordWrap: { width: ARCADE_ANSWER_W - 78 },
+        fixedWidth: ARCADE_ANSWER_W - 78,
+      }).setOrigin(0, 0.5)
+
+      const setState = (state) => {
+        this.drawArcadeButtonSurface(button, ARCADE_ANSWER_W, ARCADE_ANSWER_H, state)
+      }
+
+      button.on('pointerover', () => {
+        if (this.answerState === 'idle') setState('hover')
+      })
+      button.on('pointerout', () => {
+        if (this.answerState === 'idle') setState('default')
+      })
+      button.on('pointerdown', () => {
+        if (this.answerState !== 'idle') return
+        setState('selected')
+        this.tweens.add({
+          targets: [button, badge, badgeText, label],
+          y: '+=3',
+          duration: 90,
+          yoyo: true,
+          ease: 'Sine.out',
+        })
+        this.handleAnswerClick(index)
+      })
+
+      this.answerButtons.push({
+        index,
+        button,
+        label,
+        badge,
+        badgeText,
+        width: ARCADE_ANSWER_W,
+        height: ARCADE_ANSWER_H,
       })
     })
   }
@@ -2196,7 +3108,7 @@ class GameScene extends Phaser.Scene {
     return { gained, mult }
   }
 
-  refreshScorePanel(isCorrect, gained, mult) {
+  refreshScorePanel(_isCorrect, _gained, _mult) {
     if (this.recordText) {
       this.recordText.setText(`${this.maxStreak}`)
     }
@@ -2269,6 +3181,11 @@ class GameScene extends Phaser.Scene {
   }
 
   highlightAnswers(selectedAnswerIndex, correctAnswerIndex, isCorrect) {
+    if (this.isArcadeUi()) {
+      this.highlightArcadeAnswers(selectedAnswerIndex, correctAnswerIndex, isCorrect)
+      return
+    }
+
     this.answerButtons.forEach(({ index, button, label, width, height }) => {
       button.disableInteractive()
 
@@ -2302,6 +3219,56 @@ class GameScene extends Phaser.Scene {
 
       button.setAlpha(0.5)
       label.setColor(this.colorToHex(COLORS.textSoft))
+    })
+  }
+
+  highlightArcadeAnswers(selectedAnswerIndex, correctAnswerIndex, isCorrect) {
+    this.answerButtons.forEach(({ index, button, label, badge, badgeText, width, height }) => {
+      button.disableInteractive()
+      const visualTargets = [button, badge, badgeText, label].filter(Boolean)
+
+      if (index === correctAnswerIndex) {
+        this.drawArcadeButtonSurface(button, width, height, 'correct')
+        label.setColor('#ffffff')
+        badge?.clear()
+        badge?.fillStyle(0x047857, 1)
+        badge?.fillRoundedRect(0, 0, 36, 36, 12)
+        badgeText?.setColor('#ffffff')
+        this.tweens.add({
+          targets: visualTargets,
+          scaleX: { from: 1, to: 1.035 },
+          scaleY: { from: 1, to: 1.035 },
+          duration: 130,
+          yoyo: true,
+          ease: 'Sine.out',
+        })
+        return
+      }
+
+      if (index === selectedAnswerIndex && !isCorrect) {
+        this.drawArcadeButtonSurface(button, width, height, 'wrong')
+        label.setColor('#ffffff')
+        badge?.clear()
+        badge?.fillStyle(0xbe123c, 1)
+        badge?.fillRoundedRect(0, 0, 36, 36, 12)
+        badgeText?.setColor('#ffffff')
+        this.tweens.add({
+          targets: visualTargets,
+          x: '+=6',
+          duration: 55,
+          yoyo: true,
+          repeat: 3,
+          ease: 'Sine.inOut',
+        })
+        return
+      }
+
+      this.drawArcadeButtonSurface(button, width, height, 'disabled')
+      button.setAlpha(0.72)
+      badge?.setAlpha(0.55)
+      badgeText?.setAlpha(0.72)
+      label.setColor(this.colorToHex(ARCADE.disabledText))
+      label.setAlpha(0.82)
     })
   }
 
@@ -2345,7 +3312,10 @@ const config = {
 // что и в игре. Иначе на широком окне справа видна полоса: голубой фон body
 // упирается в сиреневый край канваса (заметно в Chrome, в Safari окно у́же).
 const toCssHex = (color) => `#${color.toString(16).padStart(6, '0')}`
-document.body.style.background = `linear-gradient(to right, ${toCssHex(BG_GRADIENT_LEFT)}, ${toCssHex(BG_GRADIENT_RIGHT)})`
+document.body.style.background =
+  UI_VARIANT === UI_VARIANTS.arcade
+    ? `radial-gradient(circle at 20% 15%, ${toCssHex(ARCADE.bg3)}, transparent 34%), linear-gradient(135deg, ${toCssHex(ARCADE.bg1)}, ${toCssHex(ARCADE.bg2)})`
+    : `linear-gradient(to right, ${toCssHex(BG_GRADIENT_LEFT)}, ${toCssHex(BG_GRADIENT_RIGHT)})`
 
 // Явно грузим веса Roboto до старта Phaser. document.fonts.ready недостаточно:
 // Chrome не инициирует загрузку @font-face, пока шрифт никто не «использует»
