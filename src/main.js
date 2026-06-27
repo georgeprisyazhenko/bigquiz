@@ -143,7 +143,6 @@ let BG_GRADIENT_RIGHT = 0xedebff
 const MODES = [
   { key: 'random', label: 'Случайный вопрос' },
   { key: 'blitz', label: 'Блиц' },
-  { key: 'stakes', label: 'Уверен?', disabled: true },
 ]
 
 const MODE_THEMES = {
@@ -160,13 +159,6 @@ const MODE_THEMES = {
     border: 0xa08cf0,
     borderSoft: 0xc9bef8,
     surfaceBlue: 0xf2eeff,
-  },
-  stakes: {
-    answer: 0xf0905a,
-    answerHover: 0xe07844,
-    border: 0xf0905a,
-    borderSoft: 0xf5c4a8,
-    surfaceBlue: 0xfef3ed,
   },
 }
 
@@ -224,9 +216,9 @@ const ARCADE_CARD = {
 }
 
 const ARCADE_TOPBAR = {
-  x: 236,
+  x: 332,
   y: 26,
-  width: 648,
+  width: 456,
   height: 58,
 }
 
@@ -237,8 +229,9 @@ const ARCADE_SCOREBOARD = {
   height: 140,
 }
 
-const ARCADE_QUESTION_Y = 206
+const ARCADE_QUESTION_Y = 203
 const ARCADE_CATEGORIES_Y = 164
+const ARCADE_CATEGORY_H = 25
 const ARCADE_QUESTION_ANSWER_GAP = 32
 const ARCADE_CARD_BOTTOM_PAD = 32
 const ARCADE_ANSWER_W = 266
@@ -624,16 +617,6 @@ class GameScene extends Phaser.Scene {
     glow.fillStyle(ARCADE.warning, 0.08)
     glow.fillCircle(590, 90, 130)
 
-    const marks = this.add.graphics()
-    marks.lineStyle(3, 0xffffff, 0.08)
-    for (let i = 0; i < 11; i += 1) {
-      const x = 70 + i * 104
-      const y = i % 2 === 0 ? 92 : 548
-      marks.strokeCircle(x, y, 15)
-      marks.lineBetween(x + 30, y - 16, x + 52, y + 16)
-      marks.lineBetween(x + 52, y - 16, x + 30, y + 16)
-    }
-
     const shards = this.add.graphics()
     shards.fillStyle(0xffffff, 0.06)
     shards.fillTriangle(94, 350, 145, 312, 160, 390)
@@ -716,6 +699,18 @@ class GameScene extends Phaser.Scene {
       selected: {
         fill: 0xeee9ff,
         stroke: ARCADE.primary,
+        bottom: ARCADE.primary2,
+        alpha: 1,
+      },
+      cta: {
+        fill: ARCADE.primary,
+        stroke: ARCADE.primary2,
+        bottom: 0x16bfe9,
+        alpha: 1,
+      },
+      ctaHover: {
+        fill: 0x6f4ff0,
+        stroke: 0x7ee8ff,
         bottom: ARCADE.primary2,
         alpha: 1,
       },
@@ -1220,7 +1215,9 @@ class GameScene extends Phaser.Scene {
       24
     )
 
-    const tabW = Math.floor((ARCADE_TOPBAR.width - 24 - TAB_GAP * 2) / 3)
+    const tabW = Math.floor(
+      (ARCADE_TOPBAR.width - 24 - TAB_GAP * (MODES.length - 1)) / MODES.length
+    )
     const tabH = 40
     const tabY = ARCADE_TOPBAR.y + 9
     let x = ARCADE_TOPBAR.x + 12
@@ -1303,14 +1300,7 @@ class GameScene extends Phaser.Scene {
 
     const cx = CARD_X + CARD_WIDTH / 2
 
-    this.makeText(cx, CARD_Y + 140, 'Блиц', {
-      fontFamily: FONT_FAMILY,
-      fontSize: '40px',
-      color: this.colorToHex(COLORS.text),
-      fontStyle: 'bold',
-    }).setOrigin(0.5)
-
-    this.makeText(cx, CARD_Y + 210, 'Ответь на как можно больше вопросов\nза 60 секунд', {
+    this.makeText(cx, CARD_Y + 160, 'Ответь на как можно больше вопросов\nза 60 секунд', {
       fontFamily: FONT_FAMILY,
       fontSize: FONT_SIZE_MD,
       color: this.colorToHex(COLORS.textMuted),
@@ -1319,7 +1309,7 @@ class GameScene extends Phaser.Scene {
     }).setOrigin(0.5)
 
     if (this.blitzBest > 0) {
-      this.makeText(cx, CARD_Y + 268, `Твой рекорд: ${this.blitzBest}`, {
+      this.makeText(cx, CARD_Y + 224, `Твой рекорд: ${this.blitzBest}`, {
         fontFamily: FONT_FAMILY,
         fontSize: FONT_SIZE_SM,
         color: this.colorToHex(COLORS.textSoft),
@@ -1330,7 +1320,7 @@ class GameScene extends Phaser.Scene {
     const w = 220,
       h = 60
     const x = cx - w / 2,
-      y = CARD_Y + 330
+      y = CARD_Y + 260
     const btn = this.createRoundedBox(x, y, w, h, COLORS.answer, {
       radius: RADIUS.button,
       strokeColor: COLORS.border,
@@ -1366,14 +1356,7 @@ class GameScene extends Phaser.Scene {
     const cx = ARCADE_CARD.x + ARCADE_CARD.width / 2
     const y = ARCADE_CARD.y
 
-    this.makeText(cx, y + 116, 'Блиц', {
-      fontFamily: FONT_FAMILY,
-      fontSize: '46px',
-      color: this.colorToHex(ARCADE.ink),
-      fontStyle: 'bold',
-    }).setOrigin(0.5)
-
-    this.makeText(cx, y + 184, 'Ответь на как можно больше вопросов\nза 60 секунд', {
+    this.makeText(cx, y + 146, 'Ответь на как можно больше вопросов\nза 60 секунд', {
       fontFamily: FONT_FAMILY,
       fontSize: '18px',
       color: this.colorToHex(ARCADE.muted),
@@ -1382,7 +1365,7 @@ class GameScene extends Phaser.Scene {
     }).setOrigin(0.5)
 
     if (this.blitzBest > 0) {
-      this.makeText(cx, y + 238, `Твой рекорд: ${this.blitzBest}`, {
+      this.makeText(cx, y + 214, `Твой рекорд: ${this.blitzBest}`, {
         fontFamily: FONT_FAMILY,
         fontSize: '14px',
         color: this.colorToHex(ARCADE.primary),
@@ -1391,11 +1374,11 @@ class GameScene extends Phaser.Scene {
     }
 
     const w = 232
-    const h = 62
+    const h = 58
     const x = cx - w / 2
-    const buttonY = y + 292
+    const buttonY = y + 254
     const btn = this.add.graphics({ x, y: buttonY })
-    this.drawArcadeButtonSurface(btn, w, h, 'selected')
+    this.drawArcadeButtonSurface(btn, w, h, 'cta')
     this.makeInteractiveBox(btn, w, h)
     this.setCursorPointer(btn)
     const label = this.makeText(cx, buttonY + h / 2 - 3, 'Старт', {
@@ -1405,8 +1388,8 @@ class GameScene extends Phaser.Scene {
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
-    btn.on('pointerover', () => this.drawArcadeButtonSurface(btn, w, h, 'hover'))
-    btn.on('pointerout', () => this.drawArcadeButtonSurface(btn, w, h, 'selected'))
+    btn.on('pointerover', () => this.drawArcadeButtonSurface(btn, w, h, 'ctaHover'))
+    btn.on('pointerout', () => this.drawArcadeButtonSurface(btn, w, h, 'cta'))
     btn.on('pointerdown', () => {
       this.tweens.add({ targets: [btn, label], y: '+=3', duration: 90, yoyo: true })
       this.startBlitzCountdown()
@@ -2162,7 +2145,7 @@ class GameScene extends Phaser.Scene {
     const y = ARCADE_SCOREBOARD.y + ARCADE_SCOREBOARD.height + 16
 
     const button = this.add.graphics({ x, y })
-    this.drawArcadeButtonSurface(button, width, height, 'selected')
+    this.drawArcadeButtonSurface(button, width, height, 'cta')
     this.makeInteractiveBox(button, width, height)
     this.setCursorPointer(button)
 
@@ -2173,8 +2156,8 @@ class GameScene extends Phaser.Scene {
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
-    button.on('pointerover', () => this.drawArcadeButtonSurface(button, width, height, 'hover'))
-    button.on('pointerout', () => this.drawArcadeButtonSurface(button, width, height, 'selected'))
+    button.on('pointerover', () => this.drawArcadeButtonSurface(button, width, height, 'ctaHover'))
+    button.on('pointerout', () => this.drawArcadeButtonSurface(button, width, height, 'cta'))
     button.on('pointerdown', () => {
       this.tweens.add({ targets: [button, label], y: '+=2', duration: 80, yoyo: true })
       this.openLeaderboard()
@@ -2538,9 +2521,9 @@ class GameScene extends Phaser.Scene {
 
       const sticker = this.add.graphics({ x: currentX, y })
       sticker.fillStyle(COLORS.textSoft, 1)
-      sticker.fillRoundedRect(0, 0, width, 28, ARCADE.stickerRadius)
+      sticker.fillRoundedRect(0, 0, width, ARCADE_CATEGORY_H, ARCADE.stickerRadius)
 
-      const text = this.makeText(currentX + width / 2, y + 14, label, {
+      const text = this.makeText(currentX + width / 2, y + ARCADE_CATEGORY_H / 2, label, {
         fontFamily: FONT_FAMILY,
         fontSize: '12px',
         color: '#ffffff',
