@@ -6407,8 +6407,9 @@
       "requiresImage": false,
       "explanation": "Збарская возила советскую моду на Запад в 1960-е, и зарубежные журналы окрестили её «самым красивым оружием Кремля» - намекая, что её красота служила мягкой силой СССР в холодной войне.",
       "imageSearchQuery": "Регина Збарская",
-      "reviewStatus": "approved",
-      "llmVerdict": "revise"
+      "reviewStatus": "rework",
+      "llmVerdict": "revise",
+      "reviewProblem": "почему ответы не в именительном падеже?"
     },
     {
       "id": "q_524",
@@ -10686,8 +10687,14 @@
       "requiresImage": false,
       "explanation": "Страна - Эквадор (Ecuador по-испански = «экватор»). В 25 км от Кито стоит монумент «Середина мира» на линии экватора - хотя GPS показывает, что он стоит на несколько сотен метров севернее реальной линии.",
       "imageSearchQuery": "Экватор",
-      "reviewStatus": "approved",
-      "llmVerdict": "keep"
+      "reviewStatus": "discard",
+      "llmVerdict": "keep",
+      "reviewProblem": "в чем вообще смысл вопроса? и так очевидно, что экватор это Эквадор, как вопрос не задавай",
+      "reviewTags": [
+        "leak",
+        "distractors",
+        "boring"
+      ]
     },
     {
       "id": "q_522",

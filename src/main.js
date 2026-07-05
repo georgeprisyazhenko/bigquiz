@@ -11,6 +11,7 @@ import {
   validateExamShape,
 } from './content-rules.js'
 import { orderAnswers, isNumericAnswerSet, imageCandidatePaths } from './card-rules.js'
+import { calculateRandomAnswerPoints, getRandomStreakMultiplier } from './score-rules.js'
 
 const GAME_WIDTH = 1120
 const GAME_HEIGHT = 640
@@ -26,7 +27,7 @@ const BLITZ_STATE_KEY = 'bigquiz_blitz_state' // localStorage: незаверш�
 
 // Техническое имя лидерборда из Консоли разработчика (сортировка по убыванию,
 // формат numeric). Без созданного в Консоли лидерборда getEntries вернёт 404.
-const LEADERBOARD_ID = 'best_streak'
+const LEADERBOARD_ID = 'best_score'
 
 const FONT_FAMILY = 'Roboto'
 
@@ -208,7 +209,7 @@ const ARCADE = {
 
 const ARCADE_CARD = {
   x: 248,
-  y: 132,
+  y: 120,
   width: 624,
   height: 360,
   contentX: 284,
@@ -226,11 +227,11 @@ const ARCADE_SCOREBOARD = {
   x: 895,
   y: 150,
   width: 166,
-  height: 140,
+  height: 184,
 }
 
-const ARCADE_QUESTION_Y = 203
-const ARCADE_CATEGORIES_Y = 164
+const ARCADE_QUESTION_Y = 191
+const ARCADE_CATEGORIES_Y = 152
 const ARCADE_CATEGORY_H = 25
 const ARCADE_QUESTION_ANSWER_GAP = 32
 const ARCADE_CARD_BOTTOM_PAD = 32
@@ -245,6 +246,23 @@ const ARCADE_BLITZ_COUNTDOWN_SHIFT_Y = -42
 const ARCADE_WRONG_SHAKE_X = 3
 const ARCADE_WRONG_SHAKE_DURATION_MS = 48
 const ARCADE_WRONG_SHAKE_REPEAT = 2
+const ARCADE_EXPLANATION_GAP = 17
+const ARCADE_EXPLANATION_MIN_H = 68
+const ARCADE_EXPLANATION_PAD_X = 22
+const ARCADE_EXPLANATION_PAD_Y = 18
+const ARCADE_BUTTON_BOTTOM_OFFSET = 4
+const ARCADE_NEXT_BUTTON_W = 77
+const ARCADE_NEXT_BUTTON_H = 38
+
+const EXPLANATION_GAP = 17
+const EXPLANATION_MIN_H = 68
+const EXPLANATION_PAD_X = 22
+const EXPLANATION_PAD_Y = 18
+const NEXT_BUTTON_W = 154
+const NEXT_BUTTON_H = 38
+const HELP_CHECKBOX_SIZE = 18
+const HELP_TOGGLE_H = 32
+const HELP_LABEL_GAP = 10
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -261,6 +279,9 @@ class GameScene extends Phaser.Scene {
     this.answerState = 'idle'
     this.answerButtons = []
     this.shownQuestionIds = new Set()
+    this.explanationModeEnabled = false
+    this.explanationItems = []
+    this.nextQuestionEvent = null
 
     this.sessionId = this.createSessionId()
     this.answeredCount = 0
@@ -269,10 +290,12 @@ class GameScene extends Phaser.Scene {
     this.accuracy = null
     this.currentStreak = 0
     this.maxStreak = 0
+    this.isCurrentStreakRecord = false
     this.questionsSinceAd = 0
 
     this.score = 0
     this.currentMode = 'random'
+    this.questionShownAt = 0
 
     // Блиц: жизненный цикл забега ('idle' вне режима | 'intro' | 'countdown' |
     // 'running' | 'result') и его собственные счётчики, отдельные от сессионных.
@@ -294,6 +317,7 @@ class GameScene extends Phaser.Scene {
     this.blitzCounterText = null
     this.blitzCountdownText = null
     this.blitzResultOverlay = null
+    this.explanationItems = []
     this._blitzBarWidth = null
     this._blitzBarHeight = null
     this.interactiveObjects = new Set()
@@ -316,6 +340,7 @@ class GameScene extends Phaser.Scene {
     // Динамические позиции изображения и ответов (зависят от высоты вопроса)
     this._imageY = IMAGE_Y
     this._answersY = ANSWERS_START_Y
+    this._cardBottomY = CARD_Y + CARD_HEIGHT
   }
 
   preload() {
@@ -423,10 +448,8 @@ class GameScene extends Phaser.Scene {
       this.blitzBest = Math.max(this.blitzBest, record.blitzBest ?? 0)
       if (record.maxStreak > this.maxStreak) {
         this.maxStreak = record.maxStreak
-        if (this.recordText) {
-          this.recordText.setText(`${this.maxStreak}`)
-        }
       }
+      this.refreshScorePanel(false, 0, this.getMultiplier(this.currentStreak))
     } catch (error) {
       // ignore — играем с нулевым рекордом
     }
@@ -458,7 +481,7 @@ class GameScene extends Phaser.Scene {
     try {
       const available = await this.ysdk.isAvailableMethod?.('leaderboards.setScore')
       if (available === false) return
-      await this.ysdk.leaderboards?.setScore?.(LEADERBOARD_ID, this.maxStreak)
+      await this.ysdk.leaderboards?.setScore?.(LEADERBOARD_ID, this.bestScore)
     } catch (error) {
       // ignore — рекорд уже сохранён локально/в облаке
     }
@@ -606,6 +629,22 @@ class GameScene extends Phaser.Scene {
     return `#${color.toString(16).padStart(6, '0')}`
   }
 
+  formatScore(value) {
+    return Math.round(value).toLocaleString('ru-RU')
+  }
+
+  formatMultiplier(value) {
+    return Number.isInteger(value) ? `${value}` : `${value}`
+  }
+
+  formatStreakDisplay() {
+    if (this.isCurrentStreakRecord && this.currentStreak > 0) {
+      return `${this.currentStreak}`
+    }
+
+    return `${this.currentStreak} / ${this.maxStreak}`
+  }
+
   isArcadeUi() {
     return UI_VARIANT === UI_VARIANTS.arcade
   }
@@ -684,7 +723,7 @@ class GameScene extends Phaser.Scene {
   }
 
   drawArcadeButtonSurface(graphics, width, height, state = 'default') {
-    const bottomOffset = 4
+    const bottomOffset = ARCADE_BUTTON_BOTTOM_OFFSET
     const palette = {
       default: {
         fill: ARCADE.surfaceStrong,
@@ -728,6 +767,18 @@ class GameScene extends Phaser.Scene {
         bottom: ARCADE.outline,
         alpha: 1,
       },
+      next: {
+        fill: ARCADE.surfaceStrong,
+        stroke: ARCADE.primary2,
+        bottom: 0x19a7c9,
+        alpha: 1,
+      },
+      nextHover: {
+        fill: ARCADE.surfaceTint,
+        stroke: ARCADE.primary2,
+        bottom: 0x25c5e8,
+        alpha: 1,
+      },
       correct: {
         fill: ARCADE.success,
         stroke: 0x6ee7b7,
@@ -757,6 +808,37 @@ class GameScene extends Phaser.Scene {
     graphics.strokeRoundedRect(1, 1, width - 2, height - (bottomOffset + 2), ARCADE.tileRadius - 2)
     graphics.lineStyle(2, 0xffffff, state === 'disabled' ? 0.24 : 0.5)
     graphics.lineBetween(18, 8, width - 18, 8)
+  }
+
+  drawNextArrowIcon(graphics, width, height, state = 'next') {
+    const color = state === 'nextHover' ? ARCADE.primary : ARCADE.muted
+    const centerX = width / 2
+    const centerY = (height - ARCADE_BUTTON_BOTTOM_OFFSET) / 2
+    const shaftStartX = centerX - 10
+    const shaftEndX = centerX + 2
+    const tipX = centerX + 11
+    const arrowH = 15
+
+    graphics.lineStyle(4, color, 1)
+    graphics.lineBetween(shaftStartX, centerY, shaftEndX, centerY)
+    graphics.fillStyle(color, 1)
+    graphics.fillTriangle(
+      shaftEndX,
+      centerY - arrowH / 2,
+      shaftEndX,
+      centerY + arrowH / 2,
+      tipX,
+      centerY
+    )
+  }
+
+  drawCheckboxCheck(graphics, color) {
+    graphics.lineStyle(3, color, 1)
+    graphics.beginPath()
+    graphics.moveTo(5, 9)
+    graphics.lineTo(8, 13)
+    graphics.lineTo(14, 5)
+    graphics.strokePath()
   }
 
   // Текст всегда генерируется в высоком разрешении (resolution = RESOLUTION),
@@ -1005,8 +1087,31 @@ class GameScene extends Phaser.Scene {
   }
 
   goToNextQuestion() {
+    this.clearNextQuestionTimer()
     this.currentQuestion = this.getRandomQuestion()
     this.renderScreen()
+  }
+
+  clearNextQuestionTimer() {
+    if (!this.nextQuestionEvent) return
+    this.nextQuestionEvent.remove(false)
+    this.nextQuestionEvent = null
+  }
+
+  scheduleRandomAdvance(delay = NEXT_QUESTION_DELAY_MS) {
+    this.clearNextQuestionTimer()
+    this.nextQuestionEvent = this.time.delayedCall(delay, () => {
+      this.nextQuestionEvent = null
+      this.advanceRandomAfterAnswer()
+    })
+  }
+
+  advanceRandomAfterAnswer() {
+    if (this.shouldShowAd()) {
+      this.showAd()
+    } else {
+      this.goToNextQuestion()
+    }
   }
 
   applyModeTheme() {
@@ -1037,6 +1142,9 @@ class GameScene extends Phaser.Scene {
     this.answerState = 'idle'
     this.answerButtons = []
     this.adOverlay = null
+    this._cardBottomY = this.isArcadeUi()
+      ? ARCADE_CARD.y + ARCADE_CARD.height
+      : CARD_Y + CARD_HEIGHT
 
     if (this.isArcadeUi()) {
       this.drawArcadeBackground()
@@ -1100,10 +1208,12 @@ class GameScene extends Phaser.Scene {
       const arcadeBoardHeight =
         this._answersY + ARCADE_ANSWERS_BLOCK_H + ARCADE_CARD_BOTTOM_PAD - ARCADE_CARD.y
       this.drawArcadeBoard(arcadeBoardHeight)
+      this._cardBottomY = ARCADE_CARD.y + arcadeBoardHeight
     }
 
     this.renderScorePanel()
     this.renderLeaderboardButton()
+    this.renderExplanationToggle()
     if (isBlitzRun && this.isArcadeUi()) this.renderBlitzHud()
     this.renderCategories(q.categories, contentOffset)
     const questionHeight = this.renderQuestion(q.question, contentOffset)
@@ -1115,6 +1225,8 @@ class GameScene extends Phaser.Scene {
     }
     // renderQuestionImage убран: картинки отключены в V1
     this.renderAnswers(this.currentAnswers)
+    this.renderExplanationArea(false)
+    this.questionShownAt = performance.now()
 
     this.logEvent('question_shown', {
       questionId: q.id,
@@ -1133,7 +1245,7 @@ class GameScene extends Phaser.Scene {
   }
 
   getMultiplier(streak) {
-    return Math.min(1 + Math.floor(streak / 3), 5)
+    return getRandomStreakMultiplier(streak)
   }
 
   streakMultLabel() {
@@ -1304,6 +1416,7 @@ class GameScene extends Phaser.Scene {
   // Переключение режима по вкладке. Уход из Блица гасит таймер и оверлей результата;
   // вход в Блиц всегда начинается с экрана-приглашения (фаза intro).
   switchMode(key) {
+    this.clearNextQuestionTimer()
     if (this.currentMode === 'blitz') {
       this.stopBlitzTimer()
       this.closeBlitzResult()
@@ -2063,14 +2176,27 @@ class GameScene extends Phaser.Scene {
 
     const x = SCORE_X
 
-    this.recordText = this.renderStat(x, SCORE_PANEL_Y, 'РЕКОРД', `${this.maxStreak}`, COLORS.text)
+    this.scoreText = this.renderStat(
+      x,
+      SCORE_PANEL_Y,
+      'ОЧКИ',
+      this.formatScore(this.score),
+      COLORS.text
+    )
+    this.recordText = this.renderStat(
+      x,
+      SCORE_PANEL_Y + SCORE_ITEM_STRIDE,
+      'СЕРИЯ ОТВЕТОВ',
+      this.formatStreakDisplay(),
+      this.isCurrentStreakRecord ? COLORS.accentYellow : COLORS.text
+    )
   }
 
   renderArcadeScorePanel() {
     const { x, y, width, height } = ARCADE_SCOREBOARD
     this.drawArcadePanel(x, y, width, height, 24)
 
-    this.makeText(x + width / 2, y + 28, 'РЕКОРД', {
+    this.makeText(x + width / 2, y + 26, 'ОЧКИ', {
       fontFamily: FONT_FAMILY,
       fontSize: '13px',
       color: this.colorToHex(ARCADE.muted),
@@ -2078,19 +2204,39 @@ class GameScene extends Phaser.Scene {
       letterSpacing: 1,
     }).setOrigin(0.5)
 
-    this.recordText = this.makeText(x + width / 2, y + 72, `${this.maxStreak}`, {
+    this.scoreText = this.makeText(x + width / 2, y + 62, this.formatScore(this.score), {
       fontFamily: FONT_FAMILY,
-      fontSize: '42px',
+      fontSize: '34px',
       color: this.colorToHex(ARCADE.ink),
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
-    this.makeText(x + width / 2, y + 112, `Серия x${this.getMultiplier(this.currentStreak)}`, {
+    this.makeText(x + width / 2, y + 106, 'СЕРИЯ ОТВЕТОВ', {
       fontFamily: FONT_FAMILY,
       fontSize: '13px',
-      color: this.colorToHex(ARCADE.primary),
+      color: this.colorToHex(ARCADE.muted),
+      fontStyle: 'bold',
+      letterSpacing: 1,
+    }).setOrigin(0.5)
+
+    this.recordText = this.makeText(x + width / 2, y + 142, this.formatStreakDisplay(), {
+      fontFamily: FONT_FAMILY,
+      fontSize: '30px',
+      color: this.colorToHex(this.isCurrentStreakRecord ? ARCADE.warning : ARCADE.ink),
       fontStyle: 'bold',
     }).setOrigin(0.5)
+
+    this.streakMultText = this.makeText(
+      x + width / 2,
+      y + 170,
+      `x${this.getMultiplier(this.currentStreak)}`,
+      {
+        fontFamily: FONT_FAMILY,
+        fontSize: '13px',
+        color: this.colorToHex(ARCADE.primary),
+        fontStyle: 'bold',
+      }
+    ).setOrigin(0.5)
   }
 
   renderSoundToggle() {
@@ -2151,7 +2297,7 @@ class GameScene extends Phaser.Scene {
     const width = SOUND_BTN_W
     const height = SOUND_BTN_H
     const x = SCORE_X
-    const y = SCORE_PANEL_Y + SCORE_ITEM_STRIDE
+    const y = SCORE_PANEL_Y + SCORE_ITEM_STRIDE * 2
 
     const button = this.createRoundedBox(x, y, width, height, COLORS.soundBackground, {
       radius: RADIUS.button,
@@ -2214,6 +2360,246 @@ class GameScene extends Phaser.Scene {
     })
   }
 
+  isExplanationAnswerState() {
+    return ['answeredCorrect', 'answeredWrong'].includes(this.answerState)
+  }
+
+  renderExplanationToggle() {
+    if (this.currentMode !== 'random') return
+
+    if (this.isArcadeUi()) {
+      this.renderArcadeExplanationToggle()
+      return
+    }
+
+    const x = SCORE_X
+    const y = SCORE_PANEL_Y + SCORE_ITEM_STRIDE * 2 + SOUND_BTN_H + 12
+    const hitWidth = 154
+    const hit = this.add.graphics({ x, y })
+    hit.fillStyle(0xffffff, 0.001)
+    hit.fillRect(0, 0, hitWidth, HELP_TOGGLE_H)
+    this.makeInteractiveBox(hit, hitWidth, HELP_TOGGLE_H)
+    this.setCursorPointer(hit)
+
+    const label = this.makeText(x, y + HELP_TOGGLE_H / 2, 'Справка', {
+      fontFamily: FONT_FAMILY,
+      fontSize: FONT_SIZE_SM,
+      color: this.colorToHex(COLORS.text),
+      fontStyle: 'bold',
+    }).setOrigin(0, 0.5)
+    const boxX = x + Math.ceil(label.width) + HELP_LABEL_GAP
+    const box = this.add.graphics({
+      x: boxX,
+      y: y + Math.round((HELP_TOGGLE_H - HELP_CHECKBOX_SIZE) / 2),
+    })
+
+    const draw = (active, hover = false) => {
+      box.clear()
+      box.fillStyle(active ? COLORS.answer : COLORS.surface, 1)
+      box.fillRoundedRect(0, 0, HELP_CHECKBOX_SIZE, HELP_CHECKBOX_SIZE, 5)
+      box.lineStyle(2, hover || active ? COLORS.border : COLORS.borderSoft, 1)
+      box.strokeRoundedRect(1, 1, HELP_CHECKBOX_SIZE - 2, HELP_CHECKBOX_SIZE - 2, 4)
+      if (active) {
+        this.drawCheckboxCheck(box, COLORS.text)
+      }
+    }
+    draw(this.explanationModeEnabled)
+
+    hit.on('pointerover', () => draw(this.explanationModeEnabled, true))
+    hit.on('pointerout', () => draw(this.explanationModeEnabled, false))
+    hit.on('pointerdown', () => {
+      this.toggleExplanationMode()
+      draw(this.explanationModeEnabled, false)
+    })
+  }
+
+  renderArcadeExplanationToggle() {
+    const x = ARCADE_SCOREBOARD.x
+    const y = ARCADE_SCOREBOARD.y + ARCADE_SCOREBOARD.height + 16 + 48 + 12
+    const hitWidth = ARCADE_SCOREBOARD.width
+    const hit = this.add.graphics({ x, y })
+    hit.fillStyle(0xffffff, 0.001)
+    hit.fillRect(0, 0, hitWidth, HELP_TOGGLE_H)
+    this.makeInteractiveBox(hit, hitWidth, HELP_TOGGLE_H)
+    this.setCursorPointer(hit)
+
+    const label = this.makeText(x, y + HELP_TOGGLE_H / 2 - 1, 'Справка', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '13px',
+      color: '#ffffff',
+      fontStyle: 'bold',
+    }).setOrigin(0, 0.5)
+    const boxX = x + Math.ceil(label.width) + HELP_LABEL_GAP
+    const box = this.add.graphics({
+      x: boxX,
+      y: y + Math.round((HELP_TOGGLE_H - HELP_CHECKBOX_SIZE) / 2),
+    })
+
+    const draw = (active, hover = false) => {
+      box.clear()
+      box.fillStyle(active ? ARCADE.primary : ARCADE.surfaceStrong, 1)
+      box.fillRoundedRect(0, 0, HELP_CHECKBOX_SIZE, HELP_CHECKBOX_SIZE, 5)
+      box.lineStyle(2, hover || active ? ARCADE.primary2 : ARCADE.outline, 1)
+      box.strokeRoundedRect(1, 1, HELP_CHECKBOX_SIZE - 2, HELP_CHECKBOX_SIZE - 2, 4)
+      if (active) {
+        this.drawCheckboxCheck(box, 0xffffff)
+      }
+    }
+    draw(this.explanationModeEnabled)
+
+    hit.on('pointerover', () => draw(this.explanationModeEnabled, true))
+    hit.on('pointerout', () => draw(this.explanationModeEnabled, false))
+    hit.on('pointerdown', () => {
+      this.toggleExplanationMode()
+      draw(this.explanationModeEnabled, false)
+    })
+  }
+
+  toggleExplanationMode() {
+    if (this.currentMode !== 'random') return
+
+    this.explanationModeEnabled = !this.explanationModeEnabled
+    this.logEvent('explanations_toggled', { enabled: this.explanationModeEnabled })
+
+    if (this.explanationModeEnabled) {
+      this.clearNextQuestionTimer()
+      this.renderExplanationArea(this.isExplanationAnswerState())
+      return
+    }
+
+    this.destroyExplanationArea()
+    if (this.isExplanationAnswerState()) {
+      this.scheduleRandomAdvance(NEXT_QUESTION_DELAY_MS)
+    }
+  }
+
+  destroyExplanationArea() {
+    this.explanationItems.forEach((item) => {
+      if (item?.input) {
+        item.disableInteractive(true)
+        item.removeInteractive(true)
+      }
+      item?.destroy?.()
+    })
+    this.explanationItems = []
+  }
+
+  renderExplanationArea(showExplanation) {
+    if (this.currentMode !== 'random' || !this.explanationModeEnabled) return
+
+    this.destroyExplanationArea()
+
+    const isArcade = this.isArcadeUi()
+    const x = isArcade ? ARCADE_CARD.x : CARD_X
+    const width = isArcade ? ARCADE_CARD.width : CARD_WIDTH
+    const gap = isArcade ? ARCADE_EXPLANATION_GAP : EXPLANATION_GAP
+    const minHeight = isArcade ? ARCADE_EXPLANATION_MIN_H : EXPLANATION_MIN_H
+    const y = this._cardBottomY + gap
+    const radius = isArcade ? 18 : RADIUS.panel
+    const fill = isArcade ? ARCADE.surfaceTint : COLORS.surfaceBlue
+    const stroke = isArcade ? ARCADE.outline : COLORS.borderSoft
+    const padX = isArcade ? ARCADE_EXPLANATION_PAD_X : EXPLANATION_PAD_X
+    const padY = isArcade ? ARCADE_EXPLANATION_PAD_Y : EXPLANATION_PAD_Y
+    const hasNextButton = showExplanation
+    const nextButtonWidth = isArcade ? ARCADE_NEXT_BUTTON_W : NEXT_BUTTON_W
+    const textRightPad = hasNextButton ? nextButtonWidth + 38 : 0
+    const explanation = this.currentQuestion?.explanation?.trim() || 'Справка не добавлена.'
+    const bodyText = showExplanation ? explanation : 'Справка появится после ответа'
+    const bodyWidth = width - padX * 2 - textRightPad
+    const bodyStyle = {
+      fontFamily: FONT_FAMILY,
+      fontSize: isArcade ? '13px' : FONT_SIZE_SM,
+      color: this.colorToHex(
+        showExplanation ? (isArcade ? ARCADE.ink : COLORS.textMuted) : COLORS.textSoft
+      ),
+      lineSpacing: 2,
+      wordWrap: { width: bodyWidth },
+    }
+    const probe = this.makeText(0, 0, bodyText, bodyStyle)
+    const desiredHeight = Math.ceil(probe.height) + padY * 2 + 6
+    probe.destroy()
+    const height = Math.max(minHeight, desiredHeight)
+
+    const panel = this.createRoundedBox(x, y, width, height, fill, {
+      radius,
+      alpha: isArcade ? 0.96 : 1,
+      strokeColor: stroke,
+      strokeWidth: 2,
+    })
+    this.explanationItems.push(panel)
+
+    const body = this.makeText(x + padX, y + height / 2, bodyText, bodyStyle).setOrigin(0, 0.5)
+    this.explanationItems.push(body)
+
+    if (hasNextButton) {
+      this.renderNextQuestionButton(
+        x + width - nextButtonWidth - 16,
+        y + height / 2,
+        nextButtonWidth
+      )
+    }
+  }
+
+  renderNextQuestionButton(x, centerY, width) {
+    const isArcade = this.isArcadeUi()
+    const height = isArcade ? ARCADE_NEXT_BUTTON_H : NEXT_BUTTON_H
+    const visualHeight = height + (isArcade ? ARCADE_BUTTON_BOTTOM_OFFSET : 0)
+    const y = centerY - visualHeight / 2
+    const button = isArcade
+      ? this.add.graphics({ x, y })
+      : this.createRoundedBox(x, y, width, height, COLORS.answer, {
+          radius: RADIUS.button,
+          strokeColor: COLORS.border,
+          strokeWidth: 2,
+        })
+
+    if (isArcade) {
+      this.drawArcadeButtonSurface(button, width, height, 'next')
+      this.drawNextArrowIcon(button, width, height, 'next')
+    }
+    this.makeInteractiveBox(button, width, visualHeight)
+    this.setCursorPointer(button)
+
+    const label = isArcade
+      ? null
+      : this.makeText(x + width / 2, y + height / 2, 'Следующий', {
+          fontFamily: FONT_FAMILY,
+          fontSize: FONT_SIZE_SM,
+          color: this.colorToHex(COLORS.text),
+          fontStyle: 'bold',
+        }).setOrigin(0.5)
+
+    const drawClassic = (hover = false) => {
+      this.drawRoundedBox(button, width, height, hover ? COLORS.answerHover : COLORS.answer, {
+        radius: RADIUS.button,
+        strokeColor: COLORS.border,
+        strokeWidth: 2,
+      })
+    }
+
+    button.on('pointerover', () => {
+      if (isArcade) {
+        this.drawArcadeButtonSurface(button, width, height, 'nextHover')
+        this.drawNextArrowIcon(button, width, height, 'nextHover')
+      } else drawClassic(true)
+    })
+    button.on('pointerout', () => {
+      if (isArcade) {
+        this.drawArcadeButtonSurface(button, width, height, 'next')
+        this.drawNextArrowIcon(button, width, height, 'next')
+      } else drawClassic(false)
+    })
+    button.on('pointerdown', () => {
+      if (isArcade) {
+        this.tweens.add({ targets: [button], y: '+=2', duration: 80, yoyo: true })
+      }
+      this.clearNextQuestionTimer()
+      this.advanceRandomAfterAnswer()
+    })
+
+    this.explanationItems.push(...(label ? [button, label] : [button]))
+  }
+
   // Оверлей рейтинга. Гостю (не авторизован) показываем кнопку входа с объяснением
   // выгоды — логин только по осознанному действию (требование 1.2.1).
   async openLeaderboard() {
@@ -2244,7 +2630,7 @@ class GameScene extends Phaser.Scene {
       }).setDepth(101)
     )
     items.push(
-      this.makeText(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 188, 'Рейтинг — лучшая серия', {
+      this.makeText(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 188, 'Рейтинг — очки', {
         fontFamily: FONT_FAMILY,
         fontSize: '30px',
         color: this.colorToHex(COLORS.text),
@@ -2307,7 +2693,7 @@ class GameScene extends Phaser.Scene {
     this.drawArcadeOverlayPanel(items, panelX, panelY, panelW, panelH, 32)
 
     items.push(
-      this.makeText(GAME_WIDTH / 2, panelY + 70, 'Рейтинг — лучшая серия', {
+      this.makeText(GAME_WIDTH / 2, panelY + 70, 'Рейтинг — очки', {
         fontFamily: FONT_FAMILY,
         fontSize: '34px',
         color: this.colorToHex(ARCADE.ink),
@@ -3007,7 +3393,7 @@ class GameScene extends Phaser.Scene {
       ).setOrigin(0.5)
 
       const answerFontSize = answer.length > 34 ? '14px' : '16px'
-      const label = this.makeText(x + 62, y + ARCADE_ANSWER_H / 2 - 3, answer, {
+      const label = this.makeText(x + 62, y + ARCADE_ANSWER_H / 2, answer, {
         fontFamily: FONT_FAMILY,
         fontSize: answerFontSize,
         color: this.colorToHex(ARCADE.ink),
@@ -3063,7 +3449,8 @@ class GameScene extends Phaser.Scene {
 
     this.answerState = isCorrect ? 'answeredCorrect' : 'answeredWrong'
 
-    const { gained, mult } = this.updateSessionStats(isCorrect)
+    const answerTimeMs = Math.max(0, performance.now() - this.questionShownAt)
+    const { gained, mult, speedBonus } = this.updateSessionStats(isCorrect, answerTimeMs)
     this.highlightAnswers(selectedAnswerIndex, correctAnswerIndex, isCorrect)
     this.refreshScorePanel(isCorrect, gained, mult)
 
@@ -3084,6 +3471,8 @@ class GameScene extends Phaser.Scene {
       score: this.score,
       gainedPoints: gained,
       multiplier: mult,
+      speedBonus,
+      answerTimeMs: Math.round(answerTimeMs),
       sessionAccuracy: this.accuracy,
       currentStreak: this.currentStreak,
       maxStreak: this.maxStreak,
@@ -3100,56 +3489,84 @@ class GameScene extends Phaser.Scene {
       return
     }
 
-    this.time.delayedCall(NEXT_QUESTION_DELAY_MS, () => {
-      if (this.shouldShowAd()) {
-        this.showAd()
-      } else {
-        this.goToNextQuestion()
-      }
-    })
+    if (this.explanationModeEnabled) {
+      this.renderExplanationArea(true)
+      return
+    }
+
+    this.scheduleRandomAdvance()
   }
 
-  updateSessionStats(isCorrect) {
+  updateSessionStats(isCorrect, answerTimeMs = 0) {
     this.answeredCount += 1
     this.questionsSinceAd += 1
 
-    // Множитель берём по серии ДО инкремента — то, что показано в панели,
-    // и есть выплата за этот верный ответ.
-    const mult = this.getMultiplier(this.currentStreak)
+    let mult = this.getMultiplier(this.currentStreak)
     let gained = 0
+    let speedBonus = 0
 
     const prevMaxStreak = this.maxStreak
+    const prevBestScore = this.bestScore
 
     if (isCorrect) {
       this.correctCount += 1
-      gained = 100 * mult
-      this.score += gained
-      this.currentStreak += 1
-      this.maxStreak = Math.max(this.maxStreak, this.currentStreak)
+      if (this.currentMode === 'random') {
+        this.currentStreak += 1
+        const points = calculateRandomAnswerPoints(answerTimeMs, this.currentStreak)
+        gained = points.gained
+        mult = points.multiplier
+        speedBonus = points.speedBonus
+        this.score += gained
+        this.maxStreak = Math.max(this.maxStreak, this.currentStreak)
+        this.isCurrentStreakRecord = this.currentStreak > prevMaxStreak
+      }
     } else {
       this.wrongCount += 1
-      this.currentStreak = 0
+      if (this.currentMode === 'random') {
+        this.currentStreak = 0
+        this.isCurrentStreakRecord = false
+      }
     }
 
     this.accuracy = Math.round((this.correctCount / this.answeredCount) * 100)
 
     // Сохраняем только при реальном улучшении — щадим лимиты setStats (60/мин).
-    if (this.maxStreak > prevMaxStreak || this.score > this.bestScore) {
+    if (this.maxStreak > prevMaxStreak || this.score > prevBestScore) {
       this.persistRecord()
     }
 
-    return { gained, mult }
+    return { gained, mult, speedBonus }
   }
 
-  refreshScorePanel(_isCorrect, _gained, _mult) {
-    if (this.recordText) {
-      this.recordText.setText(`${this.maxStreak}`)
+  refreshScorePanel(isCorrect, gained, mult) {
+    if (this.scoreText) {
+      this.scoreText.setText(this.formatScore(this.score))
     }
+    if (this.recordText) {
+      this.recordText.setText(this.formatStreakDisplay())
+      this.recordText.setColor(
+        this.colorToHex(
+          this.isCurrentStreakRecord
+            ? this.isArcadeUi()
+              ? ARCADE.warning
+              : COLORS.accentYellow
+            : this.isArcadeUi()
+              ? ARCADE.ink
+              : COLORS.text
+        )
+      )
+    }
+    if (this.streakMultText) {
+      this.streakMultText.setText(
+        `x${this.formatMultiplier(this.getMultiplier(this.currentStreak))}`
+      )
+    }
+    if (isCorrect && gained > 0 && this.scoreText) this.spawnScorePopup(gained, mult)
   }
 
   // Плавающий «+200 ×2» справа от счёта — показывает, сколько и почему начислено
   spawnScorePopup(gained, mult) {
-    const label = mult > 1 ? `+${gained} ×${mult}` : `+${gained}`
+    const label = mult > 1 ? `+${gained} x${this.formatMultiplier(mult)}` : `+${gained}`
     const startX = this.scoreText.x + this.scoreText.width + 12
     const startY = this.scoreText.y + 8
 
