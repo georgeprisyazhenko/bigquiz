@@ -229,6 +229,17 @@ const ARCADE_SCOREBOARD = {
   width: 166,
   height: 184,
 }
+const ARCADE_SCORE_HELP_SIZE = 18
+const ARCADE_SCORE_HELP_TEXT = [
+  'Правильный ответ +100',
+  'Бонус за время:',
+  '  до 5 сек +50',
+  '  до 10 сек +30',
+  'Серия ответов:',
+  '  5 подряд x1.25',
+  '  10 подряд x1.5',
+  '  15 подряд x2',
+].join('\n')
 
 const ARCADE_QUESTION_Y = 186
 const ARCADE_CATEGORIES_Y = 147
@@ -299,6 +310,7 @@ class GameScene extends Phaser.Scene {
     this.score = 0
     this.currentMode = 'random'
     this.questionShownAt = 0
+    this.scoreHelpItems = []
 
     // Блиц: жизненный цикл забега ('idle' вне режима | 'intro' | 'countdown' |
     // 'running' | 'result') и его собственные счётчики, отдельные от сессионных.
@@ -320,6 +332,7 @@ class GameScene extends Phaser.Scene {
     this.blitzCounterText = null
     this.blitzCountdownText = null
     this.blitzResultOverlay = null
+    this.scoreHelpItems = []
     this.explanationItems = []
     this._blitzBarWidth = null
     this._blitzBarHeight = null
@@ -2185,7 +2198,7 @@ class GameScene extends Phaser.Scene {
     this.scoreText = this.renderStat(
       x,
       SCORE_PANEL_Y,
-      'ОЧКИ',
+      'БАЛЛЫ',
       this.formatScore(this.score),
       COLORS.text
     )
@@ -2202,13 +2215,17 @@ class GameScene extends Phaser.Scene {
     const { x, y, width, height } = ARCADE_SCOREBOARD
     this.drawArcadePanel(x, y, width, height, 24)
 
-    this.makeText(x + width / 2, y + 26, 'ОЧКИ', {
+    const scoreCaptionY = y + 26
+    this.makeText(x + width / 2, scoreCaptionY, 'БАЛЛЫ', {
       fontFamily: FONT_FAMILY,
       fontSize: '13px',
       color: this.colorToHex(ARCADE.muted),
       fontStyle: 'bold',
       letterSpacing: 1,
     }).setOrigin(0.5)
+    if (this.currentMode === 'random') {
+      this.renderArcadeScoreHelpButton(x + width / 2 + 39, scoreCaptionY)
+    }
 
     this.scoreText = this.makeText(x + width / 2, y + 62, this.formatScore(this.score), {
       fontFamily: FONT_FAMILY,
@@ -2243,6 +2260,85 @@ class GameScene extends Phaser.Scene {
         fontStyle: 'bold',
       }
     ).setOrigin(0.5)
+  }
+
+  renderArcadeScoreHelpButton(centerX, centerY) {
+    const size = ARCADE_SCORE_HELP_SIZE
+    const x = centerX - size / 2
+    const y = centerY - size / 2
+    const button = this.createRoundedBox(x, y, size, size, ARCADE.surfaceTint, {
+      radius: size / 2,
+      strokeColor: ARCADE.outline,
+      strokeWidth: 2,
+    })
+    const label = this.makeText(centerX, centerY, '?', {
+      fontFamily: FONT_FAMILY,
+      fontSize: '12px',
+      color: this.colorToHex(ARCADE.primary),
+      fontStyle: 'bold',
+    }).setOrigin(0.5)
+
+    const draw = (hover = false) => {
+      this.drawRoundedBox(button, size, size, hover ? ARCADE.primary : ARCADE.surfaceTint, {
+        radius: size / 2,
+        strokeColor: hover ? ARCADE.primary : ARCADE.outline,
+        strokeWidth: 2,
+      })
+      label.setColor(this.colorToHex(hover ? ARCADE.surfaceStrong : ARCADE.primary))
+    }
+
+    this.makeInteractiveBox(button, size, size)
+    this.setCursorPointer(button)
+    button.on('pointerover', () => {
+      draw(true)
+      this.renderArcadeScoreHelpOverlay()
+    })
+    button.on('pointerout', () => {
+      draw(false)
+      this.destroyScoreHelpOverlay()
+    })
+  }
+
+  destroyScoreHelpOverlay() {
+    this.scoreHelpItems.forEach((item) => item?.destroy?.())
+    this.scoreHelpItems = []
+  }
+
+  renderArcadeScoreHelpOverlay() {
+    this.destroyScoreHelpOverlay()
+
+    const { x, y, width, height } = ARCADE_SCOREBOARD
+    const overlayX = x
+    const overlayY = y + 42
+    const overlayW = width
+    const overlayH = height - (overlayY - y)
+    const bodyPadX = 8
+    const bodyPadY = 6
+    const panel = this.createRoundedBox(
+      overlayX,
+      overlayY,
+      overlayW,
+      overlayH,
+      ARCADE.surfaceStrong,
+      {
+        radius: 14,
+        alpha: 0.98,
+        strokeColor: ARCADE.outline,
+        strokeWidth: 2,
+      }
+    ).setDepth(40)
+    const body = this.makeText(overlayX + bodyPadX, overlayY + bodyPadY, ARCADE_SCORE_HELP_TEXT, {
+      fontFamily: FONT_FAMILY,
+      fontSize: '13px',
+      color: this.colorToHex(ARCADE.ink),
+      lineSpacing: 1,
+      wordWrap: { width: overlayW - bodyPadX * 2 },
+    })
+      .setOrigin(0)
+      .setDepth(41)
+    body.setFixedSize(overlayW - bodyPadX * 2, overlayH - bodyPadY * 2)
+
+    this.scoreHelpItems.push(panel, body)
   }
 
   renderSoundToggle() {
@@ -2642,7 +2738,7 @@ class GameScene extends Phaser.Scene {
       }).setDepth(101)
     )
     items.push(
-      this.makeText(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 188, 'Рейтинг — очки', {
+      this.makeText(GAME_WIDTH / 2, GAME_HEIGHT / 2 - 188, 'Рейтинг — баллы', {
         fontFamily: FONT_FAMILY,
         fontSize: '30px',
         color: this.colorToHex(COLORS.text),
@@ -2705,7 +2801,7 @@ class GameScene extends Phaser.Scene {
     this.drawArcadeOverlayPanel(items, panelX, panelY, panelW, panelH, 32)
 
     items.push(
-      this.makeText(GAME_WIDTH / 2, panelY + 70, 'Рейтинг — очки', {
+      this.makeText(GAME_WIDTH / 2, panelY + 70, 'Рейтинг — баллы', {
         fontFamily: FONT_FAMILY,
         fontSize: '34px',
         color: this.colorToHex(ARCADE.ink),

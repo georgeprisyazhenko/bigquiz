@@ -10,7 +10,6 @@ export function getRandomStreakMultiplier(streak) {
   if (streak >= 15) return 2
   if (streak >= 10) return 1.5
   if (streak >= 5) return 1.25
-  if (streak >= 3) return 1.1
   return 1
 }
 
