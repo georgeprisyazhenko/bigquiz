@@ -3455,7 +3455,7 @@ class GameScene extends Phaser.Scene {
     const answerTimeMs = Math.max(0, performance.now() - this.questionShownAt)
     const { gained, mult, speedBonus } = this.updateSessionStats(isCorrect, answerTimeMs)
     this.highlightAnswers(selectedAnswerIndex, correctAnswerIndex, isCorrect)
-    this.refreshScorePanel(isCorrect, gained, mult)
+    this.refreshScorePanel(isCorrect, gained, mult, selectedAnswerIndex)
 
     const isBlitzRun = this.currentMode === 'blitz' && this.blitzPhase === 'running'
     if (isBlitzRun) {
@@ -3541,7 +3541,7 @@ class GameScene extends Phaser.Scene {
     return { gained, mult, speedBonus }
   }
 
-  refreshScorePanel(isCorrect, gained, mult) {
+  refreshScorePanel(isCorrect, gained, mult, selectedAnswerIndex = null) {
     if (this.scoreText) {
       this.scoreText.setText(this.formatScore(this.score))
     }
@@ -3564,27 +3564,41 @@ class GameScene extends Phaser.Scene {
         `x${this.formatMultiplier(this.getMultiplier(this.currentStreak))}`
       )
     }
-    if (isCorrect && gained > 0 && this.scoreText) this.spawnScorePopup(gained, mult)
+    if (isCorrect && gained > 0) this.spawnScorePopup(gained, selectedAnswerIndex)
   }
 
-  // Плавающий «+200 ×2» справа от счёта — показывает, сколько и почему начислено
-  spawnScorePopup(gained, mult) {
-    const label = mult > 1 ? `+${gained} x${this.formatMultiplier(mult)}` : `+${gained}`
-    const startX = this.scoreText.x + this.scoreText.width + 12
-    const startY = this.scoreText.y + 8
+  // Плавающий «+200» над выбранным ответом — награда появляется в фокусе клика.
+  spawnScorePopup(gained, selectedAnswerIndex = null) {
+    const answerButton = this.answerButtons.find(({ index }) => index === selectedAnswerIndex)
+    if (!answerButton) return
+
+    const label = `+${gained}`
+    const startX = answerButton.button.x + answerButton.width / 2
+    const startY = answerButton.button.y - 6
 
     const popup = this.makeText(startX, startY, label, {
       fontFamily: FONT_FAMILY,
       fontSize: '22px',
       color: this.colorToHex(COLORS.correct),
       fontStyle: 'bold',
-    }).setDepth(50)
+      stroke: '#ffffff',
+      strokeThickness: 3,
+    })
+      .setOrigin(0.5, 1)
+      .setDepth(50)
+
+    const clampedX = Phaser.Math.Clamp(
+      startX,
+      answerButton.button.x + popup.width / 2 + 8,
+      answerButton.button.x + answerButton.width - popup.width / 2 - 8
+    )
+    popup.setX(clampedX)
 
     this.tweens.add({
       targets: popup,
-      y: startY - 34,
+      y: startY - 14,
       alpha: { from: 1, to: 0 },
-      duration: 900,
+      duration: 1250,
       ease: 'Quad.out',
       onComplete: () => popup.destroy(),
     })
