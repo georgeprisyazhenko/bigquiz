@@ -233,7 +233,7 @@ const ARCADE_SCOREBOARD = {
 const ARCADE_QUESTION_Y = 186
 const ARCADE_CATEGORIES_Y = 147
 const ARCADE_CATEGORY_H = 25
-const ARCADE_QUESTION_ANSWER_GAP = 42
+const ARCADE_QUESTION_ANSWER_GAP = 38
 const ARCADE_CARD_BOTTOM_PAD = 27
 const ARCADE_ANSWER_W = 266
 const ARCADE_ANSWER_H = 62
@@ -251,6 +251,7 @@ const ARCADE_EXPLANATION_GAP = 17
 const ARCADE_EXPLANATION_MIN_H = 62
 const ARCADE_EXPLANATION_PAD_X = 22
 const ARCADE_EXPLANATION_PAD_Y = 14
+const ARCADE_EXPLANATION_BOTTOM_SAFE = 32
 const ARCADE_BUTTON_BOTTOM_OFFSET = 4
 const ARCADE_NEXT_BUTTON_W = 77
 const ARCADE_NEXT_BUTTON_H = 38
@@ -259,6 +260,7 @@ const EXPLANATION_GAP = 17
 const EXPLANATION_MIN_H = 68
 const EXPLANATION_PAD_X = 22
 const EXPLANATION_PAD_Y = 18
+const EXPLANATION_BOTTOM_SAFE = 32
 const NEXT_BUTTON_W = 154
 const NEXT_BUTTON_H = 38
 const HELP_CHECKBOX_SIZE = 18
@@ -2498,7 +2500,10 @@ class GameScene extends Phaser.Scene {
     const width = isArcade ? ARCADE_CARD.width : CARD_WIDTH
     const gap = isArcade ? ARCADE_EXPLANATION_GAP : EXPLANATION_GAP
     const minHeight = isArcade ? ARCADE_EXPLANATION_MIN_H : EXPLANATION_MIN_H
-    const y = this._cardBottomY + gap
+    const bottomSafe = isArcade ? ARCADE_EXPLANATION_BOTTOM_SAFE : EXPLANATION_BOTTOM_SAFE
+    const preferredY = this._cardBottomY + gap
+    const maxBottomY = GAME_HEIGHT - bottomSafe
+    const y = Math.min(preferredY, maxBottomY - minHeight)
     const radius = isArcade ? 18 : RADIUS.panel
     const fill = isArcade ? ARCADE.surfaceTint : COLORS.surfaceBlue
     const stroke = isArcade ? ARCADE.outline : COLORS.borderSoft
@@ -2522,7 +2527,9 @@ class GameScene extends Phaser.Scene {
     const probe = this.makeText(0, 0, bodyText, bodyStyle)
     const desiredHeight = Math.ceil(probe.height) + padY * 2 + 6
     probe.destroy()
-    const height = Math.max(minHeight, desiredHeight)
+    const maxHeight = Math.max(minHeight, maxBottomY - y)
+    const height = Math.min(Math.max(minHeight, desiredHeight), maxHeight)
+    const bodyHeight = Math.max(1, height - padY * 2)
 
     const panel = this.createRoundedBox(x, y, width, height, fill, {
       radius,
@@ -2533,6 +2540,7 @@ class GameScene extends Phaser.Scene {
     this.explanationItems.push(panel)
 
     const body = this.makeText(x + padX, y + height / 2, bodyText, bodyStyle).setOrigin(0, 0.5)
+    body.setFixedSize(bodyWidth, bodyHeight)
     this.explanationItems.push(body)
 
     if (hasNextButton) {
@@ -3013,11 +3021,11 @@ class GameScene extends Phaser.Scene {
   measureArcadeQuestionHeight(questionText, yOffset = 0) {
     const textObj = this.makeText(ARCADE_CARD.contentX, ARCADE_QUESTION_Y + yOffset, questionText, {
       fontFamily: FONT_FAMILY,
-      fontSize: '24px',
+      fontSize: '22px',
       color: this.colorToHex(ARCADE.ink),
       fontStyle: 'bold',
       wordWrap: { width: ARCADE_CARD.contentWidth },
-      lineSpacing: 4,
+      lineSpacing: 2,
       fixedWidth: ARCADE_CARD.contentWidth,
     })
 
@@ -3033,11 +3041,11 @@ class GameScene extends Phaser.Scene {
 
     const textObj = this.makeText(x, y, questionText, {
       fontFamily: FONT_FAMILY,
-      fontSize: '24px',
+      fontSize: '22px',
       color: this.colorToHex(ARCADE.ink),
       fontStyle: 'bold',
       wordWrap: { width },
-      lineSpacing: 4,
+      lineSpacing: 2,
       fixedWidth: width,
     })
 

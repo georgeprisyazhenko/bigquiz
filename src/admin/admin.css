@@ -320,7 +320,7 @@ body {
   max-width: 100%;
 }
 /* Размеры/типографика повторяют текущий arcade UI: content 552px, чип 12px h≈25,
-   вопрос 24px, ответ 17px, сетка 266×62 gap 20×14, радиус 16. */
+   вопрос 22px, ответ 17px, сетка 266×62 gap 20×14, радиус 16. */
 .game-cats {
   display: flex;
   flex-wrap: wrap;
@@ -337,10 +337,10 @@ body {
   line-height: 16px;
 }
 .game-question {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  line-height: 1.35;
-  margin-bottom: 42px;
+  line-height: 24px;
+  margin-bottom: 38px;
 }
 .game-image {
   width: 333px;

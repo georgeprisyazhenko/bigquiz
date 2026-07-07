@@ -23,7 +23,18 @@ test('guest leaderboard overlay opens', async ({ page }, testInfo) => {
   await expect(canvas).toBeVisible()
   await expect.poll(() => events.includes('game_loaded'), { timeout: 10000 }).toBe(true)
 
-  await canvas.click({ position: { x: 978, y: 330 } })
+  const leaderboardCenter = await page.evaluate(() => {
+    const button = [...window.__scene.interactiveObjects].find((item) => {
+      const hitArea = item.input?.hitArea
+      return hitArea && item.x > 850 && item.y >= 300 && item.y < 380 && hitArea.width >= 120
+    })
+    const hitArea = button.input.hitArea
+    return {
+      x: button.x + hitArea.width / 2,
+      y: button.y + hitArea.height / 2,
+    }
+  })
+  await canvas.click({ position: leaderboardCenter })
   await expect.poll(() => events.includes('leaderboard_opened'), { timeout: 3000 }).toBe(true)
 
   const screenshot = await page.screenshot({

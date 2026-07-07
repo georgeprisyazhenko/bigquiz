@@ -52,8 +52,9 @@ describe('превью админки = отображение игры (рег�
     expect(grid).toMatch(/grid-template-columns:\s*624px minmax\(0, 1fr\)/)
     expect(card).toMatch(/width:\s*624px/)
     expect(card).toMatch(/padding:\s*35px/)
-    expect(question).toMatch(/font-size:\s*24px/)
-    expect(question).toMatch(/margin-bottom:\s*42px/)
+    expect(question).toMatch(/font-size:\s*22px/)
+    expect(question).toMatch(/line-height:\s*24px/)
+    expect(question).toMatch(/margin-bottom:\s*38px/)
     expect(gamePreviewBody).not.toMatch(/gameImage\(/)
   })
 
