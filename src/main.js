@@ -230,11 +230,11 @@ const ARCADE_SCOREBOARD = {
   height: 184,
 }
 
-const ARCADE_QUESTION_Y = 191
-const ARCADE_CATEGORIES_Y = 152
+const ARCADE_QUESTION_Y = 186
+const ARCADE_CATEGORIES_Y = 147
 const ARCADE_CATEGORY_H = 25
-const ARCADE_QUESTION_ANSWER_GAP = 32
-const ARCADE_CARD_BOTTOM_PAD = 32
+const ARCADE_QUESTION_ANSWER_GAP = 42
+const ARCADE_CARD_BOTTOM_PAD = 27
 const ARCADE_ANSWER_W = 266
 const ARCADE_ANSWER_H = 62
 const ARCADE_ANSWER_GAP_X = 20
@@ -243,13 +243,14 @@ const ARCADE_ANSWERS_BLOCK_H = ARCADE_ANSWER_H * 2 + ARCADE_ANSWER_GAP_Y
 const ARCADE_QUESTION_MAX_HEIGHT = 168
 const ARCADE_BLITZ_INTRO_SHIFT_Y = -28
 const ARCADE_BLITZ_COUNTDOWN_SHIFT_Y = -42
-const ARCADE_WRONG_SHAKE_X = 3
-const ARCADE_WRONG_SHAKE_DURATION_MS = 48
-const ARCADE_WRONG_SHAKE_REPEAT = 2
+const ARCADE_FEEDBACK_DURATION_MS = 110
+const ARCADE_CORRECT_PULSE_SCALE = 1.025
+const ARCADE_WRONG_SHAKE_X = 2
+const ARCADE_WRONG_SHAKE_REPEAT = 0
 const ARCADE_EXPLANATION_GAP = 17
-const ARCADE_EXPLANATION_MIN_H = 68
+const ARCADE_EXPLANATION_MIN_H = 62
 const ARCADE_EXPLANATION_PAD_X = 22
-const ARCADE_EXPLANATION_PAD_Y = 18
+const ARCADE_EXPLANATION_PAD_Y = 14
 const ARCADE_BUTTON_BOTTOM_OFFSET = 4
 const ARCADE_NEXT_BUTTON_W = 77
 const ARCADE_NEXT_BUTTON_H = 38
@@ -3401,6 +3402,8 @@ class GameScene extends Phaser.Scene {
         fontSize: answerFontSize,
         color: this.colorToHex(ARCADE.ink),
         fontStyle: 'bold',
+        lineSpacing: 1,
+        maxLines: 2,
         wordWrap: { width: ARCADE_ANSWER_W - 78 },
         fixedWidth: ARCADE_ANSWER_W - 78,
       }).setOrigin(0, 0.5)
@@ -3418,13 +3421,9 @@ class GameScene extends Phaser.Scene {
       button.on('pointerdown', () => {
         if (this.answerState !== 'idle') return
         setState('selected')
-        this.tweens.add({
-          targets: [button, badge, badgeText, label],
-          y: '+=3',
-          duration: 90,
-          yoyo: true,
-          ease: 'Sine.out',
-        })
+        if (index === this.currentCorrectAnswerIndex) {
+          this.playArcadeAnswerPress([button, badge, badgeText, label])
+        }
         this.handleAnswerClick(index)
       })
 
@@ -3567,13 +3566,13 @@ class GameScene extends Phaser.Scene {
     if (isCorrect && gained > 0) this.spawnScorePopup(gained, selectedAnswerIndex)
   }
 
-  // Плавающий «+200» над выбранным ответом — награда появляется в фокусе клика.
+  // Плавающий «+200» у правого края выбранного ответа — награда появляется в фокусе клика.
   spawnScorePopup(gained, selectedAnswerIndex = null) {
     const answerButton = this.answerButtons.find(({ index }) => index === selectedAnswerIndex)
     if (!answerButton) return
 
     const label = `+${gained}`
-    const startX = answerButton.button.x + answerButton.width / 2
+    const startX = answerButton.button.x + answerButton.width - 18
     const startY = answerButton.button.y - 6
 
     const popup = this.makeText(startX, startY, label, {
@@ -3584,23 +3583,58 @@ class GameScene extends Phaser.Scene {
       stroke: '#ffffff',
       strokeThickness: 3,
     })
-      .setOrigin(0.5, 1)
+      .setOrigin(1, 1)
       .setDepth(50)
 
     const clampedX = Phaser.Math.Clamp(
       startX,
-      answerButton.button.x + popup.width / 2 + 8,
-      answerButton.button.x + answerButton.width - popup.width / 2 - 8
+      answerButton.button.x + popup.width + 8,
+      answerButton.button.x + answerButton.width - 8
     )
     popup.setX(clampedX)
+    this.playScorePopupMotion(popup, startY)
+  }
 
+  playScorePopupMotion(popup, startY) {
     this.tweens.add({
       targets: popup,
-      y: startY - 14,
+      y: startY - 8,
       alpha: { from: 1, to: 0 },
-      duration: 1250,
-      ease: 'Quad.out',
+      duration: 900,
+      ease: 'Linear',
       onComplete: () => popup.destroy(),
+    })
+  }
+
+  playArcadeAnswerPress(targets) {
+    this.tweens.add({
+      targets,
+      y: '+=3',
+      duration: 90,
+      yoyo: true,
+      ease: 'Sine.out',
+    })
+  }
+
+  playArcadeCorrectPulse(targets) {
+    this.tweens.add({
+      targets,
+      scaleX: { from: 1, to: ARCADE_CORRECT_PULSE_SCALE },
+      scaleY: { from: 1, to: ARCADE_CORRECT_PULSE_SCALE },
+      duration: ARCADE_FEEDBACK_DURATION_MS,
+      yoyo: true,
+      ease: 'Sine.out',
+    })
+  }
+
+  playArcadeWrongShake(targets) {
+    this.tweens.add({
+      targets,
+      x: `+=${ARCADE_WRONG_SHAKE_X}`,
+      duration: ARCADE_FEEDBACK_DURATION_MS,
+      yoyo: true,
+      repeat: ARCADE_WRONG_SHAKE_REPEAT,
+      ease: 'Sine.out',
     })
   }
 
@@ -3702,14 +3736,7 @@ class GameScene extends Phaser.Scene {
         badge?.fillRoundedRect(0, 0, 36, 36, 12)
         badgeText?.setColor('#ffffff')
         if (isCorrect) {
-          this.tweens.add({
-            targets: visualTargets,
-            scaleX: { from: 1, to: 1.035 },
-            scaleY: { from: 1, to: 1.035 },
-            duration: 130,
-            yoyo: true,
-            ease: 'Sine.out',
-          })
+          this.playArcadeCorrectPulse(visualTargets)
         }
         return
       }
@@ -3721,14 +3748,7 @@ class GameScene extends Phaser.Scene {
         badge?.fillStyle(0xbe123c, 1)
         badge?.fillRoundedRect(0, 0, 36, 36, 12)
         badgeText?.setColor('#ffffff')
-        this.tweens.add({
-          targets: visualTargets,
-          x: `+=${ARCADE_WRONG_SHAKE_X}`,
-          duration: ARCADE_WRONG_SHAKE_DURATION_MS,
-          yoyo: true,
-          repeat: ARCADE_WRONG_SHAKE_REPEAT,
-          ease: 'Sine.inOut',
-        })
+        this.playArcadeWrongShake(visualTargets)
         return
       }
 

@@ -30,6 +30,33 @@ describe('превью админки = отображение игры (рег�
     expect(adminJs).not.toMatch(/\.style\.fontSize\s*=/)
   })
 
+  it('ответы в превью держат текущие продовые ограничения arcade UI', () => {
+    const ansGrid = cssBlock('game-answers')
+    const ans = cssBlock('game-answer')
+    const text = cssBlock('game-answer-text')
+
+    expect(ansGrid).toMatch(/gap:\s*14px 20px/)
+    expect(ans).toMatch(/min-height:\s*62px/)
+    expect(ans).toMatch(/align-items:\s*center/)
+    expect(text).toMatch(/font-size:\s*17px/)
+    expect(text).toMatch(/-webkit-line-clamp:\s*2/)
+    expect(text).toMatch(/line-clamp:\s*2/)
+  })
+
+  it('превью держит текущую arcade-геометрию вопроса и не показывает картинку', () => {
+    const grid = cssBlock('review-grid')
+    const card = cssBlock('game-card')
+    const question = cssBlock('game-question')
+    const gamePreviewBody = adminJs.match(/function gamePreview\(q\) \{([\s\S]*?)\n\}/)?.[1] || ''
+
+    expect(grid).toMatch(/grid-template-columns:\s*624px minmax\(0, 1fr\)/)
+    expect(card).toMatch(/width:\s*624px/)
+    expect(card).toMatch(/padding:\s*35px/)
+    expect(question).toMatch(/font-size:\s*24px/)
+    expect(question).toMatch(/margin-bottom:\s*42px/)
+    expect(gamePreviewBody).not.toMatch(/gameImage\(/)
+  })
+
   it('игра тоже не ужимает шрифт ответов (makeAnswerLabel без setFontSize)', () => {
     expect(gameJs).not.toMatch(/setFontSize/)
   })

@@ -562,8 +562,8 @@ function reviewCard(list) {
   return review
 }
 
-// Превью вопроса в пропорциях прода (категория · вопрос · картинка 4:3 · ответы 2×2),
-// в админских (тёмных) цветах. Верный ответ подсвечен.
+// Превью вопроса в пропорциях прода (категория · вопрос · ответы 2×2),
+// в админских (тёмных) цветах.
 function gamePreview(q) {
   const card = document.createElement('div')
   card.className = 'game-card'
@@ -583,8 +583,6 @@ function gamePreview(q) {
   ques.className = 'game-question'
   ques.textContent = q.question
   card.appendChild(ques)
-
-  card.appendChild(gameImage(q))
 
   // Порядок ответов — те же правила, что в игре (src/card-rules.js): числа по убыванию,
   // нечисловые перемешаны (seed по id — стабильно, но верный не всегда первый, как на проде).
