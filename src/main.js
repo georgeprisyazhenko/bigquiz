@@ -1100,10 +1100,13 @@ class GameScene extends Phaser.Scene {
 
   scheduleRandomAdvance(delay = NEXT_QUESTION_DELAY_MS) {
     this.clearNextQuestionTimer()
-    this.nextQuestionEvent = this.time.delayedCall(delay, () => {
+    const timerId = window.setTimeout(() => {
       this.nextQuestionEvent = null
       this.advanceRandomAfterAnswer()
-    })
+    }, delay)
+    this.nextQuestionEvent = {
+      remove: () => window.clearTimeout(timerId),
+    }
   }
 
   advanceRandomAfterAnswer() {
