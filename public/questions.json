@@ -17639,8 +17639,12 @@
       "requiresImage": false,
       "explanation": "Джонсон и Стори доказали в 1879 году: ровно половина всех перестановок фишек недостижима из начальной позиции - пространство делится на два несвязных мира.",
       "imageSearchQuery": "15 puzzle sliding puzzle solvable positions mathematics",
-      "reviewStatus": "approved",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "какого фига здесь опять вопрос после тире, почему я снова вижу это? переформируй нормально и лаконично. Я даже вопрос не понял сам",
+      "reviewTags": [
+        "language"
+      ]
     },
     {
       "id": "q_900",
@@ -18159,8 +18163,13 @@
       "requiresImage": false,
       "explanation": "Позолота из сусального золота или нитрид-титанового покрытия практически не корродирует и десятилетиями держит блеск без перекраски - окрашенный металл пришлось бы обновлять каждые 5-10 лет.",
       "imageSearchQuery": "золотой купол православный храм",
-      "reviewStatus": "approved",
-      "llmVerdict": "revise"
+      "reviewStatus": "rework",
+      "llmVerdict": "revise",
+      "reviewProblem": "серьезно, золото дешевле других металлов?\nпривезли из византии что? мб традиция из Византии?\nбелый цвет траура - что???\nотвратительные дистракторы",
+      "reviewTags": [
+        "distractors",
+        "language"
+      ]
     },
     {
       "id": "q_925",
@@ -20213,8 +20222,13 @@
       "requiresImage": false,
       "explanation": "Рататоскр передаёт злобные слова между орлом на вершине и змеем Нидхёггром у корней - специальный «разжигатель» вражды, сеющий раздор в мироздании.",
       "imageSearchQuery": "Ratatoskr squirrel Yggdrasil Norse mythology",
-      "reviewStatus": "approved",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "ультранишево. нужно пересмотреть вопросы по мифологии Скандинавии, обычную люди такое никогда не будут знать. И что опять за бестолковая структура вопроса, через тире? сколько говорил так не делать",
+      "reviewTags": [
+        "niche",
+        "language"
+      ]
     },
     {
       "id": "q_1031",
@@ -20234,8 +20248,12 @@
       "requiresImage": false,
       "explanation": "В Гримнисмале сказано: у Вальгаллы 540 дверей. Через каждую выйдут 800 воинов - итого 432 000 эйнхериев для битвы в Рагнарёк.",
       "imageSearchQuery": "Valhalla hall Odin Norse mythology warriors",
-      "reviewStatus": "approved",
-      "llmVerdict": "revise"
+      "reviewStatus": "rework",
+      "llmVerdict": "revise",
+      "reviewProblem": "нужен больше разбег 6 / 100 / 240 / 540",
+      "reviewTags": [
+        "distractors"
+      ]
     },
     {
       "id": "q_1032",
@@ -20297,8 +20315,14 @@
       "requiresImage": false,
       "explanation": "Локи заключил пари с гномами Броккром и Синдри и, желая проиграть как можно меньше, укусил кузнеца в облике мухи прямо во время ковки - из-за этого рукоять и вышла короткой.",
       "imageSearchQuery": "Mjolnir hammer Thor Norse mythology dwarves",
-      "reviewStatus": "approved",
-      "llmVerdict": "keep"
+      "reviewStatus": "rework",
+      "llmVerdict": "keep",
+      "reviewProblem": "так почему или кто? опять бестолковая формулировка, два вопроса в одном, тире это идиотское",
+      "reviewTags": [
+        "niche",
+        "distractors",
+        "language"
+      ]
     },
     {
       "id": "q_1036",
@@ -20339,8 +20363,13 @@
       "requiresImage": false,
       "explanation": "В «Речах Высокого» Один говорит, что Хугин (Мысль) может не вернуться, но потеря Мунина (Памяти) страшит его больше - ведь без памяти теряется сам разум бога.",
       "imageSearchQuery": "Huginn Muninn Odin ravens Norse mythology",
-      "reviewStatus": "approved",
-      "llmVerdict": "revise"
+      "reviewStatus": "rework",
+      "llmVerdict": "revise",
+      "reviewProblem": "отвратительные дистракторы. В вопросе спрашивается один из, в ответах оба одинаково и ни одного. Логики ноль",
+      "reviewTags": [
+        "distractors",
+        "niche"
+      ]
     },
     {
       "id": "q_1039",

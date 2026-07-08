@@ -71,4 +71,26 @@ describe('arcade UI motion guards', () => {
     expect(body).toMatch(/ease:\s*'Linear'/)
     expect(body).toMatch(/alpha:\s*\{\s*from:\s*1,\s*to:\s*0\s*\}/)
   })
+
+  it('streak display uses the current session record only after a streak reset', () => {
+    const body = methodBody('formatStreakDisplay')
+
+    expect(body).toMatch(/if \(!this\.hasSessionStreakRecord\)/)
+    expect(body).toMatch(/return `\$\{this\.currentStreak\}`/)
+    expect(body).toMatch(/return `\$\{this\.currentStreak\} \/ \$\{this\.sessionMaxStreak\}`/)
+    expect(body).not.toMatch(/return `\$\{this\.currentStreak\} \/ \$\{this\.maxStreak\}`/)
+  })
+
+  it('current streak record highlight starts only after the session has a saved streak', () => {
+    const body = methodBody('updateSessionStats')
+
+    expect(body).toMatch(/const prevSessionMaxStreak = this\.sessionMaxStreak/)
+    expect(body).toMatch(
+      /this\.sessionMaxStreak = Math\.max\(this\.sessionMaxStreak, this\.currentStreak\)/
+    )
+    expect(body).toMatch(
+      /this\.hasSessionStreakRecord && this\.currentStreak > prevSessionMaxStreak/
+    )
+    expect(body).toMatch(/this\.hasSessionStreakRecord = true/)
+  })
 })

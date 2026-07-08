@@ -46,6 +46,7 @@ const COLORS = {
   answerHover: 0x6dbaf8,
   answerDisabled: 0xd8edfc,
   accentYellow: 0xfcd404,
+  streakRecord: 0xf59e0b,
   correct: 0x04b07b,
   wrong: 0xfb6f74,
   soundBackground: 0xdff3ff,
@@ -198,6 +199,7 @@ const ARCADE = {
   success: 0x10b981,
   danger: 0xff5c7a,
   warning: 0xffd166,
+  streakRecord: 0xf59e0b,
   outline: 0xb8a9ff,
   shadow: 0x070b1b,
   disabled: 0xdbe5f2,
@@ -304,6 +306,8 @@ class GameScene extends Phaser.Scene {
     this.accuracy = null
     this.currentStreak = 0
     this.maxStreak = 0
+    this.sessionMaxStreak = 0
+    this.hasSessionStreakRecord = false
     this.isCurrentStreakRecord = false
     this.questionsSinceAd = 0
 
@@ -658,7 +662,11 @@ class GameScene extends Phaser.Scene {
       return `${this.currentStreak}`
     }
 
-    return `${this.currentStreak} / ${this.maxStreak}`
+    if (!this.hasSessionStreakRecord) {
+      return `${this.currentStreak}`
+    }
+
+    return `${this.currentStreak} / ${this.sessionMaxStreak}`
   }
 
   isArcadeUi() {
@@ -2207,7 +2215,7 @@ class GameScene extends Phaser.Scene {
       SCORE_PANEL_Y + SCORE_ITEM_STRIDE,
       'СЕРИЯ ОТВЕТОВ',
       this.formatStreakDisplay(),
-      this.isCurrentStreakRecord ? COLORS.accentYellow : COLORS.text
+      this.isCurrentStreakRecord ? COLORS.streakRecord : COLORS.text
     )
   }
 
@@ -2245,7 +2253,7 @@ class GameScene extends Phaser.Scene {
     this.recordText = this.makeText(x + width / 2, y + 142, this.formatStreakDisplay(), {
       fontFamily: FONT_FAMILY,
       fontSize: '30px',
-      color: this.colorToHex(this.isCurrentStreakRecord ? ARCADE.warning : ARCADE.ink),
+      color: this.colorToHex(this.isCurrentStreakRecord ? ARCADE.streakRecord : ARCADE.ink),
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
@@ -3612,6 +3620,7 @@ class GameScene extends Phaser.Scene {
     let speedBonus = 0
 
     const prevMaxStreak = this.maxStreak
+    const prevSessionMaxStreak = this.sessionMaxStreak
     const prevBestScore = this.bestScore
 
     if (isCorrect) {
@@ -3624,11 +3633,17 @@ class GameScene extends Phaser.Scene {
         speedBonus = points.speedBonus
         this.score += gained
         this.maxStreak = Math.max(this.maxStreak, this.currentStreak)
-        this.isCurrentStreakRecord = this.currentStreak > prevMaxStreak
+        this.sessionMaxStreak = Math.max(this.sessionMaxStreak, this.currentStreak)
+        this.isCurrentStreakRecord =
+          this.hasSessionStreakRecord && this.currentStreak > prevSessionMaxStreak
       }
     } else {
       this.wrongCount += 1
       if (this.currentMode === 'random') {
+        if (this.currentStreak > 0) {
+          this.sessionMaxStreak = Math.max(this.sessionMaxStreak, this.currentStreak)
+          this.hasSessionStreakRecord = true
+        }
         this.currentStreak = 0
         this.isCurrentStreakRecord = false
       }
@@ -3654,8 +3669,8 @@ class GameScene extends Phaser.Scene {
         this.colorToHex(
           this.isCurrentStreakRecord
             ? this.isArcadeUi()
-              ? ARCADE.warning
-              : COLORS.accentYellow
+              ? ARCADE.streakRecord
+              : COLORS.streakRecord
             : this.isArcadeUi()
               ? ARCADE.ink
               : COLORS.text
@@ -3704,7 +3719,7 @@ class GameScene extends Phaser.Scene {
       targets: popup,
       y: startY - 8,
       alpha: { from: 1, to: 0 },
-      duration: 900,
+      duration: 700,
       ease: 'Linear',
       onComplete: () => popup.destroy(),
     })
