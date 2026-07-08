@@ -11,7 +11,11 @@ import {
   validateExamShape,
 } from './content-rules.js'
 import { orderAnswers, isNumericAnswerSet, imageCandidatePaths } from './card-rules.js'
-import { calculateRandomAnswerPoints, getRandomStreakMultiplier } from './score-rules.js'
+import {
+  calculateBlitzFinalScore,
+  calculateRandomAnswerPoints,
+  getRandomStreakMultiplier,
+} from './score-rules.js'
 
 const GAME_WIDTH = 1120
 const GAME_HEIGHT = 640
@@ -323,9 +327,15 @@ class GameScene extends Phaser.Scene {
     this.blitzTimerEvent = null
     this.blitzCountdownEvent = null
     this.blitzCountdownLeftMs = 0
+    this.blitzScore = 0
+    this.blitzCurrentStreak = 0
+    this.blitzBestStreakInRun = 0
     this.blitzCorrect = 0
     this.blitzAnswered = 0
+    this.blitzWrong = 0
     this.blitzBest = 0
+    this.blitzBestCorrect = 0
+    this.blitzBestStreak = 0
     // Таймеры ведём по реальным часам (performance.now), а Phaser-событие — только
     // как «тик» перерисовки: Phaser-часы сглаживают/обрезают дельту кадров и на
     // лагах (например, сразу после загрузки) идут медленнее реального времени.
@@ -466,6 +476,8 @@ class GameScene extends Phaser.Scene {
       const record = await loadBestRecord(this.ysdk, this.player)
       this.bestScore = Math.max(this.bestScore, record.bestScore)
       this.blitzBest = Math.max(this.blitzBest, record.blitzBest ?? 0)
+      this.blitzBestCorrect = Math.max(this.blitzBestCorrect, record.blitzBestCorrect ?? 0)
+      this.blitzBestStreak = Math.max(this.blitzBestStreak, record.blitzBestStreak ?? 0)
       if (record.maxStreak > this.maxStreak) {
         this.maxStreak = record.maxStreak
       }
@@ -483,25 +495,27 @@ class GameScene extends Phaser.Scene {
   }
 
   // Сохраняет рекорд сразу после действия (требования 1.9, 2.6) и обновляет лидерборд.
-  persistRecord() {
+  persistRecord({ leaderboardScore = null } = {}) {
     this.bestScore = Math.max(this.bestScore, this.score)
     const record = {
       bestScore: this.bestScore,
       maxStreak: this.maxStreak,
       blitzBest: this.blitzBest,
+      blitzBestCorrect: this.blitzBestCorrect,
+      blitzBestStreak: this.blitzBestStreak,
     }
 
     saveBestRecord(this.ysdk, this.player, record).catch(() => {})
-    this.submitLeaderboardScore()
+    this.submitLeaderboardScore(leaderboardScore ?? this.bestScore)
   }
 
-  async submitLeaderboardScore() {
+  async submitLeaderboardScore(score = this.bestScore) {
     if (!this.ysdk || !this.player?.isAuthorized?.()) return
 
     try {
       const available = await this.ysdk.isAvailableMethod?.('leaderboards.setScore')
       if (available === false) return
-      await this.ysdk.leaderboards?.setScore?.(LEADERBOARD_ID, this.bestScore)
+      await this.ysdk.leaderboards?.setScore?.(LEADERBOARD_ID, score)
     } catch (error) {
       // ignore — рекорд уже сохранён локально/в облаке
     }
@@ -653,11 +667,32 @@ class GameScene extends Phaser.Scene {
     return Math.round(value).toLocaleString('ru-RU')
   }
 
+  getScorePanelScore() {
+    if (this.currentMode === 'blitz') return this.blitzScore
+    return this.score
+  }
+
+  getScorePanelStreak() {
+    if (this.currentMode === 'blitz') return this.blitzCurrentStreak
+    return this.currentStreak
+  }
+
+  getScorePanelStreakColor() {
+    if (this.currentMode === 'blitz') return this.isArcadeUi() ? ARCADE.ink : COLORS.text
+    if (this.isCurrentStreakRecord)
+      return this.isArcadeUi() ? ARCADE.streakRecord : COLORS.streakRecord
+    return this.isArcadeUi() ? ARCADE.ink : COLORS.text
+  }
+
   formatMultiplier(value) {
     return Number.isInteger(value) ? `${value}` : `${value}`
   }
 
   formatStreakDisplay() {
+    if (this.currentMode === 'blitz') {
+      return `${this.blitzCurrentStreak} / ${this.blitzBestStreakInRun}`
+    }
+
     if (this.isCurrentStreakRecord && this.currentStreak > 0) {
       return `${this.currentStreak}`
     }
@@ -1452,6 +1487,7 @@ class GameScene extends Phaser.Scene {
 
     this.currentMode = key
     this.blitzPhase = key === 'blitz' ? 'intro' : 'idle'
+    if (key === 'blitz') this.resetBlitzRunStats()
     this.logEvent('mode_switched', { mode: key })
     this.renderScreen(false)
   }
@@ -1476,7 +1512,7 @@ class GameScene extends Phaser.Scene {
     }).setOrigin(0.5)
 
     if (this.blitzBest > 0) {
-      this.makeText(cx, CARD_Y + 224, `Твой рекорд: ${this.blitzBest}`, {
+      this.makeText(cx, CARD_Y + 224, `Твой рекорд: ${this.formatScore(this.blitzBest)}`, {
         fontFamily: FONT_FAMILY,
         fontSize: FONT_SIZE_SM,
         color: this.colorToHex(COLORS.textSoft),
@@ -1532,7 +1568,7 @@ class GameScene extends Phaser.Scene {
     }).setOrigin(0.5)
 
     if (this.blitzBest > 0) {
-      this.makeText(cx, y + 214, `Твой рекорд: ${this.blitzBest}`, {
+      this.makeText(cx, y + 214, `Твой рекорд: ${this.formatScore(this.blitzBest)}`, {
         fontFamily: FONT_FAMILY,
         fontSize: '14px',
         color: this.colorToHex(ARCADE.primary),
@@ -1569,8 +1605,19 @@ class GameScene extends Phaser.Scene {
     if (!['intro', 'result'].includes(this.blitzPhase)) return
 
     this.stopBlitzTimer()
+    this.resetBlitzRunStats()
     this.blitzPhase = 'countdown'
     this.renderScreen(false)
+  }
+
+  resetBlitzRunStats() {
+    this.blitzScore = 0
+    this.blitzCurrentStreak = 0
+    this.blitzBestStreakInRun = 0
+    this.blitzCorrect = 0
+    this.blitzAnswered = 0
+    this.blitzWrong = 0
+    this.blitzTimeLeftMs = BLITZ_DURATION_MS
   }
 
   renderBlitzCountdown() {
@@ -1628,9 +1675,7 @@ class GameScene extends Phaser.Scene {
   // Старт забега: сброс счётчиков, свежий вопрос, запуск таймера.
   startBlitzRun() {
     this.blitzPhase = 'running'
-    this.blitzCorrect = 0
-    this.blitzAnswered = 0
-    this.blitzTimeLeftMs = BLITZ_DURATION_MS
+    this.resetBlitzRunStats()
     this.currentStreak = 0
     this.currentQuestion = this.getRandomQuestion()
     this.renderScreen()
@@ -1815,24 +1860,34 @@ class GameScene extends Phaser.Scene {
     // Забег завершён — снимаем точку восстановления (resume больше не нужен).
     this.clearBlitzState()
 
-    const improved = this.blitzCorrect > this.blitzBest
+    const result = this.getBlitzResultSummary()
+    const previousBest = this.blitzBest
+    const improved = result.finalScore > previousBest
     if (improved) {
-      this.blitzBest = this.blitzCorrect
-      this.persistRecord()
+      this.blitzBest = result.finalScore
+      this.blitzBestCorrect = Math.max(this.blitzBestCorrect, this.blitzCorrect)
+      this.blitzBestStreak = Math.max(this.blitzBestStreak, this.blitzBestStreakInRun)
+      this.persistRecord({ leaderboardScore: result.finalScore })
     }
 
-    const accuracy =
-      this.blitzAnswered > 0 ? Math.round((this.blitzCorrect / this.blitzAnswered) * 100) : 0
-
     this.logEvent('blitz_finished', {
+      score: result.answerScore,
+      accuracyBonus: result.accuracyBonus,
+      finalScore: result.finalScore,
       correct: this.blitzCorrect,
       answered: this.blitzAnswered,
-      accuracy,
+      wrong: this.blitzWrong,
+      accuracy: result.accuracyPercent,
+      bestStreakInRun: this.blitzBestStreakInRun,
       blitzBest: this.blitzBest,
       isRecord: improved,
     })
 
-    this.showBlitzAd(() => this.showBlitzResult(accuracy, improved))
+    this.showBlitzAd(() => this.showBlitzResult(result, improved, previousBest))
+  }
+
+  getBlitzResultSummary() {
+    return calculateBlitzFinalScore(this.blitzScore, this.blitzCorrect, this.blitzAnswered)
   }
 
   // Полноэкранная реклама строго в финале забега (внутри 60 секунд рекламы нет).
@@ -1867,9 +1922,9 @@ class GameScene extends Phaser.Scene {
   }
 
   // Оверлей результата (паттерн openLeaderboard): итог забега + «Ещё раз» / выход.
-  showBlitzResult(accuracy, isRecord) {
+  showBlitzResult(result, isRecord, previousBest) {
     if (this.isArcadeUi()) {
-      this.showArcadeBlitzResult(accuracy, isRecord)
+      this.showArcadeBlitzResult(result, isRecord, previousBest)
       return
     }
 
@@ -1894,7 +1949,7 @@ class GameScene extends Phaser.Scene {
       }).setDepth(101)
     )
 
-    const title = this.blitzTimeLeftMs <= 0 ? 'Время вышло!' : 'Блиц завершён'
+    const title = 'Результат'
     items.push(
       this.makeText(cx, cy - 150, title, {
         fontFamily: FONT_FAMILY,
@@ -1906,9 +1961,9 @@ class GameScene extends Phaser.Scene {
         .setDepth(102)
     )
     items.push(
-      this.makeText(cx, cy - 72, `${this.blitzCorrect}`, {
+      this.makeText(cx, cy - 96, `${this.formatScore(result.finalScore)}`, {
         fontFamily: FONT_FAMILY,
-        fontSize: '72px',
+        fontSize: '64px',
         color: this.colorToHex(COLORS.correct),
         fontStyle: 'bold',
       })
@@ -1916,7 +1971,7 @@ class GameScene extends Phaser.Scene {
         .setDepth(102)
     )
     items.push(
-      this.makeText(cx, cy - 14, 'правильных ответов', {
+      this.makeText(cx, cy - 46, 'балл', {
         fontFamily: FONT_FAMILY,
         fontSize: FONT_SIZE_MD,
         color: this.colorToHex(COLORS.textMuted),
@@ -1926,11 +1981,31 @@ class GameScene extends Phaser.Scene {
         .setDepth(102)
     )
 
-    const sub = isRecord
-      ? `Новый рекорд!  ·  Точность ${accuracy}%`
-      : `Точность ${accuracy}%  ·  Рекорд ${this.blitzBest}`
+    const details = [
+      `Баллы за ответы: ${this.formatScore(result.answerScore)}`,
+      `Бонус за правильные ответы: +${this.formatScore(result.accuracyBonus)}`,
+      `Правильные ответы: ${this.blitzCorrect} из ${this.blitzAnswered} — ${result.accuracyPercent}%`,
+      `Ошибок: ${this.blitzWrong}`,
+      `Лучшая серия: ${this.blitzBestStreakInRun}`,
+    ].join('\n')
     items.push(
-      this.makeText(cx, cy + 30, sub, {
+      this.makeText(cx, cy - 10, details, {
+        fontFamily: FONT_FAMILY,
+        fontSize: FONT_SIZE_SM,
+        color: this.colorToHex(COLORS.textSoft),
+        fontStyle: 'bold',
+        align: 'center',
+        lineSpacing: 5,
+      })
+        .setOrigin(0.5)
+        .setDepth(102)
+    )
+
+    const recordText = isRecord
+      ? `Новый рекорд! ${this.formatScore(result.finalScore)} балл`
+      : `До рекорда не хватило ${this.formatScore(Math.max(0, previousBest - result.finalScore))} баллов`
+    items.push(
+      this.makeText(cx, cy + 70, recordText, {
         fontFamily: FONT_FAMILY,
         fontSize: FONT_SIZE_MD,
         color: this.colorToHex(isRecord ? COLORS.correct : COLORS.textSoft),
@@ -1943,7 +2018,7 @@ class GameScene extends Phaser.Scene {
     const mkBtn = (label, bx, fill, onClick) => {
       const w = 250,
         h = 56,
-        by = cy + 90
+        by = cy + 116
       const btn = this.createRoundedBox(bx, by, w, h, fill, {
         radius: RADIUS.button,
         strokeColor: COLORS.border,
@@ -1975,7 +2050,7 @@ class GameScene extends Phaser.Scene {
     this.blitzResultOverlay = items
   }
 
-  showArcadeBlitzResult(accuracy, isRecord) {
+  showArcadeBlitzResult(result, isRecord, previousBest) {
     this.closeBlitzResult()
 
     const cx = GAME_WIDTH / 2
@@ -1988,7 +2063,7 @@ class GameScene extends Phaser.Scene {
 
     this.drawArcadeOverlayPanel(items, panelX, panelY, panelW, panelH, 32)
 
-    const title = this.blitzTimeLeftMs <= 0 ? 'Время вышло!' : 'Блиц завершён'
+    const title = 'Результат'
     items.push(
       this.makeText(cx, panelY + 80, title, {
         fontFamily: FONT_FAMILY,
@@ -2001,9 +2076,9 @@ class GameScene extends Phaser.Scene {
     )
 
     items.push(
-      this.makeText(cx, panelY + 176, `${this.blitzCorrect}`, {
+      this.makeText(cx, panelY + 132, `${this.formatScore(result.finalScore)}`, {
         fontFamily: FONT_FAMILY,
-        fontSize: '82px',
+        fontSize: '62px',
         color: this.colorToHex(isRecord ? ARCADE.warning : ARCADE.success),
         fontStyle: 'bold',
       })
@@ -2012,7 +2087,7 @@ class GameScene extends Phaser.Scene {
     )
 
     items.push(
-      this.makeText(cx, panelY + 240, 'правильных ответов', {
+      this.makeText(cx, panelY + 180, 'балл', {
         fontFamily: FONT_FAMILY,
         fontSize: '18px',
         color: this.colorToHex(ARCADE.muted),
@@ -2022,13 +2097,32 @@ class GameScene extends Phaser.Scene {
         .setDepth(104)
     )
 
-    const sub = isRecord
-      ? `Новый рекорд!  ·  Точность ${accuracy}%`
-      : `Точность ${accuracy}%  ·  Рекорд ${this.blitzBest}`
+    const details = [
+      `Баллы за ответы: ${this.formatScore(result.answerScore)}`,
+      `Бонус за правильные ответы: +${this.formatScore(result.accuracyBonus)}`,
+      `Правильные ответы: ${this.blitzCorrect} из ${this.blitzAnswered} — ${result.accuracyPercent}%`,
+      `Ошибок: ${this.blitzWrong}  ·  Лучшая серия: ${this.blitzBestStreakInRun}`,
+    ].join('\n')
     items.push(
-      this.makeText(cx, panelY + 284, sub, {
+      this.makeText(cx, panelY + 226, details, {
         fontFamily: FONT_FAMILY,
-        fontSize: '18px',
+        fontSize: '15px',
+        color: this.colorToHex(ARCADE.muted),
+        fontStyle: 'bold',
+        align: 'center',
+        lineSpacing: 5,
+      })
+        .setOrigin(0.5)
+        .setDepth(104)
+    )
+
+    const recordText = isRecord
+      ? `Новый рекорд! ${this.formatScore(result.finalScore)} балл`
+      : `До рекорда не хватило ${this.formatScore(Math.max(0, previousBest - result.finalScore))} баллов`
+    items.push(
+      this.makeText(cx, panelY + 304, recordText, {
+        fontFamily: FONT_FAMILY,
+        fontSize: '17px',
         color: this.colorToHex(isRecord ? ARCADE.success : ARCADE.muted),
         fontStyle: 'bold',
       })
@@ -2094,11 +2188,15 @@ class GameScene extends Phaser.Scene {
     if (this.currentMode !== 'blitz') return
     try {
       const state = {
-        v: 1,
+        v: 2,
         phase: this.blitzPhase,
         timeLeftMs: this.blitzTimeLeftMs,
+        score: this.blitzScore,
+        currentStreak: this.blitzCurrentStreak,
+        bestStreakInRun: this.blitzBestStreakInRun,
         correct: this.blitzCorrect,
         answered: this.blitzAnswered,
+        wrong: this.blitzWrong,
         questionId: this.currentQuestion?.id ?? null,
         answers: this.currentAnswers,
         correctIndex: this.currentCorrectAnswerIndex,
@@ -2131,7 +2229,7 @@ class GameScene extends Phaser.Scene {
   // (с продолжением забега или хотя бы на экран-приглашение).
   tryRestoreBlitz() {
     const state = this.loadBlitzState()
-    if (!state || state.v !== 1) return false
+    if (!state || ![1, 2].includes(state.v)) return false
 
     // Восстанавливаем серию показанных вопросов, чтобы не было повторов.
     if (Array.isArray(state.shownIds)) {
@@ -2160,12 +2258,17 @@ class GameScene extends Phaser.Scene {
       }
       this.blitzPhase = 'running'
       this.blitzTimeLeftMs = state.timeLeftMs
+      this.blitzScore = state.score || 0
+      this.blitzCurrentStreak = state.currentStreak || 0
+      this.blitzBestStreakInRun = state.bestStreakInRun || 0
       this.blitzCorrect = state.correct || 0
       this.blitzAnswered = state.answered || 0
+      this.blitzWrong = state.wrong ?? Math.max(0, this.blitzAnswered - this.blitzCorrect)
       this.currentStreak = 0
 
       this.logEvent('blitz_resumed', {
         timeLeftMs: state.timeLeftMs,
+        score: this.blitzScore,
         correct: this.blitzCorrect,
         answered: this.blitzAnswered,
       })
@@ -2207,7 +2310,7 @@ class GameScene extends Phaser.Scene {
       x,
       SCORE_PANEL_Y,
       'БАЛЛЫ',
-      this.formatScore(this.score),
+      this.formatScore(this.getScorePanelScore()),
       COLORS.text
     )
     this.recordText = this.renderStat(
@@ -2215,7 +2318,7 @@ class GameScene extends Phaser.Scene {
       SCORE_PANEL_Y + SCORE_ITEM_STRIDE,
       'СЕРИЯ ОТВЕТОВ',
       this.formatStreakDisplay(),
-      this.isCurrentStreakRecord ? COLORS.streakRecord : COLORS.text
+      this.getScorePanelStreakColor()
     )
   }
 
@@ -2235,12 +2338,17 @@ class GameScene extends Phaser.Scene {
       this.renderArcadeScoreHelpButton(x + width / 2 + 39, scoreCaptionY)
     }
 
-    this.scoreText = this.makeText(x + width / 2, y + 62, this.formatScore(this.score), {
-      fontFamily: FONT_FAMILY,
-      fontSize: '34px',
-      color: this.colorToHex(ARCADE.ink),
-      fontStyle: 'bold',
-    }).setOrigin(0.5)
+    this.scoreText = this.makeText(
+      x + width / 2,
+      y + 62,
+      this.formatScore(this.getScorePanelScore()),
+      {
+        fontFamily: FONT_FAMILY,
+        fontSize: '34px',
+        color: this.colorToHex(ARCADE.ink),
+        fontStyle: 'bold',
+      }
+    ).setOrigin(0.5)
 
     this.makeText(x + width / 2, y + 106, 'СЕРИЯ ОТВЕТОВ', {
       fontFamily: FONT_FAMILY,
@@ -2253,14 +2361,14 @@ class GameScene extends Phaser.Scene {
     this.recordText = this.makeText(x + width / 2, y + 142, this.formatStreakDisplay(), {
       fontFamily: FONT_FAMILY,
       fontSize: '30px',
-      color: this.colorToHex(this.isCurrentStreakRecord ? ARCADE.streakRecord : ARCADE.ink),
+      color: this.colorToHex(this.getScorePanelStreakColor()),
       fontStyle: 'bold',
     }).setOrigin(0.5)
 
     this.streakMultText = this.makeText(
       x + width / 2,
       y + 170,
-      `x${this.getMultiplier(this.currentStreak)}`,
+      `x${this.getMultiplier(this.getScorePanelStreak())}`,
       {
         fontFamily: FONT_FAMILY,
         fontSize: '13px',
@@ -3563,15 +3671,16 @@ class GameScene extends Phaser.Scene {
 
     this.answerState = isCorrect ? 'answeredCorrect' : 'answeredWrong'
 
+    const isBlitzRun = this.currentMode === 'blitz' && this.blitzPhase === 'running'
     const answerTimeMs = Math.max(0, performance.now() - this.questionShownAt)
-    const { gained, mult, speedBonus } = this.updateSessionStats(isCorrect, answerTimeMs)
+    const sessionStats = this.updateSessionStats(isCorrect, answerTimeMs)
+    const { gained, mult, speedBonus } = isBlitzRun
+      ? this.updateBlitzAnswerStats(isCorrect, answerTimeMs)
+      : sessionStats
     this.highlightAnswers(selectedAnswerIndex, correctAnswerIndex, isCorrect)
     this.refreshScorePanel(isCorrect, gained, mult, selectedAnswerIndex)
 
-    const isBlitzRun = this.currentMode === 'blitz' && this.blitzPhase === 'running'
     if (isBlitzRun) {
-      this.blitzAnswered += 1
-      if (isCorrect) this.blitzCorrect += 1
       this.updateBlitzCounter()
     }
 
@@ -3583,12 +3692,15 @@ class GameScene extends Phaser.Scene {
       correctAnswerIndex,
       isCorrect,
       score: this.score,
+      blitzScore: this.blitzScore,
       gainedPoints: gained,
       multiplier: mult,
       speedBonus,
       answerTimeMs: Math.round(answerTimeMs),
       sessionAccuracy: this.accuracy,
       currentStreak: this.currentStreak,
+      blitzCurrentStreak: this.blitzCurrentStreak,
+      blitzBestStreakInRun: this.blitzBestStreakInRun,
       maxStreak: this.maxStreak,
       questionsSinceAd: this.questionsSinceAd,
       mode: this.currentMode,
@@ -3609,6 +3721,29 @@ class GameScene extends Phaser.Scene {
     }
 
     this.scheduleRandomAdvance()
+  }
+
+  updateBlitzAnswerStats(isCorrect, answerTimeMs = 0) {
+    this.blitzAnswered += 1
+
+    if (!isCorrect) {
+      this.blitzWrong += 1
+      this.blitzCurrentStreak = 0
+      return { gained: 0, mult: 1, speedBonus: 0 }
+    }
+
+    this.blitzCorrect += 1
+    this.blitzCurrentStreak += 1
+    this.blitzBestStreakInRun = Math.max(this.blitzBestStreakInRun, this.blitzCurrentStreak)
+
+    const points = calculateRandomAnswerPoints(answerTimeMs, this.blitzCurrentStreak)
+    this.blitzScore += points.gained
+
+    return {
+      gained: points.gained,
+      mult: points.multiplier,
+      speedBonus: points.speedBonus,
+    }
   }
 
   updateSessionStats(isCorrect, answerTimeMs = 0) {
@@ -3661,28 +3796,20 @@ class GameScene extends Phaser.Scene {
 
   refreshScorePanel(isCorrect, gained, mult, selectedAnswerIndex = null) {
     if (this.scoreText) {
-      this.scoreText.setText(this.formatScore(this.score))
+      this.scoreText.setText(this.formatScore(this.getScorePanelScore()))
     }
     if (this.recordText) {
       this.recordText.setText(this.formatStreakDisplay())
-      this.recordText.setColor(
-        this.colorToHex(
-          this.isCurrentStreakRecord
-            ? this.isArcadeUi()
-              ? ARCADE.streakRecord
-              : COLORS.streakRecord
-            : this.isArcadeUi()
-              ? ARCADE.ink
-              : COLORS.text
-        )
-      )
+      this.recordText.setColor(this.colorToHex(this.getScorePanelStreakColor()))
     }
     if (this.streakMultText) {
       this.streakMultText.setText(
-        `x${this.formatMultiplier(this.getMultiplier(this.currentStreak))}`
+        `x${this.formatMultiplier(this.getMultiplier(this.getScorePanelStreak()))}`
       )
     }
-    if (isCorrect && gained > 0) this.spawnScorePopup(gained, selectedAnswerIndex)
+    if (this.currentMode === 'random' && isCorrect && gained > 0) {
+      this.spawnScorePopup(gained, selectedAnswerIndex)
+    }
   }
 
   // Плавающий «+200» у правого края выбранного ответа — награда появляется в фокусе клика.

@@ -55,7 +55,7 @@ const MOCK_LEADERBOARD_ENTRIES = [
   { rank: 2, score: 17, player: { publicName: 'Максим' } },
   { rank: 3, score: 12, player: { publicName: 'Вы (мок)' } },
   { rank: 4, score: 9, player: { publicName: 'Гость 128' } },
-  { rank: 5, score: 6, player: { publicName: '' } }
+  { rank: 5, score: 6, player: { publicName: '' } },
 ]
 
 // Игрок-заглушка. authorized=true только в dev при ?mockAuth=1.
@@ -69,7 +69,7 @@ function createMockPlayer(authorized) {
     setStats: () => Promise.resolve(),
     incrementStats: () => Promise.resolve({}),
     getData: () => Promise.resolve({}),
-    setData: () => Promise.resolve()
+    setData: () => Promise.resolve(),
   }
 }
 
@@ -82,7 +82,7 @@ function createMockSdk() {
     isMock: true,
     features: {
       LoadingAPI: { ready: noop },
-      GameplayAPI: { start: noop, stop: noop }
+      GameplayAPI: { start: noop, stop: noop },
     },
     adv: {
       showFullscreenAdv: (options = {}) => {
@@ -98,7 +98,7 @@ function createMockSdk() {
       },
       showBannerAdv: () => Promise.resolve({ stickyAdvIsShowing: false }),
       hideBannerAdv: () => Promise.resolve({ stickyAdvIsShowing: false }),
-      getBannerAdvStatus: () => Promise.resolve({ stickyAdvIsShowing: false })
+      getBannerAdvStatus: () => Promise.resolve({ stickyAdvIsShowing: false }),
     },
     getPlayer: () => Promise.resolve(createMockPlayer(authorized)),
     getStorage: () => Promise.resolve(window.localStorage),
@@ -107,12 +107,12 @@ function createMockSdk() {
     leaderboards: {
       setScore: () => Promise.resolve(),
       getEntries: () => Promise.resolve({ entries: authorized ? MOCK_LEADERBOARD_ENTRIES : [] }),
-      getPlayerEntry: () => Promise.reject(new Error('mock: no entry'))
+      getPlayerEntry: () => Promise.reject(new Error('mock: no entry')),
     },
     isAvailableMethod: () => Promise.resolve(false),
     on: noop,
     off: noop,
-    serverTime: () => Date.now()
+    serverTime: () => Date.now(),
   }
 }
 
@@ -151,13 +151,15 @@ async function loadLocalRecord(ysdk) {
       return {
         bestScore: parsed.bestScore ?? 0,
         maxStreak: parsed.maxStreak ?? 0,
-        blitzBest: parsed.blitzBest ?? 0
+        blitzBest: parsed.blitzBest ?? 0,
+        blitzBestCorrect: parsed.blitzBestCorrect ?? 0,
+        blitzBestStreak: parsed.blitzBestStreak ?? 0,
       }
     }
   } catch (error) {
     // ignore — вернём нули
   }
-  return { bestScore: 0, maxStreak: 0, blitzBest: 0 }
+  return { bestScore: 0, maxStreak: 0, blitzBest: 0, blitzBestCorrect: 0, blitzBestStreak: 0 }
 }
 
 async function saveLocalRecord(ysdk, record) {
@@ -172,15 +174,23 @@ async function saveLocalRecord(ysdk, record) {
 // Гибрид: гость → safeStorage; авторизован → ещё и облачные stats, берём max.
 export async function loadBestRecord(ysdk, player) {
   const local = await loadLocalRecord(ysdk)
-  let cloud = { bestScore: 0, maxStreak: 0, blitzBest: 0 }
+  let cloud = { bestScore: 0, maxStreak: 0, blitzBest: 0, blitzBestCorrect: 0, blitzBestStreak: 0 }
 
   if (player && player.isAuthorized()) {
     try {
-      const stats = await player.getStats(['bestScore', 'maxStreak', 'blitzBest'])
+      const stats = await player.getStats([
+        'bestScore',
+        'maxStreak',
+        'blitzBest',
+        'blitzBestCorrect',
+        'blitzBestStreak',
+      ])
       cloud = {
         bestScore: stats?.bestScore ?? 0,
         maxStreak: stats?.maxStreak ?? 0,
-        blitzBest: stats?.blitzBest ?? 0
+        blitzBest: stats?.blitzBest ?? 0,
+        blitzBestCorrect: stats?.blitzBestCorrect ?? 0,
+        blitzBestStreak: stats?.blitzBestStreak ?? 0,
       }
     } catch (error) {
       // ignore — останутся нули
@@ -190,7 +200,9 @@ export async function loadBestRecord(ysdk, player) {
   return {
     bestScore: Math.max(local.bestScore, cloud.bestScore),
     maxStreak: Math.max(local.maxStreak, cloud.maxStreak),
-    blitzBest: Math.max(local.blitzBest, cloud.blitzBest)
+    blitzBest: Math.max(local.blitzBest, cloud.blitzBest),
+    blitzBestCorrect: Math.max(local.blitzBestCorrect, cloud.blitzBestCorrect),
+    blitzBestStreak: Math.max(local.blitzBestStreak, cloud.blitzBestStreak),
   }
 }
 
@@ -203,7 +215,9 @@ export async function saveBestRecord(ysdk, player, record) {
       await player.setStats({
         bestScore: record.bestScore,
         maxStreak: record.maxStreak,
-        blitzBest: record.blitzBest ?? 0
+        blitzBest: record.blitzBest ?? 0,
+        blitzBestCorrect: record.blitzBestCorrect ?? 0,
+        blitzBestStreak: record.blitzBestStreak ?? 0,
       })
     } catch (error) {
       // ignore — локальная копия уже сохранена
