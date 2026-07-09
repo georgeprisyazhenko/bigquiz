@@ -1883,7 +1883,7 @@ class GameScene extends Phaser.Scene {
       isRecord: improved,
     })
 
-    this.showBlitzAd(() => this.showBlitzResult(result, improved, previousBest))
+    this.showBlitzAd(() => this.showBlitzResult(result, improved))
   }
 
   getBlitzResultSummary() {
@@ -1922,9 +1922,9 @@ class GameScene extends Phaser.Scene {
   }
 
   // Оверлей результата (паттерн openLeaderboard): итог забега + «Ещё раз» / выход.
-  showBlitzResult(result, isRecord, previousBest) {
+  showBlitzResult(result, isRecord) {
     if (this.isArcadeUi()) {
-      this.showArcadeBlitzResult(result, isRecord, previousBest)
+      this.showArcadeBlitzResult(result, isRecord)
       return
     }
 
@@ -1949,32 +1949,12 @@ class GameScene extends Phaser.Scene {
       }).setDepth(101)
     )
 
-    const title = 'Результат'
+    const scoreLine = `${isRecord ? 'Новый рекорд! ' : ''}${this.formatScore(result.finalScore)} баллов`
     items.push(
-      this.makeText(cx, cy - 150, title, {
+      this.makeText(cx, cy - 128, scoreLine, {
         fontFamily: FONT_FAMILY,
-        fontSize: '34px',
-        color: this.colorToHex(COLORS.text),
-        fontStyle: 'bold',
-      })
-        .setOrigin(0.5)
-        .setDepth(102)
-    )
-    items.push(
-      this.makeText(cx, cy - 96, `${this.formatScore(result.finalScore)}`, {
-        fontFamily: FONT_FAMILY,
-        fontSize: '64px',
-        color: this.colorToHex(COLORS.correct),
-        fontStyle: 'bold',
-      })
-        .setOrigin(0.5)
-        .setDepth(102)
-    )
-    items.push(
-      this.makeText(cx, cy - 46, 'балл', {
-        fontFamily: FONT_FAMILY,
-        fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(COLORS.textMuted),
+        fontSize: '30px',
+        color: this.colorToHex(isRecord ? COLORS.correct : COLORS.text),
         fontStyle: 'bold',
       })
         .setOrigin(0.5)
@@ -1982,43 +1962,28 @@ class GameScene extends Phaser.Scene {
     )
 
     const details = [
-      `Баллы за ответы: ${this.formatScore(result.answerScore)}`,
-      `Бонус за правильные ответы: +${this.formatScore(result.accuracyBonus)}`,
-      `Правильные ответы: ${this.blitzCorrect} из ${this.blitzAnswered} — ${result.accuracyPercent}%`,
-      `Ошибок: ${this.blitzWrong}`,
-      `Лучшая серия: ${this.blitzBestStreakInRun}`,
+      `🏆 Баллы за ответы: ${this.formatScore(result.answerScore)}`,
+      `🎯 Правильные ответы: ${this.blitzCorrect} из ${this.blitzAnswered} — ${result.accuracyPercent}%${
+        result.accuracyBonus > 0 ? `, бонус ${this.formatScore(result.accuracyBonus)}` : ''
+      }`,
     ].join('\n')
     items.push(
-      this.makeText(cx, cy - 10, details, {
+      this.makeText(cx, cy - 72, details, {
         fontFamily: FONT_FAMILY,
-        fontSize: FONT_SIZE_SM,
+        fontSize: FONT_SIZE_MD,
         color: this.colorToHex(COLORS.textSoft),
         fontStyle: 'bold',
         align: 'center',
-        lineSpacing: 5,
-      })
-        .setOrigin(0.5)
-        .setDepth(102)
-    )
-
-    const recordText = isRecord
-      ? `Новый рекорд! ${this.formatScore(result.finalScore)} балл`
-      : `До рекорда не хватило ${this.formatScore(Math.max(0, previousBest - result.finalScore))} баллов`
-    items.push(
-      this.makeText(cx, cy + 70, recordText, {
-        fontFamily: FONT_FAMILY,
-        fontSize: FONT_SIZE_MD,
-        color: this.colorToHex(isRecord ? COLORS.correct : COLORS.textSoft),
-        fontStyle: 'bold',
+        lineSpacing: 8,
       })
         .setOrigin(0.5)
         .setDepth(102)
     )
 
     const mkBtn = (label, bx, fill, onClick) => {
-      const w = 250,
-        h = 56,
-        by = cy + 116
+      const w = 212,
+        h = 48,
+        by = cy + 120
       const btn = this.createRoundedBox(bx, by, w, h, fill, {
         radius: RADIUS.button,
         strokeColor: COLORS.border,
@@ -2038,11 +2003,11 @@ class GameScene extends Phaser.Scene {
       items.push(btn, txt)
     }
 
-    mkBtn('Ещё раз', cx - 260, COLORS.answer, () => {
+    mkBtn('Ещё раз', cx - 224, COLORS.answer, () => {
       this.closeBlitzResult()
       this.startBlitzCountdown()
     })
-    mkBtn('В случайный режим', cx + 10, COLORS.surfaceBlue, () => {
+    mkBtn('В случайный режим', cx + 12, COLORS.surfaceBlue, () => {
       this.closeBlitzResult()
       this.switchMode('random')
     })
@@ -2050,7 +2015,7 @@ class GameScene extends Phaser.Scene {
     this.blitzResultOverlay = items
   }
 
-  showArcadeBlitzResult(result, isRecord, previousBest) {
+  showArcadeBlitzResult(result, isRecord) {
     this.closeBlitzResult()
 
     const cx = GAME_WIDTH / 2
@@ -2063,34 +2028,12 @@ class GameScene extends Phaser.Scene {
 
     this.drawArcadeOverlayPanel(items, panelX, panelY, panelW, panelH, 32)
 
-    const title = 'Результат'
+    const scoreLine = `${isRecord ? 'Новый рекорд! ' : ''}${this.formatScore(result.finalScore)} баллов`
     items.push(
-      this.makeText(cx, panelY + 80, title, {
+      this.makeText(cx, panelY + 112, scoreLine, {
         fontFamily: FONT_FAMILY,
-        fontSize: '38px',
-        color: this.colorToHex(ARCADE.ink),
-        fontStyle: 'bold',
-      })
-        .setOrigin(0.5)
-        .setDepth(104)
-    )
-
-    items.push(
-      this.makeText(cx, panelY + 132, `${this.formatScore(result.finalScore)}`, {
-        fontFamily: FONT_FAMILY,
-        fontSize: '62px',
-        color: this.colorToHex(isRecord ? ARCADE.warning : ARCADE.success),
-        fontStyle: 'bold',
-      })
-        .setOrigin(0.5)
-        .setDepth(104)
-    )
-
-    items.push(
-      this.makeText(cx, panelY + 180, 'балл', {
-        fontFamily: FONT_FAMILY,
-        fontSize: '18px',
-        color: this.colorToHex(ARCADE.muted),
+        fontSize: '34px',
+        color: this.colorToHex(isRecord ? ARCADE.warning : ARCADE.ink),
         fontStyle: 'bold',
       })
         .setOrigin(0.5)
@@ -2098,42 +2041,28 @@ class GameScene extends Phaser.Scene {
     )
 
     const details = [
-      `Баллы за ответы: ${this.formatScore(result.answerScore)}`,
-      `Бонус за правильные ответы: +${this.formatScore(result.accuracyBonus)}`,
-      `Правильные ответы: ${this.blitzCorrect} из ${this.blitzAnswered} — ${result.accuracyPercent}%`,
-      `Ошибок: ${this.blitzWrong}  ·  Лучшая серия: ${this.blitzBestStreakInRun}`,
+      `🏆 Баллы за ответы: ${this.formatScore(result.answerScore)}`,
+      `🎯 Правильные ответы: ${this.blitzCorrect} из ${this.blitzAnswered} — ${result.accuracyPercent}%${
+        result.accuracyBonus > 0 ? `, бонус ${this.formatScore(result.accuracyBonus)}` : ''
+      }`,
     ].join('\n')
     items.push(
-      this.makeText(cx, panelY + 226, details, {
+      this.makeText(cx, panelY + 174, details, {
         fontFamily: FONT_FAMILY,
-        fontSize: '15px',
+        fontSize: '18px',
         color: this.colorToHex(ARCADE.muted),
         fontStyle: 'bold',
         align: 'center',
-        lineSpacing: 5,
-      })
-        .setOrigin(0.5)
-        .setDepth(104)
-    )
-
-    const recordText = isRecord
-      ? `Новый рекорд! ${this.formatScore(result.finalScore)} балл`
-      : `До рекорда не хватило ${this.formatScore(Math.max(0, previousBest - result.finalScore))} баллов`
-    items.push(
-      this.makeText(cx, panelY + 304, recordText, {
-        fontFamily: FONT_FAMILY,
-        fontSize: '17px',
-        color: this.colorToHex(isRecord ? ARCADE.success : ARCADE.muted),
-        fontStyle: 'bold',
+        lineSpacing: 8,
       })
         .setOrigin(0.5)
         .setDepth(104)
     )
 
     const mkBtn = (label, bx, state, hoverState, textColor, onClick) => {
-      const w = 292
-      const h = 62
-      const by = panelY + 330
+      const w = 212
+      const h = 50
+      const by = panelY + 340
       const btn = this.add.graphics({ x: bx, y: by }).setDepth(104)
       this.drawArcadeButtonSurface(btn, w, h, state)
       this.makeInteractiveBox(btn, w, h)
@@ -2155,13 +2084,13 @@ class GameScene extends Phaser.Scene {
       items.push(btn, txt)
     }
 
-    mkBtn('Ещё раз', panelX + 48, 'cta', 'ctaHover', '#ffffff', () => {
+    mkBtn('Ещё раз', cx - 224, 'cta', 'ctaHover', '#ffffff', () => {
       this.closeBlitzResult()
       this.startBlitzCountdown()
     })
     mkBtn(
       'В случайный режим',
-      panelX + 350,
+      cx + 12,
       'rating',
       'ratingHover',
       this.colorToHex(ARCADE.muted),
